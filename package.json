@@ -1,0 +1,22 @@
+{
+  "name": "genus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "next-dev": "next",
+    "next-start": "next start",
+    "next-build": "next build",
+    "dev": "catalog start",
+    "build": "catalog build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "catalog": "^3.0.0-beta",
+    "next": "^2.4.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
