@@ -16,6 +16,7 @@
   "dependencies": {
     "catalog": "^3.0.0-beta",
     "next": "^2.4.7",
+    "polished": "^1.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }
