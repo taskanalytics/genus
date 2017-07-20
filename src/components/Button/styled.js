@@ -19,9 +19,12 @@ const styledPrimary = whenTruthy('primary', {
   color: colors.primary,
   ':hover, :focus': {
     color: colors.white,
-    borderColor: dark('primary', .2),
-    backgroundColor: dark('primary', .2),
-  }
+    borderColor: colors.primary,
+    backgroundColor: colors.primary,
+  },
+  ':active': {
+    backgroundColor: colors.primaryDark,
+  },
 })
 
 const styledPrimaryInverted = whenTruthy('primaryinverted', {
