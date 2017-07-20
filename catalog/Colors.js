@@ -1,6 +1,6 @@
 import React from 'react'
 import {Page, CodeSpecimen, ColorSpecimen} from 'catalog'
-import colors from '../src/styles/colors'
+import {colors} from '../src/styles/colors'
 
 const renderColorSpecimen = (value, name, span = 1) => (
   <ColorSpecimen value={value} span={span} name={name} />
