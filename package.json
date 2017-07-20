@@ -3,7 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/genus.js",
+  "umd:main": "dist/genus.umd.js",
+  "module": "dist/genus.es.js",
   "scripts": {
     "next-dev": "next",
     "next-start": "next start",
@@ -22,5 +24,14 @@
     "polished": "^1.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
   }
 }
