@@ -5,7 +5,7 @@ export const spacedText = () => ({
   letterSpacing: '0.17em',
 })
 
-const fontWeights = {
+const textWeights = {
   light: 300,
   normal: 400,
   bold: 700,
@@ -21,7 +21,7 @@ export const font = (weight) => {
 
   return {
     ...result,
-    fontWeight: weight in fontWeights ? fontWeights[weight] : weight,
+    fontWeight: weight in textWeights ? textWeights[weight] : weight,
   }
 }
 

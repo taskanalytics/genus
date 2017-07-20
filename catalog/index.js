@@ -2,13 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Catalog} from 'catalog'
 
-import { css } from 'glamor'
-import fonts from '../src/styles/fonts'
-
-// A hack to inject our fonts to the catalog build
-fonts.forEach(font => {
-  css.global('@font-face', font['@font-face'])
-})
+import '../src/styles/global'
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},
