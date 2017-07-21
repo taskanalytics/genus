@@ -5,16 +5,14 @@ import {colors} from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
 import {font, fontSize, spacedText} from '../../styles/mixins'
 
-const whenTruthy = (prop, styles) => {
-  return props => prop in props && props[prop] ? styles : null
-}
+import styleIf from '../../styleIf'
 
-const styledBlock = whenTruthy('block', {
+const styledBlock = styleIf('block', {
   display: 'block',
   width: '100%',
 })
 
-const styledPrimary = whenTruthy('primary', {
+const styledPrimary = styleIf('primary', {
   borderColor: colors.primary,
   color: colors.primary,
   ':hover, :focus': {
@@ -27,7 +25,7 @@ const styledPrimary = whenTruthy('primary', {
   },
 })
 
-const styledPrimaryInverted = whenTruthy('primaryinverted', {
+const styledPrimaryInverted = styleIf('primaryinverted', {
   color: colors.white,
   borderColor: colors.primary,
   backgroundColor: colors.primary,
@@ -42,7 +40,7 @@ const styledPrimaryInverted = whenTruthy('primaryinverted', {
   },
 })
 
-const styledInverted = whenTruthy('inverted', {
+const styledInverted = styleIf('inverted', {
   color: colors.white,
   border: `4px solid ${colors.base}`,
   backgroundColor: 'transparent',
@@ -56,7 +54,7 @@ const styledInverted = whenTruthy('inverted', {
   },
 })
 
-const styledWarning = whenTruthy('warning', {
+const styledWarning = styleIf('warning', {
   color: colors.headsUp,
   borderColor: colors.headsUp,
 
@@ -69,14 +67,14 @@ const styledWarning = whenTruthy('warning', {
   },
 })
 
-const styledCompact = whenTruthy('compact', {
+const styledCompact = styleIf('compact', {
   ...fontSize('xsmall'),
   letterSpacing: '0.05em',
 })
 
-const styledSpaceless = whenTruthy('spaceless', { margin: 0 })
+const styledSpaceless = styleIf('spaceless', { margin: 0 })
 
-const styledLink = whenTruthy('link', {
+const styledLink = styleIf('link', {
   display: 'inline',
   cursor: 'pointer',
   textTransform: 'none',

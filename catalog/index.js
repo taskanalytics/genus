@@ -13,6 +13,7 @@ const pages = [
     title: 'Components',
     pages: [
       {path: '/components/button', title: 'Button', component: require('./components/Button.js')},
+      {path: '/components/grid', title: 'Grid', component: require('./components/Grid.js')},
     ]},
 ]
 
