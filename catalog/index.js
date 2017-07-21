@@ -9,9 +9,11 @@ const pages = [
   {path: '/assets', title: 'Logo & assets', component: require('./assets.md')},
   {path: '/typography', title: 'Typography', component: require('./Typography.md')},
   {path: '/colors', title: 'Colors', component: require('./Colors.js')},
-  {path: '/components', title: 'Components', pages: [
-    {path: '/components/button', title: 'Button', component: require('./components/Button.js')},
-  ]}
+  {path: '/components',
+    title: 'Components',
+    pages: [
+      {path: '/components/button', title: 'Button', component: require('./components/Button.js')},
+    ]},
 ]
 
 ReactDOM.render(

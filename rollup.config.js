@@ -28,16 +28,16 @@ export default {
     resolve({
       jsnext: false,
       main: true,
-      browser: true
+      browser: true,
     }),
     commonjs({
       ignoreGlobal: true,
-      include: 'node_modules/**'
-    })
+      include: 'node_modules/**',
+    }),
   ],
   targets: [
     {dest: pkg.main, format: 'cjs'},
     {dest: pkg.module, format: 'es'},
-    {dest: pkg['umd:main'], format: 'umd', moduleName: pkg.name}
-  ]
+    {dest: pkg['umd:main'], format: 'umd', moduleName: pkg.name},
+  ],
 }

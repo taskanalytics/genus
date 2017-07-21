@@ -1,0 +1,82 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "standard"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+  "rules": {
+    "no-alert": 2,
+    "no-catch-shadow": 2,
+    "no-div-regex": 2,
+    "no-else-return": 2,
+    "no-labels": 2,
+    "no-eq-null": 2,
+    "linebreak-style": [
+      0,
+      "unix"
+    ],
+    "no-nested-ternary": 2,
+    "no-warning-comments": [
+      0,
+      {
+        "terms": [
+          "todo",
+          "fixme",
+          "xxx"
+        ],
+        "location": "start"
+      }
+    ],
+    "complexity": [
+      2,
+      11
+    ],
+    "consistent-this": [
+      0,
+      "that"
+    ],
+    "radix": 2,
+    "prefer-const": 2,
+    "dot-notation": 2,
+    "no-loop-func": 2,
+    "one-var": [
+      2,
+      {
+        "initialized": "never",
+        "uninitialized": "always"
+      }
+    ],
+    "object-shorthand": 2,
+    "prefer-arrow-callback": 2,
+    "prefer-spread": 2,
+    "prefer-template": 2,
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }]
+  },
+  "env": {
+    "browser": false,
+    "es6": true,
+    "node": true
+  }
+}

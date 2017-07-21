@@ -1,5 +1,4 @@
 import { fontFace } from 'polished'
-import { css } from 'glamor'
 
 export default [
   fontFace({
