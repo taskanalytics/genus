@@ -1,9 +1,13 @@
 import fonts from './fonts'
+import * as spacing from './spacing'
+import * as colors from './colors'
+import * as breakpoints from './breakpoints'
+import * as mixins from './mixins'
 
-export * from './breakpoints'
-export * from './colors'
-export * from './mixins'
-export * from './spacing'
 export {
   fonts,
+  spacing,
+  colors,
+  breakpoints,
+  mixins,
 }

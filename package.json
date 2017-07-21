@@ -11,7 +11,8 @@
     "next-start": "next start",
     "next-build": "next build",
     "dev": "catalog start",
-    "build": "catalog build"
+    "build": "catalog build",
+    "dist": "rollup -c"
   },
   "keywords": [],
   "author": "",

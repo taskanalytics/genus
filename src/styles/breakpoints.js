@@ -1,9 +1,9 @@
-export const breakpoints = {
-  xs: '400px',
-  md: '720px',
-  lg: '960px',
-  xl: '1160px',
-}
+export const xs = '400px'
+export const md = '720px'
+export const lg = '960px'
+export const xl = '1160px'
+
+const breakpoints = { xs, md, lg, xl }
 
 export function mq (breakpoint, rules) {
   const breakAt = breakpoints[breakpoint]
