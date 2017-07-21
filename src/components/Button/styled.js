@@ -1,8 +1,8 @@
 import glamorous from 'glamorous'
 import { rgba, shade } from 'polished'
 
-import {colors, dark} from '../../styles/colors'
-import spacing from '../../styles/spacing'
+import {colors} from '../../styles/colors'
+import * as spacing from '../../styles/spacing'
 import {font, fontSize, spacedText} from '../../styles/mixins'
 
 const whenTruthy = (prop, styles) => {

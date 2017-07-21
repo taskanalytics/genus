@@ -1,6 +1,6 @@
 import { css } from 'glamor'
-import {font, fontSize, spacedText} from './mixins'
-import spacing from './spacing'
+import {font, fontSize} from './mixins'
+import * as spacing from './spacing'
 import fonts from './fonts'
 
 // A hack to inject our fonts to the catalog build
