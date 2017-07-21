@@ -7,22 +7,22 @@ export default class ProgressBarComponent extends Component {
     return (
       <Page>
         <h2>Variations</h2>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar value={100} />
         </ReactSpecimen>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar value={90} />
         </ReactSpecimen>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar light value={90} />
         </ReactSpecimen>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar value={65} />
         </ReactSpecimen>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar value={20} />
         </ReactSpecimen>
-        <ReactSpecimen span={4}>
+        <ReactSpecimen span={3}>
           <ProgressBar value={0} />
         </ReactSpecimen>
 
