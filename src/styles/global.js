@@ -8,6 +8,9 @@ fonts.forEach(font => {
   css.global('@font-face', font['@font-face'])
 })
 
+css.global('*', {
+  boxSizing: 'border-box',
+})
 css.global('h1, h2, h3, h4, h5, h6', {
   ...font('bold'),
   wordWrap: 'break-word',
@@ -38,6 +41,16 @@ css.global('p', {
 })
 
 css.global('strong, b', font('bold'))
+
+css.global('sup', {
+  position: 'relative',
+  verticalAlign: 'baseline',
+  fontFamily: 'inherit',
+  fontWeight: 'inherit',
+  lineHeight: 0,
+  top: '-0.35em',
+  fontSize: '0.65em',
+})
 
 /*
 .text-muted {
