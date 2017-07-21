@@ -12,9 +12,9 @@ const pages = [
   {path: '/components',
     title: 'Components',
     pages: [
-      {path: '/components/button', title: 'Button', component: require('./components/Button.js')},
-      {path: '/components/grid', title: 'Grid', component: require('./components/Grid.js')},
-      {path: '/components/progressbar', title: 'ProgressBar', component: require('./components/ProgressBar.js')},
+      require('../src/components/Button/catalog').default,
+      require('../src/components/Grid/catalog').default,
+      require('../src/components/ProgressBar/catalog').default,
     ]},
 ]
 
