@@ -39,7 +39,7 @@ const styledPrimaryInverted = whenTruthy('primaryinverted', {
   },
   ':active': {
     backgroundColor: colors.primaryDark,
-  }
+  },
 })
 
 const styledInverted = whenTruthy('inverted', {
@@ -61,11 +61,11 @@ const styledWarning = whenTruthy('warning', {
   borderColor: colors.headsUp,
 
   ':hover, :focus, :active': {
-    backgroundColor: shade(.05, colors.headsUp),
+    backgroundColor: shade(0.05, colors.headsUp),
   },
   ':hover, :focus': {
     color: colors.white,
-    borderColor: shade(.05, colors.headsUp),
+    borderColor: shade(0.05, colors.headsUp),
   },
 })
 
@@ -89,7 +89,7 @@ const styledLink = whenTruthy('link', {
   ':hover, :focus': {
     color: colors.primaryDark,
     textDecoration: 'underline',
-  }
+  },
 })
 
 export default glamorous.button({
@@ -100,35 +100,35 @@ export default glamorous.button({
   display: 'inline-block',
   padding: `${spacing.small} ${spacing.base}`,
 
-  color: rgba(colors.text, .8),
+  color: rgba(colors.text, 0.8),
   whiteSpace: 'nowrap',
 
   borderRadius: '50px',
-  border: `4px solid ${rgba(colors.dark, .15)}`,
+  border: `4px solid ${rgba(colors.dark, 0.15)}`,
   backgroundColor: 'transparent',
   marginBottom: spacing.base,
 
   '[disabled]': {
     pointerEvents: 'none',
-    opacity: .6,
+    opacity: 0.6,
   },
 
   ':hover, :focus': {
     color: colors.text,
-    borderColor: rgba(colors.dark, .2),
+    borderColor: rgba(colors.dark, 0.2),
     textDecoration: 'none',
   },
   ':active': {
     color: colors.text,
-    borderColor: rgba(colors.dark, .3),
+    borderColor: rgba(colors.dark, 0.3),
   },
 },
-  styledSpaceless,
-  styledCompact,
-  styledLink,
-  styledBlock,
-  styledWarning,
-  styledPrimary,
-  styledInverted,
-  styledPrimaryInverted
+styledSpaceless,
+styledCompact,
+styledLink,
+styledBlock,
+styledWarning,
+styledPrimary,
+styledInverted,
+styledPrimaryInverted
 )

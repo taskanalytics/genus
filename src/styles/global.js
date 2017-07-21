@@ -8,7 +8,7 @@ fonts.forEach(font => {
   css.global('@font-face', font['@font-face'])
 })
 
-css.global('h1, h2, h3, h4, h5, h6',  {
+css.global('h1, h2, h3, h4, h5, h6', {
   ...font('bold'),
   wordWrap: 'break-word',
   margin: 0,
@@ -33,7 +33,7 @@ css.global('p', {
   marginBottom: spacing.base,
 
   '&:empty': {
-    display: 'none'
+    display: 'none',
   },
 })
 

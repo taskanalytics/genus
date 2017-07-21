@@ -31,7 +31,7 @@ export default () => (
       const light = `${color}Light`
       return [
         renderColorSpecimen(colors[color], colorName(color), 4),
-        renderColorSpecimen(colors[light], colorName(light), 2)
+        renderColorSpecimen(colors[light], colorName(light), 2),
       ]
     })}
 

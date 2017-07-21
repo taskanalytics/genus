@@ -9,7 +9,7 @@ export default class Button extends PureComponent {
     const {
       children,
       to,
-      ...props,
+      ...props
     } = this.props
 
     if (to) {

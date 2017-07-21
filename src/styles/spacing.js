@@ -1,4 +1,4 @@
-const unit = 6;
+const unit = 6
 const multiply = (factor = 1) => `${factor * unit}px`
 
 export default {
