@@ -1,6 +1,5 @@
 {
   "name": "@taskanalytics/genus",
-  "private": true,
   "version": "1.0.1",
   "description": "",
   "main": "dist/genus.js",
