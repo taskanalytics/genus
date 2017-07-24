@@ -1,5 +1,4 @@
 import { css } from 'glamor'
-import 'glamor/reset'
 import {font, fontSize} from './mixins'
 import * as spacing from './spacing'
 import fonts from './fonts'
