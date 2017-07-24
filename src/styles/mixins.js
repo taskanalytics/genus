@@ -51,8 +51,12 @@ export const fontSize = sizeName => {
   const { base, ...rest } = obj
   const breakpoints = Object.keys(rest)
 
-  const mqRules = breakpoints.map(breakpoint => {
-    return mq(breakpoint, fontSizeRule(rest[breakpoint]))
+  let mqRules = {}
+  breakpoints.forEach(breakpoint => {
+    mqRules = {
+      ...mqRules,
+      ...mq(breakpoint, fontSizeRule(rest[breakpoint]))
+    }
   })
 
   return {
