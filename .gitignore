@@ -1,3 +1,4 @@
 node_modules
 dist
 catalog/build
+.DS_Store
