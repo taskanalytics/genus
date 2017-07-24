@@ -11,7 +11,8 @@
     "next-build": "next build",
     "dev": "catalog start",
     "build": "catalog build",
-    "dist": "rollup -c"
+    "dist": "rollup -c",
+    "start": "superstatic catalog/build"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +25,8 @@
     "polished": "^1.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "superstatic": "^4.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
