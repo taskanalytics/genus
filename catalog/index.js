@@ -26,6 +26,7 @@ const pages = [
       require('../src/components/Button/catalog').default,
       require('../src/components/Grid/catalog').default,
       require('../src/components/ProgressBar/catalog').default,
+      require('../src/components/Number/catalog').default,
     ]},
 ]
 
