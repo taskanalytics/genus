@@ -2,7 +2,7 @@ import glamorous from 'glamorous'
 
 import * as spacing from '../../styles/spacing'
 
-import styleIf from '../../styleIf'
+import styleIf from '../../utils/styleIf'
 
 const widths = {
   tight: '680px',

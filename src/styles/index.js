@@ -11,3 +11,11 @@ export {
   breakpoints,
   mixins,
 }
+
+export default {
+  fonts,
+  spacing,
+  colors,
+  breakpoints,
+  mixins,
+}

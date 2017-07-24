@@ -12,6 +12,17 @@ const pages = [
   {path: '/components',
     title: 'Components',
     pages: [
+      {
+        title: 'Introduction',
+        path: '/components/introduction',
+        imports: {
+          styles: require('../src/styles').default,
+          Button: require('../src/components/Button').default,
+          Grid: require('../src/components/Grid').default,
+          ProgressBar: require('../src/components/ProgressBar').default,
+        },
+        component: require('../src/components/README.md'),
+      },
       require('../src/components/Button/catalog').default,
       require('../src/components/Grid/catalog').default,
       require('../src/components/ProgressBar/catalog').default,

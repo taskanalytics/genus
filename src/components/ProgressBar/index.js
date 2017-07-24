@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import getClassification from '../../completion-rate-classification'
+import getClassification from '../../utils/completion-rate-classification'
 import {colors} from '../../styles/colors'
 
 import {
@@ -26,7 +26,7 @@ export default class ProgressBar extends Component {
   }
 
   render () {
-    const { min, max, value, baseline, light, empty } = this.props
+    const { min, max, value, baseline, light, empty, ...rest } = this.props
     const val = !isNaN(value) ?
       Math.round(value * 10) / 10 :
       0
@@ -39,7 +39,7 @@ export default class ProgressBar extends Component {
     const classification = getClassification(val)
     const color = !isNaN(value) ? colorMap[classification] : null
 
-    const props = { light, color }
+    const props = { light, color, ...rest }
 
     const meterProps = {
       light,

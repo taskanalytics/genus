@@ -5,7 +5,7 @@ import {colors} from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
 import {font, fontSize, spacedText} from '../../styles/mixins'
 
-import styleIf from '../../styleIf'
+import styleIf from '../../utils/styleIf'
 
 const styledBlock = styleIf('block', {
   display: 'block',
