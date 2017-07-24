@@ -8,7 +8,8 @@ import {font, fontSize, spacedText} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
-const swiftOut = 'cubic-bezier(0, 0, 0.1, 1)'
+import {swiftOut} from '../../styles/animations'
+
 const progressFillUp = css.keyframes({
   from: { width: 0 }
 })
@@ -66,7 +67,7 @@ export const Label = glamorous.span({
   backgroundColor: 'inherit',
   zIndex: 1,
 
-  animation: `${progressLabel} $swift-out 300ms both`,
+  animation: `${progressLabel} ${swiftOut} 300ms both`,
   animationDelay: '200ms',
 
   '&::before': {
