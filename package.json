@@ -27,6 +27,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "recompose": "^0.24.0",
     "superstatic": "^4.1.0"
   },
   "devDependencies": {

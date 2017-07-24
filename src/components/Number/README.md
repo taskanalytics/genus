@@ -30,9 +30,12 @@ Optional:
 ```
 
 ## Sup
+Since percentages are used widely, they have their own dedicated component. For everything else, theres the `sup` prop
+
 ```react|span-3
-<Number sup="%" size="small" value={25} description="Completion" />
+<Percentage size="large" value={25} description="Completion" />
 ```
+
 ```react|span-3
-<Number sup="%" size="large" value={25} description="Completion" />
+<Number sup="℃" size="large" value={25} description="Degress" />
 ```
