@@ -1,6 +1,6 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "",
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
@@ -17,7 +17,9 @@
     "version": "npm run dist && git add dist"
   },
   "keywords": [],
-  "author": [""],
+  "author": [
+    ""
+  ],
   "license": "ISC",
   "publishConfig": {
     "access": "public"
