@@ -13,11 +13,15 @@
     "build": "catalog build",
     "postinstall": "yarn run build",
     "dist": "rollup -c",
-    "start": "superstatic catalog/build"
+    "start": "superstatic catalog/build",
+    "version": "npm run dist && git add dist"
   },
   "keywords": [],
-  "author": "",
+  "author": [""],
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "catalog": "^3.0.0-beta",
     "glamor": "^2.20.25",
