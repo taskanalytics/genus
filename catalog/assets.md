@@ -18,25 +18,25 @@ The one line version is the official logo of Task Analytics and should be used i
 
 ```image
 span: 6
-src: "docs/assets/logos/ta-oneline-preview.png"
+src: "/static/logos/ta-oneline-preview.png"
 ```
 
 ```download|span-2
 title: One line logo (.png)
 subtitle: For easy usage
-url: docs/assets/logos/ta-oneline.png
+url: /static/logos/ta-oneline.png
 ```
 
 ```download|span-2
 title: One line logo (.svg)
 subtitle: For web usage
-url: docs/assets/logos/ta-oneline.svg
+url: /static/logos/ta-oneline.svg
 ```
 
 ```download|span-2
 title: One line logo (.eps)
 subtitle: For print usage
-url: docs/assets/logos/ta-oneline.eps
+url: /static/logos/ta-oneline.eps
 ```
 
 ### Two lines logo
@@ -45,45 +45,45 @@ The two lines version of the logo should only be used if horizontal space is a r
 
 ```image
 span: 6
-src: "docs/assets/logos/ta-twolines-preview.png"
+src: "/static/logos/ta-twolines-preview.png"
 ```
 
 ```download|span-2
 title: Two lines logo (.png)
 subtitle: For easy usage
-url: docs/assets/logos/ta-twolines.png
+url: /static/logos/ta-twolines.png
 ```
 
 ```download|span-2
 title: Two lines logo (.svg)
 subtitle: For web usage
-url: docs/assets/logos/ta-twolines.svg
+url: /static/logos/ta-twolines.svg
 ```
 
 ```download|span-2
 title: Two lines logo (.eps)
 subtitle: For print usage
-url: docs/assets/logos/ta-twolines.eps
+url: /static/logos/ta-twolines.eps
 ```
 
 ## Social media assets
 
 ```download|span-2
 title: Facebook profile image (.png)
-url: docs/assets/social-media/ta-facebook-profile.png
+url: /static/social-media/ta-facebook-profile.png
 ```
 
 ```download|span-2
 title: Facebook cover image (.png)
-url: docs/assets/social-media/ta-facebook-cover.png
+url: /static/social-media/ta-facebook-cover.png
 ```
 
 ```download|span-2
 title: Twitter profile image (.png)
-url: docs/assets/social-media/ta-twitter-profile.png
+url: /static/social-media/ta-twitter-profile.png
 ```
 
 ```download|span-2
 title: Twitter cover image (.png)
-url: docs/assets/social-media/ta-twitter-cover.png
+url: /static/social-media/ta-twitter-cover.png
 ```
