@@ -3933,37 +3933,39 @@ function attribsFor() {
 var index_18 = index$2.css;
 
 function injectGlobals() {
+  var css = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : index_18;
+
   // A hack to inject our fonts to the catalog build
   fonts.forEach(function (font$$1) {
-    index_18.global('@font-face', font$$1['@font-face']);
+    css.global('@font-face', font$$1['@font-face']);
   });
 
-  index_18.global('*', {
+  css.global('*', {
     boxSizing: 'border-box'
   });
 
-  index_18.global('body, html, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, table, th, td, caption, hr, figure', {
+  css.global('body, html, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, table, th, td, caption, hr, figure', {
     margin: 0,
     padding: 0
   });
 
-  index_18.global('h1, h2, h3, h4, h5, h6', _extends$1({}, font('bold'), {
+  css.global('h1, h2, h3, h4, h5, h6', _extends$1({}, font('bold'), {
     wordWrap: 'break-word',
     margin: 0,
     padding: 0,
     marginBottom: base
   }));
 
-  index_18.global('h1', fontSize('xxlarge'));
-  index_18.global('h2', fontSize('xlarge'));
-  index_18.global('h3', _extends$1({}, fontSize('large'), {
+  css.global('h1', fontSize('xxlarge'));
+  css.global('h2', fontSize('xlarge'));
+  css.global('h3', _extends$1({}, fontSize('large'), {
     letterSpacing: '0.4px'
   }));
-  index_18.global('h4', _extends$1({}, fontSize('small'), {
+  css.global('h4', _extends$1({}, fontSize('small'), {
     letterSpacing: '0.3px'
   }));
 
-  index_18.global('p', _extends$1({}, font('normal'), fontSize('small'), {
+  css.global('p', _extends$1({}, font('normal'), fontSize('small'), {
     letterSpacing: '0.3px',
     marginBottom: base,
 
@@ -3972,9 +3974,9 @@ function injectGlobals() {
     }
   }));
 
-  index_18.global('strong, b', font('bold'));
+  css.global('strong, b', font('bold'));
 
-  index_18.global('sup', {
+  css.global('sup', {
     position: 'relative',
     verticalAlign: 'baseline',
     fontFamily: 'inherit',
