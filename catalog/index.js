@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Catalog} from 'catalog'
+import { css } from 'glamor'
 
 import { injectGlobals } from '../src/styles/global'
 
-injectGlobals()
+injectGlobals(css)
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},

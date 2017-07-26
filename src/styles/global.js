@@ -1,7 +1,28 @@
-import { css as glamorCss } from 'glamor'
+import { css as glamorCss, cssFor } from 'glamor'
 import {font, fontSize} from './mixins'
 import * as spacing from './spacing'
 import fonts from './fonts'
+
+const keyfix = name => name.replace(/([a-z]{1})([A-Z]{1})/, (a, b, c) => {
+  return `${b}-${c.toLowerCase()}`
+})
+function zip (obj) {
+  return Object.keys(obj).map(k => {
+    const key = keyfix(k)
+    return `${key}: ${obj[k]};`
+  }).join('\n')
+}
+
+function globalMqHack (css, selector, rules) {
+  Object.keys(rules).forEach(rule => {
+    if (rule[0] === '@') {
+      const finalRule = `${rule} { ${selector} { ${zip(rules[rule])} } }`
+      css.insert(finalRule)
+    } else {
+      css.global(selector, { [rule]: rules[rule] })
+    }
+  })
+}
 
 export function injectGlobals (css = glamorCss) {
   // A hack to inject our fonts to the catalog build
@@ -26,10 +47,10 @@ export function injectGlobals (css = glamorCss) {
     marginBottom: spacing.base,
   })
 
-  css.global('h1', fontSize('xxlarge'))
-  css.global('h2', fontSize('xlarge'))
+  globalMqHack(css, 'h1', fontSize('xxlarge'))
+  globalMqHack(css, 'h2', fontSize('xlarge'))
+  globalMqHack(css, 'h3', fontSize('large'))
   css.global('h3', {
-    ...fontSize('large'),
     letterSpacing: '0.4px',
   })
   css.global('h4', {

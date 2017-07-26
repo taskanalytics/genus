@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "catalog": "^3.0.0-beta",
-    "glamor": "^2.20.25",
+    "glamor": "^2.20.37",
     "glamorous": "^3.23.5",
     "next": "^2.4.7",
     "polished": "^1.3.0",
