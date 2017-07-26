@@ -1,9 +1,9 @@
-import { css } from 'glamor'
+import { css as glamorCss } from 'glamor'
 import {font, fontSize} from './mixins'
 import * as spacing from './spacing'
 import fonts from './fonts'
 
-export function injectGlobals () {
+export function injectGlobals (css = glamorCss) {
   // A hack to inject our fonts to the catalog build
   fonts.forEach(font => {
     css.global('@font-face', font['@font-face'])
