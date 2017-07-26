@@ -31,7 +31,14 @@ const pages = [
     ]},
 ]
 
+const config = {
+  useBrowserHistory: true,
+  title: 'Task Analytics Genus',
+  logoSrc: '/static/logos/ta-twolines-preview.png',
+  pages,
+}
+
 ReactDOM.render(
-  <Catalog title='Task Analytics Genus' pages={pages} />,
+  <Catalog {...config} />,
   document.getElementById('catalog')
 )
