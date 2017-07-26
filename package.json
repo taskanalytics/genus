@@ -11,7 +11,7 @@
     "next-build": "next build",
     "dev": "catalog start",
     "build": "catalog build",
-    "postinstall": "yarn run build",
+    "heroku-postbuild": "yarn run build",
     "dist": "rollup -c",
     "start": "superstatic catalog/build",
     "version": "npm run dist && git add dist"
