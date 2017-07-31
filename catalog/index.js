@@ -12,6 +12,7 @@ const pages = [
   {path: '/assets', title: 'Logo & assets', component: require('./assets.md')},
   {path: '/typography', title: 'Typography', component: require('./Typography.md')},
   {path: '/colors', title: 'Colors', component: require('./Colors.js')},
+  {path: '/tone-of-voice', title: 'Tone of voice', component: require('./ToneOfVoice.md')},
   {path: '/components',
     title: 'Components',
     pages: [
