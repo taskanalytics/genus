@@ -2,33 +2,32 @@ import fs from 'fs'
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
+import replace from 'rollup-plugin-replace'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 export default {
   entry: 'src/index.js',
-  external: ['react', 'glamorous'],
+  external: ['glamorous'],
+  globals: {glamorous: 'glamorous'},
   exports: 'named',
-  globals: { react: 'React', 'glamorous': 'glamorous' },
-  useStrict: false,
-  sourceMap: true,
   plugins: [
+    resolve(),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
       presets: [
         ['es2015', {modules: false}],
+        'stage-0',
         'stage-2',
-        'react',
       ],
       plugins: [
         'external-helpers',
+        ['transform-react-jsx', {pragma:'h'}],
       ],
     }),
-    resolve({
-      jsnext: false,
-      main: true,
-      browser: true,
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
     commonjs({
       ignoreGlobal: true,
