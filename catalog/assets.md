@@ -87,3 +87,13 @@ url: /static/social-media/ta-twitter-profile.png
 title: Twitter cover image (.png)
 url: /static/social-media/ta-twitter-cover.png
 ```
+
+## Logo for emails
+
+This version is used in invite and password reset emails.
+
+```image
+span: 6
+plain: true
+src: "/static/logos/ta-email.jpg"
+```
