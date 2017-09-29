@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "glamor": "^2.20.40",
-    "glamorous": "^3.23.5",
+    "glamorous": "^4.9.7",
     "next": "^3.2.2",
     "polished": "^1.7.0",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^15.6",
+    "react-dom": "^15.6",
     "recompose": "^0.25.1",
     "superstatic": "^4.1.0"
   },
@@ -48,9 +48,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
-    "rollup": "^0.45.2",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-node-resolve": "^3.0.0"
   }
 }
