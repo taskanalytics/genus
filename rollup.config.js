@@ -5,6 +5,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import analyze from 'rollup-analyzer-plugin'
 import uglify from 'rollup-plugin-uglify-es'
 import ignore from 'rollup-plugin-ignore'
+import replace from 'rollup-plugin-replace'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
@@ -16,9 +17,17 @@ export default {
   useStrict: false,
   sourceMap: true,
   plugins: [
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     ignore([
       'prop-types',
     ]),
+    resolve({
+      jsnext: false,
+      main: true,
+      browser: true,
+    }),
     commonjs({
       ignoreGlobal: true,
       include: 'node_modules/**',
@@ -38,11 +47,6 @@ export default {
       plugins: [
         'external-helpers',
       ],
-    }),
-    resolve({
-      jsnext: false,
-      main: true,
-      browser: true,
     }),
     uglify(),
     analyze({
