@@ -1,5 +1,5 @@
 import glamorous from 'glamorous'
-import {rgba} from 'polished'
+import { rgba } from 'polished'
 import {css} from 'glamor'
 
 import * as spacing from '../../styles/spacing'

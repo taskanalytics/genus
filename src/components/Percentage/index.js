@@ -1,6 +1,6 @@
 import withProps from 'recompose/withProps'
-import Number from '../Number'
+import NumberComponent from '../Number'
 
 export default withProps(props => ({
   sup: '%',
-}))(Number)
+}))(NumberComponent)

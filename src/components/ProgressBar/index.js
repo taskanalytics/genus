@@ -9,16 +9,7 @@ import {
   Label,
 } from './styled'
 
-export default class ProgressBar extends Component {
-  static propTypes = {
-    value: T.number.isRequired,
-    min: T.number,
-    max: T.number,
-    baseline: T.bool,
-    light: T.bool,
-    empty: T.bool,
-  }
-
+class ProgressBar extends Component {
   static defaultProps = {
     min: 0,
     max: 100,
@@ -69,3 +60,17 @@ export default class ProgressBar extends Component {
     )
   }
 }
+
+if (process.env.NODE_ENV !== 'production') {
+  ProgressBar.propTypes = {
+    value: T.number.isRequired,
+    min: T.number,
+    max: T.number,
+    baseline: T.bool,
+    light: T.bool,
+    empty: T.bool,
+  }
+}
+
+
+export default ProgressBar

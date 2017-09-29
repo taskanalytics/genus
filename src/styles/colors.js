@@ -1,4 +1,4 @@
-import { lighten, darken, shade, rgba } from 'polished'
+import { shade, rgba } from 'polished'
 
 const base = '#F0F4F7'
 const primary = '#2084d8'
@@ -23,14 +23,4 @@ export const colors = {
 
 export function get (name) {
   return name in colors ? colors[name] : name
-}
-
-export const light = (name, mod = 0.25) => {
-  const lightName = `${name}Light`
-  return lightName in colors ? get(lightName) : lighten(mod, get(name))
-}
-
-export const dark = (name, mod = 0.25) => {
-  const darkName = `${name}Light`
-  return darkName in colors ? get(darkName) : darken(mod, get(name))
 }

@@ -2,6 +2,9 @@ import fs from 'fs'
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
+import analyze from 'rollup-analyzer-plugin'
+import uglify from 'rollup-plugin-uglify-es'
+import ignore from 'rollup-plugin-ignore'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
@@ -13,9 +16,20 @@ export default {
   useStrict: false,
   sourceMap: true,
   plugins: [
+    ignore([
+      'prop-types',
+    ]),
+    commonjs({
+      ignoreGlobal: true,
+      include: 'node_modules/**',
+      exclude: [
+        'node_modules/polished/**',
+      ],
+    }),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
+      externalHelpers: true,
       presets: [
         ['es2015', {modules: false}],
         'stage-2',
@@ -30,9 +44,9 @@ export default {
       main: true,
       browser: true,
     }),
-    commonjs({
-      ignoreGlobal: true,
-      include: 'node_modules/**',
+    uglify(),
+    analyze({
+      limit: 10,
     }),
   ],
   targets: [
