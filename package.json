@@ -25,15 +25,14 @@
     "access": "public"
   },
   "dependencies": {
-    "catalog": "^3.0.0-beta",
-    "glamor": "^2.20.37",
+    "glamor": "^2.20.40",
     "glamorous": "^3.23.5",
-    "next": "^2.4.7",
-    "polished": "^1.3.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "recompose": "^0.24.0",
+    "next": "^3.2.2",
+    "polished": "^1.7.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "recompose": "^0.25.1",
     "superstatic": "^4.1.0"
   },
   "devDependencies": {
@@ -41,6 +40,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "catalog": "^3.0.0-rc.7",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
