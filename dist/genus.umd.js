@@ -1825,7 +1825,11 @@ var isUnitlessNumber = {
   flexNegative: true,
   flexOrder: true,
   gridRow: true,
+  gridRowStart: true,
+  gridRowEnd: true,
   gridColumn: true,
+  gridColumnStart: true,
+  gridColumnEnd: true,
   fontWeight: true,
   lineClamp: true,
   lineHeight: true,
@@ -1846,15 +1850,14 @@ var isUnitlessNumber = {
   strokeMiterlimit: true,
   strokeOpacity: true,
   strokeWidth: true
-};
 
-/**
- * @param {string} prefix vendor-specific prefix, eg: Webkit
- * @param {string} key style name, eg: transitionDuration
- * @return {string} style name prefixed with `prefix`, properly camelCased, eg:
- * WebkitTransitionDuration
- */
-function prefixKey(prefix, key) {
+  /**
+   * @param {string} prefix vendor-specific prefix, eg: Webkit
+   * @param {string} key style name, eg: transitionDuration
+   * @return {string} style name prefixed with `prefix`, properly camelCased, eg:
+   * WebkitTransitionDuration
+   */
+};function prefixKey(prefix, key) {
   return prefix + key.charAt(0).toUpperCase() + key.substring(1);
 }
 
@@ -2251,90 +2254,85 @@ var processStyleName = exports.processStyleName = (0, _memoizeStringOnly2.defaul
                                                                                                                    */
 
 if (process.env.NODE_ENV !== 'production') {
-  var warnValidStyle;
+  // 'msTransform' is correct, but the other prefixes should be capitalized
+  var badVendoredStyleNamePattern = /^(?:webkit|moz|o)[A-Z]/;
 
-  (function () {
-    // 'msTransform' is correct, but the other prefixes should be capitalized
-    var badVendoredStyleNamePattern = /^(?:webkit|moz|o)[A-Z]/;
+  // style values shouldn't contain a semicolon
+  var badStyleValueWithSemicolonPattern = /;\s*$/;
 
-    // style values shouldn't contain a semicolon
-    var badStyleValueWithSemicolonPattern = /;\s*$/;
+  var warnedStyleNames = {};
+  var warnedStyleValues = {};
+  var warnedForNaNValue = false;
 
-    var warnedStyleNames = {};
-    var warnedStyleValues = {};
-    var warnedForNaNValue = false;
+  var warnHyphenatedStyleName = function warnHyphenatedStyleName(name, owner) {
+    if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+      return;
+    }
 
-    var warnHyphenatedStyleName = function warnHyphenatedStyleName(name, owner) {
-      if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
-        return;
+    warnedStyleNames[name] = true;
+    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Unsupported style property %s. Did you mean %s?%s', name, (0, _camelizeStyleName2.default)(name), checkRenderMessage(owner)) : void 0;
+  };
+
+  var warnBadVendoredStyleName = function warnBadVendoredStyleName(name, owner) {
+    if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+      return;
+    }
+
+    warnedStyleNames[name] = true;
+    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Unsupported vendor-prefixed style property %s. Did you mean %s?%s', name, name.charAt(0).toUpperCase() + name.slice(1), checkRenderMessage(owner)) : void 0;
+  };
+
+  var warnStyleValueWithSemicolon = function warnStyleValueWithSemicolon(name, value, owner) {
+    if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
+      return;
+    }
+
+    warnedStyleValues[value] = true;
+    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Style property values shouldn\'t contain a semicolon.%s ' + 'Try "%s: %s" instead.', checkRenderMessage(owner), name, value.replace(badStyleValueWithSemicolonPattern, '')) : void 0;
+  };
+
+  var warnStyleValueIsNaN = function warnStyleValueIsNaN(name, value, owner) {
+    if (warnedForNaNValue) {
+      return;
+    }
+
+    warnedForNaNValue = true;
+    process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '`NaN` is an invalid value for the `%s` css style property.%s', name, checkRenderMessage(owner)) : void 0;
+  };
+
+  var checkRenderMessage = function checkRenderMessage(owner) {
+    if (owner) {
+      var name = owner.getName();
+      if (name) {
+        return ' Check the render method of `' + name + '`.';
       }
+    }
+    return '';
+  };
 
-      warnedStyleNames[name] = true;
-      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Unsupported style property %s. Did you mean %s?%s', name, (0, _camelizeStyleName2.default)(name), checkRenderMessage(owner)) : void 0;
-    };
+  /**
+   * @param {string} name
+   * @param {*} value
+   * @param {ReactDOMComponent} component
+   */
+  var warnValidStyle = function warnValidStyle(name, value, component) {
+    //eslint-disable-line no-var
+    var owner = void 0;
+    if (component) {
+      owner = component._currentElement._owner;
+    }
+    if (name.indexOf('-') > -1) {
+      warnHyphenatedStyleName(name, owner);
+    } else if (badVendoredStyleNamePattern.test(name)) {
+      warnBadVendoredStyleName(name, owner);
+    } else if (badStyleValueWithSemicolonPattern.test(value)) {
+      warnStyleValueWithSemicolon(name, value, owner);
+    }
 
-    var warnBadVendoredStyleName = function warnBadVendoredStyleName(name, owner) {
-      if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
-        return;
-      }
-
-      warnedStyleNames[name] = true;
-      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Unsupported vendor-prefixed style property %s. Did you mean %s?%s', name, name.charAt(0).toUpperCase() + name.slice(1), checkRenderMessage(owner)) : void 0;
-    };
-
-    var warnStyleValueWithSemicolon = function warnStyleValueWithSemicolon(name, value, owner) {
-      if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
-        return;
-      }
-
-      warnedStyleValues[value] = true;
-      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, 'Style property values shouldn\'t contain a semicolon.%s ' + 'Try "%s: %s" instead.', checkRenderMessage(owner), name, value.replace(badStyleValueWithSemicolonPattern, '')) : void 0;
-    };
-
-    var warnStyleValueIsNaN = function warnStyleValueIsNaN(name, value, owner) {
-      if (warnedForNaNValue) {
-        return;
-      }
-
-      warnedForNaNValue = true;
-      process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(false, '`NaN` is an invalid value for the `%s` css style property.%s', name, checkRenderMessage(owner)) : void 0;
-    };
-
-    var checkRenderMessage = function checkRenderMessage(owner) {
-      if (owner) {
-        var name = owner.getName();
-        if (name) {
-          return ' Check the render method of `' + name + '`.';
-        }
-      }
-      return '';
-    };
-
-    /**
-     * @param {string} name
-     * @param {*} value
-     * @param {ReactDOMComponent} component
-     */
-
-    warnValidStyle = function warnValidStyle(name, value, component) {
-      //eslint-disable-line no-var
-      var owner = void 0;
-      if (component) {
-        owner = component._currentElement._owner;
-      }
-      if (name.indexOf('-') > -1) {
-        warnHyphenatedStyleName(name, owner);
-      } else if (badVendoredStyleNamePattern.test(name)) {
-        warnBadVendoredStyleName(name, owner);
-      } else if (badStyleValueWithSemicolonPattern.test(value)) {
-        warnStyleValueWithSemicolon(name, value, owner);
-      }
-
-      if (typeof value === 'number' && isNaN(value)) {
-        warnStyleValueIsNaN(name, value, owner);
-      }
-    };
-  })();
+    if (typeof value === 'number' && isNaN(value)) {
+      warnStyleValueIsNaN(name, value, owner);
+    }
+  };
 }
 
 /**
@@ -2356,6 +2354,9 @@ function createMarkupForStyles(styles, component) {
   for (var styleName in styles) {
     var isCustomProp = styleName.indexOf('--') === 0;
     if (!styles.hasOwnProperty(styleName)) {
+      continue;
+    }
+    if (styleName === 'label') {
       continue;
     }
     var styleValue = styles[styleName];
@@ -2432,350 +2433,560 @@ function clean(input) {
 }
 });
 
-var index$8 = createCommonjsModule(function (module, exports) {
+var staticData = createCommonjsModule(function (module, exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var w = ["Webkit"];
+var m = ["Moz"];
+var ms = ["ms"];
+var wm = ["Webkit", "Moz"];
+var wms = ["Webkit", "ms"];
+var wmms = ["Webkit", "Moz", "ms"];
+
+exports.default = {
+  plugins: [],
+  prefixMap: { "appearance": wm, "userSelect": wmms, "textEmphasisPosition": w, "textEmphasis": w, "textEmphasisStyle": w, "textEmphasisColor": w, "boxDecorationBreak": w, "clipPath": w, "maskImage": w, "maskMode": w, "maskRepeat": w, "maskPosition": w, "maskClip": w, "maskOrigin": w, "maskSize": w, "maskComposite": w, "mask": w, "maskBorderSource": w, "maskBorderMode": w, "maskBorderSlice": w, "maskBorderWidth": w, "maskBorderOutset": w, "maskBorderRepeat": w, "maskBorder": w, "maskType": w, "textDecorationStyle": w, "textDecorationSkip": w, "textDecorationLine": w, "textDecorationColor": w, "filter": w, "fontFeatureSettings": w, "breakAfter": wmms, "breakBefore": wmms, "breakInside": wmms, "columnCount": wm, "columnFill": wm, "columnGap": wm, "columnRule": wm, "columnRuleColor": wm, "columnRuleStyle": wm, "columnRuleWidth": wm, "columns": wm, "columnSpan": wm, "columnWidth": wm, "flex": w, "flexBasis": w, "flexDirection": w, "flexGrow": w, "flexFlow": w, "flexShrink": w, "flexWrap": w, "alignContent": w, "alignItems": w, "alignSelf": w, "justifyContent": w, "order": w, "transform": w, "transformOrigin": w, "transformOriginX": w, "transformOriginY": w, "backfaceVisibility": w, "perspective": w, "perspectiveOrigin": w, "transformStyle": w, "transformOriginZ": w, "animation": w, "animationDelay": w, "animationDirection": w, "animationFillMode": w, "animationDuration": w, "animationIterationCount": w, "animationName": w, "animationPlayState": w, "animationTimingFunction": w, "backdropFilter": w, "fontKerning": w, "scrollSnapType": wms, "scrollSnapPointsX": wms, "scrollSnapPointsY": wms, "scrollSnapDestination": wms, "scrollSnapCoordinate": wms, "shapeImageThreshold": w, "shapeImageMargin": w, "shapeImageOutside": w, "hyphens": wmms, "flowInto": wms, "flowFrom": wms, "regionFragment": wms, "textAlignLast": m, "tabSize": m, "wrapFlow": ms, "wrapThrough": ms, "wrapMargin": ms, "gridTemplateColumns": ms, "gridTemplateRows": ms, "gridTemplateAreas": ms, "gridTemplate": ms, "gridAutoColumns": ms, "gridAutoRows": ms, "gridAutoFlow": ms, "grid": ms, "gridRowStart": ms, "gridColumnStart": ms, "gridRowEnd": ms, "gridRow": ms, "gridColumn": ms, "gridColumnEnd": ms, "gridColumnGap": ms, "gridRowGap": ms, "gridArea": ms, "gridGap": ms, "textSizeAdjust": wms, "borderImage": w, "borderImageOutset": w, "borderImageRepeat": w, "borderImageSlice": w, "borderImageSource": w, "borderImageWidth": w, "transitionDelay": w, "transitionDuration": w, "transitionProperty": w, "transitionTimingFunction": w }
+};
+module.exports = exports["default"];
+});
+
+var capitalizeString_1 = createCommonjsModule(function (module, exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = capitalizeString;
+function capitalizeString(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+module.exports = exports["default"];
+});
+
+var prefixProperty_1 = createCommonjsModule(function (module, exports) {
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function (global, factory) {
-  (_typeof(exports)) === 'object' && 'object' !== 'undefined' ? module.exports = factory() : typeof undefined === 'function' && undefined.amd ? undefined(factory) : global.InlineStylePrefixAll = factory();
-})(undefined, function () {
-  'use strict';
-
-  var babelHelpers = {};
-
-  babelHelpers.classCallCheck = function (instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  };
-
-  babelHelpers.createClass = function () {
-    function defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-      }
-    }
-
-    return function (Constructor, protoProps, staticProps) {
-      if (protoProps) defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) defineProperties(Constructor, staticProps);
-      return Constructor;
-    };
-  }();
-
-  babelHelpers.defineProperty = function (obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  };
-
-  babelHelpers;
-
-  function __commonjs(fn, module) {
-    return module = { exports: {} }, fn(module, module.exports), module.exports;
-  }
-
-  var prefixProps = { "Webkit": { "transform": true, "transformOrigin": true, "transformOriginX": true, "transformOriginY": true, "backfaceVisibility": true, "perspective": true, "perspectiveOrigin": true, "transformStyle": true, "transformOriginZ": true, "animation": true, "animationDelay": true, "animationDirection": true, "animationFillMode": true, "animationDuration": true, "animationIterationCount": true, "animationName": true, "animationPlayState": true, "animationTimingFunction": true, "appearance": true, "userSelect": true, "fontKerning": true, "textEmphasisPosition": true, "textEmphasis": true, "textEmphasisStyle": true, "textEmphasisColor": true, "boxDecorationBreak": true, "clipPath": true, "maskImage": true, "maskMode": true, "maskRepeat": true, "maskPosition": true, "maskClip": true, "maskOrigin": true, "maskSize": true, "maskComposite": true, "mask": true, "maskBorderSource": true, "maskBorderMode": true, "maskBorderSlice": true, "maskBorderWidth": true, "maskBorderOutset": true, "maskBorderRepeat": true, "maskBorder": true, "maskType": true, "textDecorationStyle": true, "textDecorationSkip": true, "textDecorationLine": true, "textDecorationColor": true, "filter": true, "fontFeatureSettings": true, "breakAfter": true, "breakBefore": true, "breakInside": true, "columnCount": true, "columnFill": true, "columnGap": true, "columnRule": true, "columnRuleColor": true, "columnRuleStyle": true, "columnRuleWidth": true, "columns": true, "columnSpan": true, "columnWidth": true, "flex": true, "flexBasis": true, "flexDirection": true, "flexGrow": true, "flexFlow": true, "flexShrink": true, "flexWrap": true, "alignContent": true, "alignItems": true, "alignSelf": true, "justifyContent": true, "order": true, "backdropFilter": true, "scrollSnapType": true, "scrollSnapPointsX": true, "scrollSnapPointsY": true, "scrollSnapDestination": true, "scrollSnapCoordinate": true, "shapeImageThreshold": true, "shapeImageMargin": true, "shapeImageOutside": true, "hyphens": true, "flowInto": true, "flowFrom": true, "regionFragment": true, "textSizeAdjust": true, "transition": true, "transitionDelay": true, "transitionDuration": true, "transitionProperty": true, "transitionTimingFunction": true }, "Moz": { "appearance": true, "userSelect": true, "boxSizing": true, "textAlignLast": true, "textDecorationStyle": true, "textDecorationSkip": true, "textDecorationLine": true, "textDecorationColor": true, "tabSize": true, "hyphens": true, "fontFeatureSettings": true, "breakAfter": true, "breakBefore": true, "breakInside": true, "columnCount": true, "columnFill": true, "columnGap": true, "columnRule": true, "columnRuleColor": true, "columnRuleStyle": true, "columnRuleWidth": true, "columns": true, "columnSpan": true, "columnWidth": true }, "ms": { "flex": true, "flexBasis": false, "flexDirection": true, "flexGrow": false, "flexFlow": true, "flexShrink": false, "flexWrap": true, "alignContent": false, "alignItems": false, "alignSelf": false, "justifyContent": false, "order": false, "userSelect": true, "wrapFlow": true, "wrapThrough": true, "wrapMargin": true, "scrollSnapType": true, "scrollSnapPointsX": true, "scrollSnapPointsY": true, "scrollSnapDestination": true, "scrollSnapCoordinate": true, "touchAction": true, "hyphens": true, "flowInto": true, "flowFrom": true, "breakBefore": true, "breakAfter": true, "breakInside": true, "regionFragment": true, "gridTemplateColumns": true, "gridTemplateRows": true, "gridTemplateAreas": true, "gridTemplate": true, "gridAutoColumns": true, "gridAutoRows": true, "gridAutoFlow": true, "grid": true, "gridRowStart": true, "gridColumnStart": true, "gridRowEnd": true, "gridRow": true, "gridColumn": true, "gridColumnEnd": true, "gridColumnGap": true, "gridRowGap": true, "gridArea": true, "gridGap": true, "textSizeAdjust": true } };
-
-  // helper to capitalize strings
-  var capitalizeString = function capitalizeString(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
-  var isPrefixedProperty = function isPrefixedProperty(property) {
-    return property.match(/^(Webkit|Moz|O|ms)/) !== null;
-  };
-
-  function sortPrefixedStyle(style) {
-    return Object.keys(style).sort(function (left, right) {
-      if (isPrefixedProperty(left) && !isPrefixedProperty(right)) {
-        return -1;
-      } else if (!isPrefixedProperty(left) && isPrefixedProperty(right)) {
-        return 1;
-      }
-      return 0;
-    }).reduce(function (sortedStyle, prop) {
-      sortedStyle[prop] = style[prop];
-      return sortedStyle;
-    }, {});
-  }
-
-  function position(property, value) {
-    if (property === 'position' && value === 'sticky') {
-      return { position: ['-webkit-sticky', 'sticky'] };
-    }
-  }
-
-  // returns a style object with a single concated prefixed value string
-  var joinPrefixedValue = function joinPrefixedValue(property, value) {
-    var replacer = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (prefix, value) {
-      return prefix + value;
-    };
-    return babelHelpers.defineProperty({}, property, ['-webkit-', '-moz-', ''].map(function (prefix) {
-      return replacer(prefix, value);
-    }));
-  };
-
-  var isPrefixedValue = function isPrefixedValue(value) {
-    if (Array.isArray(value)) value = value.join(',');
-
-    return value.match(/-webkit-|-moz-|-ms-/) !== null;
-  };
-
-  function calc(property, value) {
-    if (typeof value === 'string' && !isPrefixedValue(value) && value.indexOf('calc(') > -1) {
-      return joinPrefixedValue(property, value, function (prefix, value) {
-        return value.replace(/calc\(/g, prefix + 'calc(');
-      });
-    }
-  }
-
-  var values = {
-    'zoom-in': true,
-    'zoom-out': true,
-    grab: true,
-    grabbing: true
-  };
-
-  function cursor(property, value) {
-    if (property === 'cursor' && values[value]) {
-      return joinPrefixedValue(property, value);
-    }
-  }
-
-  var values$1 = { flex: true, 'inline-flex': true };
-
-  function flex(property, value) {
-    if (property === 'display' && values$1[value]) {
-      return {
-        display: ['-webkit-box', '-moz-box', '-ms-' + value + 'box', '-webkit-' + value, value]
-      };
-    }
-  }
-
-  var properties = {
-    maxHeight: true,
-    maxWidth: true,
-    width: true,
-    height: true,
-    columnWidth: true,
-    minWidth: true,
-    minHeight: true
-  };
-  var values$2 = {
-    'min-content': true,
-    'max-content': true,
-    'fill-available': true,
-    'fit-content': true,
-    'contain-floats': true
-  };
-
-  function sizing(property, value) {
-    if (properties[property] && values$2[value]) {
-      return joinPrefixedValue(property, value);
-    }
-  }
-
-  var values$3 = /linear-gradient|radial-gradient|repeating-linear-gradient|repeating-radial-gradient/;
-
-  function gradient(property, value) {
-    if (typeof value === 'string' && !isPrefixedValue(value) && value.match(values$3) !== null) {
-      return joinPrefixedValue(property, value);
-    }
-  }
-
-  var index = __commonjs(function (module) {
-    'use strict';
-
-    var uppercasePattern = /[A-Z]/g;
-    var msPattern = /^ms-/;
-    var cache = {};
-
-    function hyphenateStyleName(string) {
-      return string in cache ? cache[string] : cache[string] = string.replace(uppercasePattern, '-$&').toLowerCase().replace(msPattern, '-ms-');
-    }
-
-    module.exports = hyphenateStyleName;
-  });
-
-  var hyphenateStyleName = index && (typeof index === 'undefined' ? 'undefined' : _typeof(index)) === 'object' && 'default' in index ? index['default'] : index;
-
-  var properties$1 = {
-    transition: true,
-    transitionProperty: true,
-    WebkitTransition: true,
-    WebkitTransitionProperty: true
-  };
-
-  function transition(property, value) {
-    // also check for already prefixed transitions
-    if (typeof value === 'string' && properties$1[property]) {
-      var _ref2;
-
-      var outputValue = prefixValue(value);
-      var webkitOutput = outputValue.split(/,(?![^()]*(?:\([^()]*\))?\))/g).filter(function (value) {
-        return value.match(/-moz-|-ms-/) === null;
-      }).join(',');
-
-      // if the property is already prefixed
-      if (property.indexOf('Webkit') > -1) {
-        return babelHelpers.defineProperty({}, property, webkitOutput);
-      }
-
-      return _ref2 = {}, babelHelpers.defineProperty(_ref2, 'Webkit' + capitalizeString(property), webkitOutput), babelHelpers.defineProperty(_ref2, property, outputValue), _ref2;
-    }
-  }
-
-  function prefixValue(value) {
-    if (isPrefixedValue(value)) {
-      return value;
-    }
-
-    // only split multi values, not cubic beziers
-    var multipleValues = value.split(/,(?![^()]*(?:\([^()]*\))?\))/g);
-
-    // iterate each single value and check for transitioned properties
-    // that need to be prefixed as well
-    multipleValues.forEach(function (val, index) {
-      multipleValues[index] = Object.keys(prefixProps).reduce(function (out, prefix) {
-        var dashCasePrefix = '-' + prefix.toLowerCase() + '-';
-
-        Object.keys(prefixProps[prefix]).forEach(function (prop) {
-          var dashCaseProperty = hyphenateStyleName(prop);
-
-          if (val.indexOf(dashCaseProperty) > -1 && dashCaseProperty !== 'order') {
-            // join all prefixes and create a new value
-            out = val.replace(dashCaseProperty, dashCasePrefix + dashCaseProperty) + ',' + out;
-          }
-        });
-        return out;
-      }, val);
-    });
-
-    return multipleValues.join(',');
-  }
-
-  var alternativeValues = {
-    'space-around': 'distribute',
-    'space-between': 'justify',
-    'flex-start': 'start',
-    'flex-end': 'end'
-  };
-  var alternativeProps = {
-    alignContent: 'msFlexLinePack',
-    alignSelf: 'msFlexItemAlign',
-    alignItems: 'msFlexAlign',
-    justifyContent: 'msFlexPack',
-    order: 'msFlexOrder',
-    flexGrow: 'msFlexPositive',
-    flexShrink: 'msFlexNegative',
-    flexBasis: 'msPreferredSize'
-  };
-
-  function flexboxIE(property, value) {
-    if (alternativeProps[property]) {
-      return babelHelpers.defineProperty({}, alternativeProps[property], alternativeValues[value] || value);
-    }
-  }
-
-  var alternativeValues$1 = {
-    'space-around': 'justify',
-    'space-between': 'justify',
-    'flex-start': 'start',
-    'flex-end': 'end',
-    'wrap-reverse': 'multiple',
-    wrap: 'multiple'
-  };
-
-  var alternativeProps$1 = {
-    alignItems: 'WebkitBoxAlign',
-    justifyContent: 'WebkitBoxPack',
-    flexWrap: 'WebkitBoxLines'
-  };
-
-  function flexboxOld(property, value) {
-    if (property === 'flexDirection' && typeof value === 'string') {
-      return {
-        WebkitBoxOrient: value.indexOf('column') > -1 ? 'vertical' : 'horizontal',
-        WebkitBoxDirection: value.indexOf('reverse') > -1 ? 'reverse' : 'normal'
-      };
-    }
-    if (alternativeProps$1[property]) {
-      return babelHelpers.defineProperty({}, alternativeProps$1[property], alternativeValues$1[value] || value);
-    }
-  }
-
-  var plugins = [position, calc, cursor, sizing, gradient, transition, flexboxIE, flexboxOld, flex];
-
-  /**
-   * Returns a prefixed version of the style object using all vendor prefixes
-   * @param {Object} styles - Style object that gets prefixed properties added
-   * @returns {Object} - Style object with prefixed properties and values
-   */
-  function prefixAll(styles) {
-    Object.keys(styles).forEach(function (property) {
-      var value = styles[property];
-      if (value instanceof Object && !Array.isArray(value)) {
-        // recurse through nested style objects
-        styles[property] = prefixAll(value);
-      } else {
-        Object.keys(prefixProps).forEach(function (prefix) {
-          var properties = prefixProps[prefix];
-          // add prefixes if needed
-          if (properties[property]) {
-            styles[prefix + capitalizeString(property)] = value;
-          }
-        });
-      }
-    });
-
-    Object.keys(styles).forEach(function (property) {
-      [].concat(styles[property]).forEach(function (value, index) {
-        // resolve every special plugins
-        plugins.forEach(function (plugin) {
-          return assignStyles(styles, plugin(property, value));
-        });
-      });
-    });
-
-    return sortPrefixedStyle(styles);
-  }
-
-  function assignStyles(base) {
-    var extend = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    Object.keys(extend).forEach(function (property) {
-      var baseValue = base[property];
-      if (Array.isArray(baseValue)) {
-        [].concat(extend[property]).forEach(function (value) {
-          var valueIndex = baseValue.indexOf(value);
-          if (valueIndex > -1) {
-            base[property].splice(valueIndex, 1);
-          }
-          base[property].push(value);
-        });
-      } else {
-        base[property] = extend[property];
-      }
-    });
-  }
-
-  return prefixAll;
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.default = prefixProperty;
+
+
+
+var _capitalizeString2 = _interopRequireDefault(capitalizeString_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function prefixProperty(prefixProperties, property, style) {
+  if (prefixProperties.hasOwnProperty(property)) {
+    var requiredPrefixes = prefixProperties[property];
+    for (var i = 0, len = requiredPrefixes.length; i < len; ++i) {
+      style[requiredPrefixes[i] + (0, _capitalizeString2.default)(property)] = style[property];
+    }
+  }
+}
+module.exports = exports['default'];
+});
+
+var prefixValue_1 = createCommonjsModule(function (module, exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = prefixValue;
+function prefixValue(plugins, property, value, style, metaData) {
+  for (var i = 0, len = plugins.length; i < len; ++i) {
+    var processedValue = plugins[i](property, value, style, metaData
+
+    // we can stop processing if a value is returned
+    // as all plugin criteria are unique
+    );if (processedValue) {
+      return processedValue;
+    }
+  }
+}
+module.exports = exports["default"];
+});
+
+var cursor_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = cursor;
+var prefixes = ['-webkit-', '-moz-', ''];
+
+var values = {
+  'zoom-in': true,
+  'zoom-out': true,
+  grab: true,
+  grabbing: true
+};
+
+function cursor(property, value) {
+  if (property === 'cursor' && values.hasOwnProperty(value)) {
+    return prefixes.map(function (prefix) {
+      return prefix + value;
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var isPrefixedValue_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isPrefixedValue;
+
+var regex = /-webkit-|-moz-|-ms-/;
+
+function isPrefixedValue(value) {
+  return typeof value === 'string' && regex.test(value);
+}
+module.exports = exports['default'];
+});
+
+var crossFade_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = crossFade;
+
+
+
+var _isPrefixedValue2 = _interopRequireDefault(isPrefixedValue_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// http://caniuse.com/#search=cross-fade
+var prefixes = ['-webkit-', ''];
+function crossFade(property, value) {
+  if (typeof value === 'string' && !(0, _isPrefixedValue2.default)(value) && value.indexOf('cross-fade(') > -1) {
+    return prefixes.map(function (prefix) {
+      return value.replace(/cross-fade\(/g, prefix + 'cross-fade(');
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var filter_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = filter;
+
+
+
+var _isPrefixedValue2 = _interopRequireDefault(isPrefixedValue_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// http://caniuse.com/#feat=css-filter-function
+var prefixes = ['-webkit-', ''];
+function filter(property, value) {
+  if (typeof value === 'string' && !(0, _isPrefixedValue2.default)(value) && value.indexOf('filter(') > -1) {
+    return prefixes.map(function (prefix) {
+      return value.replace(/filter\(/g, prefix + 'filter(');
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var flex_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = flex;
+var values = {
+  flex: ['-webkit-box', '-moz-box', '-ms-flexbox', '-webkit-flex', 'flex'],
+  'inline-flex': ['-webkit-inline-box', '-moz-inline-box', '-ms-inline-flexbox', '-webkit-inline-flex', 'inline-flex']
+};
+
+function flex(property, value) {
+  if (property === 'display' && values.hasOwnProperty(value)) {
+    return values[value];
+  }
+}
+module.exports = exports['default'];
+});
+
+var flexboxOld_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = flexboxOld;
+var alternativeValues = {
+  'space-around': 'justify',
+  'space-between': 'justify',
+  'flex-start': 'start',
+  'flex-end': 'end',
+  'wrap-reverse': 'multiple',
+  wrap: 'multiple'
+};
+
+var alternativeProps = {
+  alignItems: 'WebkitBoxAlign',
+  justifyContent: 'WebkitBoxPack',
+  flexWrap: 'WebkitBoxLines'
+};
+
+function flexboxOld(property, value, style) {
+  if (property === 'flexDirection' && typeof value === 'string') {
+    if (value.indexOf('column') > -1) {
+      style.WebkitBoxOrient = 'vertical';
+    } else {
+      style.WebkitBoxOrient = 'horizontal';
+    }
+    if (value.indexOf('reverse') > -1) {
+      style.WebkitBoxDirection = 'reverse';
+    } else {
+      style.WebkitBoxDirection = 'normal';
+    }
+  }
+  if (alternativeProps.hasOwnProperty(property)) {
+    style[alternativeProps[property]] = alternativeValues[value] || value;
+  }
+}
+module.exports = exports['default'];
+});
+
+var gradient_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = gradient;
+
+
+
+var _isPrefixedValue2 = _interopRequireDefault(isPrefixedValue_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var prefixes = ['-webkit-', '-moz-', ''];
+
+var values = /linear-gradient|radial-gradient|repeating-linear-gradient|repeating-radial-gradient/;
+
+function gradient(property, value) {
+  if (typeof value === 'string' && !(0, _isPrefixedValue2.default)(value) && values.test(value)) {
+    return prefixes.map(function (prefix) {
+      return prefix + value;
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var imageSet_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = imageSet;
+
+
+
+var _isPrefixedValue2 = _interopRequireDefault(isPrefixedValue_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// http://caniuse.com/#feat=css-image-set
+var prefixes = ['-webkit-', ''];
+function imageSet(property, value) {
+  if (typeof value === 'string' && !(0, _isPrefixedValue2.default)(value) && value.indexOf('image-set(') > -1) {
+    return prefixes.map(function (prefix) {
+      return value.replace(/image-set\(/g, prefix + 'image-set(');
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var position_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = position;
+function position(property, value) {
+  if (property === 'position' && value === 'sticky') {
+    return ['-webkit-sticky', 'sticky'];
+  }
+}
+module.exports = exports['default'];
+});
+
+var sizing_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = sizing;
+var prefixes = ['-webkit-', '-moz-', ''];
+
+var properties = {
+  maxHeight: true,
+  maxWidth: true,
+  width: true,
+  height: true,
+  columnWidth: true,
+  minWidth: true,
+  minHeight: true
+};
+var values = {
+  'min-content': true,
+  'max-content': true,
+  'fill-available': true,
+  'fit-content': true,
+  'contain-floats': true
+};
+
+function sizing(property, value) {
+  if (properties.hasOwnProperty(property) && values.hasOwnProperty(value)) {
+    return prefixes.map(function (prefix) {
+      return prefix + value;
+    });
+  }
+}
+module.exports = exports['default'];
+});
+
+var uppercasePattern = /[A-Z]/g;
+var msPattern$2 = /^ms-/;
+var cache = {};
+
+function hyphenateStyleName$1(string) {
+    return string in cache
+    ? cache[string]
+    : cache[string] = string
+      .replace(uppercasePattern, '-$&')
+      .toLowerCase()
+      .replace(msPattern$2, '-ms-');
+}
+
+var index$8 = hyphenateStyleName$1;
+
+var hyphenateProperty_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = hyphenateProperty;
+
+
+
+var _hyphenateStyleName2 = _interopRequireDefault(index$8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function hyphenateProperty(property) {
+  return (0, _hyphenateStyleName2.default)(property);
+}
+module.exports = exports['default'];
+});
+
+var transition_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = transition;
+
+
+
+var _hyphenateProperty2 = _interopRequireDefault(hyphenateProperty_1);
+
+
+
+var _isPrefixedValue2 = _interopRequireDefault(isPrefixedValue_1);
+
+
+
+var _capitalizeString2 = _interopRequireDefault(capitalizeString_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var properties = {
+  transition: true,
+  transitionProperty: true,
+  WebkitTransition: true,
+  WebkitTransitionProperty: true,
+  MozTransition: true,
+  MozTransitionProperty: true
+};
+
+
+var prefixMapping = {
+  Webkit: '-webkit-',
+  Moz: '-moz-',
+  ms: '-ms-'
+};
+
+function prefixValue(value, propertyPrefixMap) {
+  if ((0, _isPrefixedValue2.default)(value)) {
+    return value;
+  }
+
+  // only split multi values, not cubic beziers
+  var multipleValues = value.split(/,(?![^()]*(?:\([^()]*\))?\))/g);
+
+  for (var i = 0, len = multipleValues.length; i < len; ++i) {
+    var singleValue = multipleValues[i];
+    var values = [singleValue];
+    for (var property in propertyPrefixMap) {
+      var dashCaseProperty = (0, _hyphenateProperty2.default)(property);
+
+      if (singleValue.indexOf(dashCaseProperty) > -1 && dashCaseProperty !== 'order') {
+        var prefixes = propertyPrefixMap[property];
+        for (var j = 0, pLen = prefixes.length; j < pLen; ++j) {
+          // join all prefixes and create a new value
+          values.unshift(singleValue.replace(dashCaseProperty, prefixMapping[prefixes[j]] + dashCaseProperty));
+        }
+      }
+    }
+
+    multipleValues[i] = values.join(',');
+  }
+
+  return multipleValues.join(',');
+}
+
+function transition(property, value, style, propertyPrefixMap) {
+  // also check for already prefixed transitions
+  if (typeof value === 'string' && properties.hasOwnProperty(property)) {
+    var outputValue = prefixValue(value, propertyPrefixMap
+    // if the property is already prefixed
+    );var webkitOutput = outputValue.split(/,(?![^()]*(?:\([^()]*\))?\))/g).filter(function (val) {
+      return !/-moz-|-ms-/.test(val);
+    }).join(',');
+
+    if (property.indexOf('Webkit') > -1) {
+      return webkitOutput;
+    }
+
+    var mozOutput = outputValue.split(/,(?![^()]*(?:\([^()]*\))?\))/g).filter(function (val) {
+      return !/-webkit-|-ms-/.test(val);
+    }).join(',');
+
+    if (property.indexOf('Moz') > -1) {
+      return mozOutput;
+    }
+
+    style['Webkit' + (0, _capitalizeString2.default)(property)] = webkitOutput;
+    style['Moz' + (0, _capitalizeString2.default)(property)] = mozOutput;
+    return outputValue;
+  }
+}
+module.exports = exports['default'];
+});
+
+var prefixer_1 = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = prefixer;
+
+
+
+var _staticData2 = _interopRequireDefault(staticData);
+
+
+
+var _prefixProperty2 = _interopRequireDefault(prefixProperty_1);
+
+
+
+var _prefixValue2 = _interopRequireDefault(prefixValue_1);
+
+
+
+var _cursor2 = _interopRequireDefault(cursor_1);
+
+
+
+var _crossFade2 = _interopRequireDefault(crossFade_1);
+
+
+
+var _filter2 = _interopRequireDefault(filter_1);
+
+
+
+var _flex2 = _interopRequireDefault(flex_1);
+
+
+
+var _flexboxOld2 = _interopRequireDefault(flexboxOld_1);
+
+
+
+var _gradient2 = _interopRequireDefault(gradient_1);
+
+
+
+var _imageSet2 = _interopRequireDefault(imageSet_1);
+
+
+
+var _position2 = _interopRequireDefault(position_1);
+
+
+
+var _sizing2 = _interopRequireDefault(sizing_1);
+
+
+
+var _transition2 = _interopRequireDefault(transition_1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var plugins = [_crossFade2.default, _cursor2.default, _filter2.default, _flexboxOld2.default, _gradient2.default, _imageSet2.default, _position2.default, _sizing2.default, _transition2.default, _flex2.default]; // custom facade for inline-style-prefixer
+
+var prefixMap = _staticData2.default.prefixMap;
+
+function prefixer(style) {
+  for (var property in style) {
+    var value = style[property];
+
+    var processedValue = (0, _prefixValue2.default)(plugins, property, value, style, prefixMap);
+
+    // only modify the value if it was touched
+    // by any plugin to prevent unnecessary mutations
+    if (processedValue) {
+      style[property] = processedValue;
+    }
+
+    (0, _prefixProperty2.default)(prefixMap, property, style);
+  }
+  return style;
+}
 });
 
 var plugins = createCommonjsModule(function (module, exports) {
@@ -2785,10 +2996,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.PluginSet = PluginSet;
 exports.fallbacks = fallbacks;
+exports.contentWrap = contentWrap;
 exports.prefixes = prefixes;
 
 
@@ -2796,6 +3008,10 @@ exports.prefixes = prefixes;
 var _objectAssign2 = _interopRequireDefault(index$4);
 
 
+
+
+
+var _prefixer2 = _interopRequireDefault(prefixer_1);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2845,29 +3061,40 @@ function fallbacks(node) {
     return Array.isArray(node.style[x]);
   }).indexOf(true) >= 0;
   if (hasArray) {
-    var _ret = function () {
-      var style = node.style;
+    var style = node.style;
 
-      var flattened = Object.keys(style).reduce(function (o, key) {
-        o[key] = Array.isArray(style[key]) ? style[key].join('; ' + (0, index$6.processStyleName)(key) + ': ') : style[key];
-        return o;
-      }, {});
-      // todo - 
-      // flatten arrays which haven't been flattened yet 
-      return {
-        v: (0, _objectAssign2.default)({}, node, { style: flattened })
-      };
-    }();
-
-    if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+    var flattened = Object.keys(style).reduce(function (o, key) {
+      o[key] = Array.isArray(style[key]) ? style[key].join('; ' + (0, index$6.processStyleName)(key) + ': ') : style[key];
+      return o;
+    }, {});
+    // todo - 
+    // flatten arrays which haven't been flattened yet 
+    return (0, _objectAssign2.default)({}, node, { style: flattened });
   }
   return node;
 }
 
+var contentValues = ['normal', 'none', 'counter', 'open-quote', 'close-quote', 'no-open-quote', 'no-close-quote', 'initial', 'inherit'];
 
+function contentWrap(node) {
+  if (node.style.content) {
+    var cont = node.style.content;
+    if (contentValues.indexOf(cont) >= 0) {
+      return node;
+    }
+    if (cont.indexOf('url(') >= 0) {
+      return node;
+    }
+    if (cont.charAt(0) === cont.charAt(cont.length - 1) && (cont.charAt(0) === '"' || cont.charAt(0) === "'")) {
+      return node;
+    }
+    return _extends({}, node, { style: _extends({}, node.style, { content: '"' + cont + '"' }) });
+  }
+  return node;
+}
 
 function prefixes(node) {
-  return (0, _objectAssign2.default)({}, node, { style: index$8(node.style) });
+  return (0, _objectAssign2.default)({}, node, { style: (0, _prefixer2.default)(_extends({}, node.style)) });
 }
 });
 
@@ -3054,10 +3281,10 @@ function speedy(bool) {
 
 // plugins
 // we include these by default
-var plugins$$1 = exports.plugins = styleSheet.plugins = new plugins.PluginSet([plugins.prefixes, plugins.fallbacks]);
+var plugins$$1 = exports.plugins = styleSheet.plugins = new plugins.PluginSet([plugins.prefixes, plugins.contentWrap, plugins.fallbacks]);
 plugins$$1.media = new plugins.PluginSet(); // neat! media, font-face, keyframes
 plugins$$1.fontFace = new plugins.PluginSet();
-plugins$$1.keyframes = new plugins.PluginSet([plugins.prefixes]);
+plugins$$1.keyframes = new plugins.PluginSet([plugins.prefixes, plugins.fallbacks]);
 
 // define some constants
 
@@ -3122,24 +3349,22 @@ function cssLabels(bool) {
 
 // takes a string, converts to lowercase, strips out nonalphanumeric.
 function simple(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  var char = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+  return str.toLowerCase().replace(/[^a-z0-9]/g, char);
 }
 
 // hashes a string to something 'unique'
 // we use this to generate ids for styles
 
 
-function hashify() {
-  var str = '';
-
-  for (var _len2 = arguments.length, objs = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-    objs[_key2] = arguments[_key2];
+function hashify(obj) {
+  var str = JSON.stringify(obj);
+  var toRet = (0, _hash2.default)(str).toString(36);
+  if (obj.label && obj.label.length > 0 && isDev) {
+    return simple(obj.label.join('.'), '-') + '-' + toRet;
   }
-
-  for (var i = 0; i < objs.length; i++) {
-    str += JSON.stringify(objs[i]);
-  }
-  return (0, _hash2.default)(str).toString(36);
+  return toRet;
 }
 
 // of shape { 'data-css-<id>': '' }
@@ -3150,7 +3375,7 @@ function isLikeRule(rule) {
   if (keys.length !== 1) {
     return false;
   }
-  return !!/data\-css\-([a-zA-Z0-9]+)/.exec(keys[0]);
+  return !!/data\-css\-([a-zA-Z0-9\-_]+)/.exec(keys[0]);
 }
 
 // extracts id from a { 'data-css-<id>': ''} like object
@@ -3159,20 +3384,65 @@ function idFor(rule) {
     return x !== 'toString';
   });
   if (keys.length !== 1) throw new Error('not a rule');
-  var regex = /data\-css\-([a-zA-Z0-9]+)/;
+  var regex = /data\-css\-([a-zA-Z0-9\-_]+)/;
   var match = regex.exec(keys[0]);
   if (!match) throw new Error('not a rule');
   return match[1];
 }
 
-function selector(id, path) {
+// from https://github.com/j2css/j2c/blob/5d381c2d721d04b54fabe6a165d587247c3087cb/src/helpers.js#L28-L61
 
+// "Tokenizes" the selectors into parts relevant for the next function.
+// Strings and comments are matched, but ignored afterwards.
+// This is not a full tokenizers. It only recognizes comas, parentheses,
+// strings and comments.
+// regexp generated by scripts/regexps.js then trimmed by hand
+var selectorTokenizer = /[(),]|"(?:\\.|[^"\n])*"|'(?:\\.|[^'\n])*'|\/\*[\s\S]*?\*\//g;
+
+/**
+ * This will split a coma-separated selector list into individual selectors,
+ * ignoring comas in strings, comments and in :pseudo-selectors(parameter, lists).
+ *
+ * @param {string} selector
+ * @return {string[]}
+ */
+
+function splitSelector(selector) {
+  if (selector.indexOf(',') === -1) {
+    return [selector];
+  }
+
+  var indices = [],
+      res = [],
+      inParen = 0,
+      o;
+  /*eslint-disable no-cond-assign*/
+  while (o = selectorTokenizer.exec(selector)) {
+    /*eslint-enable no-cond-assign*/
+    switch (o[0]) {
+      case '(':
+        inParen++;break;
+      case ')':
+        inParen--;break;
+      case ',':
+        if (inParen) break;indices.push(o.index);
+    }
+  }
+  for (o = indices.length; o--;) {
+    res.unshift(selector.slice(indices[o] + 1));
+    selector = selector.slice(0, indices[o]);
+  }
+  res.unshift(selector);
+  return res;
+}
+
+function selector(id, path) {
   if (!id) {
     return path.replace(/\&/g, '');
   }
   if (!path) return '.css-' + id + ',[data-css-' + id + ']';
 
-  var x = path.split(',').map(function (x) {
+  var x = splitSelector(path).map(function (x) {
     return x.indexOf('&') >= 0 ? [x.replace(/\&/mg, '.css-' + id), x.replace(/\&/mg, '[data-css-' + id + ']')].join(',') // todo - make sure each sub selector has an &
     : '.css-' + id + x + ',[data-css-' + id + ']' + x;
   }).join(',');
@@ -3182,6 +3452,9 @@ function selector(id, path) {
   }
   return x;
 }
+
+// end https://github.com/j2css/j2c/blob/5d381c2d721d04b54fabe6a165d587247c3087cb/src/helpers.js#L28-L61
+
 
 function toCSS(_ref) {
   var selector = _ref.selector,
@@ -3318,10 +3591,10 @@ function isSelector(key) {
 }
 
 function joinSelectors(a, b) {
-  var as = a.split(',').map(function (a) {
+  var as = splitSelector(a).map(function (a) {
     return !(a.indexOf('&') >= 0) ? '&' + a : a;
   });
-  var bs = b.split(',').map(function (b) {
+  var bs = splitSelector(b).map(function (b) {
     return !(b.indexOf('&') >= 0) ? '&' + b : b;
   });
 
@@ -3357,8 +3630,12 @@ function flatten(inArr) {
   return arr;
 }
 
-// mutable! modifies dest.
-function build(dest, _ref2) {
+var prefixedPseudoSelectors = {
+  '::placeholder': ['::-webkit-input-placeholder', '::-moz-placeholder', '::-ms-input-placeholder'],
+  ':fullscreen': [':-webkit-full-screen', ':-moz-full-screen', ':-ms-fullscreen']
+
+  // mutable! modifies dest.
+};function build(dest, _ref2) {
   var _ref2$selector = _ref2.selector,
       selector = _ref2$selector === undefined ? '' : _ref2$selector,
       _ref2$mq = _ref2.mq,
@@ -3389,10 +3666,10 @@ function build(dest, _ref2) {
     Object.keys(_src || {}).forEach(function (key) {
       if (isSelector(key)) {
 
-        if (key === '::placeholder') {
-          build(dest, { selector: joinSelectors(selector, '::-webkit-input-placeholder'), mq: mq, supp: supp, src: _src[key] });
-          build(dest, { selector: joinSelectors(selector, '::-moz-placeholder'), mq: mq, supp: supp, src: _src[key] });
-          build(dest, { selector: joinSelectors(selector, '::-ms-input-placeholder'), mq: mq, supp: supp, src: _src[key] });
+        if (prefixedPseudoSelectors[key]) {
+          prefixedPseudoSelectors[key].forEach(function (p) {
+            return build(dest, { selector: joinSelectors(selector, p), mq: mq, supp: supp, src: _src[key] });
+          });
         }
 
         build(dest, { selector: joinSelectors(selector, key), mq: mq, supp: supp, src: _src[key] });
@@ -3501,8 +3778,8 @@ function multiIndexCache(fn) {
 var cachedCss = typeof WeakMap !== 'undefined' ? multiIndexCache(_css) : _css;
 
 function css() {
-  for (var _len3 = arguments.length, rules = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-    rules[_key3] = arguments[_key3];
+  for (var _len2 = arguments.length, rules = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+    rules[_key2] = arguments[_key2];
   }
 
   if (rules[0] && rules[0].length && rules[0].raw) {
@@ -3533,25 +3810,26 @@ css.insert = function (css) {
 var insertRule = exports.insertRule = css.insert;
 
 css.global = function (selector, style) {
-  return css.insert(toCSS({ selector: selector, style: style }));
+  style = (0, _clean2.default)(style);
+  if (style) {
+    return css.insert(toCSS({ selector: selector, style: style }));
+  }
 };
 
 var insertGlobal = exports.insertGlobal = css.global;
 
 function insertKeyframe(spec) {
   if (!inserted[spec.id]) {
-    (function () {
-      var inner = Object.keys(spec.keyframes).map(function (kf) {
-        var result = plugins$$1.keyframes.transform({ id: spec.id, name: kf, style: spec.keyframes[kf] });
-        return result.name + '{' + (0, index$6.createMarkupForStyles)(result.style) + '}';
-      }).join('');
+    var inner = Object.keys(spec.keyframes).map(function (kf) {
+      var result = plugins$$1.keyframes.transform({ id: spec.id, name: kf, style: spec.keyframes[kf] });
+      return result.name + '{' + (0, index$6.createMarkupForStyles)(result.style) + '}';
+    }).join('');
 
-      ['-webkit-', '-moz-', '-o-', ''].forEach(function (prefix) {
-        return styleSheet.insert('@' + prefix + 'keyframes ' + (spec.name + '_' + spec.id) + '{' + inner + '}');
-      });
+    ['-webkit-', '-moz-', '-o-', ''].forEach(function (prefix) {
+      return styleSheet.insert('@' + prefix + 'keyframes ' + (spec.name + '_' + spec.id) + '{' + inner + '}');
+    });
 
-      inserted[spec.id] = true;
-    })();
+    inserted[spec.id] = true;
   }
 }
 css.keyframes = function (name, kfs) {
@@ -3562,7 +3840,7 @@ css.keyframes = function (name, kfs) {
   // do not ignore empty keyframe definitions for now.
   kfs = (0, _clean2.default)(kfs) || {};
   var spec = {
-    id: hashify(name, kfs),
+    id: hashify({ name: name, kfs: kfs }),
     type: 'keyframes',
     name: name,
     keyframes: kfs
@@ -3618,60 +3896,24 @@ function flush() {
   styleSheet.inject();
 }
 
-function warnAboutPresetsDeprecation() {
-  if (isDev) {
-    console.warn('[Deprecation] In glamor v3 the `presets` object will be removed. See https://github.com/threepointone/glamor/issues/213 for more information.');
-  }
-}
-
 var presets = exports.presets = {
-  get mobile() {
-    warnAboutPresetsDeprecation();
-    return '(min-width: 400px)';
-  },
-  get Mobile() {
-    warnAboutPresetsDeprecation();
-    return '@media (min-width: 400px)';
-  },
-  get phablet() {
-    warnAboutPresetsDeprecation();
-    return '(min-width: 550px)';
-  },
-  get Phablet() {
-    warnAboutPresetsDeprecation();
-    return '@media (min-width: 550px)';
-  },
-  get tablet() {
-    warnAboutPresetsDeprecation();
-    return '(min-width: 750px)';
-  },
-  get Tablet() {
-    warnAboutPresetsDeprecation();
-    return '@media (min-width: 750px)';
-  },
-  get desktop() {
-    warnAboutPresetsDeprecation();
-    return '(min-width: 1000px)';
-  },
-  get Desktop() {
-    warnAboutPresetsDeprecation();
-    return '@media (min-width: 1000px)';
-  },
-  get hd() {
-    warnAboutPresetsDeprecation();
-    return '(min-width: 1200px)';
-  },
-  get Hd() {
-    warnAboutPresetsDeprecation();
-    return '@media (min-width: 1200px)';
-  }
+  mobile: '(min-width: 400px)',
+  Mobile: '@media (min-width: 400px)',
+  phablet: '(min-width: 550px)',
+  Phablet: '@media (min-width: 550px)',
+  tablet: '(min-width: 750px)',
+  Tablet: '@media (min-width: 750px)',
+  desktop: '(min-width: 1000px)',
+  Desktop: '@media (min-width: 1000px)',
+  hd: '(min-width: 1200px)',
+  Hd: '@media (min-width: 1200px)'
 };
 
 var style = exports.style = css;
 
 function select(selector) {
-  for (var _len4 = arguments.length, styles = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-    styles[_key4 - 1] = arguments[_key4];
+  for (var _len3 = arguments.length, styles = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+    styles[_key3 - 1] = arguments[_key3];
   }
 
   if (!selector) {
@@ -3682,8 +3924,8 @@ function select(selector) {
 var $ = exports.$ = select;
 
 function parent(selector) {
-  for (var _len5 = arguments.length, styles = Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
-    styles[_key5 - 1] = arguments[_key5];
+  for (var _len4 = arguments.length, styles = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+    styles[_key4 - 1] = arguments[_key4];
   }
 
   return css(_defineProperty({}, selector + ' &', styles));
@@ -3693,16 +3935,16 @@ var merge = exports.merge = css;
 var compose = exports.compose = css;
 
 function media(query) {
-  for (var _len6 = arguments.length, rules = Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
-    rules[_key6 - 1] = arguments[_key6];
+  for (var _len5 = arguments.length, rules = Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+    rules[_key5 - 1] = arguments[_key5];
   }
 
   return css(_defineProperty({}, '@media ' + query, rules));
 }
 
 function pseudo(selector) {
-  for (var _len7 = arguments.length, styles = Array(_len7 > 1 ? _len7 - 1 : 0), _key7 = 1; _key7 < _len7; _key7++) {
-    styles[_key7 - 1] = arguments[_key7];
+  for (var _len6 = arguments.length, styles = Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
+    styles[_key6 - 1] = arguments[_key6];
   }
 
   return css(_defineProperty({}, selector, styles));
@@ -3902,8 +4144,8 @@ function placeholder(x) {
 // https://github.com/threepointone/glamor/issues/16
 
 function cssFor() {
-  for (var _len8 = arguments.length, rules = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
-    rules[_key8] = arguments[_key8];
+  for (var _len7 = arguments.length, rules = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+    rules[_key7] = arguments[_key7];
   }
 
   rules = (0, _clean2.default)(rules);
@@ -3915,8 +4157,8 @@ function cssFor() {
 }
 
 function attribsFor() {
-  for (var _len9 = arguments.length, rules = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
-    rules[_key9] = arguments[_key9];
+  for (var _len8 = arguments.length, rules = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+    rules[_key8] = arguments[_key8];
   }
 
   rules = (0, _clean2.default)(rules);
@@ -3932,6 +4174,29 @@ function attribsFor() {
 });
 
 var index_18 = index$2.css;
+
+var keyfix = function keyfix(name) {
+  return name.replace(/([a-z]{1})([A-Z]{1})/, function (a, b, c) {
+    return b + '-' + c.toLowerCase();
+  });
+};
+function zip(obj) {
+  return Object.keys(obj).map(function (k) {
+    var key = keyfix(k);
+    return key + ': ' + obj[k] + ';';
+  }).join('\n');
+}
+
+function globalMqHack(css, selector, rules) {
+  Object.keys(rules).forEach(function (rule) {
+    if (rule[0] === '@') {
+      var finalRule = rule + ' { ' + selector + ' { ' + zip(rules[rule]) + ' } }';
+      css.insert(finalRule);
+    } else {
+      css.global(selector, defineProperty$1({}, rule, rules[rule]));
+    }
+  });
+}
 
 function injectGlobals() {
   var css = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : index_18;
@@ -3957,11 +4222,12 @@ function injectGlobals() {
     marginBottom: base
   }));
 
-  css.global('h1', fontSize('xxlarge'));
-  css.global('h2', fontSize('xlarge'));
-  css.global('h3', _extends$1({}, fontSize('large'), {
+  globalMqHack(css, 'h1', fontSize('xxlarge'));
+  globalMqHack(css, 'h2', fontSize('xlarge'));
+  globalMqHack(css, 'h3', fontSize('large'));
+  css.global('h3', {
     letterSpacing: '0.4px'
-  }));
+  });
   css.global('h4', _extends$1({}, fontSize('small'), {
     letterSpacing: '0.3px'
   }));
@@ -8691,10 +8957,10 @@ var PieChart = function (_Component) {
 }(React.Component);
 
 PieChart.propTypes = {
-  value: React__default.PropTypes.number.isRequired,
-  max: React__default.PropTypes.number,
-  size: React__default.PropTypes.number,
-  light: React__default.PropTypes.bool
+  value: index$10.number.isRequired,
+  max: index$10.number,
+  size: index$10.number,
+  light: index$10.bool
 };
 PieChart.defaultProps = {
   light: false,
