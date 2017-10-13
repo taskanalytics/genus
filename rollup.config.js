@@ -38,7 +38,6 @@ export default {
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
-      externalHelpers: true,
       presets: [
         ['es2015', {modules: false}],
         'stage-2',
