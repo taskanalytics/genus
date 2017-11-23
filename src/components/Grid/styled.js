@@ -10,7 +10,7 @@ const widths = {
   wide: '1200px',
 }
 
-export default glamorous.div(
+export default glamorous('div')(
   {
     margin: '0 auto',
     maxWidth: widths.base,

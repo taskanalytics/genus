@@ -14,19 +14,19 @@ const pieFilUp = css.keyframes({
   '50%': { strokeDasharray: '0 100000' },
 })
 
-export const Figure = glamorous.figure({
+export const Figure = glamorous('figure')({
   position: 'relative',
   display: 'inline-block',
   verticalAlign: 'top',
   marginRight: spacing.small,
 })
 
-export const Svg = glamorous.svg({
+export const Svg = glamorous('svg')({
   animation: `fade-in 300ms ${swiftOut}`,
   transform: 'rotate(-91.00001deg)',
 })
 
-export const Background = glamorous.circle({
+export const Background = glamorous('circle')({
   stroke: rgba(colors.primary, 0.25),
   fill: 'none',
 },
@@ -35,14 +35,14 @@ export const Background = glamorous.circle({
   })
 )
 
-export const Chart = glamorous.circle({
+export const Chart = glamorous('circle')({
   fill: 'none',
   stroke: colors.primary,
   transition: `all 300ms ${swiftOut}`,
   animation: `${pieFilUp} ease-out 500ms both`,
 }, styleIf('light', { stroke: colors.white }))
 
-export const Caption = glamorous.figcaption({
+export const Caption = glamorous('figcaption')({
   ...font('bold'),
   position: 'absolute',
   top: '1px',

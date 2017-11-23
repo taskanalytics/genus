@@ -25,7 +25,7 @@ const styledBlock = styleIf('block', {
   width: '100%',
 })
 
-export const Wrapper = glamorous.div({
+export const Wrapper = glamorous('div')({
   position: 'relative',
   width: '100%',
   marginTop: `${spacing.unit * 4 - 4}px`,
@@ -38,7 +38,7 @@ styleIf('light', {
   backgroundColor: rgba(colors.white, 0.2),
 }))
 
-export const Meter = glamorous.span({
+export const Meter = glamorous('span')({
   position: 'relative',
   display: 'block',
   height: spacing.small,
@@ -50,7 +50,7 @@ export const Meter = glamorous.span({
 }))
 
 const labelWidth = spacing.unit * 11
-export const Label = glamorous.span({
+export const Label = glamorous('span')({
   ...font('bold'),
   ...fontSize('xsmall'),
   position: 'absolute',

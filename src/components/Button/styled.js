@@ -90,7 +90,7 @@ const styledLink = styleIf('link', {
   },
 })
 
-export default glamorous.button({
+export default glamorous('button')({
   ...font('bold'),
   ...fontSize('small'),
   ...spacedText(),
