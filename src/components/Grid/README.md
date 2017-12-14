@@ -1,18 +1,135 @@
-The grid is mostly used for quick and dirty layouts, whereas more worked-on pages have custom layouts.
-
-
+## Example grid
 ```react
-<Grid>Default grid</Grid>
+<Grid>
+  <Row>
+    <Box width={1/2} p={1}>
+      1/2
+    </Box>
+    <Box width={1/2} p={1}>
+      1/2
+    </Box>
+  </Row>
+  <Row>
+    <Box width={1/3} p={1}>
+      1/3
+    </Box>
+    <Box width={1/3} p={1}>
+      1/3
+    </Box>
+    <Box width={1/3} p={1}>
+      1/3
+    </Box>
+  </Row>
+</Grid>
 ```
 
+## Semantic grid
 ```react
-<Grid tight>Tight</Grid>
+<Grid is="main">
+  <Row is="section">
+    <Box is="article" width={1/2} p={1}>
+      1/2
+    </Box>
+    <Box is="article" width={1/2} p={1}>
+      1/2
+    </Box>
+  </Row>
+  <Row is="section">
+    <Box is="article" width={1/3} p={1}>
+      1/3
+    </Box>
+    <Box is="article" width={1/3} p={1}>
+      1/3
+    </Box>
+    <Box is="article" width={1/3} p={1}>
+      1/3
+    </Box>
+  </Row>
+</Grid>
 ```
 
+## Grid with no gutters
 ```react
-<Grid wide>Wide</Grid>
+<Grid>
+  <Row mx={-2}>
+    <Box width={1/2} p={1}>1/2</Box>
+    <Box width={1/4} p={1}>1/4</Box>
+    <Box width={1/4} p={1}>1/4</Box>
+  </Row>
+  <Row mx={-2}>
+    <Box width={1/6} p={1}>1/6</Box>
+    <Box width={1/3} p={1}>1/3</Box>
+    <Box width={1/6} p={1}>1/6</Box>
+    <Box width={1/3} p={1}>1/3</Box>
+  </Row>
+</Grid>
 ```
 
+## Media object
 ```react
-<Grid row>Row</Grid>
+<Flex
+  css={{
+    alignItems: 'center'
+  }}>
+  <Box m2>
+    <img
+      width={128}
+      height={128}
+      src='http://placehold.it/256/ff6347/fff?text=Axs'
+      />
+  </Box>
+  <Box w={1}>
+    <Heading>Hello</Heading>
+    <Text>Try changing the example code below</Text>
+  </Box>
+</Flex>
+```
+
+## Flex
+```react
+<Grid>
+  <Row
+    css={{
+      backgroundColor: 'aqua'
+    }}>
+    <Box px2 css={{backgroundColor:'red'}}>
+      Hello
+    </Box>
+    <Box ml='auto'>
+      Flex
+    </Box>
+  </Row>
+</Grid>
+```
+
+## Responsiveness
+```react
+responsive: true
+---
+<Grid>
+  <Row>
+    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
+    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
+    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
+  </Row>
+</Grid>
+```
+
+## Task list grid
+```react
+responsive: true
+---
+<Grid>
+  <Row>
+    <Box w={[1, 6/12]}>
+      Task
+    </Box>
+    <Box w={[1, 2/12]}>
+      Demand
+    </Box>
+    <Box w={[1, 4/12]}>
+      Completion rate
+    </Box>
+  </Row>
+</Grid>
 ```

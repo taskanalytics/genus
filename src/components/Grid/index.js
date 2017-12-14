@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
 
-import StyledGrid from './styled'
+import { StyledGrid, StyledFlex, StyledRow, StyledBox } from './styled'
 
-const Grid = props => <StyledGrid {...props}>{props.children}</StyledGrid>
+export const Grid = props =>
+  <StyledGrid px2 {...props}>{props.children}</StyledGrid>
+
+export const Flex = props =>
+  <StyledFlex {...props}>{props.children}</StyledFlex>
+
+export const Row = props =>
+  <StyledRow {...props}>{props.children}</StyledRow>
+
+export const Box = props =>
+  <StyledBox {...props}>{props.children}</StyledBox>
 
 if (process.env.NODE_ENV !== 'production') {
   Grid.propTypes = {
@@ -12,6 +22,3 @@ if (process.env.NODE_ENV !== 'production') {
     row: T.bool,
   }
 }
-
-
-export default Grid

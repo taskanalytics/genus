@@ -22,7 +22,7 @@ export default class MyUI extends Component {
     }
 
     return (
-      <Grid wide>
+      <Grid>
         <Button primary onClick={randomizeValue}>Random value</Button>
         <ProgressBar value={value} />
       </Grid>
@@ -34,7 +34,7 @@ export default class MyUI extends Component {
 ```react|span-2
 state: {value: 50}
 ---
-<Grid tight>
+<Grid>
   <ProgressBar value={state.value} css={{marginBottom: styles.spacing.base}}/>
   <Button block primary onClick={
     () => setState({ value: parseInt(Math.random() * 100) })
