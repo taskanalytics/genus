@@ -34,6 +34,8 @@ const pages = [
       require('../src/components/PieChart/catalog').default,
       require('../src/components/Heading/catalog').default,
       require('../src/components/Text/catalog').default,
+      require('../src/components/Report/catalog').default,
+      require('../src/components/Dropdown/catalog').default,
     ]},
 ]
 

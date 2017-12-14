@@ -19,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   NumberComponent.propTypes = {
     value: T.oneOfType([T.string, T.number]).isRequired,
     description: T.string.isRequired,
+    hideDescription: T.bool,
     size: T.oneOf(['small', 'large']),
     sup: T.string,
   }

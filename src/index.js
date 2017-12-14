@@ -6,7 +6,9 @@ import Number from './components/Number'
 import Percentage from './components/Percentage'
 import PieChart from './components/PieChart'
 import Heading from './components/Heading'
+import Report from './components/Report'
 import Text from './components/Text'
+import Dropdown from './components/Dropdown'
 
 export {
   Grid,
@@ -19,6 +21,8 @@ export {
   Percentage,
   PieChart,
   Heading,
+  Report,
   Text,
+  Dropdown,
   styles,
 }

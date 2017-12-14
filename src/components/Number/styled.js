@@ -27,7 +27,6 @@ export const DT = glamorous('dt')(
   styleIf(isLarge, {
     ...fontSize('xlarge'),
     marginLeft: '-2px',
-    marginBottom: spacing.unit,
   })
 )
 

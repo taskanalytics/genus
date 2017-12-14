@@ -3,6 +3,7 @@ import { shade, rgba } from 'polished'
 const base = '#F0F4F7'
 const primary = '#2084d8'
 const primaryDark = shade(0.2, primary)
+const text = '#2d3644'
 
 export const colors = {
   primary,
@@ -10,7 +11,8 @@ export const colors = {
   base,
   white: '#fff',
   dark: '#323C4C',
-  text: '#2d3644',
+  text: text,
+  muted: rgba(text,0.7),
   link: primary,
   linkHover: shade(0.2, primaryDark),
   good: rgba(140, 215, 150, 1),
