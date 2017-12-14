@@ -2,21 +2,21 @@
 ```react
 <Grid>
   <Row>
-    <Box width={1/2} p={1}>
+    <Box w={1/2} p={1}>
       1/2
     </Box>
-    <Box width={1/2} p={1}>
+    <Box w={1/2} p={1}>
       1/2
     </Box>
   </Row>
   <Row>
-    <Box width={1/3} p={1}>
+    <Box w={1/3} p={1}>
       1/3
     </Box>
-    <Box width={1/3} p={1}>
+    <Box w={1/3} p={1}>
       1/3
     </Box>
-    <Box width={1/3} p={1}>
+    <Box w={1/3} p={1}>
       1/3
     </Box>
   </Row>
@@ -27,21 +27,21 @@
 ```react
 <Grid is="main">
   <Row is="section">
-    <Box is="article" width={1/2} p={1}>
+    <Box is="article" w={1/2} p={1}>
       1/2
     </Box>
-    <Box is="article" width={1/2} p={1}>
+    <Box is="article" w={1/2} p={1}>
       1/2
     </Box>
   </Row>
   <Row is="section">
-    <Box is="article" width={1/3} p={1}>
+    <Box is="article" w={1/3} p={1}>
       1/3
     </Box>
-    <Box is="article" width={1/3} p={1}>
+    <Box is="article" w={1/3} p={1}>
       1/3
     </Box>
-    <Box is="article" width={1/3} p={1}>
+    <Box is="article" w={1/3} p={1}>
       1/3
     </Box>
   </Row>
@@ -52,15 +52,15 @@
 ```react
 <Grid>
   <Row mx={-2}>
-    <Box width={1/2} p={1}>1/2</Box>
-    <Box width={1/4} p={1}>1/4</Box>
-    <Box width={1/4} p={1}>1/4</Box>
+    <Box w={1/2} p={1}>1/2</Box>
+    <Box w={1/4} p={1}>1/4</Box>
+    <Box w={1/4} p={1}>1/4</Box>
   </Row>
   <Row mx={-2}>
-    <Box width={1/6} p={1}>1/6</Box>
-    <Box width={1/3} p={1}>1/3</Box>
-    <Box width={1/6} p={1}>1/6</Box>
-    <Box width={1/3} p={1}>1/3</Box>
+    <Box w={1/6} p={1}>1/6</Box>
+    <Box w={1/3} p={1}>1/3</Box>
+    <Box w={1/6} p={1}>1/6</Box>
+    <Box w={1/3} p={1}>1/3</Box>
   </Row>
 </Grid>
 ```
@@ -108,9 +108,9 @@ responsive: true
 ---
 <Grid>
   <Row>
-    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
-    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
-    <Box width={[ 1, 1/2 ]} p={1}>Responsive</Box>
+    <Box w={[ 1, 1/2 ]} p={1}>Responsive</Box>
+    <Box w={[ 1, 1/2 ]} p={1}>Responsive</Box>
+    <Box w={[ 1, 1/2 ]} p={1}>Responsive</Box>
   </Row>
 </Grid>
 ```
