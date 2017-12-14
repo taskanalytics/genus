@@ -11,7 +11,7 @@ import Text from './components/Text'
 export {
   Grid,
   Flex,
-  Rox,
+  Row,
   Box,
   Button,
   ProgressBar,
