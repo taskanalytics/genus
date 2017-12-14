@@ -1,4 +1,4 @@
-import { Heading } from '.'
+import Heading from '.'
 
 export default {
   title: 'Heading',
