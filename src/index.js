@@ -1,7 +1,7 @@
 import * as styles from './styles'
 import Button from './components/Button'
 import ProgressBar from './components/ProgressBar'
-import { Grid, Row, Box } from './components/Grid'
+import { Grid, Flex, Row, Box } from './components/Grid'
 import Number from './components/Number'
 import Percentage from './components/Percentage'
 import PieChart from './components/PieChart'
@@ -10,6 +10,9 @@ import Text from './components/Text'
 
 export {
   Grid,
+  Flex,
+  Rox,
+  Box,
   Button,
   ProgressBar,
   Number,
