@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {Wrapper, StyledHeading, StyledText} from './styled'
-import { Box } from '../Grid'
+import { Wrapper, StyledHeading, StyledText } from './styled'
 import Percentage from '../Percentage'
 
 class ReportComponent extends Component {
@@ -9,7 +8,7 @@ class ReportComponent extends Component {
     const {heading, type, value, description} = this.props
 
     return (
-      <Wrapper is="article" role="button" tabindex="0">
+      <Wrapper p={2} role="button" tabindex="0">
         <StyledHeading is="h2">{heading}</StyledHeading>
         <StyledText>{type}</StyledText>
         <Percentage size="large" value={value} description={description} />

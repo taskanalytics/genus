@@ -4,13 +4,11 @@ import * as spacing from '../../styles/spacing'
 import {radius} from '../../styles/config'
 import {font, fontSize} from '../../styles/mixins'
 import {colors} from '../../styles/colors'
-import {width, space} from 'styled-system'
+import { width, space } from 'styled-system'
 
-import {Box} from '../Grid'
-import Heading from '../Heading'
-import Text from '../Text'
+import {Box, Flex} from '../Grid'
 
-export const Wrapper = glamorous(Box)({
+export const Wrapper = glamorous(Flex)({
   alignItems: 'center',
   backgroundColor: colors.white,
   borderRadius: radius,
@@ -21,12 +19,6 @@ export const Wrapper = glamorous(Box)({
   //padding: spacing.base,
 })
 
-export const StyledHeading = glamorous(Heading)({
-  ...fontSize('medium'),
-  color: colors.primary,
-})
-
-export const StyledText = glamorous(Text)({
-  marginBottom: spacing.base,
-  color: colors.muted,
+export const Meta = glamorous(Box)({
+  //flex: '1 1 auto',
 })

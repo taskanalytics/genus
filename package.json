@@ -25,14 +25,14 @@
     "access": "public"
   },
   "dependencies": {
-    "axs": "^2.0.0-1",
     "glamor": "^2.20.40",
     "glamorous": "^4.9.7",
     "polished": "^1.8.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "recompose": "^0.25.1"
+    "recompose": "^0.25.1",
+    "styled-system": "^1.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
