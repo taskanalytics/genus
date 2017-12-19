@@ -39,6 +39,9 @@ const pages = [
       require('../src/components/OrgCard/catalog').default,
       require('../src/components/SurveyCard/catalog').default,
       require('../src/components/Avatar/catalog').default,
+      require('../src/components/Header/catalog').default,
+      require('../src/components/UserAvatar/catalog').default,
+      require('../src/components/Logo/catalog').default,
     ]},
 ]
 

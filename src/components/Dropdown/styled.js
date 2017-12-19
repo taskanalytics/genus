@@ -1,7 +1,6 @@
 import glamorous from 'glamorous'
 
 import * as spacing from '../../styles/spacing'
-import {radius} from '../../styles/config'
 import {font, fontSize} from '../../styles/mixins'
 import {colors} from '../../styles/colors'
 import {Box} from '../Grid'
@@ -17,7 +16,6 @@ export const StyledOption = glamorous(Box)({
   padding: spacing.unit,
   paddingLeft: spacing.unit*2,
   paddingRight: spacing.unit*2,
-  borderRadius: radius,
   '&:hover,&:focus,&:active': {
     backgroundColor: colors.primary,
     color: colors.white,

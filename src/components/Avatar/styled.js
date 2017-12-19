@@ -1,10 +1,9 @@
 import glamorous from 'glamorous'
-import {radius} from '../../styles/config'
+import theme from '../../styles/theme'
 import {Box} from '../Grid'
 
 export const StyledBox = glamorous(Box)({
   width: '64px',
   height: '64px',
-  borderRadius: radius,
-  overflow: 'hidden',
+  borderRadius: theme.radius,
 })
