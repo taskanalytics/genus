@@ -1,4 +1,4 @@
-import { Container, Flex, Row, Box } from '.'
+import { Container, Flex, Box } from '.'
 import Heading from '../Heading'
 import Text from '../Text'
 import glamorous from 'glamorous'
@@ -10,17 +10,12 @@ export default {
     Heading,
     Text,
     Container: glamorous(Container)({
-      //background: 'rgba(86,61,124,.15)',
       border: '1px solid rgba(86,61,124,.2)',
     }),
     Flex: glamorous(Flex)({
-      border: '1px solid red'
-    }),
-    Row: glamorous(Row)({
-      border: '1px solid red'
+      border: '1px solid rgba(86,61,124,1)'
     }),
     Box: glamorous(Box)({
-      //background: 'rgba(86,61,124,.15)',
       border: '1px solid rgba(86,61,124,.2)',
     }),
   },

@@ -31,9 +31,8 @@ export const StyledFlex = glamorous(StyledBox)([
   alignSelf
 )
 
-export const StyledContainer = glamorous(StyledBox)({
-  // Styles go here
-}, props => {
+export const StyledContainer = glamorous(StyledBox)({},
+  props => {
   if (!props.fluid) {
     return {
       maxWidth: '1200px',
