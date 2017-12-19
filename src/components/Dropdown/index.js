@@ -6,7 +6,9 @@ import { StyledDropdown, StyledOption, StyledSeparator } from './styled'
 export const Option = props =>
   <StyledOption role="button" tabindex="0" {...props}>{props.children}</StyledOption>
 
-export const Dropdown = props =>
+export const Separator = props => <StyledSeparator />
+
+const Dropdown = props =>
   <StyledDropdown>{props.children}</StyledDropdown>
 
-export const Separator = props => <StyledSeparator />
+export default Dropdown

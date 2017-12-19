@@ -1,13 +1,11 @@
 import glamorous from 'glamorous'
-import {
-  width,
-  space,
-  flexWrap,
-  alignItems,
-  justifyContent,
-  flexDirection,
-  alignSelf
-} from 'styled-system'
+import width from 'styled-system/dist/width'
+import space from 'styled-system/dist/space'
+import flexWrap from 'styled-system/dist/flex-wrap'
+import flexDirection from 'styled-system/dist/flex-direction'
+import alignSelf from 'styled-system/dist/align-self'
+import alignItems from 'styled-system/dist/align-items'
+import justifyContent from 'styled-system/dist/justify-content'
 
 function withIsProp (Component) {
   return ({ is, ...props }) => {
@@ -43,9 +41,3 @@ export const StyledContainer = glamorous(StyledBox)({
     }
   }
 })
-
-export const StyledRow = glamorous(StyledFlex)([
-  {
-    //backgroundColor: 'green',
-  }],
-)

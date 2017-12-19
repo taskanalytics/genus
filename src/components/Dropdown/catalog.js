@@ -1,4 +1,4 @@
-import {Dropdown, Option, Separator} from '.'
+import Dropdown, {Option, Separator} from '.'
 
 export default {
   title: 'Dropdown',

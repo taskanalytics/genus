@@ -14,7 +14,7 @@ const typeScale = [
 
 const radius = 4
 
-module.exports = {
+export {
   breakpoints,
   space,
   typeScale,

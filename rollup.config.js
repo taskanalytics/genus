@@ -10,12 +10,11 @@ import replace from 'rollup-plugin-replace'
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 export default {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   external: ['react', 'glamorous'],
   exports: 'named',
   globals: { react: 'React', 'glamorous': 'glamorous' },
   useStrict: false,
-  sourceMap: true,
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify('production')
@@ -52,9 +51,9 @@ export default {
       limit: 10,
     }),
   ],
-  targets: [
-    {dest: pkg.main, format: 'cjs'},
-    {dest: pkg.module, format: 'es'},
-    {dest: pkg['umd:main'], format: 'umd', moduleName: pkg.name},
+  output: [
+    {file: pkg.main, format: 'cjs', sourcemap: true},
+    {file: pkg.module, format: 'es', sourcemap: true},
+    {file: pkg['umd:main'], format: 'umd', name: pkg.name, sourcemap: true},
   ],
 }

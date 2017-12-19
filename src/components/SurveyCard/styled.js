@@ -4,7 +4,6 @@ import * as spacing from '../../styles/spacing'
 import {radius} from '../../styles/config'
 import {font, fontSize} from '../../styles/mixins'
 import {colors} from '../../styles/colors'
-import { width, space } from 'styled-system'
 
 import {Box} from '../Grid'
 

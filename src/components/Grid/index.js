@@ -3,7 +3,6 @@ import T from 'prop-types'
 
 import {
   StyledBox,
-  StyledRow,
   StyledContainer,
   StyledFlex,
 } from './styled'
@@ -16,9 +15,6 @@ export const Flex = props =>
 
 export const Container = props =>
   <StyledContainer px={2} {...props}>{props.children}</StyledContainer>
-
-export const Row = props =>
-  <StyledRow wrap {...props}>{props.children}</StyledRow>
 
 if (process.env.NODE_ENV !== 'production') {
   Container.propTypes = {
