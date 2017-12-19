@@ -19,8 +19,8 @@ Add the `fluid` prop for a full width container, spanning the entire width of th
 Our grid system uses a series of containers, flex and box elements to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
 ```react
 <Container>
-  <Flex wrap>
-    <Box w={1/2} p={1}>
+  <Flex wrap is="main">
+    <Box is="section" w={1/2} p={1}>
       Spans half width
     </Box>
     <Box w={1/2} p={1}>

@@ -9,20 +9,23 @@ import {
   alignSelf
 } from 'styled-system'
 
-export const StyledBox = glamorous('div')([
-  {
+function withIsProp (Component) {
+  return ({ is, ...props }) => {
+    const Resolved = is ? Component.withComponent(is) : Component
+    return <Resolved {...props} />
+  }
+}
 
-  }],
+export const StyledBox = withIsProp(glamorous('div')(
+  [{}],
   width,
   space
-)
+))
 
-export const StyledFlex = glamorous('div')([
+export const StyledFlex = glamorous(StyledBox)([
   {
     display: 'flex',
   }],
-  width,
-  space,
   flexWrap,
   alignItems,
   justifyContent,
