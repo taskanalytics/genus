@@ -39,6 +39,44 @@ Our grid system uses a series of containers, flex and box elements to layout and
 </Container>
 ```
 
+## Space
+The space utility converts shorthand margin and padding props to margin and padding CSS declarations. Numbers from 0-4 are converted to values on the spacing scale. Negative values can be used for negative margins. Numbers greater than 4 are converted to raw pixel values. String values are passed as raw CSS values. And array values are converted into responsive values.
+
+Margin and padding props follow a shorthand syntax for specifying direction.
+
+`m:` margin
+`mt:` margin-top
+`mr:` margin-right
+`mb:` margin-bottom
+`ml:` margin-left
+`mx:` margin-left and margin-right
+`my:` margin-top and margin-bottom
+`p:` padding
+`pt:` padding-top
+`pr:` padding-right
+`pb:` padding-bottom
+`pl:` padding-left
+`px:` padding-left and padding-right
+`py:` padding-top and padding-bottom
+
+## Responsive styles
+All core function props accept arrays as values for mobile-first responsive styles.
+```
+<Box
+  width={[
+    1,    // 100% below the smallest breakpoint
+    1/2,  // 50% from the next breakpoint and up
+    1/4   // 25% from the next breakpoint and up
+  ]}
+/>
+
+// responsive margin
+<Box m={[ 1, 2, 3, 4 ]} />
+
+// responsive padding
+<Box p={[ 1, 2, 3, 4 ]} />
+```
+
 ## `is`
 The `is` prop allows the element's HTML tag to be changed on a per-instance basis. This is helpful for ensuring HTML semantics and expanding upon the core set of Genus primitive components.
 ```react
@@ -70,7 +108,7 @@ The `is` prop allows the element's HTML tag to be changed on a per-instance basi
 ```
 
 ## Flex
-Flex elements can receive different properties.
+Flex elements can receive different props.
 
 ```
 <Flex align='center' />
