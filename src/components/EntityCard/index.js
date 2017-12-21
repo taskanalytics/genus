@@ -5,7 +5,7 @@ import Heading from '../Heading'
 import Text from '../Text'
 import Avatar from '../Avatar'
 
-class OrgCard extends Component {
+class EntityCard extends Component {
   render () {
     const {name, description, avatar} = this.props
 
@@ -22,11 +22,11 @@ class OrgCard extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  OrgCard.propTypes = {
+  EntityCard.propTypes = {
     name: T.string.isRequired,
     description: T.string,
     avatar: T.string,
   }
 }
 
-export default OrgCard
+export default EntityCard

@@ -9,6 +9,8 @@ import Heading from './components/Heading'
 import Report from './components/Report'
 import Text from './components/Text'
 import Dropdown from './components/Dropdown'
+import EntityCard from './components/EntityCard'
+import SurveyCard from './components/SurveyCard'
 
 export {
   Button,
@@ -23,5 +25,7 @@ export {
   Report,
   Text,
   Dropdown,
+  EntityCard,
+  SurveyCard,
   styles,
 }

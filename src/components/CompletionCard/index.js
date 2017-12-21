@@ -4,7 +4,7 @@ import { Wrapper } from './styled'
 import Heading from '../Heading'
 import Percentage from '../Percentage'
 
-class SurveyCard extends Component {
+class CompletionCard extends Component {
   render () {
     const {name, completion} = this.props
 
@@ -18,10 +18,10 @@ class SurveyCard extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  SurveyCard.propTypes = {
+  CompletionCard.propTypes = {
     name: T.string.isRequired,
     completion: T.number,
   }
 }
 
-export default SurveyCard
+export default CompletionCard
