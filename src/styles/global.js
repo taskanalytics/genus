@@ -1,6 +1,7 @@
 import { css as glamorCss, cssFor } from 'glamor'
 import {font, fontSize} from './mixins'
 import * as spacing from './spacing'
+import theme from './theme'
 import fonts from './fonts'
 
 const keyfix = name => name.replace(/([a-z]{1})([A-Z]{1})/, (a, b, c) => {
@@ -25,6 +26,7 @@ function globalMqHack (css, selector, rules) {
 }
 
 export function injectGlobals (css = glamorCss) {
+
   // A hack to inject our fonts to the catalog build
   fonts.forEach(font => {
     css.global('@font-face', font['@font-face'])
@@ -44,24 +46,26 @@ export function injectGlobals (css = glamorCss) {
     wordWrap: 'break-word',
     margin: 0,
     padding: 0,
-    marginBottom: spacing.base,
+    marginBottom: theme.space[2],
   })
 
   globalMqHack(css, 'h1', fontSize('xxlarge'))
   globalMqHack(css, 'h2', fontSize('xlarge'))
   globalMqHack(css, 'h3', fontSize('large'))
+
   css.global('h3', {
-    letterSpacing: '0.4px',
+    //letterSpacing: '0.4px',
   })
+
   css.global('h4', {
     ...fontSize('small'),
-    letterSpacing: '0.3px',
+    //letterSpacing: '0.3px',
   })
 
   css.global('p', {
     ...font('normal'),
     ...fontSize('small'),
-    letterSpacing: '0.3px',
+    //letterSpacing: '0.3px',
     marginBottom: spacing.base,
 
     '&:empty': {
@@ -77,39 +81,7 @@ export function injectGlobals (css = glamorCss) {
     fontFamily: 'inherit',
     fontWeight: 'inherit',
     lineHeight: 0,
-    top: '-0.35em',
+    //top: '-0.35em',
     fontSize: '0.65em',
   })
 }
-
-/*
-.text-muted {
-    color: $color-muted;
-}
-
-.text-center {
-    text-align: center;
-}
-
-blockquote {
-    @include font(base, normal);
-    font-style: italic;
-    word-wrap: break-word;
-
-    &:before {
-        content: '- ';
-    }
-
-}
-
-// sup
-sup {
-    position: relative;
-    vertical-align: baseline;
-    font-family: inherit;
-    font-weight: inherit;
-    line-height: 0;
-    top: -0.35em;
-    font-size: 0.65em;
-}
-*/

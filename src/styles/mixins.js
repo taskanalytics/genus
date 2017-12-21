@@ -1,8 +1,22 @@
 import { mq } from './breakpoints'
+import theme from './theme'
 
 export const spacedText = () => ({
   textTransform: 'uppercase',
   letterSpacing: '0.17em',
+})
+
+export const completionGradient = () => ({
+  backgroundImage: `
+    linear-gradient(
+      to right,
+      ${theme.colors.trouble} 55%,
+      ${theme.colors.headsUp},
+      ${theme.colors.headsUp} 80%,
+      ${theme.colors.good} 90%,
+      ${theme.colors.good})
+  `,
+  backgroundSize: '2100%',
 })
 
 const textWeights = {

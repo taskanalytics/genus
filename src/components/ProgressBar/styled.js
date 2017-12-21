@@ -56,7 +56,7 @@ export const Label = glamorous('span')({
   position: 'absolute',
   display: 'block',
   padding: spacing.unit,
-  paddingBottom: spacing.unit - 3,
+  paddingBottom: spacing.unit - 1,
   color: colors.text,
   textAlign: 'center',
   top: -(spacing.unit * 6),

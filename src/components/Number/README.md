@@ -2,10 +2,10 @@
 Required:
 
 [value]               Numeric value
-[description]         Label for number
 
 Optional:
 
+[description]         Label for number
 [sup]                 Denominator for number, like %
 [size={small,large}]  Render either a small or a large variant
 ```

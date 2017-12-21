@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { Wrapper } from './styled'
+import { getPercentage } from '../../utils/calculations'
+import { StyledBox } from './styled'
 import Heading from '../Heading'
 import Percentage from '../Percentage'
 
@@ -9,10 +10,16 @@ class CompletionCard extends Component {
     const {name, completion} = this.props
 
     return (
-      <Wrapper p={2} role="button" tabindex="0">
-        <Heading>{name}</Heading>
+      <StyledBox
+        p={2}
+        role="button"
+        tabindex="0"
+        css={{
+          backgroundPosition: `${getPercentage(completion, 1)}% center`,
+        }}>
+        <Heading is='h2'>{name}</Heading>
         <Percentage size="large" value={completion} description="Completion rate" />
-      </Wrapper>
+      </StyledBox>
     )
   }
 }

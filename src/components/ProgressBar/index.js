@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import T from 'prop-types'
 import getClassification from '../../utils/completion-rate-classification'
 import {colors} from '../../styles/colors'
+import Percentage from '../Percentage'
 
 import {
   Wrapper,
@@ -52,7 +53,7 @@ class ProgressBar extends Component {
         <Meter {...meterProps}>
           { !empty && color &&
             <Label {...labelProps}>
-              {val}<sup>%</sup>
+              <Percentage size="small" value={val} />
             </Label>
           }
         </Meter>
