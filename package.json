@@ -1,6 +1,6 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "3.0.0-3",
+  "version": "3.0.0-4",
   "description": "",
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
@@ -32,8 +32,8 @@
     "styled-system": "^1.1.1"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "glamorous": "^4.9.7"
+    "glamorous": "^4.9.7",
+    "react": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
