@@ -13,7 +13,10 @@ export default {
   input: 'src/index.js',
   external: ['react', 'glamorous'],
   exports: 'named',
-  globals: { react: 'React', 'glamorous': 'glamorous' },
+  globals: {
+    react: 'React',
+    glamorous: 'glamorous',
+  },
   useStrict: false,
   plugins: [
     replace({

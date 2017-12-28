@@ -27,13 +27,13 @@
   },
   "dependencies": {
     "glamor": "^2.20.40",
-    "glamorous": "^4.9.7",
     "polished": "^1.8.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "recompose": "^0.25.1",
     "styled-system": "^1.1.1"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "glamorous": "^4.9.7"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -48,7 +48,11 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
+    "glamorous": "^4.9.7",
     "next": "^4.0.3",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "rollup": "^0.52.2",
     "rollup-analyzer-plugin": "^1.0.1",
     "rollup-plugin-babel": "^3.0.3",
