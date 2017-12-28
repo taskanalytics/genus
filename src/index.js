@@ -10,7 +10,7 @@ import Report from './components/Report'
 import Text from './components/Text'
 import Dropdown from './components/Dropdown'
 import EntityCard from './components/EntityCard'
-import SurveyCard from './components/SurveyCard'
+import CompletionCard from './components/CompletionCard'
 
 export {
   Button,
@@ -26,6 +26,6 @@ export {
   Text,
   Dropdown,
   EntityCard,
-  SurveyCard,
+  CompletionCard,
   styles,
 }
