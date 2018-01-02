@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { StyledFlex, Meta, StyledHeading } from './styled'
+import { StyledFlex, StyledHeading } from './styled'
 import Text from '../Text'
 import Avatar from '../Avatar'
 import {Box} from '../Grid'
