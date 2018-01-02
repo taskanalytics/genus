@@ -36,6 +36,10 @@ export function injectGlobals (css = glamorCss) {
     boxSizing: 'border-box',
   })
 
+  css.global('body, html', {
+    color: theme.colors.text
+  })
+
   css.global('body, html, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, table, th, td, caption, hr, figure', {
     margin: 0,
     padding: 0,

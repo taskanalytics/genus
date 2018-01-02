@@ -6,4 +6,5 @@ export const StyledBox = glamorous(Box)({
   width: '64px',
   height: '64px',
   borderRadius: theme.radius,
+  overflow: 'hidden',
 })

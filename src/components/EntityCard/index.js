@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { Wrapper, Meta } from './styled'
-import Heading from '../Heading'
+import { StyledFlex, Meta, StyledHeading } from './styled'
 import Text from '../Text'
 import Avatar from '../Avatar'
+import {Box} from '../Grid'
 
 class EntityCard extends Component {
   render () {
     const {name, description, avatar} = this.props
 
     return (
-      <Wrapper p={2} role="button" tabindex="0">
+      <StyledFlex p={2} role="button" tabindex="0">
         <Avatar src={avatar} />
-        <Meta ml={2}>
-          <Heading>{name}</Heading>
-          <Text>{description}</Text>
-        </Meta>
-      </Wrapper>
+        <Box ml={2}>
+          <StyledHeading mb={1}>{name}</StyledHeading>
+          <Text muted small>{description}</Text>
+        </Box>
+      </StyledFlex>
     )
   }
 }

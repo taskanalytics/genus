@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
 import { getPercentage } from '../../utils/calculations'
-import { StyledBox } from './styled'
+import { StyledBox, StyledHeading, StyledText } from './styled'
 import Heading from '../Heading'
+import Text from '../Text'
 import Percentage from '../Percentage'
 
 class CompletionCard extends Component {
@@ -11,14 +12,15 @@ class CompletionCard extends Component {
 
     return (
       <StyledBox
-        p={2}
+        p={3}
         role="button"
         tabindex="0"
         css={{
           backgroundPosition: `${getPercentage(completion, 1)}% center`,
         }}>
-        <Heading is='h2'>{name}</Heading>
-        <Percentage size="large" value={completion} description="Completion rate" />
+        <StyledHeading is='h2' mb={3}>{name}</StyledHeading>
+        <StyledText small muted>Completion rate</StyledText>
+        <Percentage size="large" value={completion} />
       </StyledBox>
     )
   }

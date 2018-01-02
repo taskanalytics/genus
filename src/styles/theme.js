@@ -12,11 +12,11 @@ const theme = {
   //   12, 16, 18, 24, 36, 72
   // ],
   colors: {
-    black: '#111',
+    black: 'rgb(17, 17, 17)',
     blue: '#07c',
-    text: '#2d3644',
+    text: 'rgb(45, 54, 68)',
     white: '#fff',
-    muted: 'rgba(#2d3655, 0.7)',
+    muted: 'rgba(45, 54, 68, 0.8)',
     primary: '#2084d8',
     good: rgba(140, 215, 150, 1),
     headsUp: rgba(255, 212, 0, 1),

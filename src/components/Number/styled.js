@@ -16,6 +16,7 @@ export const DL = glamorous('dl')({
 export const DT = glamorous('dt')(
   {
     ...font('bold'),
+    ...fontSize('large'),
     letterSpacing: '-0.03em',
   },
   styleIf(isLarge, {
