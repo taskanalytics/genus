@@ -50,7 +50,7 @@ class Dropdown extends Component {
     const {isOpened} = this.state
     return (
       <Fade
-        //wrappedRef={instance => { this.toggle = instance.toggle }}
+        wrappedRef={instance => { this.toggle = instance.toggle }}
         in={isOpened}>
         {children}
       </Fade>
