@@ -1,13 +1,13 @@
 ```react
-state: {showDropdown: false}
+state: {isOpened: true}
 ---
 <div>
   
-  <button onClick={() => setState({showDropdown: !state.showDropdown})}>
+  <button onClick={() => setState({isOpened: !state.isOpened})}>
     Toggle dropdown
   </button>
 
-  <Dropdown show={state.showDropdown}>
+  <Dropdown show={state.isOpened}>
     <Option onClick={() => console.log('Clicked Option 1')}>Option 1</Option>
     <Option onClick={() => console.log('Clicked Option 2')}>Option 2</Option>
     <Option onClick={() => console.log('Clicked Option 3')}>Option 3</Option>

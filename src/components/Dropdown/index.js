@@ -18,11 +18,11 @@ export const Separator = props =>
 const Fade = ({ children, in: inProp }) => (
   <Transition
     in={inProp}
-    timeout={0}
+    timeout={{enter: 0, exit: 300}}
     mountOnEnter={true}
     unmountOnExit={true}>
     {(state) => (
-      <StyledList {...state}>
+      <StyledList status={state}>
         {children}
       </StyledList>
     )}
@@ -32,7 +32,7 @@ const Fade = ({ children, in: inProp }) => (
 class Dropdown extends Component {
 
   state = {
-    isOpened: false
+    isOpened: this.props.show
   }
 
   handleClickOutside = e => {
@@ -50,7 +50,7 @@ class Dropdown extends Component {
     const {isOpened} = this.state
     return (
       <Fade
-        wrappedRef={instance => { this.toggle = instance.toggle }}
+        //wrappedRef={instance => { this.toggle = instance.toggle }}
         in={isOpened}>
         {children}
       </Fade>

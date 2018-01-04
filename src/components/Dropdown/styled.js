@@ -1,4 +1,5 @@
 import glamorous from 'glamorous'
+import * as glamor from 'glamor'
 import {rgba} from 'polished'
 import * as spacing from '../../styles/spacing'
 import {font, fontSize} from '../../styles/mixins'
@@ -6,13 +7,48 @@ import theme from '../../styles/theme'
 import {colors} from '../../styles/colors'
 import {Box} from '../Grid'
 
-
 export const StyledList = glamorous.ul({
   backgroundColor: colors.white,
   borderRadius: theme.radius*2,
   padding: spacing.unit,
+  position: 'absolute',
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
-  maxWidth: '360px',
+  maxWidth: '300px',
+  minWidth: '160px',
+  transformOrigin: 'top center',
+  opacity: 0,
+  transform: 'translate3D(0, -10px, 0)',
+  WebkitBackfaceVisibility: 'hidden',
+  transformStyle: 'preserve-3d',
+  transition: 'opacity .3s',
+  visibility: 'hidden',
+}, props => {
+  // if (props.status === 'entering') {
+  //   return {
+  //     opacity: 0,
+  //   }
+  // }
+  if (props.status === 'entered') {
+    return {
+      opacity: 1,
+      transform: 'translate3D(0,0,0)',
+      transition: 'opacity .3s, transform .3s',
+      visibility: 'visible',
+    }
+  }
+  if (props.status === 'exiting') {
+    return {
+      opacity: 0,
+      transform: 'translate3D(0,0,0)',
+      visibility: 'visible',
+      transition: 'opacity .2s',
+    }
+  }
+  if (props.status === 'exited') {
+    return {
+      visibility: 'hidden',
+    }
+  }
 })
 
 export const StyledOption = glamorous(Box)({
