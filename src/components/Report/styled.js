@@ -14,14 +14,18 @@ export const StyledBox = glamorous(Box)({
   backgroundColor: colors.white,
   borderRadius: theme.radius*2,
   transition: 'box-shadow .2s',
+  color: colors.text,
   '&:hover': {
-    boxShadow: '0 2px 6px 0 rgba(0,0,0,.2)',
-  }
+    boxShadow: '0 2px 6px 0 rgba(0,0,0,.1)',
+  },
+  'a:hover &': {
+    textDecoration: 'none',
+  },
 })
 
 export const StyledHeading = glamorous(Heading)({
   ...font('base'),
-  ...fontSize('medium'),
+  ...fontSize('small'),
 })
 
 export const StyledText = glamorous(Text)({
