@@ -5,7 +5,6 @@ import T from 'prop-types'
 
 import {
   StyledList,
-  StyledDropdown,
   StyledOption,
   StyledSeparator
 } from './styled'

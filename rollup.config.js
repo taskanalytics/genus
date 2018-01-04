@@ -11,7 +11,7 @@ const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 export default {
   input: 'src/index.js',
-  external: ['react', 'glamorous'],
+  external: ['react', 'glamorous', 'polished'],
   exports: 'named',
   globals: {
     react: 'React',
@@ -22,19 +22,15 @@ export default {
     replace({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    ignore([
-      'prop-types',
-    ]),
     resolve({
-      jsnext: false,
-      main: true,
-      browser: true,
+      jsnext: true,
     }),
     commonjs({
       ignoreGlobal: true,
       include: 'node_modules/**',
       exclude: [
         'node_modules/polished/**',
+        'node_modules/react-dom/**',
       ],
     }),
     babel({
