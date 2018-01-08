@@ -6,13 +6,9 @@ import {StyledHeader} from './styled'
 
 const Header = props =>
   <StyledHeader fluid align='center' px={2}>
-    {props.left && <Box>{props.left}</Box>}
+    {!props.left ? <Logo /> : <Box>{props.left}</Box>}
     {props.right && <Box ml='auto'>{props.right}</Box>}
   </StyledHeader>
-
-Header.defaultProps = {
-  left: <Logo />
-}
 
 if (process.env.NODE_ENV !== 'production') {
   Header.propTypes = {
