@@ -10,11 +10,11 @@ class EntityCard extends Component {
     const {name, description, avatar} = this.props
 
     return (
-      <StyledFlex p={2} role="button" tabindex="0">
-        <Avatar src={avatar} />
-        <Box ml={2}>
-          <StyledHeading mb={1}>{name}</StyledHeading>
-          <Text muted small>{description}</Text>
+      <StyledFlex p={3} role="button" tabindex="0">
+        {avatar && <Avatar mr={2} src={avatar} /> }
+        <Box>
+          <StyledHeading mb={0}>{name}</StyledHeading>
+          {description && <Text muted small>{description}</Text> }
         </Box>
       </StyledFlex>
     )

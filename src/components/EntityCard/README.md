@@ -3,4 +3,8 @@
   name="Acme Corporation"
   avatar="http://via.placeholder.com/64x64"
   description="2 surveys" />
+
+<EntityCard
+  name="NoAvatar Corporation"
+  description="2 surveys" />
 ```
