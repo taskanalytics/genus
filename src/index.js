@@ -14,6 +14,7 @@ import CompletionCard from './components/CompletionCard'
 import Logo from './components/Logo'
 import UserAvatar from './components/UserAvatar'
 import Header from './components/Header'
+import MultiToggle from './components/MultiToggle'
 
 export {
   Button,
@@ -34,4 +35,5 @@ export {
   Logo,
   UserAvatar,
   Header,
+  MultiToggle,
 }

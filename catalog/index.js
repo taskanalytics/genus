@@ -43,6 +43,7 @@ const pages = [
       require('../src/components/UserAvatar/catalog').default,
       require('../src/components/Logo/catalog').default,
       require('../src/components/Modal/catalog').default,
+      require('../src/components/MultiToggle/catalog').default,
     ]},
 ]
 
