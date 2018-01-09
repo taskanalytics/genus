@@ -9,7 +9,7 @@ class ReportComponent extends Component {
     const {heading, type, value, description} = this.props
 
     return (
-      <StyledBox p={2} role="button" tabindex="0">
+      <StyledBox p={2}>
         <StyledHeading is="h2" mb={0}>{heading}</StyledHeading>
         <Text small muted mb={2}>{type}</Text>
         <Percentage size="medium" value={value} description={description} />
