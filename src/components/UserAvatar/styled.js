@@ -1,17 +1,25 @@
 import glamorous from 'glamorous'
 import {font, fontSize} from '../../styles/mixins'
-import {Box} from '../Grid'
+import {Flex} from '../Grid'
 
-export const StyledBox = glamorous(Box)({
+export const Wrapper = glamorous(Flex)({
   ...font('base'),
   ...fontSize('xxsmall'),
   width: '32px',
   height: '32px',
-  lineHeight: '32px',
-  textAlign: 'center',
+  paddingBottom: '1px',
   borderRadius: '16px',
-  display: 'inline-block',
   overflow: 'hidden',
   color: '#fff',
   textDecoration: 'none',
+}, props => {
+  let styles = {
+    backgroundColor: props.color
+  }
+  return styles
+})
+
+export const Svg = glamorous.svg({
+  marginBottom: '1px',
+  fill: '#FFF'
 })
