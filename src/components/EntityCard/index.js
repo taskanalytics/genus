@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import T from 'prop-types'
 import { StyledFlex, StyledHeading } from './styled'
 import Text from '../Text'
 import Avatar from '../Avatar'
 import {Box} from '../Grid'
 
-class EntityCard extends Component {
+class EntityCard extends PureComponent {
   render () {
     const {name, description, avatar} = this.props
-
     return (
-      <StyledFlex p={3} role="button" tabindex="0">
+      <StyledFlex p={'24px'}>
         {avatar && <Avatar mr={2} src={avatar} /> }
         <Box>
-          <StyledHeading mb={0}>{name}</StyledHeading>
+          <StyledHeading mb={1} mt={'2px'}>{name}</StyledHeading>
           {description && <Text muted small>{description}</Text> }
         </Box>
       </StyledFlex>

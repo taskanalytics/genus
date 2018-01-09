@@ -4,10 +4,9 @@ import { StyledBox } from './styled'
 
 class AvatarComponent extends Component {
   render () {
-    const {src} = this.props
     return (
-      <StyledBox>
-        <img src={src} />
+      <StyledBox {...this.props}>
+        <img src={this.props.src} />
       </StyledBox>
     )
   }
