@@ -15,12 +15,12 @@ const styledBlock = styleIf('block', {
 const styledPrimary = styleIf('primary', {
   borderColor: colors.primary,
   color: colors.primary,
-  ':hover, :focus': {
+  '&:hover,&:focus': {
     color: colors.white,
     borderColor: colors.primary,
     backgroundColor: colors.primary,
   },
-  ':active': {
+  '&:active': {
     backgroundColor: colors.primaryDark,
   },
 })
@@ -30,12 +30,12 @@ const styledPrimaryInverted = styleIf('primaryinverted', {
   borderColor: colors.primary,
   backgroundColor: colors.primary,
 
-  ':hover, :focus': {
+  '&:hover,&:focus': {
     color: colors.white,
     backgroundColor: colors.primaryDark,
     borderColor: colors.primaryDark,
   },
-  ':active': {
+  '&:active': {
     backgroundColor: colors.primaryDark,
   },
 })
@@ -44,12 +44,12 @@ const styledInverted = styleIf('inverted', {
   color: colors.white,
   border: `4px solid ${colors.base}`,
   backgroundColor: 'transparent',
-  ':hover, :focus': {
+  '&:hover,&:focus': {
     color: colors.primaryDark,
     backgroundColor: colors.white,
     borderColor: colors.white,
   },
-  ':active': {
+  '&:active': {
     backgroundColor: colors.primaryDark,
   },
 })
@@ -61,7 +61,7 @@ const styledWarning = styleIf('warning', {
   ':hover, :focus, :active': {
     backgroundColor: shade(0.05, colors.headsUp),
   },
-  ':hover, :focus': {
+  '&:hover,&:focus': {
     color: colors.white,
     borderColor: shade(0.05, colors.headsUp),
   },
@@ -84,7 +84,7 @@ const styledLink = styleIf('link', {
   margin: 0,
   letterSpacing: 0,
   color: colors.link,
-  ':hover, :focus': {
+  '&:hover,&:focus': {
     color: colors.primaryDark,
     textDecoration: 'underline',
   },
@@ -97,26 +97,25 @@ export default glamorous('button')({
   position: 'relative',
   display: 'inline-block',
   padding: `${spacing.small} ${spacing.base}`,
-
   color: rgba(colors.text, 0.8),
   whiteSpace: 'nowrap',
-
   borderRadius: '50px',
   border: `4px solid ${rgba(colors.dark, 0.15)}`,
   backgroundColor: 'transparent',
   //marginBottom: spacing.base,
-
   '[disabled]': {
     pointerEvents: 'none',
     opacity: 0.6,
   },
-
-  ':hover, :focus': {
+  '&:focus': {
+    outline: 'none',
+  },
+  '&:hover,&:focus': {
     color: colors.text,
     borderColor: rgba(colors.dark, 0.2),
     textDecoration: 'none',
   },
-  ':active': {
+  '&:active': {
     color: colors.text,
     borderColor: rgba(colors.dark, 0.3),
   },
