@@ -1,27 +1,41 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { getPercentage } from '../../utils/calculations'
-import { StyledBox, StyledHeading, StyledText } from './styled'
+import {
+  StyledBox,
+  StyledHeading,
+  StyledHeadingCreate,
+  StyledText,
+  StyledCreate,
+} from './styled'
 import Heading from '../Heading'
 import Text from '../Text'
 import Percentage from '../Percentage'
 
 class CompletionCard extends Component {
   render () {
-    const {name, completion} = this.props
-
+    const {
+      name,
+      completion
+    } = this.props
     return (
-      <StyledBox
-        p={3}
-        role="button"
-        tabindex="0"
-        css={{
-          backgroundPosition: `${getPercentage(completion, 1)}% center`,
-        }}>
+      <StyledBox p={3} completion={completion}>
         <StyledHeading is='h2' mb={3}>{name}</StyledHeading>
         <StyledText small muted>Completion rate</StyledText>
         <Percentage size="large" value={completion} />
       </StyledBox>
+    )
+  }
+}
+
+export class CompletionCardCreate extends Component {
+  render () {
+    const {
+
+    } = this.props
+    return (
+      <StyledCreate p={3}>
+        <StyledText small muted>Create survey</StyledText>
+      </StyledCreate>
     )
   }
 }

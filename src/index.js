@@ -10,7 +10,7 @@ import Report from './components/Report'
 import Text from './components/Text'
 import Dropdown from './components/Dropdown'
 import EntityCard from './components/EntityCard'
-import CompletionCard from './components/CompletionCard'
+import CompletionCard, { CompletionCardCreate } from './components/CompletionCard'
 import Logo from './components/Logo'
 import UserAvatar from './components/UserAvatar'
 import Header from './components/Header'
@@ -31,6 +31,7 @@ export {
   Dropdown,
   EntityCard,
   CompletionCard,
+  CompletionCardCreate,
   styles,
   Logo,
   UserAvatar,

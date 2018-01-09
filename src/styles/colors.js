@@ -1,13 +1,15 @@
-import { shade, rgba } from 'polished'
+import { shade, rgba, tint } from 'polished'
 
 const base = '#F0F4F7'
 const primary = '#2084d8'
 const primaryDark = shade(0.2, primary)
+const primaryShaded = tint(0.5, primary)
 const text = '#2d3644'
 
 export const colors = {
   primary,
   primaryDark,
+  primaryShaded,
   base,
   white: '#fff',
   dark: '#323C4C',
