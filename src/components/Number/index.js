@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {DL, DT, DD} from './styled'
-const StyledSpan = DT.withComponent('span')
+import {Dl, Dt, Dd, Suffix} from './styled'
+const StyledSpan = Dt.withComponent('span')
 
 class NumberComponent extends Component {
   render () {
-    const {size, sup, value, description} = this.props
+    const {size, suffix, value, description} = this.props
 
     if (description) {
       return (
-        <DL size={size}>
-          <DT size={size}>{value}{sup && <sup>{sup}</sup>}</DT>
-          <DD size={size}>{description}</DD>
-        </DL>
+        <Dl size={size}>
+          <Dt size={size}>{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
+          <Dd size={size}>{description}</Dd>
+        </Dl>
       )
     } else {
       return (
-        <StyledSpan size={size}>{value}{sup && <sup>{sup}</sup>}</StyledSpan>
+        <StyledSpan size={size}>{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
       )
     }
 
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
     value: T.oneOfType([T.string, T.number]).isRequired,
     description: T.string,
     size: T.oneOf(['small', 'large']),
-    sup: T.string,
+    suffix: T.string,
   }
 }
 

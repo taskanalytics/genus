@@ -8,12 +8,12 @@ import styleIf from '../../utils/styleIf'
 const isSmall = ({ size }) => size === 'small'
 const isLarge = ({ size }) => size === 'large'
 
-export const DL = glamorous('dl')({
+export const Dl = glamorous.dl({
   fontVariantNumeric: 'tabular-nums',
   fontFeatureSettings: 'tnum',
 })
 
-export const DT = glamorous('dt')(
+export const Dt = glamorous.dt(
   {
     ...font('bold'),
     ...fontSize('large'),
@@ -21,13 +21,14 @@ export const DT = glamorous('dt')(
   },
   styleIf(isLarge, {
     ...fontSize('xlarge'),
+    marginLeft: '-2px',
   }),
   styleIf(isSmall, {
     ...fontSize('xsmall'),
   })
 )
 
-export const DD = glamorous('dd')(
+export const Dd = glamorous.dd(
   {
     ...font('normal'),
     ...fontSize('xsmall'),
@@ -35,4 +36,10 @@ export const DD = glamorous('dd')(
     textTransform: 'lowercase',
   },
   styleIf('large', fontSize('small'))
+)
+
+export const Suffix = glamorous.span(
+  {
+    fontSize: '0.65em',
+  }
 )
