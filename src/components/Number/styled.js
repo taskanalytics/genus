@@ -21,7 +21,9 @@ export const DT = glamorous('dt')(
   },
   styleIf(isLarge, {
     ...fontSize('xlarge'),
-    marginLeft: '-2px',
+  }),
+  styleIf(isSmall, {
+    ...fontSize('xsmall'),
   })
 )
 

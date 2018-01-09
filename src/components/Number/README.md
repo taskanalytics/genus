@@ -10,6 +10,13 @@ Optional:
 [size={small,large}]  Render either a small or a large variant
 ```
 
+```react|span-3
+<Number value={2} description={"Types"} />
+```
+```react|span-3
+<Number value={12092} description={"Types"} />
+```
+
 ## Small
 
 ```react|span-3
