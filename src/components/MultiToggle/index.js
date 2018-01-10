@@ -3,7 +3,6 @@ import T from 'prop-types'
 
 import {
   StyledForm,
-  StyledOption,
   StyledRadio,
   StyledLabel,
 } from './styled'
