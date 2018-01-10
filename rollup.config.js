@@ -11,7 +11,7 @@ const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 export default {
   input: 'src/index.js',
-  external: ['react', 'glamorous', 'polished'],
+  external: ['react', 'react-dom', 'glamorous', 'polished'],
   exports: 'named',
   globals: {
     react: 'React',
