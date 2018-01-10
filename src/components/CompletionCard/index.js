@@ -15,12 +15,13 @@ class CompletionCard extends Component {
   render () {
     const {
       name,
-      completion
+      completion,
+      description,
     } = this.props
     return (
       <StyledBox p={3} completion={completion}>
         <StyledHeading is='h2' mb={3}>{name}</StyledHeading>
-        <StyledText small muted>Completion rate</StyledText>
+        <StyledText small muted>{description}</StyledText>
         <Percentage size="large" value={completion} />
       </StyledBox>
     )
@@ -44,6 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
   CompletionCard.propTypes = {
     name: T.string.isRequired,
     completion: T.number,
+    description: T.string,
   }
 }
 
