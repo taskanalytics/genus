@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import T from 'prop-types'
-import { StyledFlex, StyledHeading } from './styled'
+import { StyledFlex, StyledBox, StyledHeading } from './styled'
 import Text from '../Text'
 import Avatar from '../Avatar'
-import {Box} from '../Grid'
 
 class EntityCard extends PureComponent {
   render () {
@@ -11,10 +10,10 @@ class EntityCard extends PureComponent {
     return (
       <StyledFlex p={'24px'}>
         {avatar && <Avatar mr={2} src={avatar} /> }
-        <Box>
+        <StyledBox>
           <StyledHeading mb={1} mt={'2px'}>{name}</StyledHeading>
-          {description && <Text muted small>{description}</Text> }
-        </Box>
+          {description && <Text muted small>{description}</Text>}
+        </StyledBox>
       </StyledFlex>
     )
   }

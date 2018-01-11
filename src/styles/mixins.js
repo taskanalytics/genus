@@ -6,6 +6,12 @@ export const spacedText = () => ({
   letterSpacing: '0.17em',
 })
 
+export const ellipsis = () => ({
+	overflow: 'hidden',
+	whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+})
+
 export const completionGradient = () => ({
   backgroundImage: `
     linear-gradient(
