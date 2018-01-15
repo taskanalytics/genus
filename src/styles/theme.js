@@ -16,7 +16,7 @@ const theme = {
     blue: '#07c',
     text: 'rgb(45, 54, 68)',
     white: '#fff',
-    muted: 'rgba(45, 54, 68, 0.8)',
+    muted: 'rgba(45, 54, 68, 0.6)',
     primary: '#2084d8',
     good: rgba(140, 215, 150, 1),
     headsUp: rgba(255, 212, 0, 1),
