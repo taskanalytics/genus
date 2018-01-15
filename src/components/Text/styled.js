@@ -18,7 +18,10 @@ const styledLarge = styleIf('large', {
 })
 
 const styledMuted = styleIf('muted', {
-  color: theme.colors.muted
+  color: theme.colors.muted,
+  '& a': {
+    color: theme.colors.primary,
+  },
 })
 
 export const StyledText = glamorous.span([
@@ -26,6 +29,9 @@ export const StyledText = glamorous.span([
     ...font(),
     ...fontSize('small'),
     display: 'inline-block',
+    '& a': {
+      color: theme.colors.primary,
+    },
   }],
   width,
   space,
