@@ -10,11 +10,12 @@ import Report from './components/Report'
 import Text from './components/Text'
 import Dropdown from './components/Dropdown'
 import EntityCard from './components/EntityCard'
-import CompletionCard, { CompletionCardCreate } from './components/CompletionCard'
+import CompletionCard from './components/CompletionCard'
 import Logo from './components/Logo'
 import UserAvatar from './components/UserAvatar'
 import Header from './components/Header'
 import MultiToggle from './components/MultiToggle'
+import EmptyState from './components/EmptyState'
 
 export {
   Button,
@@ -31,10 +32,10 @@ export {
   Dropdown,
   EntityCard,
   CompletionCard,
-  CompletionCardCreate,
-  styles,
   Logo,
   UserAvatar,
   Header,
   MultiToggle,
+  EmptyState,
+  styles,
 }

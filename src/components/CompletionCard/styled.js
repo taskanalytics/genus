@@ -1,6 +1,6 @@
 import glamorous from 'glamorous'
 import theme from '../../styles/theme'
-import { completionGradient } from '../../styles/mixins'
+import { completionGradient, ellipsis } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import { fontSize } from '../../styles/mixins'
 import { colors } from '../../styles/colors'
@@ -30,18 +30,9 @@ export const StyledBox = glamorous(Box)({
 
 export const StyledHeading = glamorous(Heading)({
   ...fontSize('large'),
+  ...ellipsis(),
 })
 
 export const StyledText = glamorous(Text)({
   display: 'block',
-})
-
-export const StyledCreate = glamorous(StyledBox)({
-  backgroundImage: 'none',
-  backgroundColor: '#E8EBED',
-})
-
-export const StyledHeadingCreate = glamorous(StyledHeading)({
-  fontWeight: 'normal',
-  opacity: 0.5,
 })

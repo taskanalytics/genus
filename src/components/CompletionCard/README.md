@@ -25,18 +25,3 @@
   </Flex>
 </Flex>
 ```
-
-## Create new
-The `CompletionCardCreate` component is not yet ready for prime time.
-```react
-<Flex wrap>
-  <Flex w={[1, 1/2, 1/3]} p={2}>
-    <CompletionCard
-      name="Website"
-      completion="90.2" />
-  </Flex>
-  <Flex w={[1, 1/2, 1/3]} p={2}>
-    <CompletionCardCreate />
-  </Flex>
-</Flex>
-```

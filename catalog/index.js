@@ -44,6 +44,7 @@ const pages = [
       require('../src/components/Logo/catalog').default,
       require('../src/components/Modal/catalog').default,
       require('../src/components/MultiToggle/catalog').default,
+      require('../src/components/EmptyState/catalog').default,
     ]},
 ]
 

@@ -3,9 +3,7 @@ import T from 'prop-types'
 import {
   StyledBox,
   StyledHeading,
-  StyledHeadingCreate,
   StyledText,
-  StyledCreate,
 } from './styled'
 import Heading from '../Heading'
 import Text from '../Text'
@@ -24,19 +22,6 @@ class CompletionCard extends Component {
         <StyledText small muted>{description}</StyledText>
         <Percentage size="large" value={completion} />
       </StyledBox>
-    )
-  }
-}
-
-export class CompletionCardCreate extends Component {
-  render () {
-    const {
-
-    } = this.props
-    return (
-      <StyledCreate p={3}>
-        <StyledText small muted>Create survey</StyledText>
-      </StyledCreate>
     )
   }
 }
