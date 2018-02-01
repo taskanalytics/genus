@@ -3,11 +3,15 @@ import Text from '../Text'
 import {colors} from '../../styles/colors'
 import styleIf from '../../utils/styleIf'
 
-const medium = '30px'
-const large = '60px'
+const mediumHeight = '30px'
+const mediumWidth = '125px'
+
+const largeHeight = '60px'
+const largeWidth = '250px'
 
 const styledLarge = styleIf('large', {
-  height: large,
+  height: largeHeight,
+  width: largeWidth,
 })
 
 const styledPrimary = styleIf('primary', {
@@ -23,7 +27,8 @@ const styledDark = styleIf('dark', {
 })
 
 export const StyledLogo = glamorous.svg({
-  height: medium,
+  height: mediumHeight,
+  width: mediumWidth,
   fill: colors.text,
 },
 styledPrimary,
