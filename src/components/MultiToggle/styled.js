@@ -6,7 +6,7 @@ const paddingX = 20
 const paddingY = 12
 const paddingExtra = 6
 
-export const StyledForm = glamorous.form({
+export const StyledWrapper = glamorous.div({
   borderRadius: '30px',
   overflow: 'hidden',
   display: 'inline-block',
