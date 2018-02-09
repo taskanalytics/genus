@@ -5,18 +5,18 @@ const StyledSpan = Dt.withComponent('span')
 
 class NumberComponent extends Component {
   render () {
-    const {size, suffix, value, description} = this.props
+    const {size, prefix, suffix, value, description} = this.props
 
     if (description) {
       return (
         <Dl size={size}>
-          <Dt size={size}>{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
+          <Dt size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
           <Dd size={size}>{description}</Dd>
         </Dl>
       )
     } else {
       return (
-        <StyledSpan size={size}>{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
+        <StyledSpan size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
       )
     }
 

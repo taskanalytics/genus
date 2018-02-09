@@ -44,5 +44,23 @@ Since percentages are used widely, they have their own dedicated component. For 
 ```
 
 ```react|span-3
+<Percentage size="large" value={25} />
+```
+
+```react|span-3
 <Number sup="℃" size="large" value={25} description="Degress" />
+```
+
+## Colored `Percentage`
+
+```react|span-3
+<Percentage colored size="large" value={98.2} />
+```
+
+```react|span-3
+<Percentage colored size="large" value={74.2} />
+```
+
+```react|span-3
+<Percentage colored size="large" value={51.9} />
 ```

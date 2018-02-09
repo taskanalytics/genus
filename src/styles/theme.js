@@ -19,8 +19,11 @@ const theme = {
     muted: 'rgba(45, 54, 68, 0.6)',
     primary: '#2084d8',
     good: rgba(140, 215, 150, 1),
+    goodDark: '#3BBE77',
     headsUp: rgba(255, 212, 0, 1),
+    headsUpDark: '#FFA707',
     trouble: rgba(255, 90, 20, 1),
+    troubleDark: '#FF5915',
   }
 }
 

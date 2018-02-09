@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
 import {
-  StyledBox,
+  StyledCard,
   StyledHeading,
   StyledText,
 } from './styled'
@@ -14,14 +14,15 @@ class CompletionCard extends Component {
     const {
       name,
       completion,
-      description,
+      responses,
     } = this.props
     return (
-      <StyledBox p={3} completion={completion}>
-        <StyledHeading is='h2' mb={3}>{name}</StyledHeading>
-        <StyledText small muted>{description}</StyledText>
-        <Percentage size="large" value={completion} />
-      </StyledBox>
+      <StyledCard completion={completion.value}>
+        <StyledHeading is='h2' mb={2}>{name}</StyledHeading>
+        <Percentage size="display" value={completion.value} />
+        <StyledText small>{completion.description}</StyledText>
+        <StyledText small mt={2}><strong>{responses.value}</strong> {responses.description}</StyledText>
+      </StyledCard>
     )
   }
 }
@@ -29,8 +30,8 @@ class CompletionCard extends Component {
 if (process.env.NODE_ENV !== 'production') {
   CompletionCard.propTypes = {
     name: T.string.isRequired,
-    completion: T.number,
-    description: T.string,
+    completion: T.object,
+    responses: T.object,
   }
 }
 
