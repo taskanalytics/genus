@@ -1,67 +1,68 @@
-import React, {Component} from 'react'
-import enhanceWithClickOutside from 'react-click-outside'
-import {Transition} from 'react-transition-group'
+import React, { Component } from 'react'
 import T from 'prop-types'
 
 import {
-  StyledList,
-  StyledOption,
-  StyledSeparator
+  overlayStyles,
+  dropdownStyles,
+  StyledWrapper,
+  StyledAction,
+  StyledHeading,
+  StyledSeparator,
 } from './styled'
 
-export const Option = props =>
-  <StyledOption role="button" tabindex="0" {...props}>{props.children}</StyledOption>
+const Actions = ({ actions }) => {
+  return (
+    actions.map((action, key) =>
+      {switch(action.type) {
+        case 'separator':
+          return <StyledSeparator key={action.key} />
+        case 'heading':
+          return <StyledHeading key={action.key}>{action.name}</StyledHeading>
+        default:
+          return <StyledAction key={action.key} destructive={action.type}>{action.name}</StyledAction>
+      }}
+    )
+  )
+}
 
-export const Separator = props =>
-  <StyledSeparator />
-
-const Fade = ({ children, in: inProp }) => (
-  <Transition
-    in={inProp}
-    timeout={{enter: 0, exit: 300}}
-    mountOnEnter={true}
-    unmountOnExit={true}>
-    {(state) => (
-      <StyledList status={state}>
-        {children}
-      </StyledList>
-    )}
-  </Transition>
-)
+const overlayClassName = 'overlay'
 
 class Dropdown extends Component {
-
-  state = {
-    isOpened: this.props.show
-  }
-
-  handleClickOutside = e => {
-    e.preventDefault()
-    e.stopPropagation()
-    this.toggle()
-  }
-
-  toggle() {
-    this.setState({ isOpened: !this.state.isOpened })
+  static defaultProps = {
+    title: 'Please select…',
   }
 
   render () {
-    const {show, children} = this.props
-    const {isOpened} = this.state
+    const {
+      title,
+      close,
+      toggle,
+      actions,
+    } = this.props
+
     return (
-      <Fade
-        wrappedRef={instance => { this.toggle = instance.toggle }}
-        in={isOpened}>
-        {children}
-      </Fade>
+      <StyledWrapper
+        isOpen={toggle}
+        onRequestClose={close}
+        contentLabel={title}
+        ariaHideApp={false}
+        className='dropdown'
+        overlayClassName={`${overlayStyles} ${overlayClassName}`}
+        role='dialog'>
+        <Actions actions={actions} />
+      </StyledWrapper>
     )
+
   }
 }
 
 if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
-    show: T.bool.isRequired,
+    title: T.string,
+    close: T.func,
+    toggle: T.bool.isRequired,
+    actions: T.array.isRequired,
   }
 }
 
-export default enhanceWithClickOutside(Dropdown)
+export default Dropdown

@@ -1,92 +1,78 @@
 import glamorous from 'glamorous'
-import {rgba} from 'polished'
-import * as spacing from '../../styles/spacing'
-import {font, fontSize} from '../../styles/mixins'
+import {css} from 'glamor'
 import theme from '../../styles/theme'
-import {colors} from '../../styles/colors'
+import {font, fontSize} from '../../styles/mixins'
+import styleIf from '../../utils/styleIf'
+import {rgba} from 'polished'
 import {Box} from '../Grid'
+import ReactModal from 'react-modal'
 
-export const StyledList = glamorous.ul({
-  backgroundColor: colors.white,
-  borderRadius: theme.radius*2,
-  padding: spacing.unit,
-  position: 'absolute',
-  boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
+css.global('.dropdown.ReactModal__Content', {
+  opacity: 0,
+})
+
+css.global('.dropdown.ReactModal__Content--after-open', {
+  opacity: 1,
+  transition: 'opacity 150ms',
+})
+
+css.global('.dropdown.ReactModal__Content--before-close', {
+  opacity: 0,
+})
+
+export const overlayStyles = css({
+  backgroundColor: 'transparent',
+  position: 'fixed',
+  top: 0, left: 0, right: 0, bottom: 0,
+})
+
+export const StyledWrapper = glamorous(ReactModal)({
   maxWidth: '300px',
   minWidth: '160px',
-  transformOrigin: 'top center',
-  opacity: 0,
-  transform: 'translate3D(0, -10px, 0)',
-  WebkitBackfaceVisibility: 'hidden',
-  transformStyle: 'preserve-3d',
-  transition: 'opacity .3s',
-  visibility: 'hidden',
-}, props => {
-  // if (props.status === 'entering') {
-  //   return {
-  //     opacity: 0,
-  //   }
-  // }
-  if (props.status === 'entered') {
-    return {
-      opacity: 1,
-      transform: 'translate3D(0,0,0)',
-      transition: 'opacity .3s, transform .3s',
-      visibility: 'visible',
-    }
-  }
-  if (props.status === 'exiting') {
-    return {
-      opacity: 0,
-      transform: 'translate3D(0,0,0)',
-      visibility: 'visible',
-      transition: 'opacity .2s',
-    }
-  }
-  if (props.status === 'exited') {
-    return {
-      visibility: 'hidden',
-    }
+  backgroundColor: theme.colors.white,
+  borderRadius: theme.radius*2,
+  padding: theme.space[1],
+  boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
+  position: 'relative',
+  top: '50%',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  '&:focus': {
+    outline: 'none',
   }
 })
 
-export const StyledOption = glamorous(Box)({
+const styledDestructive = styleIf('destructive', {
+  color: theme.colors.trouble,
+})
+
+export const StyledAction = glamorous(Box)({
   ...font('normal'),
   backgroundColor: 'transparent',
-  padding: spacing.unit,
-  paddingLeft: spacing.unit*2,
-  paddingRight: spacing.unit*2,
+  padding: theme.space[1],
+  paddingLeft: theme.space[2],
+  paddingRight: theme.space[2],
   borderRadius: theme.radius,
-  color: colors.primary,
+  color: theme.colors.primary,
   cursor: 'pointer',
   '&:hover,&:focus,&:active': {
-    backgroundColor: rgba(colors.primary, 0.1),
+    backgroundColor: rgba(theme.colors.primary, 0.1),
   },
-}, props => {
-  if (props.destructive) {
-    return {
-      color: colors.trouble,
-      '&:hover,&:focus,&:active': {
-        backgroundColor: rgba(colors.trouble, 0.1),
-      },
-    }
-  }
-  if (props.disabled) {
-    return {
-      color: rgba(colors.text,0.5),
-      cursor: 'not-allowed',
-      '&:hover,&:focus,&:active': {
-        backgroundColor: 'transparent',
-      },
-    }
-  }
+},
+styledDestructive
+)
+
+export const StyledHeading = glamorous(Box)({
+  ...font('bold'),
+  padding: theme.space[1],
+  paddingLeft: theme.space[2],
+  paddingRight: theme.space[2],
 })
 
-export const StyledSeparator = glamorous('span')({
-  backgroundColor: 'rgba(0,0,0,0.1)',
+export const StyledSeparator = glamorous(Box)({
+  backgroundColor: '#D5D7DA',
+  margin: `${theme.space[1]}px 0`,
   display: 'block',
-  width: '100%',
   height: '1px',
-  marginTop: spacing.unit,
-  marginBottom: spacing.unit,
+  width: '100%',
 })
