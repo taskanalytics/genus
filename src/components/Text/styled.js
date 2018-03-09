@@ -3,6 +3,7 @@ import width from 'styled-system/dist/width'
 import space from 'styled-system/dist/space'
 import textAlign from 'styled-system/dist/text-align'
 
+import withIsProp from '../../utils/withIsProp'
 import styleIf from '../../utils/styleIf'
 import {font, fontSize} from '../../styles/mixins'
 import theme from '../../styles/theme'
@@ -24,7 +25,7 @@ const styledMuted = styleIf('muted', {
   },
 })
 
-export const StyledText = glamorous.span([
+export const StyledText = withIsProp(glamorous('span')([
   {
     ...font(),
     ...fontSize('small'),
@@ -39,4 +40,4 @@ export const StyledText = glamorous.span([
   styledSmall,
   styledLarge,
   styledMuted,
-)
+))
