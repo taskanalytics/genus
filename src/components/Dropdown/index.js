@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
+import Popover from 'react-simple-popover'
 
 import {
-  overlayStyles,
-  dropdownStyles,
   StyledWrapper,
   StyledAction,
   StyledHeading,
@@ -36,21 +35,24 @@ class Dropdown extends Component {
     const {
       title,
       close,
-      toggle,
+      show,
       actions,
+      target,
+      container,
     } = this.props
 
     return (
-      <StyledWrapper
-        isOpen={toggle}
-        onRequestClose={close}
-        contentLabel={title}
-        ariaHideApp={false}
-        className='dropdown'
-        overlayClassName={`${overlayStyles} ${overlayClassName}`}
-        role='dialog'>
-        <Actions actions={actions} />
-      </StyledWrapper>
+      <div ref={ref => this.container = ref}>
+        <StyledWrapper
+          show={show}
+          onHide={close}
+          hideWithOutsideClick={true}
+          container={container || this.container}
+          target={target || this.container}
+          role='dialog'>
+          <Actions actions={actions} />
+        </StyledWrapper>
+      </div>
     )
 
   }
@@ -60,8 +62,10 @@ if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
     title: T.string,
     close: T.func,
-    toggle: T.bool.isRequired,
+    show: T.bool.isRequired,
     actions: T.array.isRequired,
+    target: T.node,
+    container: T.node,
   }
 }
 

@@ -7,8 +7,11 @@ import {
   StyledFlex,
 } from './styled'
 
-export const Box = props =>
-  <StyledBox {...props}>{props.children}</StyledBox>
+export class Box extends Component {
+  render () {
+    return <StyledBox {...this.props} />
+  }
+}
 
 export const Flex = props =>
   <StyledFlex {...props}>{props.children}</StyledFlex>

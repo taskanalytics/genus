@@ -18,32 +18,43 @@ class Actions extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      toggleActions: false
+      showActions: false
     }
   }
 
   render () {
     const { actions } = this.props
-    const { toggleActions } = this.state
+    const { showActions } = this.state
+
     return (
       <span>
-        <StyledMoreButton onClick={() => this.setState({toggleActions: true})}>
+        <StyledMoreButton
+          innerRef={ref => this.button = ref}
+          onClick={() => this.setState({showActions: !showActions})}
+        >
           <MoreIcon />
           <span>Open actions</span>
         </StyledMoreButton>
         <Dropdown
-          toggle={toggleActions}
-          close={() => this.setState({toggleActions: false})}
+          target={this.button}
+          show={showActions}
+          close={() => this.setState({showActions: false})}
           actions={actions} />
       </span>
     )
   }
 }
 
-const Card = props =>
-  <StyledCard p={3} {...props}>
-    {props.actions && <Actions {...props} />}
-    {props.children}
-  </StyledCard>
+class Card extends Component {
+  render () {
+    const { actions, children, ...props } = this.props
+    return (
+      <StyledCard {...props} p={3}>
+        {actions && <Actions {...this.props} />}
+        {children}
+      </StyledCard>
+    )
+  }
+}
 
 export default Card

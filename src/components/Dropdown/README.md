@@ -8,8 +8,9 @@ state: {toggle: true}
   </button>
 
   <Dropdown
-    toggle={state.toggle}
+    show={state.toggle}
     close={() => setState({toggle: false})}
+    target={this}
     actions={[
       {
         name: 'Option 1',

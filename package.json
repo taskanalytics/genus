@@ -30,9 +30,10 @@
     "polished": "^1.8.0",
     "react-click-outside": "^3.0.0",
     "react-modal": "^3.1.10",
+    "react-simple-popover": "^0.2.4",
     "react-transition-group": "^2.2.1",
     "recompose": "^0.25.1",
-    "styled-system": "^1.1.1"
+    "styled-system": "^2.1.1"
   },
   "peerDependencies": {
     "glamor": "^2.20.40",

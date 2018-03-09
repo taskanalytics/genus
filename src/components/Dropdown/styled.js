@@ -5,37 +5,15 @@ import {font, fontSize} from '../../styles/mixins'
 import styleIf from '../../utils/styleIf'
 import {rgba} from 'polished'
 import {Box} from '../Grid'
-import ReactModal from 'react-modal'
+import Popover from 'react-simple-popover'
 
-css.global('.dropdown.ReactModal__Content', {
-  opacity: 0,
-})
-
-css.global('.dropdown.ReactModal__Content--after-open', {
-  opacity: 1,
-  transition: 'opacity 150ms',
-})
-
-css.global('.dropdown.ReactModal__Content--before-close', {
-  opacity: 0,
-})
-
-export const overlayStyles = css({
-  backgroundColor: 'transparent',
-  position: 'fixed',
-  top: 0, left: 0, right: 0, bottom: 0,
-})
-
-export const StyledWrapper = glamorous(ReactModal)({
+export const StyledWrapper = glamorous(Popover)({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
   borderRadius: theme.radius*2,
   padding: theme.space[1],
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
-  position: 'relative',
-  top: '50%',
-  left: '50%',
   transform: 'translateX(-50%)',
   '&:focus': {
     outline: 'none',
