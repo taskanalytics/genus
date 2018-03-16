@@ -1,6 +1,6 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "",
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
@@ -34,8 +34,8 @@
     "styled-system": "^1.1.1"
   },
   "peerDependencies": {
-    "glamorous": "^4.12.1",
     "glamor": "^2.20.40",
+    "glamorous": "^4.12.1",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
@@ -52,8 +52,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
-    "glamorous": "^4.12.1",
     "glamor": "^2.20.40",
+    "glamorous": "^4.12.1",
     "next": "^4.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
