@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import Popover from 'react-simple-popover'
 
 import {
   StyledWrapper,
