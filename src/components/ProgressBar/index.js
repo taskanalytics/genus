@@ -19,9 +19,9 @@ class ProgressBar extends Component {
 
   render () {
     const { min, max, value, baseline, light, empty, ...rest } = this.props
-    const val = !isNaN(value) ?
-      Math.round(value * 10) / 10 :
-      0
+    const val = !isNaN(value)
+      ? Math.round(value * 10) / 10
+      : 0
 
     const colorMap = {
       success: colors.good,
@@ -72,6 +72,5 @@ if (process.env.NODE_ENV !== 'production') {
     empty: T.bool,
   }
 }
-
 
 export default ProgressBar

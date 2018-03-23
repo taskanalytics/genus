@@ -7,8 +7,8 @@ export const spacedText = () => ({
 })
 
 export const ellipsis = () => ({
-	overflow: 'hidden',
-	whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
 })
 
@@ -84,7 +84,7 @@ export const fontSize = sizeName => {
   breakpoints.forEach(breakpoint => {
     mqRules = {
       ...mqRules,
-      ...mq(breakpoint, fontSizeRule(rest[breakpoint]))
+      ...mq(breakpoint, fontSizeRule(rest[breakpoint])),
     }
   })
 

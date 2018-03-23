@@ -7,9 +7,6 @@ import {
   ActionsList,
   ActionItem,
 } from './styled'
-import Heading from '../Heading'
-import Text from '../Text'
-import Percentage from '../Percentage'
 
 class EmptyState extends Component {
   render () {

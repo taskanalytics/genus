@@ -32,11 +32,11 @@ export const StyledText = withIsProp(glamorous('span')([
       color: theme.colors.primary,
     },
   }],
-  width,
-  space,
-  color,
-  textAlign,
-  styledSmall,
-  styledLarge,
-  styledMuted,
+width,
+space,
+color,
+textAlign,
+styledSmall,
+styledLarge,
+styledMuted
 ))

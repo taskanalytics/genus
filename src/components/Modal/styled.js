@@ -9,7 +9,10 @@ import ReactModal from 'react-modal'
 export const overlayStyles = css({
   backgroundColor: 'rgba(0,0,0,0.2)',
   position: 'fixed',
-  top: 0, left: 0, right: 0, bottom: 0,
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
 })
 
 export const StyledModal = glamorous(ReactModal)({
@@ -19,12 +22,12 @@ export const StyledModal = glamorous(ReactModal)({
   left: '50%',
   transform: 'translateX(-50%)',
   flexDirection: 'column',
-  borderRadius: theme.radius*2,
+  borderRadius: theme.radius * 2,
   backgroundColor: theme.colors.white,
   overflow: 'hidden',
   '&:focus': {
     outline: 'none',
-  }
+  },
 }
 )
 

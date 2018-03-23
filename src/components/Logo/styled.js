@@ -1,5 +1,4 @@
 import glamorous from 'glamorous'
-import Text from '../Text'
 import {colors} from '../../styles/colors'
 import styleIf from '../../utils/styleIf'
 
@@ -34,5 +33,5 @@ export const StyledLogo = glamorous.svg({
 styledPrimary,
 styledLight,
 styledDark,
-styledLarge,
+styledLarge
 )

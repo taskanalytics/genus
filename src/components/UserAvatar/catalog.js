@@ -4,7 +4,7 @@ export default {
   title: 'UserAvatar',
   path: '/components/useravatar',
   imports: {
-    UserAvatar
+    UserAvatar,
   },
   component: require('./README.md'),
 }

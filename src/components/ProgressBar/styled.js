@@ -11,13 +11,13 @@ import styleIf from '../../utils/styleIf'
 import {swiftOut} from '../../styles/animations'
 
 const progressFillUp = css.keyframes({
-  from: { width: 0 }
+  from: { width: 0 },
 })
 const progressLabel = css.keyframes({
   from: {
     opacity: 0,
     transform: 'scale(0) translateY(100%)',
-  }
+  },
 })
 
 const styledBlock = styleIf('block', {
@@ -82,19 +82,19 @@ export const Label = glamorous('span')({
     zIndex: -1,
     backgroundColor: 'inherit',
     transform: 'rotate(45deg)',
-  }
+  },
 },
 styleIf('min', {
   right: -((labelWidth / 2) + (spacing.unit * 3)),
   '&::before': {
     left: spacing.unit * 3,
-  }
+  },
 }),
 styleIf('max', {
   right: -(spacing.unit * 2 + 4),
   '&::before': {
     left: 'auto',
     right: spacing.unit * 2,
-  }
+  },
 })
 )

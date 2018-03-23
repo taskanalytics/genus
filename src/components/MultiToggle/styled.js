@@ -9,7 +9,7 @@ const paddingExtra = 6
 const border = '1px solid #CFD5DB'
 
 const mediaQueries = {
-	phone: '@media only screen and (max-width: 719px)',
+  phone: '@media only screen and (max-width: 719px)',
   tablet: '@media screen and (min-width: 720px)',
   desktop: '@media screen and (min-width: 960px)',
 }
@@ -20,8 +20,8 @@ export const StyledWrapper = glamorous.div({
   width: '100%',
   [mediaQueries.tablet]: {
     width: 'auto',
-    borderRadius: '30px'
-  }
+    borderRadius: '30px',
+  },
 })
 
 export const StyledRadio = glamorous.input({
@@ -35,9 +35,6 @@ export const StyledLabel = glamorous.label({
   padding: '8px 14px',
   display: 'inline-block',
   cursor: 'pointer',
-  '&:last-child': {
-    borderRight: 'none',
-  },
   width: '100%',
   borderBottom: border,
   '&:first-child': {
@@ -46,6 +43,7 @@ export const StyledLabel = glamorous.label({
   '&:last-child': {
     borderBottom: 'none',
     borderRadius: `0 0 ${theme.radius}px ${theme.radius}px`,
+    borderRight: 'none',
   },
   [mediaQueries.tablet]: {
     width: 'auto',
@@ -69,15 +67,15 @@ export const StyledLabel = glamorous.label({
     '&:last-child': {
       paddingRight: (paddingX + paddingExtra),
     },
-  }
+  },
 }, props => {
-  if(props.active) {
+  if (props.active) {
     let styles = {}
     styles = {
       backgroundColor: colors.primary,
       color: '#fff',
     }
-    if(props.destructive) {
+    if (props.destructive) {
       styles = {
         ...styles,
         backgroundColor: colors.trouble,

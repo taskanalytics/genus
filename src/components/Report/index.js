@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import T from 'prop-types'
 import Text from '../Text'
-import {Box} from '../Grid'
 import Percentage from '../Percentage'
 import { getDelta } from '../../utils/calculations'
 
@@ -10,7 +8,6 @@ import {
   StyledHeading,
   StyledByline,
   StyledSource,
-  StyledValue
 } from './styled'
 
 export class ReportCard extends Component {
@@ -30,12 +27,11 @@ export class ReportCard extends Component {
         <StyledByline>{byline}</StyledByline>
         <StyledSource>
           <strong>{source}</strong>
-          {type && ' ' + type}
+          {type && ` ${type}`}
         </StyledSource>
       </StyledCard>
     )
   }
-
 }
 
 const Delta = ({ base, diff, size }) => {
@@ -69,7 +65,6 @@ const Values = ({ values }) => {
 }
 
 export class ComparisonCard extends Component {
-
   render () {
     const {
       heading,
@@ -82,8 +77,8 @@ export class ComparisonCard extends Component {
       <StyledCard>
         <StyledHeading>{heading}</StyledHeading>
         {values.length > 2
-        ? <Values values={values} />
-        : <span>
+          ? <Values values={values} />
+          : <span>
             <Delta
               base={values[0]}
               diff={values[1]}
@@ -95,10 +90,9 @@ export class ComparisonCard extends Component {
         }
         <StyledSource>
           <strong>{source}</strong>
-          {type && ' ' + type}
+          {type && ` ${type}`}
         </StyledSource>
       </StyledCard>
     )
   }
-
 }

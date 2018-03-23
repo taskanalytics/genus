@@ -4,7 +4,7 @@ export default {
   title: 'Logo',
   path: '/components/logo',
   imports: {
-    Logo
+    Logo,
   },
   component: require('./README.md'),
 }

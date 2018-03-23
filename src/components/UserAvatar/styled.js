@@ -13,13 +13,13 @@ export const Wrapper = glamorous(Flex)({
   color: '#fff',
   textDecoration: 'none',
 }, props => {
-  let styles = {
-    backgroundColor: props.color
+  const styles = {
+    backgroundColor: props.color,
   }
   return styles
 })
 
 export const Svg = glamorous.svg({
   marginBottom: '1px',
-  fill: '#FFF'
+  fill: '#FFF',
 })

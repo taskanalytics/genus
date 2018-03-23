@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import T from 'prop-types'
-import {css} from 'glamor'
-import {Box, Flex} from '../Grid'
+import {Box} from '../Grid'
 
 import {
   overlayStyles,
@@ -10,7 +9,7 @@ import {
   StyledHeader,
   StyledTitle,
   StyledBody,
-  StyledActions
+  StyledActions,
 } from './styled'
 
 const modalClassName = 'modal'
@@ -27,7 +26,7 @@ const Modal = ({ isOpen, close, title, children }) => {
       role='dialog'
       aria={{
         labelledby: 'heading',
-        describedby: 'full_description'
+        describedby: 'full_description',
       }}>
       <StyledHeader p={3}>
         {title &&

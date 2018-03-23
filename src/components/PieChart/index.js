@@ -29,15 +29,15 @@ class PieChart extends Component {
             light={light}
             r={radius}
             strokeWidth={stroke}
-            cx={size/2}
-            cy={size/2}
+            cx={size / 2}
+            cy={size / 2}
           />
           <Chart
             light={light}
             r={radius}
             strokeWidth={stroke}
-            cx={size/2}
-            cy={size/2}
+            cx={size / 2}
+            cy={size / 2}
             strokeDasharray={`${percentage} ${total}`}
             opacity={value === 0 ? 0 : 1}
             strokeLinecap="round"

@@ -9,19 +9,18 @@ import {
 
 const returnFirst = test => test
 
-  const Option = ({name, value, active, onChange, destructive}) =>
-    <StyledLabel destructive={destructive} active={active}>
-      <StyledRadio type='radio' id={value} checked={active} onClick={onChange} />
-      {name}
-    </StyledLabel>
+const Option = ({name, value, active, onChange, destructive}) =>
+  <StyledLabel destructive={destructive} active={active}>
+    <StyledRadio type='radio' id={value} checked={active} onClick={onChange} />
+    {name}
+  </StyledLabel>
 
 class MultiToggle extends PureComponent {
-
   render () {
     const {
       options,
       selectedOption,
-      onSelectOption
+      onSelectOption,
     } = this.props
 
     return (
@@ -37,7 +36,6 @@ class MultiToggle extends PureComponent {
         )}
       </StyledWrapper>
     )
-
   }
 }
 

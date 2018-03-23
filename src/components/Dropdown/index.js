@@ -65,7 +65,7 @@ class Dropdown extends Component {
         >
           {actions.map((action, key) => {
             const props = { key: `action-${key}` }
-            switch(action.type) {
+            switch (action.type) {
               case 'separator':
                 return <StyledSeparator {...props} />
               case 'heading':

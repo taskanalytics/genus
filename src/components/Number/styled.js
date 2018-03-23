@@ -1,6 +1,5 @@
 import glamorous from 'glamorous'
 
-import * as spacing from '../../styles/spacing'
 import {font, fontSize} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'

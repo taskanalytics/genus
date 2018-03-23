@@ -14,12 +14,10 @@ class NumberComponent extends Component {
           <Dd size={size}>{description}</Dd>
         </Dl>
       )
-    } else {
-      return (
-        <StyledSpan size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
-      )
     }
-
+    return (
+      <StyledSpan size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
+    )
   }
 }
 

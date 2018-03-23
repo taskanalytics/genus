@@ -1,3 +1,4 @@
+import React from 'react'
 import { StyledWrapper } from './styled'
 import NumberComponent from '../Number'
 

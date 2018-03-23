@@ -7,7 +7,7 @@ import Heading from '../Heading'
 
 export const StyledBox = glamorous(Box)({
   width: '100%',
-  borderRadius: theme.radius*3,
+  borderRadius: theme.radius * 3,
   border: '2px dashed rgba(155,162,171,0.40)',
 })
 

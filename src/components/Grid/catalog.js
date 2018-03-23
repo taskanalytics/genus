@@ -13,7 +13,7 @@ export default {
       border: '1px solid rgba(86,61,124,.2)',
     }),
     Flex: glamorous(Flex)({
-      border: '1px solid rgba(86,61,124,1)'
+      border: '1px solid rgba(86,61,124,1)',
     }),
     Box: glamorous(Box)({
       border: '1px solid rgba(86,61,124,.2)',

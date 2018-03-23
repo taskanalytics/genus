@@ -6,7 +6,7 @@ export const StyledCard = glamorous(Box)({
   width: '100%',
   alignItems: 'center',
   backgroundColor: theme.colors.white,
-  borderRadius: theme.radius*2,
+  borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',
   '&:hover': {
@@ -30,7 +30,7 @@ export const StyledMoreButton = glamorous.button({
   },
   '&:active,&:focus': {
     outline: 'none',
-  }
+  },
 })
 
 export const StyledMoreIcon = glamorous.svg({

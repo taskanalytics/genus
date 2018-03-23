@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import T from 'prop-types'
 import { Wrapper, Svg } from './styled'
 
@@ -15,11 +15,11 @@ const UserAvatar = ({ color, fullName, initials, ...rest }) =>
     is={initials ? 'abbr' : 'span'}
     title={fullName}
     {...rest}>
-    { initials ? initials : <UserIcon /> }
+    { initials || <UserIcon /> }
   </Wrapper>
 
 UserAvatar.defaultProps = {
-  color: '#9D5EED'
+  color: '#9D5EED',
 }
 
 if (process.env.NODE_ENV !== 'production') {

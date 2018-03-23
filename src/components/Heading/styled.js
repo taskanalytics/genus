@@ -9,5 +9,5 @@ export const StyledHeading = withIsProp(glamorous('h1')(
   width,
   space,
   color,
-  textAlign,
+  textAlign
 ))

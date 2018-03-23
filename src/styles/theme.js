@@ -2,10 +2,10 @@ import { rgba } from 'polished'
 
 const theme = {
   breakpoints: [
-    32, 48, 64 // in em's
+    32, 48, 64, // in em's
   ],
   space: [
-    0, 6, 12, 18, 24
+    0, 6, 12, 18, 24,
   ],
   radius: 4,
   // fontSizes: [
@@ -24,7 +24,7 @@ const theme = {
     headsUpDark: '#FFA707',
     trouble: rgba(255, 90, 20, 1),
     troubleDark: '#FF5915',
-  }
+  },
 }
 
 export default theme

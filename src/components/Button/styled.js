@@ -102,7 +102,7 @@ export default glamorous('button')({
   borderRadius: '50px',
   border: `4px solid ${rgba(colors.dark, 0.15)}`,
   backgroundColor: 'transparent',
-  //marginBottom: spacing.base,
+  // marginBottom: spacing.base,
   '[disabled]': {
     pointerEvents: 'none',
     opacity: 0.6,

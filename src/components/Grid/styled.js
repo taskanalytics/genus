@@ -11,7 +11,7 @@ import {
   flexDirection,
   alignSelf,
   alignItems,
-  justifyContent
+  justifyContent,
 } from 'styled-system'
 
 export const StyledBox = withIsProp(glamorous('div')(
@@ -28,19 +28,19 @@ export const StyledFlex = glamorous(StyledBox)([
   {
     display: 'flex',
   }],
-  flexWrap,
-  alignItems,
-  justifyContent,
-  flexDirection,
-  alignSelf
+flexWrap,
+alignItems,
+justifyContent,
+flexDirection,
+alignSelf
 )
 
 export const StyledContainer = glamorous(StyledBox)({},
   props => {
-  if (!props.fluid) {
-    return {
-      maxWidth: '1200px',
-      margin: '0 auto',
+    if (!props.fluid) {
+      return {
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }
     }
-  }
-})
+  })

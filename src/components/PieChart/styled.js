@@ -4,7 +4,7 @@ import {css} from 'glamor'
 
 import * as spacing from '../../styles/spacing'
 import {colors} from '../../styles/colors'
-import {font, fontSize} from '../../styles/mixins'
+import {font} from '../../styles/mixins'
 import {swiftOut} from '../../styles/animations'
 
 import styleIf from '../../utils/styleIf'
@@ -30,9 +30,9 @@ export const Background = glamorous('circle')({
   stroke: rgba(colors.primary, 0.25),
   fill: 'none',
 },
-  styleIf('light', {
-    stroke: rgba(colors.white, 0.25),
-  })
+styleIf('light', {
+  stroke: rgba(colors.white, 0.25),
+})
 )
 
 export const Chart = glamorous('circle')({
@@ -57,4 +57,3 @@ export const Caption = glamorous('figcaption')({
   fontFeatureSettings: 'tnum',
   letterSpacing: '-0.05em',
 }, styleIf('light', { color: colors.white }))
-

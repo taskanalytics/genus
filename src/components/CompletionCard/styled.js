@@ -11,19 +11,19 @@ import Text from '../Text'
 export const StyledCard = glamorous(Card)({
   backgroundColor: colors.primaryShaded,
   alignItems: 'center',
-  borderRadius: theme.radius*2,
+  borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   display: 'inline-block',
   width: '100%',
   color: colors.text,
   '&:hover': {
     boxShadow: '0 2px 6px 0 rgba(0,0,0,.1)',
-  }
+  },
 }, props => {
   if (props.completion > 0) {
     return {
       ...completionGradient(),
-      backgroundPosition: `${getPercentage(props.completion, 100)}% center`
+      backgroundPosition: `${getPercentage(props.completion, 100)}% center`,
     }
   }
 })

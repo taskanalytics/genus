@@ -17,7 +17,7 @@ export const StyledDropdown = glamorous('dialog')({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
-  borderRadius: theme.radius*2,
+  borderRadius: theme.radius * 2,
   borderWidth: 0,
   padding: theme.space[1],
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
@@ -28,22 +28,22 @@ export const StyledDropdown = glamorous('dialog')({
   },
   animation: `${css.keyframes({
     '0%': { opacity: 0 },
-    '20%': { opacity: .2},
-    '40%': { opacity: .4 },
-    '50%': { opacity: .8 },
+    '20%': { opacity: 0.2},
+    '40%': { opacity: 0.4 },
+    '50%': { opacity: 0.8 },
     '100%': { opacity: 1 },
   })} 150ms linear`,
 },
-  (props) => {
-    if (props.right) {
-      return {
-        transform: 'translateX(-100%)',
-        left: '100%',
-      }
+(props) => {
+  if (props.right) {
+    return {
+      transform: 'translateX(-100%)',
+      left: '100%',
     }
-  },
-  width,
-  space
+  }
+},
+width,
+space
 )
 
 const styledDestructive = styleIf('destructive', {
