@@ -8,7 +8,7 @@ You can now pull in specific components and/or styles to build custom UIs:
 
 ```code|lang-javascript,span-4
 import React, {Component} from 'react'
-import {Grid, Button, ProgressBar} from '@taskanalytics/genus'
+import {Container, Button, ProgressBar} from '@taskanalytics/genus'
 
 export default class MyUI extends Component {
   static state = {
@@ -22,10 +22,10 @@ export default class MyUI extends Component {
     }
 
     return (
-      <Grid>
+      <Container>
         <Button primary onClick={randomizeValue}>Random value</Button>
         <ProgressBar value={value} />
-      </Grid>
+      </Container>
     )
   }
 }
@@ -34,12 +34,16 @@ export default class MyUI extends Component {
 ```react|span-2
 state: {value: 50}
 ---
-<Grid>
-  <ProgressBar value={state.value} css={{marginBottom: styles.spacing.base}}/>
-  <Button block primary onClick={
-    () => setState({ value: parseInt(Math.random() * 100) })
-  }>
-    Random value
-  </Button>
-</Grid>
+<Container>
+  <Box p={2}>
+    <ProgressBar value={state.value} />
+  </Box>
+  <Box p={2} mt={2}>
+    <Button block primary onClick={
+      () => setState({ value: parseInt(Math.random() * 100) })
+    }>
+      Random value
+    </Button>
+  </Box>
+</Container>
 ```

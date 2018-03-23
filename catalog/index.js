@@ -22,7 +22,8 @@ const pages = [
         imports: {
           styles: require('../src/styles').default,
           Button: require('../src/components/Button').default,
-          Grid: require('../src/components/Grid').default,
+          Container: require('../src/components/Grid').Container,
+          Box: require('../src/components/Grid').Box,
           ProgressBar: require('../src/components/ProgressBar').default,
         },
         component: require('../src/components/README.md'),
