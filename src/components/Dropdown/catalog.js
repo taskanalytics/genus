@@ -1,8 +1,8 @@
-import Dropdown, {Option, Separator} from '.'
+import Dropdown from '.'
 
 export default {
   title: 'Dropdown',
   path: '/components/dropdown',
-  imports: { Dropdown, Option, Separator },
+  imports: { Dropdown },
   component: require('./README.md'),
 }

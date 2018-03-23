@@ -2,7 +2,14 @@
 ```react
 <CompletionCard
   name="Website"
-  completion="90.2" />
+  completion={{
+    value: 90.2,
+    description: 'completion rate'
+  }}
+  responses={{
+    value: 2192,
+    description: 'responses'
+  }} />
 ```
 
 ## In grid
@@ -11,17 +18,38 @@
   <Flex w={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
       name="Website"
-      completion="99.6" />
+      completion={{
+        value: 99.6,
+        description: 'completion rate'
+      }}
+      responses={{
+        value: 9999,
+        description: 'responses'
+      }} />
   </Flex>
   <Flex w={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
-      name="iOS"
-      completion="78.5" />
+      name="App"
+      completion={{
+        value: 78.5,
+        description: 'completion rate'
+      }}
+      responses={{
+        value: 9999,
+        description: 'responses'
+      }} />
   </Flex>
   <Flex w={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
       name="Android"
-      completion="56.2" />
+      completion={{
+        value: 56.2,
+        description: 'completion rate'
+      }}
+      responses={{
+        value: 9999,
+        description: 'responses'
+      }} />
   </Flex>
 </Flex>
 ```

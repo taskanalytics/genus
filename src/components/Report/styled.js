@@ -3,21 +3,17 @@ import glamorous from 'glamorous'
 import * as spacing from '../../styles/spacing'
 import theme from '../../styles/theme'
 import {font, fontSize} from '../../styles/mixins'
-import {colors} from '../../styles/colors'
 
 import {Box} from '../Grid'
 import Heading from '../Heading'
 import Text from '../Text'
+import Card from '../Card'
 
-export const StyledBox = glamorous(Box)({
-  alignItems: 'center',
-  backgroundColor: colors.white,
-  borderRadius: theme.radius*2,
-  transition: 'box-shadow .2s',
-  color: colors.text,
-  '&:hover': {
-    boxShadow: '0 2px 6px 0 rgba(0,0,0,.1)',
-  },
+const pad = theme.space[4]
+
+export const StyledCard = glamorous(Card)({
+  padding: pad,
+  paddingBottom: pad*2.5,
 })
 
 export const StyledHeading = glamorous(Heading)({
@@ -25,7 +21,19 @@ export const StyledHeading = glamorous(Heading)({
   ...fontSize('small'),
 })
 
-export const StyledText = glamorous(Text)({
-  marginBottom: spacing.base,
-  color: colors.muted,
+export const StyledByline = glamorous(Text)({
+  display: 'block',
+  color: theme.colors.muted,
+})
+
+export const StyledSource = glamorous(Text)({
+  display: 'block',
+  position: 'absolute',
+  bottom: pad,
+  ...fontSize('xxsmall'),
+  color: theme.colors.muted,
+})
+
+export const StyledValue = glamorous(Box)({
+  display: 'block',
 })

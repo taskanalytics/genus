@@ -4,11 +4,11 @@ import { completionGradient, ellipsis } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import { fontSize } from '../../styles/mixins'
 import { colors } from '../../styles/colors'
-import { Box } from '../Grid'
+import Card from '../Card'
 import Heading from '../Heading'
 import Text from '../Text'
 
-export const StyledBox = glamorous(Box)({
+export const StyledCard = glamorous(Card)({
   backgroundColor: colors.primaryShaded,
   alignItems: 'center',
   borderRadius: theme.radius*2,
@@ -35,4 +35,5 @@ export const StyledHeading = glamorous(Heading)({
 
 export const StyledText = glamorous(Text)({
   display: 'block',
+  marginBottom: '0',
 })

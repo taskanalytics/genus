@@ -28,11 +28,8 @@
   },
   "dependencies": {
     "polished": "^1.8.0",
-    "react-click-outside": "^3.0.0",
     "react-modal": "^3.1.10",
-    "react-transition-group": "^2.2.1",
-    "recompose": "^0.25.1",
-    "styled-system": "^1.1.1"
+    "styled-system": "^2.1.1"
   },
   "peerDependencies": {
     "glamor": "^2.20.40",
@@ -46,7 +43,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bit-bin": "^0.12.9",
-    "catalog": "^3.1.2",
+    "catalog": "^3.4.0",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",

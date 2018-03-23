@@ -1,8 +1,5 @@
 import glamorous from 'glamorous'
-import width from 'styled-system/dist/width'
-import space from 'styled-system/dist/space'
-import color from 'styled-system/dist/color'
-import textAlign from 'styled-system/dist/text-align'
+import { width, space, color, textAlign } from 'styled-system'
 
 import withIsProp from '../../utils/withIsProp'
 import styleIf from '../../utils/styleIf'

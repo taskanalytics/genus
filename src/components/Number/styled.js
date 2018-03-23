@@ -7,6 +7,7 @@ import styleIf from '../../utils/styleIf'
 
 const isSmall = ({ size }) => size === 'small'
 const isLarge = ({ size }) => size === 'large'
+const isDisplay = ({ size }) => size === 'display'
 
 export const Dl = glamorous.dl({
   fontVariantNumeric: 'tabular-nums',
@@ -16,15 +17,19 @@ export const Dl = glamorous.dl({
 export const Dt = glamorous.dt(
   {
     ...font('bold'),
-    ...fontSize('large'),
+    ...fontSize('medium'),
     letterSpacing: '-0.03em',
   },
+  styleIf(isDisplay, {
+    ...fontSize('xxlarge'),
+    marginLeft: '-2px',
+  }),
   styleIf(isLarge, {
-    ...fontSize('xlarge'),
+    ...fontSize('large'),
     marginLeft: '-2px',
   }),
   styleIf(isSmall, {
-    ...fontSize('xsmall'),
+    ...fontSize('small'),
   })
 )
 

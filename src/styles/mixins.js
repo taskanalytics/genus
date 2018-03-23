@@ -12,18 +12,27 @@ export const ellipsis = () => ({
   textOverflow: 'ellipsis',
 })
 
-export const completionGradient = () => ({
-  backgroundImage: `
-    linear-gradient(
-      to right,
-      ${theme.colors.trouble} 55%,
-      ${theme.colors.headsUp},
-      ${theme.colors.headsUp} 80%,
-      ${theme.colors.good} 90%,
-      ${theme.colors.good})
-  `,
-  backgroundSize: '2100%',
-})
+export const completionGradient = (dark) => {
+  var colorGood = theme.colors.good
+  if (dark) {
+    colorGood = theme.colors.goodDark
+  }
+  const colorHeadsUp = theme.colors.headsUp
+  const colorTrouble = theme.colors.trouble
+
+  return {
+    backgroundImage: `
+      linear-gradient(
+        to right,
+        ${colorTrouble} 55%,
+        ${colorHeadsUp},
+        ${colorHeadsUp} 80%,
+        ${colorGood} 90%,
+        ${colorGood})
+    `,
+    backgroundSize: '2100%',
+  }
+}
 
 const textWeights = {
   light: 300,
@@ -52,8 +61,8 @@ const fontSizes = {
   small: { base: ['19px', 1.3] },
   medium: { base: ['22px', 1.6] },
   large: { base: ['26px', 1.1] },
-  xlarge: { base: '30px', md: '32px', lg: '40px' },
-  xxlarge: { base: '30px', md: '38px', lg: '44px' },
+  xlarge: { base: ['30px', 1.2], md: '32px', lg: '40px' },
+  xxlarge: { base: ['30px', 1.2], md: '38px', lg: '44px' },
 }
 
 const fontSizeRule = fontSize => {

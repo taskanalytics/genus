@@ -1,67 +1,90 @@
-import React, {Component} from 'react'
-import enhanceWithClickOutside from 'react-click-outside'
-import {Transition} from 'react-transition-group'
+import React, { Component } from 'react'
 import T from 'prop-types'
 
 import {
-  StyledList,
-  StyledOption,
-  StyledSeparator
+  StyledWrapper,
+  StyledAction,
+  StyledHeading,
+  StyledSeparator,
+  StyledDropdown,
 } from './styled'
 
-export const Option = props =>
-  <StyledOption role="button" tabindex="0" {...props}>{props.children}</StyledOption>
-
-export const Separator = props =>
-  <StyledSeparator />
-
-const Fade = ({ children, in: inProp }) => (
-  <Transition
-    in={inProp}
-    timeout={{enter: 0, exit: 300}}
-    mountOnEnter={true}
-    unmountOnExit={true}>
-    {(state) => (
-      <StyledList status={state}>
-        {children}
-      </StyledList>
-    )}
-  </Transition>
-)
-
 class Dropdown extends Component {
+  static defaultProps = {
+    right: false,
+    renderTrigger: (props) => (
+      <button type="button" {...props}>Toggle</button>
+    ),
+  }
 
   state = {
-    isOpened: this.props.show
+    open: false,
+    height: 0,
   }
 
-  handleClickOutside = e => {
-    e.preventDefault()
-    e.stopPropagation()
-    this.toggle()
+  closeMenu = (event) => {
+    if (this.dd && !this.dd.contains(event.target)) {
+      this.setState({ open: false }, () => {
+        document.removeEventListener('click', this.closeMenu)
+      })
+    }
   }
 
-  toggle() {
-    this.setState({ isOpened: !this.state.isOpened })
+  toggle = (event) => {
+    event.preventDefault()
+    const open = !this.state.open
+    let height = this.state.height
+    if (open && !height) {
+      height = this.wrapper.offsetHeight
+    }
+    this.setState({ open, height }, () => {
+      if (open) {
+        document.addEventListener('click', this.closeMenu)
+      } else {
+        document.removeEventListener('click', this.closeMenu)
+      }
+    })
   }
 
   render () {
-    const {show, children} = this.props
-    const {isOpened} = this.state
+    const {
+      right,
+      actions,
+      renderTrigger,
+    } = this.props
+    const { open, height } = this.state
+
     return (
-      <Fade
-        wrappedRef={instance => { this.toggle = instance.toggle }}
-        in={isOpened}>
-        {children}
-      </Fade>
+      <StyledWrapper innerRef={ref => this.wrapper = ref}>
+        { renderTrigger({ onClick: this.toggle }) }
+        <StyledDropdown
+          open={open}
+          right={right}
+          innerRef={ref => this.dd = ref}
+          css={{ top: height }}
+        >
+          {actions.map((action, key) => {
+            const props = { key: `action-${key}` }
+            switch(action.type) {
+              case 'separator':
+                return <StyledSeparator {...props} />
+              case 'heading':
+                return <StyledHeading {...props}>{action.name}</StyledHeading>
+              default:
+                return <StyledAction {...props} destructive={action.type === 'destructive'}>{action.name}</StyledAction>
+            }
+          })}
+        </StyledDropdown>
+      </StyledWrapper>
     )
   }
 }
 
 if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
-    show: T.bool.isRequired,
+    open: T.bool,
+    actions: T.array,
   }
 }
 
-export default enhanceWithClickOutside(Dropdown)
+export default Dropdown
