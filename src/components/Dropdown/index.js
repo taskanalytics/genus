@@ -11,17 +11,15 @@ import {
 
 class Dropdown extends Component {
   static defaultProps = {
-    renderTrigger: (props) => <button type="button" {...props}>Toggle</button>
+    right: false,
+    renderTrigger: (props) => (
+      <button type="button" {...props}>Toggle</button>
+    ),
   }
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      open: 'open' in props ? props.open : false,
-    }
-    if (this.state.open) {
-      document.addEventListener('click', this.closeMenu)
-    }
+  state = {
+    open: false,
+    height: 0,
   }
 
   closeMenu = (event) => {
@@ -35,7 +33,11 @@ class Dropdown extends Component {
   toggle = (event) => {
     event.preventDefault()
     const open = !this.state.open
-    this.setState({ open }, () => {
+    let height = this.state.height
+    if (open && !height) {
+      height = this.wrapper.offsetHeight
+    }
+    this.setState({ open, height }, () => {
       if (open) {
         document.addEventListener('click', this.closeMenu)
       } else {
@@ -46,15 +48,21 @@ class Dropdown extends Component {
 
   render () {
     const {
+      right,
       actions,
       renderTrigger,
     } = this.props
-    const { open } = this.state
+    const { open, height } = this.state
 
     return (
-      <StyledWrapper>
+      <StyledWrapper innerRef={ref => this.wrapper = ref}>
         { renderTrigger({ onClick: this.toggle }) }
-        <StyledDropdown open={open} innerRef={ref => this.dd = ref}>
+        <StyledDropdown
+          open={open}
+          right={right}
+          innerRef={ref => this.dd = ref}
+          css={{ top: height }}
+        >
           {actions.map((action, key) => {
             const props = { key: `action-${key}` }
             switch(action.type) {

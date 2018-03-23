@@ -14,17 +14,8 @@ const MoreIcon = () =>
   </StyledMoreIcon>
 
 class Actions extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      showActions: false
-    }
-  }
-
   render () {
     const { actions } = this.props
-    const { showActions } = this.state
 
     return (
       <div style={{
@@ -36,13 +27,13 @@ class Actions extends Component {
         padding: 0,
       }}>
       <Dropdown
+        right
         renderTrigger={props => (
           <StyledMoreButton type="button" {...props}>
             <MoreIcon />
             <span>Open actions</span>
           </StyledMoreButton>
         )}
-        open={showActions}
         actions={actions} />
       </div>
     )
