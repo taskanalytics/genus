@@ -27,20 +27,24 @@ class Actions extends Component {
     const { showActions } = this.state
 
     return (
-      <span>
-        <StyledMoreButton
-          innerRef={ref => this.button = ref}
-          onClick={() => this.setState({showActions: !showActions})}
-        >
-          <MoreIcon />
-          <span>Open actions</span>
-        </StyledMoreButton>
-        <Dropdown
-          target={this.button}
-          show={showActions}
-          close={() => this.setState({showActions: false})}
-          actions={actions} />
-      </span>
+      <div style={{
+        position: 'absolute',
+        top: '24px',
+        right: '24px',
+        width: '24px',
+        height: '24px',
+        padding: 0,
+      }}>
+      <Dropdown
+        renderTrigger={props => (
+          <StyledMoreButton type="button" {...props}>
+            <MoreIcon />
+            <span>Open actions</span>
+          </StyledMoreButton>
+        )}
+        open={showActions}
+        actions={actions} />
+      </div>
     )
   }
 }

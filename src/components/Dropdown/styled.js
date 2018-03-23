@@ -5,19 +5,32 @@ import {font, fontSize} from '../../styles/mixins'
 import styleIf from '../../utils/styleIf'
 import {rgba} from 'polished'
 import {Box} from '../Grid'
-import Popover from 'react-simple-popover'
 
-export const StyledWrapper = glamorous(Popover)({
+export const StyledWrapper = glamorous('span')({
+  position: 'relative',
+})
+
+export const StyledDropdown = glamorous('dialog')({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
   borderRadius: theme.radius*2,
+  borderWidth: 0,
   padding: theme.space[1],
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
-  transform: 'translateX(-50%)',
+  left: 'auto',
+  right: 'auto',
   '&:focus': {
     outline: 'none',
-  }
+  },
+  animation: `${css.keyframes({
+    '0%': { transform: 'translateY(-5%)', opacity: 0 },
+    '20%': { transform: 'translateY(-5%)', opacity: .2},
+    '40%': { transform: 'translateY(-4%)', opacity: .4 },
+    '50%': { transform: 'translateY(-3%)', opacity: .8 },
+    '70%': { transform: 'translateY(-1%)', opacity: 1 },
+    '100%': { transform: 'translateY(0%)' },
+  })} 150ms linear`,
 })
 
 const styledDestructive = styleIf('destructive', {

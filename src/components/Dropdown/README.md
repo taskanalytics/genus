@@ -2,15 +2,10 @@
 state: {toggle: true}
 ---
 <div>
-  
-  <button onClick={() => setState({toggle: !state.toggle})}>
-    Toggle dropdown
-  </button>
-
   <Dropdown
-    show={state.toggle}
-    close={() => setState({toggle: false})}
-    target={this}
+    renderTrigger={props => {
+      return <button {...props}>Toggle it</button>
+    }}
     actions={[
       {
         name: 'Option 1',
@@ -45,9 +40,9 @@ state: {toggle: true}
         action: () => console.log('Clicked Option 5'),
       },
       {
-        name: 'Option 6',
+        name: 'Delete',
         type: 'destructive',
-        action: () => console.log('Clicked Option 6'),
+        action: () => console.log('Delete'),
       }
     ]} />
   

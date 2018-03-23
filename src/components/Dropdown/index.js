@@ -7,65 +7,76 @@ import {
   StyledAction,
   StyledHeading,
   StyledSeparator,
+  StyledDropdown,
 } from './styled'
-
-const Actions = ({ actions }) => {
-  return (
-    actions.map((action, key) =>
-      {switch(action.type) {
-        case 'separator':
-          return <StyledSeparator key={action.key} />
-        case 'heading':
-          return <StyledHeading key={action.key}>{action.name}</StyledHeading>
-        default:
-          return <StyledAction key={action.key} destructive={action.type}>{action.name}</StyledAction>
-      }}
-    )
-  )
-}
-
-const overlayClassName = 'overlay'
 
 class Dropdown extends Component {
   static defaultProps = {
-    title: 'Please select…',
+    renderTrigger: (props) => <button type="button" {...props}>Toggle</button>
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      open: 'open' in props ? props.open : false,
+    }
+    if (this.state.open) {
+      document.addEventListener('click', this.closeMenu)
+    }
+  }
+
+  closeMenu = (event) => {
+    if (this.dd && !this.dd.contains(event.target)) {
+      this.setState({ open: false }, () => {
+        document.removeEventListener('click', this.closeMenu)
+      })
+    }
+  }
+
+  toggle = (event) => {
+    event.preventDefault()
+    const open = !this.state.open
+    this.setState({ open }, () => {
+      if (open) {
+        document.addEventListener('click', this.closeMenu)
+      } else {
+        document.removeEventListener('click', this.closeMenu)
+      }
+    })
   }
 
   render () {
     const {
-      title,
-      close,
-      show,
       actions,
-      target,
-      container,
+      renderTrigger,
     } = this.props
+    const { open } = this.state
 
     return (
-      <div ref={ref => this.container = ref}>
-        <StyledWrapper
-          show={show}
-          onHide={close}
-          hideWithOutsideClick={true}
-          container={container || this.container}
-          target={target || this.container}
-          role='dialog'>
-          <Actions actions={actions} />
-        </StyledWrapper>
-      </div>
+      <StyledWrapper>
+        { renderTrigger({ onClick: this.toggle }) }
+        <StyledDropdown open={open} innerRef={ref => this.dd = ref}>
+          {actions.map((action, key) => {
+            const props = { key: `action-${key}` }
+            switch(action.type) {
+              case 'separator':
+                return <StyledSeparator {...props} />
+              case 'heading':
+                return <StyledHeading {...props}>{action.name}</StyledHeading>
+              default:
+                return <StyledAction {...props} destructive={action.type === 'destructive'}>{action.name}</StyledAction>
+            }
+          })}
+        </StyledDropdown>
+      </StyledWrapper>
     )
-
   }
 }
 
 if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
-    title: T.string,
-    close: T.func,
-    show: T.bool.isRequired,
-    actions: T.array.isRequired,
-    target: T.node,
-    container: T.node,
+    open: T.bool,
+    actions: T.array,
   }
 }
 

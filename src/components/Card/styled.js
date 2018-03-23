@@ -15,9 +15,6 @@ export const StyledCard = glamorous(Box)({
 })
 
 export const StyledMoreButton = glamorous.button({
-  position: 'absolute',
-  top: '24px',
-  right: '24px',
   height: '24px',
   width: '24px',
   border: 'none',
