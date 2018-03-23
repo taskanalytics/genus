@@ -6,7 +6,7 @@ import Number from './components/Number'
 import Percentage from './components/Percentage'
 import PieChart from './components/PieChart'
 import Heading from './components/Heading'
-import Report from './components/Report'
+import { ReportCard, ComparisonCard } from './components/Report'
 import Card from './components/Card'
 import Text from './components/Text'
 import Dropdown from './components/Dropdown'
@@ -29,6 +29,8 @@ export {
   PieChart,
   Heading,
   Card,
+  ReportCard,
+  ComparisonCard,
   Text,
   Dropdown,
   EntityCard,
