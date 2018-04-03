@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {ThemeProvider} from 'glamorous'
 import {Catalog} from 'catalog'
 import { css } from 'glamor'
+import theme from '../src/styles/theme'
 
 import { injectGlobals } from '../src/styles/global'
 
@@ -47,7 +49,11 @@ const pages = [
       require('../src/components/Modal/catalog').default,
       require('../src/components/MultiToggle/catalog').default,
       require('../src/components/EmptyState/catalog').default,
-    ]},
+      require('../src/components/Percentage/catalog').default,
+    ].sort((a, b) => {
+      return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
+    })
+  },
 ]
 
 const config = {
@@ -57,7 +63,11 @@ const config = {
   pages,
 }
 
+console.log(theme);
+window.theme = theme
 ReactDOM.render(
-  <Catalog {...config} />,
+  <ThemeProvider theme={theme}>
+    <Catalog {...config} />
+  </ThemeProvider>,
   document.getElementById('catalog')
 )
