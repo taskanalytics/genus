@@ -1,6 +1,5 @@
 import glamorous from 'glamorous'
 import {css} from 'glamor'
-import theme from '../../styles/theme'
 import {fontSize} from '../../styles/mixins'
 import Heading from '../Heading'
 import {Box, Flex} from '../Grid'
@@ -15,7 +14,7 @@ export const overlayStyles = css({
   bottom: 0,
 })
 
-export const StyledModal = glamorous(ReactModal)({
+export const StyledModal = glamorous(ReactModal)(({ theme }) => ({
   width: '680px',
   position: 'absolute',
   top: '200px',
@@ -28,8 +27,7 @@ export const StyledModal = glamorous(ReactModal)({
   '&:focus': {
     outline: 'none',
   },
-}
-)
+}))
 
 export const StyledHeader = glamorous(Flex)({
 

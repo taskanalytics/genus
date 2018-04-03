@@ -1,4 +1,5 @@
 import { rgba } from 'polished'
+import { colors } from './colors'
 
 const theme = {
   breakpoints: [
@@ -17,7 +18,8 @@ const theme = {
     text: 'rgb(45, 54, 68)',
     white: '#fff',
     muted: 'rgba(45, 54, 68, 0.6)',
-    primary: '#2084d8',
+    primary: colors.primary,
+    primaryShaded: colors.primaryShaded,
     good: rgba(140, 215, 150, 1),
     goodDark: '#3BBE77',
     headsUp: rgba(255, 212, 0, 1),

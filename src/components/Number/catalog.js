@@ -1,9 +1,8 @@
 import Number from '.'
-import Percentage from '../Percentage'
 
 export default {
   title: 'Number',
   path: '/components/number',
-  imports: { Number, Percentage },
+  imports: { Number },
   component: require('./README.md'),
 }

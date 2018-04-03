@@ -3,17 +3,14 @@ import {css} from 'glamor'
 import {rgba} from 'polished'
 import { width, space } from 'styled-system'
 
-import theme from '../../styles/theme'
 import {font, fontSize} from '../../styles/mixins'
-import styleIf from '../../utils/styleIf'
-
 import {Box} from '../Grid'
 
 export const StyledWrapper = glamorous('span')({
   position: 'relative',
 })
 
-export const StyledDropdown = glamorous('dialog')({
+export const StyledDropdown = glamorous('dialog')(({ theme }) => ({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
@@ -33,7 +30,7 @@ export const StyledDropdown = glamorous('dialog')({
     '50%': { opacity: 0.8 },
     '100%': { opacity: 1 },
   })} 150ms linear`,
-},
+}),
 (props) => {
   if (props.right) {
     return {
@@ -46,37 +43,31 @@ width,
 space
 )
 
-const styledDestructive = styleIf('destructive', {
-  color: theme.colors.trouble,
-})
-
-export const StyledAction = glamorous(Box)({
+export const StyledAction = glamorous(Box)(({ theme, destructive }) => ({
   ...font('normal'),
   backgroundColor: 'transparent',
   padding: theme.space[1],
   paddingLeft: theme.space[2],
   paddingRight: theme.space[2],
   borderRadius: theme.radius,
-  color: theme.colors.primary,
+  color: destructive ? theme.colors.trouble : theme.colors.primary,
   cursor: 'pointer',
   '&:hover,&:focus,&:active': {
     backgroundColor: rgba(theme.colors.primary, 0.1),
   },
-},
-styledDestructive
-)
+}))
 
-export const StyledHeading = glamorous(Box)({
+export const StyledHeading = glamorous(Box)(({ theme }) => ({
   ...font('bold'),
   padding: theme.space[1],
   paddingLeft: theme.space[2],
   paddingRight: theme.space[2],
-})
+}))
 
-export const StyledSeparator = glamorous(Box)({
+export const StyledSeparator = glamorous(Box)(({ theme }) => ({
   backgroundColor: '#D5D7DA',
   margin: `${theme.space[1]}px 0`,
   display: 'block',
   height: '1px',
   width: '100%',
-})
+}))

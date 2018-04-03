@@ -1,11 +1,7 @@
 import glamorous from 'glamorous'
 import {colors} from '../../styles/colors'
-import theme from '../../styles/theme'
 import {font, fontSize} from '../../styles/mixins'
 
-const paddingX = 20
-const paddingY = 12
-const paddingExtra = 6
 const border = '1px solid #CFD5DB'
 
 const mediaQueries = {
@@ -28,7 +24,7 @@ export const StyledRadio = glamorous.input({
   display: 'none',
 })
 
-export const StyledLabel = glamorous.label({
+export const StyledLabel = glamorous.label(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   backgroundColor: '#ECEFF1',
@@ -51,24 +47,24 @@ export const StyledLabel = glamorous.label({
     borderRight: border,
     '&:first-child': {
       borderRadius: '0',
-      paddingLeft: (14 + paddingExtra),
+      paddingLeft: theme.space[4]
     },
     '&:last-child': {
       borderRadius: '0',
       borderRight: 'none',
-      paddingRight: (14 + paddingExtra),
+      paddingRight: theme.space[4]
     },
   },
   [mediaQueries.desktop]: {
-    padding: `${paddingY}px ${paddingX}px`,
+    padding: `${theme.space[2]}px ${theme.space[3]}px`,
     '&:first-child': {
-      paddingLeft: (paddingX + paddingExtra),
+      paddingLeft: theme.space[4],
     },
     '&:last-child': {
-      paddingRight: (paddingX + paddingExtra),
+      paddingRight: theme.space[4],
     },
   },
-}, props => {
+}), props => {
   if (props.active) {
     let styles = {}
     styles = {

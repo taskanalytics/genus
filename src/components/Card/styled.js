@@ -1,8 +1,7 @@
 import glamorous from 'glamorous'
 import { Box } from '../Grid'
-import theme from '../../styles/theme'
 
-export const StyledCard = glamorous(Box)({
+export const StyledCard = glamorous(Box)(({ theme }) => ({
   width: '100%',
   alignItems: 'center',
   backgroundColor: theme.colors.white,
@@ -12,11 +11,11 @@ export const StyledCard = glamorous(Box)({
   '&:hover': {
     boxShadow: '0 2px 6px 0 rgba(0,0,0,.1)',
   },
-})
+}))
 
-export const StyledMoreButton = glamorous.button({
-  height: '24px',
-  width: '24px',
+export const StyledMoreButton = glamorous.button(({ theme, size }) => ({
+  height: size,
+  width: size,
   border: 'none',
   backgroundColor: 'transparent',
   padding: 0,
@@ -31,9 +30,9 @@ export const StyledMoreButton = glamorous.button({
   '&:active,&:focus': {
     outline: 'none',
   },
-})
+}))
 
-export const StyledMoreIcon = glamorous.svg({
+export const StyledMoreIcon = glamorous.svg(({ size }) => ({
   height: '24px',
   width: '24px',
-})
+}))

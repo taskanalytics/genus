@@ -1,5 +1,4 @@
 import { mq } from './breakpoints'
-import theme from './theme'
 
 export const spacedText = () => ({
   textTransform: 'uppercase',
@@ -12,7 +11,7 @@ export const ellipsis = () => ({
   textOverflow: 'ellipsis',
 })
 
-export const completionGradient = (dark) => {
+export const completionGradient = (dark, theme) => {
   var colorGood = theme.colors.good
   if (dark) {
     colorGood = theme.colors.goodDark

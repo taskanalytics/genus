@@ -8,7 +8,7 @@ class EntityCard extends PureComponent {
   render () {
     const {name, description, avatar} = this.props
     return (
-      <StyledCard p={'24px'}>
+      <StyledCard p={4}>
         {avatar && <Avatar mr={2} src={avatar} /> }
         <StyledBox>
           <StyledHeading mb={1} mt={'2px'}>{name}</StyledHeading>

@@ -6,7 +6,7 @@ Required:
 Optional:
 
 [description]         Label for number
-[sup]                 Denominator for number, like %
+[suffix]              Denominator for number, like %
 [size={small,large}]  Render either a small or a large variant
 ```
 
@@ -36,31 +36,9 @@ Optional:
 <Number size="large" value={25192} description={"Types"} />
 ```
 
-## Sup
-Since percentages are used widely, they have their own dedicated component. For everything else, theres the `sup` prop
+## Suffix
+Since percentages are used widely, they have their own dedicated component. For everything else, theres the `suffix` prop
 
 ```react|span-3
-<Percentage size="large" value={25} description="Completion" />
-```
-
-```react|span-3
-<Percentage size="large" value={25} />
-```
-
-```react|span-3
-<Number sup="℃" size="large" value={25} description="Degress" />
-```
-
-## Colored `Percentage`
-
-```react|span-3
-<Percentage colored size="large" value={98.2} />
-```
-
-```react|span-3
-<Percentage colored size="large" value={74.2} />
-```
-
-```react|span-3
-<Percentage colored size="large" value={51.9} />
+<Number suffix="℃" size="large" value={25} description="Degress" />
 ```

@@ -3,7 +3,6 @@ import T from 'prop-types'
 import {
   StyledCard,
   StyledHeading,
-  StyledText,
 } from './styled'
 import Heading from '../Heading'
 import Text from '../Text'
@@ -20,8 +19,8 @@ class CompletionCard extends Component {
       <StyledCard completion={completion.value}>
         <StyledHeading is='h2' mb={2}>{name}</StyledHeading>
         <Percentage size="display" value={completion.value} />
-        <StyledText small>{completion.description}</StyledText>
-        <StyledText small mt={2}><strong>{responses.value}</strong> {responses.description}</StyledText>
+        <Text mb={0} block small>{completion.description}</Text>
+        <Text block mb={0} small mt={2}><strong>{responses.value}</strong> {responses.description}</Text>
       </StyledCard>
     )
   }

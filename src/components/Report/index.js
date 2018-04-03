@@ -25,7 +25,7 @@ export class ReportCard extends Component {
         <StyledHeading>{heading}</StyledHeading>
         <Percentage colored='gradient' size='display' value={value} />
         <StyledByline>{byline}</StyledByline>
-        <StyledSource>
+        <StyledSource bottom={4}>
           <strong>{source}</strong>
           {type && ` ${type}`}
         </StyledSource>
