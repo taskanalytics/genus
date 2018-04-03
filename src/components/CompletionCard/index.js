@@ -19,8 +19,8 @@ class CompletionCard extends Component {
       <StyledCard completion={completion.value}>
         <StyledHeading is='h2' mb={2}>{name}</StyledHeading>
         <Percentage size="display" value={completion.value} />
-        <Text mb={0} block small>{completion.description}</Text>
-        <Text block mb={0} small mt={2}><strong>{responses.value}</strong> {responses.description}</Text>
+        <Text block small mb={0}>{completion.description}</Text>
+        <Text block small mb={0} mt={2}><strong>{responses.value}</strong> {responses.description}</Text>
       </StyledCard>
     )
   }

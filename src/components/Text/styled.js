@@ -15,31 +15,33 @@ const styledLarge = styleIf('large', {
   ...fontSize('large'),
 })
 
-const styledBlock = styleIf('block', {
-  display: 'block',
-})
+export const StyledText = withIsProp(glamorous('span')([
+  ({ theme, muted, block }) => {
+  let css = {
+    ...font(),
+    ...fontSize('small'),
+    display: block ? 'block' : 'inline-block',
+    '& a': {
+      color: theme.colors.primary,
+    },
+  }
 
-const styledMuted = styleIf('muted', ({ theme }) => ({
-  color: theme.colors.muted,
-  '& a': {
-    color: theme.colors.primary,
-  },
-}))
+  if (muted) {
+    css = {
+      ...css,
+      color: theme.colors.muted,
+      '& a': {
+        color: theme.colors.primary,
+      },
+    }
+  }
 
-export const StyledText = withIsProp(glamorous('span')(({ theme }) => ({
-  ...font(),
-  ...fontSize('small'),
-  display: 'inline-block',
-  '& a': {
-    color: theme.colors.primary,
-  },
-}),
+  return css
+},
   width,
   space,
   color,
   textAlign,
   styledSmall,
   styledLarge,
-  styledMuted,
-  styledBlock
-))
+]))
