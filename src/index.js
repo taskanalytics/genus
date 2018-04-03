@@ -1,4 +1,5 @@
 import * as styles from './styles'
+import theme from './styles/theme'
 import Button from './components/Button'
 import ProgressBar from './components/ProgressBar'
 import { Container, Flex, Box } from './components/Grid'
@@ -41,4 +42,5 @@ export {
   MultiToggle,
   EmptyState,
   styles,
+  theme,
 }

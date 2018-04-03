@@ -47,3 +47,21 @@ state: {value: 50}
   </Box>
 </Container>
 ```
+
+## Theming
+
+Because Genus is built on top of [styled-system](http://jxnblk.com/styled-system) it will fall back to its theme unless you either specify a theme or set up the genus theme:
+
+```code
+lang: jsx
+---
+import {ThemeProvider} from 'glamorous'
+import {theme} from '@taskanalytics/genus'
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
+  domElement
+)
+```

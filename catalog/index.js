@@ -63,8 +63,6 @@ const config = {
   pages,
 }
 
-console.log(theme);
-window.theme = theme
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Catalog {...config} />
