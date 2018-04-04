@@ -26,8 +26,8 @@ export class ReportCard extends Component {
         <Percentage colored='gradient' size='display' value={value} />
         <StyledByline>{byline}</StyledByline>
         <StyledSource bottom={4}>
-          <strong>{source}</strong>
-          {type && ` ${type}`}
+          { source && <strong>{source}</strong> }
+          { type && ` ${type}` }
         </StyledSource>
       </StyledCard>
     )
@@ -89,8 +89,8 @@ export class ComparisonCard extends Component {
           </span>
         }
         <StyledSource>
-          <strong>{source}</strong>
-          {type && ` ${type}`}
+          { source && <strong>{source}</strong> }
+          { type && ` ${type}` }
         </StyledSource>
       </StyledCard>
     )

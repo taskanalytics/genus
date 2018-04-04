@@ -1,5 +1,6 @@
 ## Default
 ```react
+span: 3
 showSource: true
 ---
 <CompletionCard
