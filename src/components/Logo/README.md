@@ -7,15 +7,20 @@ Optional:
 ```
 
 ```react
+showSource: true
+---
 <Logo />
 ```
 
 ```react
 dark: true
+showSource: true
 ---
 <Logo light />
 ```
 
 ```react
+showSource: true
+---
 <Logo large primary />
 ```

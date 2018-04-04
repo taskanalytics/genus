@@ -8,6 +8,7 @@ export const StyledCard = glamorous(Box)(({ theme }) => ({
   borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',
+  overflow: 'auto',
   '&:hover': {
     boxShadow: '0 2px 6px 0 rgba(0,0,0,.1)',
   },

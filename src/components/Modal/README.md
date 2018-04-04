@@ -1,5 +1,6 @@
 ```react
 state: {showModal: false}
+showSource: true
 ---
 <div>
   <button onClick={() => setState({showModal: true})}>Trigger modal</button>

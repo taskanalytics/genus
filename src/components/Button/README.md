@@ -16,41 +16,61 @@ Optional:
 ## Variations
 
 ```react|span-2
+showSource: true
+---
 <Button>Default</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button primary>Primary</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button primaryinverted>Primaryinverted</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button warning>Warning</Button>
 ```
 
 ```react|dark,span-2
+showSource: true
+---
 <Button inverted>Inverted</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button block>Block</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button compact>Compact</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button disabled>Disabled</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button link>Link</Button>
 ```
 
 ```react|span-2
+showSource: true
+---
 <Button to='/'>As a href</Button>
 ```

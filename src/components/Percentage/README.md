@@ -12,55 +12,79 @@ Optional:
 ```
 
 ```react|span-3
+showSource: true
+---
 <Percentage value={2} description={"Types"} />
 ```
 ```react|span-3
+showSource: true
+---
 <Percentage value={12092} description={"Types"} />
 ```
 
 ## Small
 
 ```react|span-3
+showSource: true
+---
 <Percentage size="small" value={2} description={"Types"} />
 ```
 ```react|span-3
+showSource: true
+---
 <Percentage size="small" value={12092} description={"Types"} />
 ```
 
 ## Large
 
 ```react|span-3
+showSource: true
+---
 <Percentage size="large" value={2} description={"Types"} />
 ```
 
 ```react|span-3
+showSource: true
+---
 <Percentage size="large" value={25192} description={"Types"} />
 ```
 
 ## Colored
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored size="large" value={90.2} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored size="large" value={54.2} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored size="large" value={21.9} />
 ```
 
 ## Gradient
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored="gradient" size="large" value={88.2} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored="gradient" size="large" value={54.2} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <Percentage colored="gradient" size="large" value={21.9} />
 ```

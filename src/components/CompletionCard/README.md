@@ -1,5 +1,7 @@
 ## Default
 ```react
+showSource: true
+---
 <CompletionCard
   name="Website"
   completion={{

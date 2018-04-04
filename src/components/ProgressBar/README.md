@@ -16,25 +16,37 @@ Optional:
 The progress bar uses colors to indicate the level of completion as you cross pre-defined thresholds. There are three variants:
 
 ```react|span-2
+showSource: true
+---
 <ProgressBar value={90} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <ProgressBar value={65} />
 ```
 
 ```react|span-2
+showSource: true
+---
 <ProgressBar value={30} />
 ```
 
 ## Less used variations
 
 ```react|span-2,dark
+showSource: true
+---
 <ProgressBar light value={30} />
 ```
 ```react|span-2,dark
+showSource: true
+---
 <ProgressBar />
 ```
 ```react|span-2
+showSource: true
+---
 <ProgressBar empty value={30} />
 ```
