@@ -2,7 +2,6 @@ import glamorous from 'glamorous'
 import { shade, rgba } from 'polished'
 
 import {colors} from '../../styles/colors'
-import * as spacing from '../../styles/spacing'
 import {font, fontSize, spacedText} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
@@ -87,22 +86,22 @@ const styledLink = styleIf('link', {
   '&:hover,&:focus': {
     color: colors.primaryDark,
     textDecoration: 'underline',
+    boxShadow: 'none',
   },
 })
 
-export default glamorous('button')({
+export default glamorous('button')(({ theme }) => ({
   ...font('bold'),
   ...fontSize('small'),
   ...spacedText(),
   position: 'relative',
   display: 'inline-block',
-  padding: `${spacing.small} ${spacing.base}`,
-  color: rgba(colors.text, 0.8),
+  padding: `${theme.space[2]}px ${theme.space[3]}px`,
+  color: rgba(theme.colors.text, 0.8),
   whiteSpace: 'nowrap',
   borderRadius: '50px',
-  border: `4px solid ${rgba(colors.dark, 0.15)}`,
+  border: `${theme.radius}px solid ${rgba(theme.colors.black, 0.15)}`,
   backgroundColor: 'transparent',
-  // marginBottom: spacing.base,
   '[disabled]': {
     pointerEvents: 'none',
     opacity: 0.6,
@@ -111,15 +110,17 @@ export default glamorous('button')({
     outline: 'none',
   },
   '&:hover,&:focus': {
-    color: colors.text,
-    borderColor: rgba(colors.dark, 0.2),
+    color: theme.colors.text,
+    borderColor: rgba(theme.colors.black, 0.2),
     textDecoration: 'none',
+    boxShadow: theme.shadows[0],
+    cursor: 'pointer',
   },
   '&:active': {
-    color: colors.text,
-    borderColor: rgba(colors.dark, 0.3),
+    color: theme.colors.text,
+    borderColor: rgba(theme.colors.black, 0.3),
   },
-},
+}),
 styledSpaceless,
 styledCompact,
 styledLink,
