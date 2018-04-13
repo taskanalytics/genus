@@ -50,6 +50,7 @@ const pages = [
       require('../src/components/MultiToggle/catalog').default,
       require('../src/components/EmptyState/catalog').default,
       require('../src/components/Percentage/catalog').default,
+      require('../src/components/Form/catalog').default,
     ].sort((a, b) => {
       return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
     })
