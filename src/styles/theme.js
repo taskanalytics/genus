@@ -3,15 +3,15 @@ import { colors } from './colors'
 
 const theme = {
   breakpoints: [
-    32, 48, 64, // in em's
+    '32em', '48em', '64em',
   ],
   space: [
-    0, 6, 12, 18, 24,
+    0, 6, 12, 18, 24, 48,
   ],
   radius: 4,
-  // fontSizes: [
-  //   12, 16, 18, 24, 36, 72
-  // ],
+  fontSizes: [
+    12, 16, 18, 24, 36, 72
+  ],
   colors: {
     black: 'rgb(17, 17, 17)',
     blue: '#07c',
