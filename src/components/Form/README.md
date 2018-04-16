@@ -1,14 +1,9 @@
 Form controls
 
-```react|span-3
+```react
 showSource: true
 ---
-<Input placeholder="Placeholder" label="Email" />
-```
-
-```react|span-3
----
-<Flex wrap flexDirection="column" p={4} bg="white">
+<Flex wrap w={600} flexDirection="column" p={4} bg="white">
   <Box pb={3}>
     <Input 
       placeholder="Please select a username"
