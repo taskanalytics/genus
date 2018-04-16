@@ -6,6 +6,8 @@ import {font, fontSize, spacedText} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
+import { width, space } from 'styled-system'
+
 const styledBlock = styleIf('block', {
   display: 'block',
   width: '100%',
@@ -121,6 +123,8 @@ export default glamorous('button')(({ theme }) => ({
     borderColor: rgba(theme.colors.black, 0.3),
   },
 }),
+  space,
+  width,
 styledSpaceless,
 styledCompact,
 styledLink,
