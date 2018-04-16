@@ -41,7 +41,7 @@ const styledPrimaryInverted = styleIf('primaryinverted', {
 
 const styledInverted = styleIf('inverted', {
   color: colors.white,
-  border: `4px solid ${colors.base}`,
+  border: `2px solid ${colors.base}`,
   backgroundColor: 'transparent',
   '&:hover,&:focus': {
     color: colors.primaryDark,
@@ -67,7 +67,7 @@ const styledWarning = styleIf('warning', {
 })
 
 const styledCompact = styleIf('compact', {
-  ...fontSize('xsmall'),
+  ...fontSize('xxsmall'),
   letterSpacing: '0.05em',
 })
 
@@ -92,15 +92,15 @@ const styledLink = styleIf('link', {
 
 export default glamorous('button')(({ theme }) => ({
   ...font('bold'),
-  ...fontSize('small'),
+  ...fontSize('xsmall'),
   ...spacedText(),
   position: 'relative',
   display: 'inline-block',
-  padding: `${theme.space[2]}px ${theme.space[3]}px`,
+  padding: `${theme.space[2]}px ${theme.space[4]}px`,
   color: rgba(theme.colors.text, 0.8),
   whiteSpace: 'nowrap',
   borderRadius: '50px',
-  border: `${theme.radius}px solid ${rgba(theme.colors.black, 0.15)}`,
+  border: `2px solid ${rgba(theme.colors.black, 0.15)}`,
   backgroundColor: 'transparent',
   '[disabled]': {
     pointerEvents: 'none',
