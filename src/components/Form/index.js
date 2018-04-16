@@ -1,36 +1,11 @@
-import React, { Component } from 'react'
-import T from 'prop-types'
-import {
-  StyledWrapper,
-  StyledInput,
-} from './styled'
+import Input from './Input'
+import PasswordInput from './Password'
+import withReduxForm from './withReduxForm'
+import withState from './withState'
 
-import Text from '../Text'
-
-class Input extends Component {
-  render () {
-    const { label, error, ...rest } = this.props
-
-    return (
-      <StyledWrapper error={error}>
-        <Text small muted
-          fontSize={['12px']}
-          css={{
-            textTransform: 'uppercase',
-          }}>{label}</Text>
-        <StyledInput error={error} {...rest} />
-      </StyledWrapper>
-    )
-  }
+export {
+  Input,
+  PasswordInput,
+  withReduxForm,
+  withState,
 }
-
-if (process.env.NODE_ENV !== 'production') {
-  Input.propTypes = {
-    label: T.string,
-    error: T.oneOfType([ T.string, T.bool ]),
-    placeholder: T.string,
-    type: T.oneOf(['text', 'email', 'number']),
-  }
-}
-
-export { Input }

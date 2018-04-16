@@ -4,10 +4,10 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   display: 'flex',
   position: 'relative',
   flexDirection: 'column',
-  alignItems: 'start',
   background: 'transparent',
   borderBottom: `4px solid rgba(50,60,76,.1)`,
   borderBottomColor: error ? theme.colors.troubleDark : 'rgba(50,60,76,.1)',
+  width: '100%',
 
   '&:after': {
     content: '""',
@@ -29,6 +29,7 @@ export const StyledInput = glamorous.input(({ theme, error }) => {
   return {
     width: '100%',
     border: 'none',
+    flexGrow: 1,
     background: 'transparent',
     fontSize: theme.fontSizes[1],
     marginTop: theme.space[1],
