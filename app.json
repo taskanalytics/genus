@@ -1,0 +1,11 @@
+{
+  "name": "Genus – Task Analytics Design System",
+  "addons": [],
+  "buildpacks": [{"url": "heroku/nodejs"}],
+  "env": {
+    "TZ": "Europe/Oslo",
+    "NODE_ENV": "production",
+    "NPM_CONFIG_PRODUCTION": "false",
+    "HEROKU_APP_NAME": { "required": true }
+  }
+}
