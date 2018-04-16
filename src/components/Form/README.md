@@ -27,6 +27,16 @@ showSource: true
       label="Password"
     />
   </Box>
+  <Box pb={3}>
+    <Select 
+      placeholder="What is your work email?" 
+      label="Email"
+      renderAfter={ () => '' }
+    >
+      <option>Option A</option>
+      <option>Option B</option>
+    </Select>
+  </Box>
 </Flex>
 ```
 

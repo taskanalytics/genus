@@ -1,6 +1,7 @@
 import {
   Input,
   PasswordInput,
+  Select,
   withState,
 } from '.'
 
@@ -13,6 +14,7 @@ export default {
   imports: {
     Input: withState(Input),
     PasswordInput,
+    Select,
     Flex,
     Box,
     Text,
