@@ -3,7 +3,7 @@ import { colors } from './colors'
 
 const theme = {
   breakpoints: [
-    '32em', '48em', '64em',
+    '32em', '48em', '64em', '80em',
   ],
   space: [
     0, 6, 12, 18, 24, 48,

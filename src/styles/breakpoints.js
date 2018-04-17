@@ -1,7 +1,9 @@
-export const xs = '400px'
-export const md = '720px'
-export const lg = '960px'
-export const xl = '1160px'
+import theme from './theme'
+
+export const xs = theme.breakpoints[0]
+export const md = theme.breakpoints[1]
+export const lg = theme.breakpoints[2]
+export const xl = theme.breakpoints[3]
 
 const breakpoints = { xs, md, lg, xl }
 
