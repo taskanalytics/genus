@@ -6,7 +6,6 @@ import {
   StyledLabel,
 } from './styled'
 
-import Text from '../Text'
 import { Flex } from '../Grid'
 
 class Input extends Component {

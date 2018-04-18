@@ -8,7 +8,6 @@ import {
   StyledLabel,
 } from './styled'
 
-import Text from '../Text'
 import { Flex } from '../Grid'
 
 const defaultRenderAfter = () => <StyledCaret />
