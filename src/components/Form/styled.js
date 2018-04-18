@@ -1,4 +1,5 @@
 import glamorous from 'glamorous'
+import Text from '../Text'
 
 export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   display: 'flex',
@@ -81,3 +82,13 @@ export const StyledCaret = glamorous.span(({ theme, error }) => ({
   borderRadius: '2px',
   transform: 'rotate(45deg)',
 }))
+
+export const StyledLabel = (props) => (
+  <Text
+    small muted
+    letterSpacing={2}
+    pb={1}
+    fontSize={0}
+    css={{ textTransform: 'uppercase' }}
+    {...props} />
+)

@@ -3,18 +3,11 @@ import T from 'prop-types'
 import {
   StyledWrapper,
   StyledInput,
+  StyledLabel,
 } from './styled'
 
 import Text from '../Text'
 import { Flex } from '../Grid'
-
-const StyledLabel = (props) => (
-  <Text
-    small muted
-    fontSize={['12px']}
-    css={{ textTransform: 'uppercase' }}
-    {...props} />
-)
 
 class Input extends Component {
   render () {

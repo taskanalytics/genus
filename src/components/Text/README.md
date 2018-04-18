@@ -25,3 +25,10 @@ showSource: true
 ---
 <Text w={1} align='center'>Hello Text</Text>
 ```
+
+## `muted`
+```react
+showSource: true
+---
+<Text w={1} muted>Hello muted text</Text>
+```

@@ -5,18 +5,11 @@ import {
   StyledSelect,
   StyledCaret,
   StyledAfter,
+  StyledLabel,
 } from './styled'
 
 import Text from '../Text'
 import { Flex } from '../Grid'
-
-const StyledLabel = (props) => (
-  <Text
-    small muted
-    fontSize={['12px']}
-    css={{ textTransform: 'uppercase' }}
-    {...props} />
-)
 
 const defaultRenderAfter = () => <StyledCaret />
 

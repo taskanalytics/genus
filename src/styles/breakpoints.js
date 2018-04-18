@@ -3,9 +3,8 @@ import theme from './theme'
 export const xs = theme.breakpoints[0]
 export const md = theme.breakpoints[1]
 export const lg = theme.breakpoints[2]
-export const xl = theme.breakpoints[3]
 
-const breakpoints = { xs, md, lg, xl }
+const breakpoints = { xs, md, lg }
 
 export function mq (breakpoint, rules) {
   const breakAt = breakpoints[breakpoint]
