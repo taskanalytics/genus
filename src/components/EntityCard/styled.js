@@ -1,5 +1,5 @@
 import glamorous from 'glamorous'
-import { fontSize, ellipsis } from '../../styles/mixins'
+import { ellipsis } from '../../styles/mixins'
 import Heading from '../Heading'
 import Card from '../Card'
 import { Box } from '../Grid'
@@ -13,7 +13,7 @@ export const StyledBox = glamorous(Box)({
   width: '100%',
 })
 
-export const StyledHeading = glamorous(Heading)({
-  ...fontSize('large'),
+export const StyledHeading = glamorous(Heading)(({ theme }) => ({
+  fontSize: theme.fontSizes[3],
   ...ellipsis(),
-})
+}))
