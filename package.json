@@ -13,10 +13,9 @@
     "build": "catalog build",
     "heroku-postbuild": "yarn run build",
     "dist": "NODE_ENV=production rollup -c",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn dist",
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
-    "version": "npm run dist && git add dist",
     "bit:publish": "bit export taskanalytics.genus"
   },
   "keywords": [],
