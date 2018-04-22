@@ -5,6 +5,7 @@
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
   "module": "dist/genus.es.js",
+  "files": ["dist/"],
   "scripts": {
     "next-dev": "next",
     "next-start": "next start",
