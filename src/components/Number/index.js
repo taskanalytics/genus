@@ -5,7 +5,7 @@ const StyledSpan = Dt.withComponent('span')
 
 class NumberComponent extends Component {
   render () {
-    const {size, prefix, suffix, value, description} = this.props
+    const {size, prefix, suffix, value, description, ...props} = this.props
 
     if (description) {
       return (
@@ -16,7 +16,9 @@ class NumberComponent extends Component {
       )
     }
     return (
-      <StyledSpan size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</StyledSpan>
+      <StyledSpan size={size} {...props}>
+        {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
+      </StyledSpan>
     )
   }
 }

@@ -6,9 +6,9 @@ import Avatar from '../Avatar'
 
 class EntityCard extends PureComponent {
   render () {
-    const {name, description, avatar} = this.props
+    const {name, description, avatar, ...props} = this.props
     return (
-      <StyledCard>
+      <StyledCard {...props}>
         {avatar && <Avatar mr={2} src={avatar} /> }
         <StyledBox>
           <StyledHeading mb={1}>{name}</StyledHeading>

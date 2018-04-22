@@ -3,7 +3,6 @@ import T from 'prop-types'
 
 import { StyledText } from './styled'
 
-const Text = props =>
-  <StyledText {...props}>{props.children}</StyledText>
+const Text = StyledText
 
 export default Text

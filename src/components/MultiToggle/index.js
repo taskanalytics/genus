@@ -21,10 +21,11 @@ class MultiToggle extends PureComponent {
       options,
       selectedOption,
       onSelectOption,
+      ...props,
     } = this.props
 
     return (
-      <StyledWrapper>
+      <StyledWrapper {...props}>
         {options.filter(returnFirst).map((option) =>
           <Option
             key={option.value}

@@ -7,22 +7,12 @@ import {
   StyledFlex,
 } from './styled'
 
-export class Box extends Component {
-  render () {
-    return <StyledBox {...this.props} />
-  }
-}
+export const Box = StyledBox
 
-export const Flex = props =>
-  <StyledFlex {...props}>{props.children}</StyledFlex>
+export const Flex = StyledFlex
 
-export const Container = props =>
-  <StyledContainer px={2} {...props}>{props.children}</StyledContainer>
+export const Container = props => <StyledContainer px={2} {...props} />
 
 if (process.env.NODE_ENV !== 'production') {
-  Container.propTypes = {
-    tight: T.bool,
-    wide: T.bool,
-    row: T.bool,
-  }
+  Container.propTypes = { fluid: T.bool }
 }
