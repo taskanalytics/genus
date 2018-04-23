@@ -6,6 +6,7 @@ import {
   textAlign,
   lineHeight,
   letterSpacing,
+  fontWeight,
 } from 'styled-system'
 
 import withIsProp from '../../utils/withIsProp'
@@ -46,4 +47,5 @@ export const StyledText = withIsProp(glamorous('span')([
   textAlign,
   lineHeight,
   letterSpacing,
+  fontWeight,
 ]))
