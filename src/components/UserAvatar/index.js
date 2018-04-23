@@ -7,11 +7,10 @@ const UserIcon = () =>
     <path d="M8 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
   </Svg>
 
-const UserAvatar = ({ color, fullName, initials, ...rest }) =>
+const UserAvatar = ({ fullName, initials, ...rest }) =>
   <Wrapper
     justify='center'
     align='center'
-    color={color}
     is={initials ? 'abbr' : 'span'}
     title={fullName}
     {...rest}>
@@ -19,14 +18,13 @@ const UserAvatar = ({ color, fullName, initials, ...rest }) =>
   </Wrapper>
 
 UserAvatar.defaultProps = {
-  color: '#9D5EED',
+  bg: '#9D5EED',
 }
 
 if (process.env.NODE_ENV !== 'production') {
   UserAvatar.propTypes = {
     fullName: T.string.isRequired,
     initials: T.string.isRequired,
-    color: T.string,
   }
 }
 
