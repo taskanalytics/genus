@@ -6,7 +6,7 @@ const theme = {
     '32em', '48em', '64em',
   ],
   space: [
-    0, 6, 12, 18, 24, 48,
+    0, 6, 12, 18, 24, 48, 96,
   ],
   radius: 4,
   fontSizes: [
