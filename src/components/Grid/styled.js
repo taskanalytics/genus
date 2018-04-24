@@ -12,6 +12,7 @@ import {
   alignSelf,
   alignItems,
   justifyContent,
+  textAlign,
 } from 'styled-system'
 
 export const StyledBox = withIsProp(glamorous('div')(
@@ -21,7 +22,8 @@ export const StyledBox = withIsProp(glamorous('div')(
   color,
   borderWidth,
   borderColor,
-  borderRadius
+  borderRadius,
+  textAlign
 ))
 
 export const StyledFlex = glamorous(StyledBox)([
