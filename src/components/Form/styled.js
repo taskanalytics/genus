@@ -2,12 +2,14 @@ import React from 'react'
 import glamorous from 'glamorous'
 import Text from '../Text'
 
+const BORDERSIZE = 4
+
 export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   display: 'flex',
   position: 'relative',
   flexDirection: 'column',
   background: 'transparent',
-  borderBottom: `4px solid rgba(50,60,76,.1)`,
+  borderBottom: `${BORDERSIZE}px solid rgba(50,60,76,.1)`,
   borderBottomColor: error ? theme.colors.troubleDark : 'rgba(50,60,76,.1)',
   width: '100%',
 
@@ -15,9 +17,9 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
     content: '""',
     display: error ? 'none' : 'block',
     position: 'absolute',
-    bottom: '-4px',
+    bottom: `-${BORDERSIZE}px`,
     width: '0%',
-    height: '4px',
+    height: `${BORDERSIZE}px`,
     background: theme.colors.primary,
     transition: 'width .15s ease-in-out',
   },
@@ -51,7 +53,8 @@ export const StyledSelect = glamorous.select(({ theme, error }) => ({
   border: 'none',
   background: 'transparent',
   fontSize: theme.fontSizes[1],
-  marginTop: theme.space[1],
+  transform: `translateY(${theme.space[1] + BORDERSIZE}px)`,
+  paddingBottom: theme.space[1] + BORDERSIZE,
   marginBottom: theme.space[1],
   zIndex: 20,
 
