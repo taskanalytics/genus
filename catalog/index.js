@@ -4,10 +4,11 @@ import {ThemeProvider} from 'glamorous'
 import {Catalog} from 'catalog'
 import { css } from 'glamor'
 import theme from '../src/styles/theme'
+import fonts from '../src/styles/fonts'
 
-import { injectGlobals } from '../src/styles/global'
-
-injectGlobals(css)
+fonts.forEach(font => {
+  css.global('@font-face', font['@font-face'])
+})
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},
