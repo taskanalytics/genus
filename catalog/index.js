@@ -4,11 +4,12 @@ import {ThemeProvider} from 'glamorous'
 import {Catalog} from 'catalog'
 import { css } from 'glamor'
 import theme from '../src/styles/theme'
-import fonts from '../src/styles/fonts'
+import fonts from './fonts'
 
 fonts.forEach(font => {
   css.global('@font-face', font['@font-face'])
 })
+css.global('body', { fontFamily: '"Brandon Text", sans-serif' })
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},
@@ -64,6 +65,10 @@ const config = {
   title: 'Task Analytics Genus',
   logoSrc: '/static/logos/ta-twolines-preview.png',
   pages,
+  theme: {
+    fontFamily: "'Brandon Text', sans-serif",
+    fontHeading: "'Brandon Text', sans-serif",
+  },
 }
 
 ReactDOM.render(

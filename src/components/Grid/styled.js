@@ -16,7 +16,6 @@ import {
 } from 'styled-system'
 
 export const StyledBox = withIsProp(glamorous('div')(
-  [{}],
   width,
   space,
   color,
@@ -26,23 +25,20 @@ export const StyledBox = withIsProp(glamorous('div')(
   textAlign
 ))
 
-export const StyledFlex = glamorous(StyledBox)([
-  {
-    display: 'flex',
-  }],
-flexWrap,
-alignItems,
-justifyContent,
-flexDirection,
-alignSelf
+export const StyledFlex = glamorous(StyledBox)(
+  { display: 'flex'},
+  flexWrap,
+  alignItems,
+  justifyContent,
+  flexDirection,
+  alignSelf
 )
 
-export const StyledContainer = glamorous(StyledBox)({},
-  props => {
-    if (!props.fluid) {
-      return {
-        maxWidth: '1200px',
-        margin: '0 auto',
-      }
+export const StyledContainer = glamorous(StyledBox)(props => {
+  if (!props.fluid) {
+    return {
+      maxWidth: '1200px',
+      margin: '0 auto',
     }
-  })
+  }
+})
