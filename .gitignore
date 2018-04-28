@@ -1,5 +1,6 @@
 node_modules
 catalog/build
+catalog/static/bundle-stats.html
 .DS_Store
 dist
 yarn-error.log

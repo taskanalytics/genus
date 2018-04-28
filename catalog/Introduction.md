@@ -10,3 +10,5 @@ You can use this tool to figure out how you should make something look, feel and
 
 * [Genus is open source and hosted on GitHub](https://github.com/taskanalytics/genus)
 * Genus is built using Catalog. For more details about how to use, and build with Catalog, check out the [documentation](https://interactivethings.github.io/catalog/)
+
+Curious whats in the bundle? [Check out the bundle stats](/bundle-stats.html)

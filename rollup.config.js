@@ -6,12 +6,20 @@ import analyze from 'rollup-analyzer-plugin'
 import uglify from 'rollup-plugin-uglify-es'
 import ignore from 'rollup-plugin-ignore'
 import replace from 'rollup-plugin-replace'
+import visualizer from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 export default {
   input: 'src/index.js',
-  external: ['react', 'react-dom', 'glamor', 'glamorous', 'polished'],
+  external: [
+    'react',
+    'react-dom',
+    'glamor',
+    'glamorous',
+    'polished',
+    'styled-system',
+  ],
   exports: 'named',
   globals: {
     react: 'React',
@@ -48,6 +56,10 @@ export default {
       ],
     }),
     uglify(),
+    visualizer({
+      filename: './catalog/static/bundle-stats.html',
+      title: 'Genus',
+    }),
     analyze({
       limit: 10,
     }),
