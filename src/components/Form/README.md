@@ -37,6 +37,9 @@ showSource: true
       <option>Option B</option>
     </Select>
   </Box>
+  <Box pb={3}>
+    <CheckBox label="This is a checkbox" />
+  </Box>
 </Flex>
 ```
 

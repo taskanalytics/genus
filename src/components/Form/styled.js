@@ -96,3 +96,46 @@ export const StyledLabel = (props) => (
     css={{ textTransform: 'uppercase' }}
     {...props} />
 )
+
+export const StyledCheckLabel = glamorous.label(({ theme, error }) => ({
+  position: 'relative',
+  display: 'inline-block',
+  paddingLeft: '12px',
+  height: '23px',
+  marginRight: '5px',
+  cursor: 'pointer',
+}))
+
+export const StyledCheckBox = glamorous.input(({ theme, error }) => ({
+  position: 'absolute',
+  opacity: 0,
+  zIndex: -1,
+  '&:checked + span': {
+    backgroundColor: theme.colors.primary,
+  },
+}))
+
+export const StyledCheckBoxMark = glamorous.span(() => ({
+  position: 'absolute',
+  display: 'block',
+  left: '5px',
+  top: '0px',
+  width: '7px',
+  height: '14px',
+  border: 'solid white',
+  borderWidth: '0 2px 2px 0',
+  transform: 'rotate(45deg)',
+}))
+
+export const StyledCheckBoxIndicator = glamorous.span(({ theme, error }) => ({
+  position: 'absolute',
+  display: 'block',
+  userSelect: 'none',
+  top: '-0.15em',
+  left: '2px',
+  width: '20px',
+  height: '20px',
+  borderRadius: '5px',
+  backgroundColor: theme.colors.white,
+  border: '3px solid rgba(50, 60, 76, 0.1)',
+}))
