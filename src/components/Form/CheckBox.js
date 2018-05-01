@@ -3,7 +3,7 @@ import T from 'prop-types'
 import {
   StyledCheckLabel,
   StyledCheckBox,
-  StyledLabel,
+  StyledLabelCheckBox,
   StyledCheckBoxIndicator,
   StyledCheckBoxMark,
 } from './styled'
@@ -19,7 +19,7 @@ class CheckBox extends Component {
         <StyledCheckBoxIndicator>
           <StyledCheckBoxMark />
         </StyledCheckBoxIndicator>
-        <StyledLabel css={{marginLeft: '22px', verticalAlign: 'baseline'}}>{label}</StyledLabel>
+        <StyledLabelCheckBox>{label}</StyledLabelCheckBox>
       </StyledCheckLabel>
     )
   }

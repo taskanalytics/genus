@@ -135,7 +135,13 @@ export const StyledCheckBoxIndicator = glamorous.span(({ theme, error }) => ({
   left: '2px',
   width: '20px',
   height: '20px',
-  borderRadius: '5px',
+  borderRadius: '3px',
   backgroundColor: theme.colors.white,
-  border: '3px solid rgba(50, 60, 76, 0.1)',
+  border: '2.5px solid rgba(50, 60, 76, 0.1)',
 }))
+
+export const StyledLabelCheckBox = (props) => (
+  <Text
+    css={{ marginLeft: '22px', fontSize: '16px' }}
+    {...props} />
+)
