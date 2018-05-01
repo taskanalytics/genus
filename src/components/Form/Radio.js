@@ -3,22 +3,22 @@ import T from 'prop-types'
 import {
   StyledCheckRadioLabel,
   StyledCheckRadio,
+  StyledRadioIndicator,
+  StyledRadioMark,
   StyledLabelCheckRadio,
-  StyledCheckBoxIndicator,
-  StyledCheckBoxMark,
 } from './styled'
 
-class CheckBox extends Component {
+class Radio extends Component {
   render () {
     const { label, error, ...rest } = this.props
 
     return (
       <StyledCheckRadioLabel error={error}>
-        <StyledCheckRadio type="checkbox" error={error} {...rest}>
+        <StyledCheckRadio type="radio" error={error} {...rest}>
         </StyledCheckRadio>
-        <StyledCheckBoxIndicator>
-          <StyledCheckBoxMark />
-        </StyledCheckBoxIndicator>
+        <StyledRadioIndicator>
+          <StyledRadioMark />
+        </StyledRadioIndicator>
         <StyledLabelCheckRadio>{label}</StyledLabelCheckRadio>
       </StyledCheckRadioLabel>
     )
@@ -26,7 +26,7 @@ class CheckBox extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  CheckBox.propTypes = {
+  Radio.propTypes = {
     label: T.string,
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
@@ -34,4 +34,4 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-export default CheckBox
+export default Radio

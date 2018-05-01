@@ -3,6 +3,7 @@ import {
   PasswordInput,
   Select,
   CheckBox,
+  Radio,
   withState,
 } from '.'
 
@@ -16,6 +17,7 @@ export default {
     Input: withState(Input),
     PasswordInput,
     CheckBox,
+    Radio,
     Select,
     Flex,
     Box,

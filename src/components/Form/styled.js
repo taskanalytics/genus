@@ -97,7 +97,7 @@ export const StyledLabel = (props) => (
     {...props} />
 )
 
-export const StyledCheckLabel = glamorous.label(({ theme, error }) => ({
+export const StyledCheckRadioLabel = glamorous.label(({ theme, error }) => ({
   position: 'relative',
   display: 'inline-block',
   paddingLeft: '12px',
@@ -106,7 +106,7 @@ export const StyledCheckLabel = glamorous.label(({ theme, error }) => ({
   cursor: 'pointer',
 }))
 
-export const StyledCheckBox = glamorous.input(({ theme, error }) => ({
+export const StyledCheckRadio = glamorous.input(({ theme, error }) => ({
   position: 'absolute',
   opacity: 0,
   zIndex: -1,
@@ -140,8 +140,32 @@ export const StyledCheckBoxIndicator = glamorous.span(({ theme, error }) => ({
   border: '2.5px solid rgba(50, 60, 76, 0.1)',
 }))
 
-export const StyledLabelCheckBox = (props) => (
+export const StyledLabelCheckRadio = (props) => (
   <Text
     css={{ marginLeft: '22px', fontSize: '16px' }}
     {...props} />
 )
+
+export const StyledRadioMark = glamorous.span(() => ({
+  position: 'absolute',
+  display: 'block',
+  left: '5px',
+  top: '6px',
+  width: '8px',
+  height: '8px',
+  borderRadius: '8px',
+  backgroundColor: 'white',
+}))
+
+export const StyledRadioIndicator = glamorous.span(({ theme, error }) => ({
+  position: 'absolute',
+  display: 'block',
+  userSelect: 'none',
+  top: '-0.15em',
+  left: '2px',
+  width: '20px',
+  height: '20px',
+  borderRadius: '20px',
+  backgroundColor: theme.colors.white,
+  border: '2.5px solid rgba(50, 60, 76, 0.1)',
+}))

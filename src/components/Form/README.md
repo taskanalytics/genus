@@ -40,6 +40,10 @@ showSource: true
   <Box pb={3}>
     <CheckBox label="This is a checkbox" />
   </Box>
+  <Box pb={3}>
+    <Radio name="radio1" label="This is a radio" />
+    <Radio name="radio1" label="This is a radio 2" />
+  </Box>
 </Flex>
 ```
 
