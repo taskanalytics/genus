@@ -105,6 +105,7 @@ export const StyledCheckRadioLabel = glamorous.label(({ theme, error }) => ({
   marginRight: '5px',
   cursor: 'pointer',
   boxSizing: 'border-box',
+  fontSize: '16px',
 }))
 
 export const StyledCheckRadio = glamorous.input(({ theme, error }) => ({
