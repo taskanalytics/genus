@@ -10,16 +10,16 @@ import {
 
 class CheckBox extends Component {
   render () {
-    const { label, error, ...rest } = this.props
+    const { label, error, touched, ...rest } = this.props
 
     return (
-      <StyledCheckRadioLabel error={error}>
-        <StyledCheckRadio type="checkbox" error={error} {...rest}>
+      <StyledCheckRadioLabel touched={touched} error={error}>
+        <StyledCheckRadio type="checkbox" touched={touched} error={error} {...rest}>
         </StyledCheckRadio>
-        <StyledCheckBoxIndicator>
+        <StyledCheckBoxIndicator touched={touched} error={error}>
           <StyledCheckBoxMark />
         </StyledCheckBoxIndicator>
-        <StyledLabelCheckRadio>{label}</StyledLabelCheckRadio>
+        <StyledLabelCheckRadio touched={touched} error={error}>{label}</StyledLabelCheckRadio>
       </StyledCheckRadioLabel>
     )
   }
