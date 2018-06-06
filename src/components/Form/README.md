@@ -6,7 +6,13 @@ showSource: true
 <Flex wrap w={600} flexDirection="column" p={4} bg="white">
   <Box pb={3}>
     <Input 
-      placeholder="Please select a username"
+      placeholder="Username (default check mark) "
+      label="Username"
+    />
+  </Box>
+  <Box pb={3}>
+    <Input 
+      placeholder="Username (custom check mark)"
       label="Username"
       renderAfter={ ({ value: { length } }) => (
         length > 2 && <Text color="green">✓</Text>

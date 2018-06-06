@@ -29,6 +29,12 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   },
 }))
 
+export const StyledError = glamorous.div(({ theme, error }) => ({
+  display: 'block',
+  color: theme.colors.troubleDark,
+  paddingTop: '5px'
+}))
+
 export const StyledInput = glamorous.input(({ theme, error }) => {
   return {
     width: '100%',
