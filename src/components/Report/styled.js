@@ -1,6 +1,6 @@
 import glamorous from 'glamorous'
 
-import {font, fontSize} from '../../styles/mixins'
+import {font} from '../../styles/mixins'
 
 import Heading from '../Heading'
 import Text from '../Text'
@@ -11,10 +11,10 @@ export const StyledCard = glamorous(Card)(({theme}) => ({
   paddingBottom: theme.space[4] * 2.5,
 }))
 
-export const StyledHeading = glamorous(Heading)({
+export const StyledHeading = glamorous(Heading)(({ theme }) => ({
   ...font('base'),
-  ...fontSize('small'),
-})
+  fontSize: theme.fontSizes[2],
+}))
 
 export const StyledByline = glamorous(Text)(({theme}) => ({
   display: 'block',
@@ -22,7 +22,7 @@ export const StyledByline = glamorous(Text)(({theme}) => ({
 }))
 
 export const StyledSource = glamorous(Text)(({theme}) => ({
-  ...fontSize('xxsmall'),
+  fontSize: theme.fontSizes[0],
   display: 'block',
   position: 'absolute',
   bottom: theme.space[4],

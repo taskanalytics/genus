@@ -29,21 +29,15 @@ export const StyledModal = glamorous(ReactModal)(({ theme }) => ({
   },
 }))
 
-export const StyledHeader = glamorous(Flex)({
+export const StyledHeader = Flex
 
-})
-
-export const StyledCloseButton = glamorous(Box)({
-
-})
+export const StyledCloseButton = Box
 
 export const StyledTitle = glamorous(Heading)({
   ...fontSize('xlarge'),
 })
 
-export const StyledBody = glamorous(Box)({
-
-})
+export const StyledBody = Box
 
 export const StyledActions = glamorous(Box)({
   textAlign: 'right',

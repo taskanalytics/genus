@@ -1,25 +1,22 @@
 import glamorous from 'glamorous'
-import { width, space, color, textAlign, lineHeight } from 'styled-system'
+import {
+  width,
+  space,
+  color,
+  textAlign,
+  lineHeight,
+  letterSpacing,
+  fontWeight,
+} from 'styled-system'
 
 import withIsProp from '../../utils/withIsProp'
-import styleIf from '../../utils/styleIf'
-import {font, fontSize} from '../../styles/mixins'
-
-// TODO: When Genus is rolled out across all of ta-admin-react, we will have to rename mixins for fontSizes to make more sense.
-
-const styledSmall = styleIf('small', {
-  ...fontSize('xsmall'),
-})
-
-const styledLarge = styleIf('large', {
-  ...fontSize('large'),
-})
+import {font} from '../../styles/mixins'
 
 export const StyledText = withIsProp(glamorous('span')([
-  ({ theme, muted, block }) => {
+  ({ theme, muted, block, small, large }) => {
   let css = {
     ...font(),
-    ...fontSize('small'),
+    fontSize: theme.fontSizes[2],
     display: block ? 'block' : 'inline-block',
     '& a': {
       color: theme.colors.primary,
@@ -36,13 +33,19 @@ export const StyledText = withIsProp(glamorous('span')([
     }
   }
 
+  if (small) {
+    css.fontSize = theme.fontSizes[0]
+  } else if (large) {
+    css.fontSize = theme.fontSizes[3]
+  }
+
   return css
 },
   width,
   space,
   color,
   textAlign,
-  styledSmall,
-  styledLarge,
   lineHeight,
+  letterSpacing,
+  fontWeight,
 ]))

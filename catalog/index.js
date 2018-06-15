@@ -4,10 +4,12 @@ import {ThemeProvider} from 'glamorous'
 import {Catalog} from 'catalog'
 import { css } from 'glamor'
 import theme from '../src/styles/theme'
+import fonts from './fonts'
 
-import { injectGlobals } from '../src/styles/global'
-
-injectGlobals(css)
+fonts.forEach(font => {
+  css.global('@font-face', font['@font-face'])
+})
+css.global('body', { fontFamily: '"Brandon Text", sans-serif' })
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},
@@ -50,6 +52,8 @@ const pages = [
       require('../src/components/MultiToggle/catalog').default,
       require('../src/components/EmptyState/catalog').default,
       require('../src/components/Percentage/catalog').default,
+      require('../src/components/Form/catalog').default,
+      require('../src/components/Banner/catalog').default,
     ].sort((a, b) => {
       return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
     })
@@ -61,6 +65,10 @@ const config = {
   title: 'Task Analytics Genus',
   logoSrc: '/static/logos/ta-twolines-preview.png',
   pages,
+  theme: {
+    fontFamily: "'Brandon Text', sans-serif",
+    fontHeading: "'Brandon Text', sans-serif",
+  },
 }
 
 ReactDOM.render(

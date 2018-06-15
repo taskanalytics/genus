@@ -6,11 +6,15 @@ const theme = {
     '32em', '48em', '64em',
   ],
   space: [
-    0, 6, 12, 18, 24, 48,
+    0, 6, 12, 18, 24, 48, 96,
   ],
   radius: 4,
   fontSizes: [
     12, 16, 18, 24, 36, 72
+  ],
+  shadows: [
+    '0 2px 6px 0 rgba(0,0,0,.1)',
+    '0 2px 12px 0 rgba(0,0,0,.1)',
   ],
   colors: {
     black: 'rgb(17, 17, 17)',

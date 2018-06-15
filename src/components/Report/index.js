@@ -7,10 +7,10 @@ import { StyledCard, StyledHeading, StyledByline, StyledSource } from './styled'
 
 export class ReportCard extends Component {
   render () {
-    const { heading, value, byline, source, type } = this.props
+    const { heading, value, byline, source, type, ...props } = this.props
 
     return (
-      <StyledCard>
+      <StyledCard {...props}>
         <StyledHeading>{heading}</StyledHeading>
         <Percentage colored="gradient" size="display" value={value} />
         <StyledByline>{byline}</StyledByline>

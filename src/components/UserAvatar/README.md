@@ -1,6 +1,6 @@
 ## Default
 
-```react
+```react|span-2
 showSource: true
 ---
 <UserAvatar
@@ -9,13 +9,31 @@ showSource: true
 />
 ```
 
-## With no initials and custom color
+```react|span-2
+showSource: true
+---
+<UserAvatar
+  large
+  fullName='John Doe'
+  initials='JD'
+/>
+```
 
-```react
+```react|span-2
 showSource: true
 ---
 <UserAvatar
   fullName='John Doe'
-  color='#00d672'
+  bg='#00d672'
+/>
+```
+
+```react|span-2
+showSource: true
+---
+<UserAvatar
+  size={2}
+  fullName='John Doe'
+  bg='#00d672'
 />
 ```

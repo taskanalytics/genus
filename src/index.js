@@ -18,6 +18,8 @@ import UserAvatar from './components/UserAvatar'
 import Header from './components/Header'
 import MultiToggle from './components/MultiToggle'
 import EmptyState from './components/EmptyState'
+import Banner from './components/Banner'
+import * as Form from './components/Form'
 
 export {
   Button,
@@ -41,6 +43,8 @@ export {
   Header,
   MultiToggle,
   EmptyState,
+  Form,
+  Banner,
   styles,
   theme,
 }

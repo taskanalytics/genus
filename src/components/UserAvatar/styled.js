@@ -1,23 +1,30 @@
 import glamorous from 'glamorous'
-import {font, fontSize} from '../../styles/mixins'
+import { fontSize, space, color } from 'styled-system'
+import {font} from '../../styles/mixins'
 import {Flex} from '../Grid'
 
-export const Wrapper = glamorous(Flex)({
-  ...font('base'),
-  ...fontSize('xxsmall'),
-  width: '32px',
-  height: '32px',
-  paddingBottom: '1px',
-  borderRadius: '16px',
-  overflow: 'hidden',
-  color: '#fff',
-  textDecoration: 'none',
-}, props => {
-  const styles = {
-    backgroundColor: props.color,
+export const Wrapper = glamorous(Flex)(({ theme, large }) => {
+  const size = large ? 64 : 32
+  return {
+    ...font('base'),
+    fontSize: theme.fontSizes[large ? 3 : 0],
+    width: size,
+    height: size,
+    paddingBottom: '1px',
+    borderRadius: size / 2,
+    overflow: 'hidden',
+    color: theme.colors.white,
+    textDecoration: 'none',
   }
-  return styles
-})
+},
+  fontSize,
+  space,
+  color
+)
+
+Wrapper.defaultProps = {
+  size: 1,
+}
 
 export const Svg = glamorous.svg({
   marginBottom: '1px',

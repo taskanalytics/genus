@@ -1,21 +1,27 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "7.0.5",
+  "version": "8.0.0-22",
   "description": "",
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
   "module": "dist/genus.es.js",
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=8.10"
+  },
   "scripts": {
     "next-dev": "next",
     "next-start": "next start",
     "next-build": "next build",
     "dev": "catalog start",
-    "build": "catalog build",
+    "build": "yarn dist && catalog build",
     "heroku-postbuild": "yarn run build",
     "dist": "NODE_ENV=production rollup -c",
+    "prepublishOnly": "yarn dist",
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
-    "version": "npm run dist && git add dist",
     "bit:publish": "bit export taskanalytics.genus"
   },
   "keywords": [],
@@ -44,7 +50,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bit-bin": "^0.12.10",
-    "catalog": "^3.4.0",
+    "catalog": "^3.5.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
@@ -67,6 +73,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify-es": "^0.0.1",
+    "rollup-plugin-visualizer": "^0.6.0",
     "superstatic": "^5.0.1"
   }
 }

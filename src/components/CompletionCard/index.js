@@ -14,13 +14,14 @@ class CompletionCard extends Component {
       name,
       completion,
       responses,
+      ...props,
     } = this.props
     return (
-      <StyledCard completion={completion.value}>
+      <StyledCard completion={completion.value} {...props}>
         <StyledHeading is='h2' mb={4}>{name}</StyledHeading>
         <Percentage size="display" value={completion.value} />
-        <Text block small mb={0}>{completion.description}</Text>
-        <Text block small mb={0} mt={4}><strong>{responses.value}</strong> {responses.description}</Text>
+        <Text block>{completion.description}</Text>
+        <Text block mt={4}><strong>{responses.value}</strong> {responses.description}</Text>
       </StyledCard>
     )
   }
