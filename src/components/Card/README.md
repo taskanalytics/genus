@@ -27,7 +27,7 @@ actions={[
     action: () => console.log('Clicked Action 1')
   }, {
     name: 'Delete',
-    action: (e) => console.log('Clicked Action 2', e),
+    action: () => console.log('Clicked Action 2'),
     type: 'destructive',
   }
 ]}>

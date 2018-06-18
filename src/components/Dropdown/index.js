@@ -74,7 +74,10 @@ class Dropdown extends Component {
                 return <StyledAction
                   {...props}
                   destructive={action.type === 'destructive'}
-                  onClick={e => action.action(e)}
+                  onClick={e => {
+                    e.stopPropagation()
+                    action.action(e)
+                  }}
                 >{action.name}</StyledAction>
             }
           })}
