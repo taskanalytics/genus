@@ -71,7 +71,11 @@ class Dropdown extends Component {
               case 'heading':
                 return <StyledHeading {...props}>{action.name}</StyledHeading>
               default:
-                return <StyledAction {...props} destructive={action.type === 'destructive'}>{action.name}</StyledAction>
+                return <StyledAction
+                  {...props}
+                  destructive={action.type === 'destructive'}
+                  onClick={e => action.action(e)}
+                >{action.name}</StyledAction>
             }
           })}
         </StyledDropdown>
