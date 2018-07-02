@@ -56,17 +56,16 @@ class Dropdown extends Component {
       right,
       actions,
       renderTrigger,
+      ...rest,
     } = this.props
     const { open } = this.state
     const dialogStyles = this.props.dialogStyles || {}
 
     return (
-      <StyledWrapper>
-        <Box>
-          { renderTrigger({
-            onClick: this.toggle,
-          }) }
-        </Box>
+      <React.Fragment>
+        { renderTrigger({
+          onClick: this.toggle,
+        }) }
         <StyledDropdown
           open={open}
           right={right}
@@ -100,7 +99,7 @@ class Dropdown extends Component {
             }
           })}
         </StyledDropdown>
-      </StyledWrapper>
+      </React.Fragment>
     )
   }
 }

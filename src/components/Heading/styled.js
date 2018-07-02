@@ -10,7 +10,9 @@ import {
   lineHeight,
 } from 'styled-system'
 
-export const StyledHeading = withIsProp(glamorous('h1')(
+export const StyledHeading = withIsProp(glamorous('h1')({
+  margin: 0,
+},
   width,
   space,
   color,

@@ -16,7 +16,7 @@ const MoreIcon = () =>
 const Actions = withTheme(class extends Component {
   render () {
     const { actions, p, theme: { space } } = this.props
-    const size = Number.isInteger(p) && p <= space.length ? space[p] : `${p}px`
+    const size = 24
 
     return (
       <div style={{
@@ -30,7 +30,7 @@ const Actions = withTheme(class extends Component {
         <Dropdown
           right
           renderTrigger={props => (
-            <StyledMoreButton size={size} type="button" {...props}>
+            <StyledMoreButton size={24} type="button" {...props}>
               <MoreIcon size={size} />
               <span>Open actions</span>
             </StyledMoreButton>
