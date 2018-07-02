@@ -10,7 +10,7 @@ export const StyledWrapper = glamorous('span')({
   position: 'relative',
 })
 
-export const StyledDropdown = glamorous('dialog')(({ theme }) => ({
+export const StyledDropdown = glamorous('div')(({ theme }) => ({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
