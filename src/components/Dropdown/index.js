@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
+import { Box } from '../Grid'
 
 import {
   StyledWrapper,
@@ -7,6 +8,7 @@ import {
   StyledHeading,
   StyledSeparator,
   StyledDropdown,
+  StyledItem,
 } from './styled'
 
 class Dropdown extends Component {
@@ -19,7 +21,6 @@ class Dropdown extends Component {
 
   state = {
     open: false,
-    height: 0,
   }
 
   closeMenu = (event) => {
@@ -33,11 +34,7 @@ class Dropdown extends Component {
   toggle = (event) => {
     event.preventDefault()
     const open = !this.state.open
-    let height = this.state.height
-    if (open && !height) {
-      height = this.wrapper.offsetHeight
-    }
-    this.setState({ open, height }, () => {
+    this.setState({ open }, () => {
       if (open) {
         document.addEventListener('click', this.closeMenu)
       } else {
@@ -46,39 +43,54 @@ class Dropdown extends Component {
     })
   }
 
+  componentWillUnmount () {
+    document.removeEventListener('click', this.closeMenu)
+  }
+
   render () {
     const {
       right,
       actions,
       renderTrigger,
     } = this.props
-    const { open, height } = this.state
+    const { open } = this.state
+    const dialogStyles = this.props.dialogStyles || {}
 
     return (
-      <StyledWrapper innerRef={ref => this.wrapper = ref}>
-        { renderTrigger({ onClick: this.toggle }) }
+      <StyledWrapper>
+        <Box>
+          { renderTrigger({
+            onClick: this.toggle,
+          }) }
+        </Box>
         <StyledDropdown
           open={open}
           right={right}
           innerRef={ref => this.dd = ref}
-          css={{ top: height }}
+          mt={1}
+          css={dialogStyles}
         >
           {actions.map((action, key) => {
             const props = { key: `action-${key}` }
+            if (action.render) {
+              action.type = 'component'
+            }
             switch (action.type) {
               case 'separator':
                 return <StyledSeparator {...props} />
               case 'heading':
                 return <StyledHeading {...props}>{action.name}</StyledHeading>
+              case 'component':
+                return <StyledItem><action.render {...props} /></StyledItem>
               default:
-                return <StyledAction
+                return <StyledItem
                   {...props}
                   destructive={action.type === 'destructive'}
                   onClick={e => {
                     e.stopPropagation()
                     action.action(e)
                   }}
-                >{action.name}</StyledAction>
+                >{action.name}</StyledItem>
             }
           })}
         </StyledDropdown>
@@ -91,6 +103,8 @@ if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
     open: T.bool,
     actions: T.array,
+    renderTrigger: T.func,
+    dialogStyles: T.object,
   }
 }
 

@@ -1,8 +1,9 @@
 ```react
 state: {toggle: true}
+span: 3
 showSource: true
 ---
-<div>
+<Box>
   <Dropdown
     renderTrigger={props => {
       return <button {...props}>Toggle it</button>
@@ -17,20 +18,43 @@ showSource: true
         type: '',
         action: () => console.log('Clicked Option 2'),
       }, {
-        name: 'Option 3',
-        type: '',
-        action: () => console.log('Clicked Option 3'),
-      }, {
-        type: 'separator',
-      }, {
-        name: 'Heading',
-        type: 'heading',
-      }, {
+      },
+      { type: 'separator' },
+      { name: 'Heading', type: 'heading' },
+      {
         name: 'Delete',
         type: 'destructive',
         action: () => console.log('Delete'),
       }
     ]} />
-  
-</div>
+</Box>
+```
+
+```react
+state: {toggle: true}
+span: 3
+showSource: true
+---
+<Box w={1} p={2}>
+  <Dropdown
+    renderTrigger={props => {
+      return <Button compact {...props}>Toggle it</Button>
+    }}
+    dialogStyles={{width: 400}}
+    actions={[
+      {
+        render: ({ onClick, props }) => {
+          return (
+            <Box>
+              <Heading m={0} fontSize={3}>A styled item</Heading>
+              <Text muted>A beautifully styled item</Text>
+            </Box>
+          )
+        },
+      }, {
+        name: 'Option 2',
+        action: () => console.log('Clicked Option 2'),
+      },
+    ]} />
+</Box>
 ```
