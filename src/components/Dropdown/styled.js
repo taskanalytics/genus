@@ -8,6 +8,7 @@ import {Box} from '../Grid'
 
 export const StyledWrapper = glamorous('span')({
   position: 'relative',
+  zIndex: 1,
 })
 
 export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
