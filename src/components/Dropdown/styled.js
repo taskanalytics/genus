@@ -10,7 +10,7 @@ export const StyledWrapper = glamorous('span')({
   position: 'relative',
 })
 
-export const StyledDropdown = glamorous('div')(({ theme }) => ({
+export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
@@ -19,6 +19,7 @@ export const StyledDropdown = glamorous('div')(({ theme }) => ({
   padding: theme.space[1],
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
   zIndex: 2,
+  display: open ? 'block' : 'none',
   left: null,
   right: null,
   '&:focus': {
