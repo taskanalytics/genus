@@ -23,11 +23,15 @@ class Dropdown extends Component {
     open: false,
   }
 
-  closeMenu = (event) => {
+  closeMenu = () => {
+    this.setState({ open: false }, () => {
+      document.removeEventListener('click', this.onClickOutside)
+    })
+  }
+
+  onClickOutside = (event) => {
     if (this.dd && !this.dd.contains(event.target)) {
-      this.setState({ open: false }, () => {
-        document.removeEventListener('click', this.closeMenu)
-      })
+      this.closeMenu()
     }
   }
 
@@ -36,15 +40,15 @@ class Dropdown extends Component {
     const open = !this.state.open
     this.setState({ open }, () => {
       if (open) {
-        document.addEventListener('click', this.closeMenu)
+        document.addEventListener('click', this.onClickOutside)
       } else {
-        document.removeEventListener('click', this.closeMenu)
+        document.removeEventListener('click', this.onClickOutside)
       }
     })
   }
 
   componentWillUnmount () {
-    document.removeEventListener('click', this.closeMenu)
+    document.removeEventListener('click', this.onClickOutside)
   }
 
   render () {
@@ -88,7 +92,9 @@ class Dropdown extends Component {
                   destructive={action.type === 'destructive'}
                   onClick={e => {
                     e.stopPropagation()
-                    action.action(e)
+                    action.action(e, {
+                      close: this.closeMenu,
+                    })
                   }}
                 >{action.name}</StyledItem>
             }
