@@ -13,7 +13,6 @@ export const StyledWrapper = glamorous('span')({
 
 export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   position: 'absolute',
-  maxWidth: '300px',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
   borderRadius: theme.radius * 2,

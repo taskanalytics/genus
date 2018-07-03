@@ -51,6 +51,40 @@ class Dropdown extends Component {
     document.removeEventListener('click', this.onClickOutside)
   }
 
+  renderActions = (actions) => {
+    const passedProps = { close: this.closeMenu }
+    if (typeof actions === 'function') {
+      return actions({
+        ...passedProps,
+        Item: StyledItem,
+      })
+    }
+
+    return actions.map((action, key) => {
+      const props = { key: `action-${key}` }
+      if (action.render) {
+        action.type = 'component'
+      }
+      switch (action.type) {
+        case 'separator':
+          return <StyledSeparator {...props} />
+        case 'heading':
+          return <StyledHeading {...props}>{action.name}</StyledHeading>
+        case 'component':
+          return <StyledItem><action.render {...props} /></StyledItem>
+        default:
+          return <StyledItem
+            {...props}
+            destructive={action.type === 'destructive'}
+            onClick={e => {
+              e.stopPropagation()
+              action.action(e, passedProps)
+            }}
+          >{action.name}</StyledItem>
+      }
+    })
+  }
+
   render () {
     const {
       right,
@@ -73,31 +107,7 @@ class Dropdown extends Component {
           mt={1}
           css={dialogStyles}
         >
-          {actions.map((action, key) => {
-            const props = { key: `action-${key}` }
-            if (action.render) {
-              action.type = 'component'
-            }
-            switch (action.type) {
-              case 'separator':
-                return <StyledSeparator {...props} />
-              case 'heading':
-                return <StyledHeading {...props}>{action.name}</StyledHeading>
-              case 'component':
-                return <StyledItem><action.render {...props} /></StyledItem>
-              default:
-                return <StyledItem
-                  {...props}
-                  destructive={action.type === 'destructive'}
-                  onClick={e => {
-                    e.stopPropagation()
-                    action.action(e, {
-                      close: this.closeMenu,
-                    })
-                  }}
-                >{action.name}</StyledItem>
-            }
-          })}
+          {this.renderActions(actions)}
         </StyledDropdown>
       </React.Fragment>
     )

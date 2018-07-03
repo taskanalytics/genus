@@ -58,3 +58,41 @@ showSource: true
     ]} />
 </Box>
 ```
+
+
+# Taking full control of the rendered actions
+
+```react
+state: {toggle: true}
+showSource: true
+---
+<Box w={1} p={2}>
+  <Dropdown
+    renderTrigger={props => {
+      return <Button compact {...props}>Toggle it</Button>
+    }}
+    dialogStyles={{width: 600}}
+    actions={({close, Item}) => {
+      return (
+        <Flex flexDirection="row">
+          <Flex flexDirection="column" w={1/2}>
+            <Item onClick={close}>
+              <Heading m={0} fontSize={3}>A styled item</Heading>
+              <Text muted>A beautifully styled item</Text>
+            </Item>
+            <Item>
+              <Heading m={0} fontSize={3}>A styled item</Heading>
+              <Text muted>A beautifully styled item</Text>
+            </Item>
+          </Flex>
+          <Flex flexDirection="column" w={1/2}>
+            <Item>
+              <Heading m={0} fontSize={3}>A styled item</Heading>
+              <Text muted>A beautifully styled item</Text>
+            </Item>
+          </Flex>
+        </Flex>
+      )
+    }} />
+</Box>
+```
