@@ -16,12 +16,12 @@ class EntityCard extends Component {
   }
 
   render () {
-    const {name, description, avatar, ...props} = this.props
+    const {name, description, avatar, actions, ...props} = this.props
     return (
-      <StyledCard {...props}>
+      <StyledCard actions={actions} {...props}>
         {avatar && <Avatar mr={2} src={avatar} /> }
         <StyledBox>
-          <StyledHeading mb={1}>{name}</StyledHeading>
+          <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
           {description && <Text muted>{description}</Text>}
         </StyledBox>
       </StyledCard>
