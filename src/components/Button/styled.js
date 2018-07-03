@@ -20,13 +20,10 @@ const styledBlock = styleIf('block', {
 const styledPrimary = styleIf('primary', {
   borderColor: colors.primary,
   color: colors.primary,
-  '&:hover,&:focus': {
+  '&:hover,&:focus,&:active': {
     color: colors.white,
     borderColor: colors.primary,
     backgroundColor: colors.primary,
-  },
-  '&:active': {
-    backgroundColor: colors.primaryDark,
   },
 })
 
@@ -35,13 +32,10 @@ const styledPrimaryInverted = styleIf('primaryinverted', {
   borderColor: colors.primary,
   backgroundColor: colors.primary,
 
-  '&:hover,&:focus': {
-    color: colors.white,
-    backgroundColor: colors.primaryDark,
-    borderColor: colors.primaryDark,
-  },
-  '&:active': {
-    backgroundColor: colors.primaryDark,
+  '&:hover,&:focus,&:active': {
+    backgroundColor: 'transparent',
+    borderColor: colors.primary,
+    color: colors.primary,
   },
 })
 
@@ -49,13 +43,10 @@ const styledInverted = styleIf('inverted', {
   color: colors.white,
   border: `2px solid ${colors.base}`,
   backgroundColor: 'transparent',
-  '&:hover,&:focus': {
+  '&:hover,&:focus,&:active': {
     color: colors.primaryDark,
     backgroundColor: colors.white,
     borderColor: colors.white,
-  },
-  '&:active': {
-    backgroundColor: colors.primaryDark,
   },
 })
 
@@ -63,12 +54,21 @@ const styledWarning = styleIf('warning', {
   color: colors.headsUp,
   borderColor: colors.headsUp,
 
-  ':hover, :focus, :active': {
-    backgroundColor: shade(0.05, colors.headsUp),
-  },
   '&:hover,&:focus': {
     color: colors.white,
-    borderColor: shade(0.05, colors.headsUp),
+    borderColor: colors.headsUp,
+    backgroundColor: colors.headsUp,
+  },
+})
+
+const styledDanger = styleIf('danger', {
+  color: colors.trouble,
+  borderColor: colors.trouble,
+
+  '&:hover,&:focus': {
+    color: colors.white,
+    borderColor: colors.trouble,
+    backgroundColor: colors.trouble,
   },
 })
 
@@ -137,5 +137,6 @@ styledBlock,
 styledWarning,
 styledPrimary,
 styledInverted,
-styledPrimaryInverted
+styledPrimaryInverted,
+styledDanger
 )

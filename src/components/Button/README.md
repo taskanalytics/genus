@@ -39,6 +39,12 @@ showSource: true
 <Button warning>Warning</Button>
 ```
 
+```react|span-2
+showSource: true
+---
+<Button danger>Danger</Button>
+```
+
 ```react|dark,span-2
 showSource: true
 ---
