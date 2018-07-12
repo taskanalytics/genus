@@ -30,6 +30,7 @@ const theme = {
     headsUpDark: '#FFA707',
     trouble: rgba(255, 90, 20, 1),
     troubleDark: '#FF5915',
+    validated: '#61ad0f',
   },
 }
 

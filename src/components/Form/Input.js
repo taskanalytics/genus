@@ -5,9 +5,21 @@ import {
   StyledInput,
   StyledLabel,
   StyledError,
+  StyledValidatedMark,
 } from './styled'
 
 import { Flex } from '../Grid'
+
+const ValidationMark = ({ value, error }) => {
+  if (error) {
+    return <span>❌</span>
+  }
+  if (!error && value && value.trim() !== '') {
+    return <StyledValidatedMark />
+  }
+
+  return null
+}
 
 class Input extends Component {
   render () {
@@ -23,16 +35,7 @@ class Input extends Component {
               {...rest}
             />
             { renderAfter && <span>{renderAfter({ label, error, value, ...rest })}</span> }
-            { !renderAfter && !error && value.trim() !== '' && <span style={
-              {width: '8px',
-              height: '14px',
-              border: 'solid #61ad0f',
-              borderWidth: '0 3.5px 3.5px 0',
-              transform: 'rotate(45deg)',
-              marginRight: '10px'}
-            }></span>}
-
-            { !renderAfter && error  && <span>❌</span>}
+            { !renderAfter && <ValidationMark value={value} error={error} /> }
           </Flex>
         </StyledWrapper>
         {error && <StyledError> {error} </StyledError>}
@@ -44,6 +47,7 @@ class Input extends Component {
 if (process.env.NODE_ENV !== 'production') {
   Input.propTypes = {
     label: T.string,
+    value: T.string,
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
     type: T.oneOf(['text', 'email', 'number']),

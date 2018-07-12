@@ -29,7 +29,7 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   },
 }))
 
-export const StyledError = glamorous.div(({ theme, error }) => ({
+export const StyledError = glamorous.div(({ theme, error }) => ({
   display: 'block',
   color: theme.colors.troubleDark,
   paddingTop: '5px'
@@ -54,7 +54,7 @@ export const StyledInput = glamorous.input(({ theme, error }) => {
   }
 })
 
-export const StyledSelect = glamorous.select(({ theme, error }) => ({
+export const StyledSelect = glamorous.select(({ theme, error }) => ({
   width: '100%',
   border: 'none',
   background: 'transparent',
@@ -73,14 +73,14 @@ export const StyledSelect = glamorous.select(({ theme, error }) => ({
   },
 }))
 
-export const StyledAfter = glamorous.span(({ theme, error }) => ({
+export const StyledAfter = glamorous.span(({ theme, error }) => ({
   position: 'absolute',
   right: 0,
   bottom: 0,
   display: 'block',
 }))
 
-export const StyledCaret = glamorous.span(({ theme, error }) => ({
+export const StyledCaret = glamorous.span(({ theme, error }) => ({
   display: 'block',
   width: '10px',
   height: '10px',
@@ -182,4 +182,13 @@ export const StyledRadioIndicator = glamorous.span(({ theme, error, touched }) =
   borderRadius: '20px',
   backgroundColor: theme.colors.white,
   border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` :`2.5px solid rgba(50, 60, 76, 0.1)`,
+}))
+
+export const StyledValidatedMark = glamorous.span(({ theme }) => ({
+  width: 8,
+  height: 14,
+  marginRight: 10,
+  border: `solid ${theme.colors.validated}`,
+  borderWidth: '0 3.5px 3.5px 0',
+  transform: 'rotate(45deg)',
 }))
