@@ -15,7 +15,7 @@ import {
   textAlign,
 } from 'styled-system'
 
-export const StyledBox = withIsProp(glamorous('div')(
+export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
   width,
   space,
   color,
@@ -25,7 +25,7 @@ export const StyledBox = withIsProp(glamorous('div')(
   textAlign
 ))
 
-export const StyledFlex = glamorous(StyledBox)(
+export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
   { display: 'flex'},
   flexWrap,
   alignItems,
@@ -34,7 +34,7 @@ export const StyledFlex = glamorous(StyledBox)(
   alignSelf
 )
 
-export const StyledContainer = glamorous(StyledBox)(props => {
+export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(props => {
   if (!props.fluid) {
     return {
       maxWidth: '1200px',

@@ -1,10 +1,12 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import Text from '../Text'
+import {font} from '../../styles/mixins'
 
 const BORDERSIZE = 4
 
 export const StyledWrapper = glamorous.label(({ theme, error }) => ({
+  ...font(),
   display: 'flex',
   position: 'relative',
   flexDirection: 'column',
@@ -37,6 +39,7 @@ export const StyledError = glamorous.div(({ theme, error }) => ({
 
 export const StyledInput = glamorous.input(({ theme, error }) => {
   return {
+    ...font(),
     width: '100%',
     border: 'none',
     background: 'transparent',
@@ -55,6 +58,7 @@ export const StyledInput = glamorous.input(({ theme, error }) => {
 })
 
 export const StyledSelect = glamorous.select(({ theme, error }) => ({
+  ...font(),
   width: '100%',
   border: 'none',
   background: 'transparent',
@@ -116,6 +120,7 @@ export const StyledCheckRadioLabel = glamorous.label(({ theme, error, touched })
 }))
 
 export const StyledCheckRadio = glamorous.input(({ theme, error }) => ({
+  ...font(),
   position: 'absolute',
   boxSizing: 'border-box',
   opacity: 0,
