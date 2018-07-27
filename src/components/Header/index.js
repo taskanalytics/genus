@@ -5,7 +5,7 @@ import Logo from '../Logo'
 import {StyledHeader} from './styled'
 
 const Header = ({ left, right, ...props }) =>
-  <StyledHeader pl={'24px'} pr={2} {...props}>
+  <StyledHeader pl={24} pr={2} alignItems="center" {...props}>
     {!left ? <Logo /> : <Box css={{fontSize: 0}}>{left}</Box>}
     {right && <Box ml='auto'>{right}</Box>}
   </StyledHeader>
