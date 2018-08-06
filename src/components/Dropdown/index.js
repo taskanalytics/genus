@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { Box } from '../Grid'
 
 import {
-  StyledWrapper,
   StyledHeading,
   StyledSeparator,
   StyledDropdown,
@@ -92,7 +90,6 @@ class Dropdown extends Component {
       right,
       actions,
       renderTrigger,
-      ...rest
     } = this.props
     const { open } = this.state
     const dialogStyles = this.props.dialogStyles || {}
@@ -105,7 +102,7 @@ class Dropdown extends Component {
         <StyledDropdown
           open={open}
           right={right}
-          innerRef={ref => this.dd = ref}
+          innerRef={ref => { this.dd = ref }}
           mt={1}
           css={dialogStyles}
         >
@@ -122,6 +119,7 @@ if (process.env.NODE_ENV !== 'production') {
       T.array,
       T.func,
     ]).isRequired,
+    right: T.bool,
     renderTrigger: T.func,
     dialogStyles: T.object,
   }

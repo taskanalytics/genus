@@ -26,7 +26,7 @@ export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
 ))
 
 export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
-  { display: 'flex'},
+  { display: 'flex' },
   flexWrap,
   alignItems,
   justifyContent,

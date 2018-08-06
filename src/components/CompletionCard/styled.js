@@ -1,7 +1,6 @@
 import glamorous from 'glamorous'
-import { completionGradient, ellipsis } from '../../styles/mixins'
+import { completionGradient, ellipsis, fontSize } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
-import { fontSize } from '../../styles/mixins'
 import Card from '../Card'
 import Heading from '../Heading'
 

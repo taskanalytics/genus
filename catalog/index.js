@@ -56,7 +56,7 @@ const pages = [
       require('../src/components/Banner/catalog').default,
     ].sort((a, b) => {
       return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
-    })
+    }),
   },
 ]
 

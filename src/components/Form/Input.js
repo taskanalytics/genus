@@ -21,7 +21,6 @@ const ValidationMark = ({ value, error }) => {
   return null
 }
 
-
 class Input extends Component {
   render () {
     const { label, error, renderAfter, value, ...rest } = this.props

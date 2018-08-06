@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import T from 'prop-types'
 import Text from '../Text'
 import Percentage from '../Percentage'
 import { getDelta } from '../../utils/calculations'
@@ -36,8 +37,8 @@ const Delta = ({ base, diff, size }) => {
 
 const Values = ({ values }) => {
   return values.map((value, i, values) => (
-    <span>
-      <Percentage colored="gradient" key={value.key} value={value} />
+    <span key={value.key}>
+      <Percentage colored="gradient" value={value} />
       {values.length - 1 === i ? null : (
         <Text muted mx="0.3em">
           vs
@@ -83,5 +84,33 @@ export class ComparisonCard extends Component {
         </StyledSource>
       </StyledCard>
     )
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  ReportCard.propTypes = {
+    heading: T.string,
+    value: T.number,
+    byline: T.string,
+    source: T.string,
+    type: T.string,
+  }
+
+  Delta.propTypes = {
+    base: T.number,
+    diff: T.number,
+    size: T.string,
+  }
+
+  Values.propTypes = {
+    values: T.array,
+  }
+
+  ComparisonCard.propTypes = {
+    heading: T.string,
+    values: T.array,
+    source: T.string,
+    type: T.string,
+    empty: T.bool,
   }
 }

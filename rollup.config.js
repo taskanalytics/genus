@@ -4,7 +4,6 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { plugin as analyze } from 'rollup-plugin-analyzer'
 import uglify from 'rollup-plugin-uglify-es'
-import ignore from 'rollup-plugin-ignore'
 import replace from 'rollup-plugin-replace'
 import visualizer from 'rollup-plugin-visualizer'
 
@@ -31,7 +30,7 @@ export default {
   ],
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     resolve({
       jsnext: true,

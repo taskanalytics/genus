@@ -8,8 +8,6 @@ import {
   StyledLabel,
 } from './styled'
 
-import { Flex } from '../Grid'
-
 const defaultRenderAfter = () => <StyledCaret />
 
 class Select extends Component {
@@ -43,6 +41,7 @@ if (process.env.NODE_ENV !== 'production') {
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
     value: T.string,
+    renderAfter: T.func,
   }
 }
 

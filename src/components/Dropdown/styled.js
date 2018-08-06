@@ -3,13 +3,8 @@ import {css} from 'glamor'
 import {rgba} from 'polished'
 import { width, space } from 'styled-system'
 
-import {font, fontSize} from '../../styles/mixins'
+import {font} from '../../styles/mixins'
 import {Box} from '../Grid'
-
-export const StyledWrapper = glamorous('span')({
-  position: 'relative',
-  zIndex: 1,
-})
 
 export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   position: 'absolute',
@@ -28,7 +23,7 @@ export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   },
   animation: `${css.keyframes({
     '0%': { opacity: 0 },
-    '20%': { opacity: 0.2},
+    '20%': { opacity: 0.2 },
     '40%': { opacity: 0.4 },
     '50%': { opacity: 0.8 },
     '100%': { opacity: 1 },

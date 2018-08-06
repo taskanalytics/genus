@@ -4,7 +4,6 @@ import {
   StyledCard,
   StyledHeading,
 } from './styled'
-import Heading from '../Heading'
 import Text from '../Text'
 import Percentage from '../Percentage'
 

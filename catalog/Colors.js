@@ -1,13 +1,10 @@
-import React, {Component} from 'react'
-import {markdown, Page, CodeSpecimen, ColorSpecimen} from 'catalog'
+import React from 'react'
+import {markdown, ColorSpecimen} from 'catalog'
 import {colors} from '../src/styles/colors'
 
 const renderColorSpecimen = (value, name, span = 1) => (
   <ColorSpecimen value={value} span={span} name={name} />
 )
-
-const semanticColors = ['good', 'headsUp', 'trouble']
-const colorName = color => color[0].toUpperCase() + color.slice(1)
 
 export default () => markdown`
 We separate between decorative colors and semantic colors. It is of great importance to avoid using semantic colors for purely decorational purposes as that will diminish their meaning in other contexts. Exceptions can, as always, be made, but be wary. If you use the semantic colors for decorational purposes, try to use all of them so the overall expression is not skewed to flag something really good, or really bad.

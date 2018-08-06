@@ -31,6 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
     value: T.string,
+    touched: T.bool,
   }
 }
 

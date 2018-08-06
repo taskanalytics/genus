@@ -1,5 +1,5 @@
 import glamorous from 'glamorous'
-import { shade, rgba } from 'polished'
+import { rgba } from 'polished'
 
 import {colors} from '../../styles/colors'
 import {font, fontSize, spacedText} from '../../styles/mixins'
