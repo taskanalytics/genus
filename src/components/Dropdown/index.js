@@ -79,6 +79,7 @@ class Dropdown extends Component {
             onClick={e => {
               e.stopPropagation()
               action.action(e, passedProps)
+              this.closeMenu()
             }}
           >{action.name}</StyledItem>
       }
