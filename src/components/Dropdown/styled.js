@@ -46,7 +46,7 @@ width,
 space
 )
 
-export const StyledItem = glamorous(Box)(({ theme }) => ({
+export const StyledItem = glamorous(Box)(({ theme, destructive }) => ({
   ...font('normal'),
   backgroundColor: 'transparent',
   padding: theme.space[1],
@@ -54,13 +54,10 @@ export const StyledItem = glamorous(Box)(({ theme }) => ({
   paddingRight: theme.space[2],
   borderRadius: theme.radius,
   cursor: 'pointer',
+  color: destructive ? theme.colors.trouble : null,
   '&:hover,&:focus,&:active': {
     backgroundColor: rgba(theme.colors.primary, 0.1),
   },
-}))
-
-export const StyledAction = glamorous(StyledItem)(({ theme, destructive }) => ({
-  color: destructive ? theme.colors.trouble : theme.colors.primary,
 }))
 
 export const StyledHeading = glamorous(Box)(({ theme }) => ({

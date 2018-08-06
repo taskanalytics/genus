@@ -17,7 +17,6 @@ showSource: true
         name: 'Option 2',
         type: '',
         action: () => console.log('Clicked Option 2'),
-      }, {
       },
       { type: 'separator' },
       { name: 'Heading', type: 'heading' },
