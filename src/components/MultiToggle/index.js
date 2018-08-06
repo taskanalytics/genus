@@ -21,7 +21,7 @@ class MultiToggle extends PureComponent {
       options,
       selectedOption,
       onSelectOption,
-      ...props,
+      ...props
     } = this.props
 
     return (
@@ -37,6 +37,14 @@ class MultiToggle extends PureComponent {
         )}
       </StyledWrapper>
     )
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  MultiToggle.propTypes = {
+    options: T.array.isRequired,
+    selectedOption: T.string,
+    onSelectOption: T.func,
   }
 }
 

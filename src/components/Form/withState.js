@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 export default function withState (Wrapped) {
   return class extends Component {
     state = { value: '' }
-    onChange = ({ target: { value } }) => {
+    onChange = ({ target: { value } }) => {
       this.setState({ value })
     }
 

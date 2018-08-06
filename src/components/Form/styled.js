@@ -34,7 +34,7 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
 export const StyledError = glamorous.div(({ theme, error }) => ({
   display: 'block',
   color: theme.colors.troubleDark,
-  paddingTop: '5px'
+  paddingTop: '5px',
 }))
 
 export const StyledInput = glamorous.input(({ theme, error }) => {
@@ -52,7 +52,7 @@ export const StyledInput = glamorous.input(({ theme, error }) => {
 
     '::placeholder': {
       color: theme.colors.muted,
-      opacity: .6,
+      opacity: 0.6,
     },
   }
 })
@@ -73,7 +73,7 @@ export const StyledSelect = glamorous.select(({ theme, error }) => ({
 
   '::placeholder': {
     color: theme.colors.muted,
-    opacity: .6,
+    opacity: 0.6,
   },
 }))
 
@@ -154,7 +154,7 @@ export const StyledCheckBoxIndicator = glamorous.span(({ theme, error, touched }
   height: '24px',
   borderRadius: '3px',
   backgroundColor: theme.colors.white,
-  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` :`2.5px solid rgba(50, 60, 76, 0.1)`,
+  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
 }))
 
 export const StyledLabelCheckRadio = (props) => (
@@ -186,7 +186,7 @@ export const StyledRadioIndicator = glamorous.span(({ theme, error, touched }) =
   height: '24px',
   borderRadius: '20px',
   backgroundColor: theme.colors.white,
-  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` :`2.5px solid rgba(50, 60, 76, 0.1)`,
+  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
 }))
 
 export const StyledValidatedMark = glamorous.span(({ theme }) => ({

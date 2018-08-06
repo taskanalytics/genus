@@ -23,15 +23,15 @@ class Select extends Component {
     return (
       <StyledWrapper error={error}>
         <StyledLabel>{label}</StyledLabel>
-          <StyledSelect
-            error={error}
-            {...rest}
-          />
-          { renderAfter && (
-            <StyledAfter>{
-              renderAfter({ label, error, ...rest }) || defaultRenderAfter()
-            }</StyledAfter>
-          ) }
+        <StyledSelect
+          error={error}
+          {...rest}
+        />
+        { renderAfter && (
+          <StyledAfter>{
+            renderAfter({ label, error, ...rest }) || defaultRenderAfter()
+          }</StyledAfter>
+        ) }
       </StyledWrapper>
     )
   }

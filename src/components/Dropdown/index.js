@@ -92,7 +92,7 @@ class Dropdown extends Component {
       right,
       actions,
       renderTrigger,
-      ...rest,
+      ...rest
     } = this.props
     const { open } = this.state
     const dialogStyles = this.props.dialogStyles || {}

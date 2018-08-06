@@ -14,7 +14,7 @@ class CompletionCard extends Component {
       name,
       completion,
       responses,
-      ...props,
+      ...props
     } = this.props
     return (
       <StyledCard completion={completion.value} {...props}>

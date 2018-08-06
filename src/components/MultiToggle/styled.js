@@ -47,12 +47,12 @@ export const StyledLabel = glamorous.label(({ theme }) => ({
     borderRight: border,
     '&:first-child': {
       borderRadius: '0',
-      paddingLeft: theme.space[4]
+      paddingLeft: theme.space[4],
     },
     '&:last-child': {
       borderRadius: '0',
       borderRight: 'none',
-      paddingRight: theme.space[4]
+      paddingRight: theme.space[4],
     },
   },
   [mediaQueries.desktop]: {

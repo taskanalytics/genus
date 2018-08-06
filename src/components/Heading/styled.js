@@ -13,11 +13,11 @@ import {
 export const StyledHeading = withIsProp(glamorous('h1')({
   margin: 0,
 },
-  width,
-  space,
-  color,
-  textAlign,
-  fontWeight,
-  fontSize,
-  lineHeight
+width,
+space,
+color,
+textAlign,
+fontWeight,
+fontSize,
+lineHeight
 ))

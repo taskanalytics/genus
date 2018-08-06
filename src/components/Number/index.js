@@ -29,6 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
     description: T.string,
     size: T.oneOf(['small', 'large']),
     suffix: T.string,
+    prefix: T.string,
   }
 }
 

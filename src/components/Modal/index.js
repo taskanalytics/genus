@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import T from 'prop-types'
 import {Box} from '../Grid'
 
@@ -52,6 +52,7 @@ if (process.env.NODE_ENV !== 'production') {
   Modal.propTypes = {
     title: T.string,
     close: T.func.isRequired,
+    isOpen: T.bool,
     children: T.any,
     actions: T.object,
     active: T.bool.isRequired,

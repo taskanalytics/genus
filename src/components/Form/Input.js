@@ -21,6 +21,7 @@ const ValidationMark = ({ value, error }) => {
   return null
 }
 
+
 class Input extends Component {
   render () {
     const { label, error, renderAfter, value, ...rest } = this.props
@@ -45,12 +46,18 @@ class Input extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
+  ValidationMark.propTypes = {
+    value: T.string,
+    error: T.oneOfType([ T.string, T.bool ]),
+  }
+
   Input.propTypes = {
     label: T.string,
     value: T.string,
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
     type: T.oneOf(['text', 'email', 'number']),
+    renderAfter: T.func,
   }
 }
 
