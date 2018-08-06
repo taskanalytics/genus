@@ -16,6 +16,7 @@ showSource: true
   large
   fullName='John Doe'
   initials='JD'
+  onClick={e => console.log('Clicked')}
 />
 ```
 
