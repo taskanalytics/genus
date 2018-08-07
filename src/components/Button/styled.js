@@ -127,10 +127,6 @@ export default glamorous('button')(({ theme }) => ({
     borderColor: rgba(theme.colors.black, 0.3),
   },
 }),
-space,
-width,
-color,
-textAlign,
 styledSpaceless,
 styledCompact,
 styledLink,
@@ -139,5 +135,9 @@ styledWarning,
 styledPrimary,
 styledInverted,
 styledPrimaryInverted,
-styledDanger
+styledDanger,
+space,
+width,
+color,
+textAlign
 )
