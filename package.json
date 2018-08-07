@@ -23,6 +23,7 @@
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
     "bit:publish": "bit export taskanalytics.genus",
+    "release": "release-it",
     "test": "eslint src"
   },
   "keywords": [],
@@ -66,6 +67,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "release-it": "^7.5.0",
     "rollup": "^0.63.5",
     "rollup-plugin-analyzer": "^2.1.0",
     "rollup-plugin-babel": "^3.0.7",
