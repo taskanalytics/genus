@@ -6,7 +6,7 @@ const SHOW = '🔓'
 const HIDE = '🔒'
 
 export default class PasswordInput extends React.Component {
-  state ={ show: false }
+  state = { show: false }
   toggle = () => this.setState({ show: !this.state.show })
 
   render () {

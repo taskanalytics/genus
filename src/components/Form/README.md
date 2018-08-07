@@ -14,8 +14,8 @@ showSource: true
     <Input 
       placeholder="Username (custom check mark)"
       label="Username"
-      renderAfter={ ({ value: { length } }) => (
-        length > 2 && <Text color="green">✓</Text>
+      renderAfter={ ({ value }) => (
+        value.length > 2 && <Text color="green">✓</Text>
       )}
     />
   </Box>
