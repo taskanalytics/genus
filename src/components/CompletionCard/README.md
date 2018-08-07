@@ -1,3 +1,9 @@
+```code
+[name]                                The name/title for the card
+[completion: {value, description}]    An object with a value/description pair for the completion rate
+[response: {value, description}]      An object with a value/description pair for the response
+```
+
 ## Default
 ```react
 span: 3

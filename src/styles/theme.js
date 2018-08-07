@@ -10,7 +10,7 @@ const theme = {
   ],
   radius: 4,
   fontSizes: [
-    12, 16, 18, 24, 36, 72
+    12, 16, 18, 24, 36, 72,
   ],
   shadows: [
     '0 2px 6px 0 rgba(0,0,0,.1)',

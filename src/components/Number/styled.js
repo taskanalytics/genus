@@ -42,8 +42,6 @@ export const Dd = glamorous.dd(
   styleIf('large', fontSize('small'))
 )
 
-export const Suffix = glamorous.span(
-  {
-    fontSize: '0.65em',
-  }
-)
+export const Suffix = glamorous.span({
+  fontSize: '0.65em'
+})

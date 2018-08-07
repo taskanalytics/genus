@@ -26,9 +26,9 @@ export const Wrapper = glamorous(Flex)(({ theme, large, onClick }) => {
 
   return css
 },
-  fontSize,
-  space,
-  color
+fontSize,
+space,
+color
 )
 
 Wrapper.defaultProps = {

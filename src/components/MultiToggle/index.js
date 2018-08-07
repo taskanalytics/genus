@@ -11,7 +11,7 @@ const returnFirst = test => test
 
 const Option = ({name, value, active, onChange, destructive}) =>
   <StyledLabel destructive={destructive} active={active}>
-    <StyledRadio type='radio' id={value} checked={active} onClick={onChange} />
+    <StyledRadio type='radio' id={value} checked={active} onChange={onChange} />
     {name}
   </StyledLabel>
 
@@ -21,7 +21,7 @@ class MultiToggle extends PureComponent {
       options,
       selectedOption,
       onSelectOption,
-      ...props,
+      ...props
     } = this.props
 
     return (
@@ -37,6 +37,22 @@ class MultiToggle extends PureComponent {
         )}
       </StyledWrapper>
     )
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  Option.propTypes = {
+    name: T.string,
+    value: T.string,
+    active: T.bool,
+    onChange: T.func,
+    destructive: T.bool,
+  }
+
+  MultiToggle.propTypes = {
+    options: T.array.isRequired,
+    selectedOption: T.string,
+    onSelectOption: T.func,
   }
 }
 

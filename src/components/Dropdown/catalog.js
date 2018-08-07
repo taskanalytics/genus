@@ -1,6 +1,6 @@
 import Dropdown from '.'
 import Button from '../Button'
-import { Box, Flex } from '../Grid'
+import { Box, Flex } from '../Grid'
 import Text from '../Text'
 import Heading from '../Heading'
 

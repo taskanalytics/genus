@@ -48,7 +48,6 @@ const pages = [
       require('../src/components/Header/catalog').default,
       require('../src/components/UserAvatar/catalog').default,
       require('../src/components/Logo/catalog').default,
-      require('../src/components/Modal/catalog').default,
       require('../src/components/MultiToggle/catalog').default,
       require('../src/components/EmptyState/catalog').default,
       require('../src/components/Percentage/catalog').default,
@@ -56,7 +55,7 @@ const pages = [
       require('../src/components/Banner/catalog').default,
     ].sort((a, b) => {
       return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
-    })
+    }),
   },
 ]
 

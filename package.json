@@ -22,7 +22,8 @@
     "prepublishOnly": "yarn dist",
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
-    "bit:publish": "bit export taskanalytics.genus"
+    "bit:publish": "bit export taskanalytics.genus",
+    "test": "eslint src"
   },
   "keywords": [],
   "author": [
@@ -50,7 +51,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bit-bin": "^0.12.10",
-    "catalog": "3.5.2",
+    "catalog": "^3.5.5",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
@@ -61,19 +62,18 @@
     "glamor": "^2.20.40",
     "glamorous": "^4.12.1",
     "jsx-test-helpers": "^3.0.0",
-    "next": "^5.0.0",
+    "next": "^6.1.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "rollup": "^0.57.1",
-    "rollup-analyzer-plugin": "^1.1.1",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-ignore": "^1.0.3",
+    "rollup": "^0.63.5",
+    "rollup-plugin-analyzer": "^2.1.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.4",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify-es": "^0.0.1",
-    "rollup-plugin-visualizer": "^0.6.0",
+    "rollup-plugin-visualizer": "^0.8.1",
     "superstatic": "^5.0.1"
   }
 }

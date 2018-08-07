@@ -4,7 +4,7 @@ import { rgba, lighten } from 'polished'
 
 import {colors} from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
-import {font, fontSize, spacedText} from '../../styles/mixins'
+import {font, fontSize} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -20,17 +20,12 @@ const progressLabel = css.keyframes({
   },
 })
 
-const styledBlock = styleIf('block', {
-  display: 'block',
-  width: '100%',
-})
-
 export const Wrapper = glamorous('div')({
   position: 'relative',
   width: '100%',
   marginTop: `${spacing.unit * 4 - 4}px`,
   borderRadius: spacing.unit,
-}, ({ color }) => ({
+}, ({ color }) => ({
   backgroundColor: color ? lighten(0.25, color) : colors.base,
 }),
 styleIf('light', {

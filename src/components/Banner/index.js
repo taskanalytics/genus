@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import T from 'prop-types'
 
 import {
   StyledBanner,
@@ -12,6 +13,12 @@ class Banner extends Component {
         {children}
       </StyledBanner>
     )
+  }
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  Banner.propTypes = {
+    children: T.node,
   }
 }
 

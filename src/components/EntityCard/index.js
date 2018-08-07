@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import isEqual from 'lodash/isEqual'
 import { StyledCard, StyledBox, StyledHeading } from './styled'
 import Text from '../Text'
 import Avatar from '../Avatar'

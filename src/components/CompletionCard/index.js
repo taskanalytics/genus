@@ -4,7 +4,6 @@ import {
   StyledCard,
   StyledHeading,
 } from './styled'
-import Heading from '../Heading'
 import Text from '../Text'
 import Percentage from '../Percentage'
 
@@ -14,7 +13,7 @@ class CompletionCard extends Component {
       name,
       completion,
       responses,
-      ...props,
+      ...props
     } = this.props
     return (
       <StyledCard completion={completion.value} {...props}>

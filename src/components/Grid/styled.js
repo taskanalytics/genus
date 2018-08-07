@@ -2,6 +2,9 @@ import glamorous from 'glamorous'
 import withIsProp from '../../utils/withIsProp'
 import {
   width,
+  maxWidth,
+  height,
+  maxHeight,
   space,
   color,
   borderWidth,
@@ -17,6 +20,9 @@ import {
 
 export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
   width,
+  maxWidth,
+  height,
+  maxHeight,
   space,
   color,
   borderWidth,
@@ -26,7 +32,7 @@ export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
 ))
 
 export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
-  { display: 'flex'},
+  { display: 'flex' },
   flexWrap,
   alignItems,
   justifyContent,

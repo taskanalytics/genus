@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { Box } from '../Grid'
 
 import {
-  StyledWrapper,
-  StyledAction,
   StyledHeading,
   StyledSeparator,
   StyledDropdown,
@@ -61,7 +58,10 @@ class Dropdown extends Component {
     }
 
     return actions.map((action, key) => {
-      const props = { key: `action-${key}` }
+      const props = {
+        key: `action-${key}`,
+        destructive: action.type === 'destructive',
+      }
       if (action.render) {
         action.type = 'component'
       }
@@ -71,11 +71,10 @@ class Dropdown extends Component {
         case 'heading':
           return <StyledHeading {...props}>{action.name}</StyledHeading>
         case 'component':
-          return <StyledItem><action.render {...props} /></StyledItem>
+          return <StyledItem {...props}><action.render /></StyledItem>
         default:
           return <StyledItem
             {...props}
-            destructive={action.type === 'destructive'}
             onClick={e => {
               e.stopPropagation()
               action.action(e, passedProps)
@@ -91,7 +90,6 @@ class Dropdown extends Component {
       right,
       actions,
       renderTrigger,
-      ...rest,
     } = this.props
     const { open } = this.state
     const dialogStyles = this.props.dialogStyles || {}
@@ -104,7 +102,7 @@ class Dropdown extends Component {
         <StyledDropdown
           open={open}
           right={right}
-          innerRef={ref => this.dd = ref}
+          innerRef={ref => { this.dd = ref }}
           mt={1}
           css={dialogStyles}
         >
@@ -117,8 +115,11 @@ class Dropdown extends Component {
 
 if (process.env.NODE_ENV !== 'production') {
   Dropdown.propTypes = {
-    open: T.bool,
-    actions: T.array,
+    actions: T.oneOfType([
+      T.array,
+      T.func,
+    ]).isRequired,
+    right: T.bool,
     renderTrigger: T.func,
     dialogStyles: T.object,
   }

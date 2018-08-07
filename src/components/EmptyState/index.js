@@ -14,7 +14,7 @@ class EmptyState extends Component {
       actions,
       heading,
       body,
-      ...props,
+      ...props
     } = this.props
     return (
       <StyledBox p={3} {...props}>
