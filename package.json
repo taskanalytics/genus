@@ -23,8 +23,7 @@
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
     "bit:publish": "bit export taskanalytics.genus",
-    "release": "release-it",
-    "test": "eslint src"
+    "release": "release-it"
   },
   "keywords": [],
   "author": [
