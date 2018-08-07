@@ -1,16 +1,16 @@
 import glamorous from 'glamorous'
 import { rgba } from 'polished'
+import {
+  width,
+  space,
+  color,
+  textAlign,
+} from 'styled-system'
 
 import {colors} from '../../styles/colors'
 import {font, fontSize, spacedText} from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
-
-import {
-  width,
-  space,
-  textAlign,
-} from 'styled-system'
 
 const styledBlock = styleIf('block', {
   display: 'block',
@@ -129,6 +129,7 @@ export default glamorous('button')(({ theme }) => ({
 }),
 space,
 width,
+color,
 textAlign,
 styledSpaceless,
 styledCompact,
