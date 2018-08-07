@@ -1,21 +1,26 @@
+### Props
+```code
+[actions: [{name, type, action}]]       Actions can be an array
+[actions: props => {}]                  Or actions can be a render function
+[renderTrigger: props => {}]            Render function for rendering the trigger
+[dialogStyles: {}]                      An object with CSS to apply to the dialog element
+[right]                                 Attempt to position the dropdown from the right
+```
+
+## Variations
+
 ```react
-state: {toggle: true}
 span: 3
 showSource: true
 ---
 <Box>
   <Dropdown
-    renderTrigger={props => {
-      return <button {...props}>Toggle it</button>
-    }}
     actions={[
       {
         name: 'Option 1',
-        type: '',
         action: () => console.log('Clicked Option 1'),
       }, {
         name: 'Option 2',
-        type: '',
         action: () => console.log('Clicked Option 2'),
       },
       { type: 'separator' },
@@ -30,7 +35,6 @@ showSource: true
 ```
 
 ```react
-state: {toggle: true}
 span: 3
 showSource: true
 ---
@@ -62,7 +66,6 @@ showSource: true
 # Taking full control of the rendered actions
 
 ```react
-state: {toggle: true}
 showSource: true
 ---
 <Box w={1} p={2}>

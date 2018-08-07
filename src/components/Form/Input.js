@@ -55,7 +55,7 @@ if (process.env.NODE_ENV !== 'production') {
     value: T.string,
     error: T.oneOfType([ T.string, T.bool ]),
     placeholder: T.string,
-    type: T.oneOf(['text', 'email', 'number']),
+    type: T.oneOf(['text', 'email', 'number', 'password']),
     renderAfter: T.func,
   }
 }

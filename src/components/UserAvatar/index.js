@@ -24,7 +24,7 @@ UserAvatar.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
   UserAvatar.propTypes = {
     fullName: T.string.isRequired,
-    initials: T.string.isRequired,
+    initials: T.string,
   }
 }
 

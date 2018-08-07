@@ -11,7 +11,7 @@ const Percentage = props =>
 if (process.env.NODE_ENV !== 'production') {
   Percentage.propTypes = {
     colored: T.oneOfType([T.string, T.bool]),
-    value: T.number,
+    value: T.oneOfType([T.number, T.string]),
   }
 }
 

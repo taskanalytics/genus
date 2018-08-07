@@ -48,7 +48,6 @@ const pages = [
       require('../src/components/Header/catalog').default,
       require('../src/components/UserAvatar/catalog').default,
       require('../src/components/Logo/catalog').default,
-      require('../src/components/Modal/catalog').default,
       require('../src/components/MultiToggle/catalog').default,
       require('../src/components/EmptyState/catalog').default,
       require('../src/components/Percentage/catalog').default,

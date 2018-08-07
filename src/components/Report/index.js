@@ -37,7 +37,7 @@ const Delta = ({ base, diff, size }) => {
 
 const Values = ({ values }) => {
   return values.map((value, i, values) => (
-    <span key={value.key}>
+    <span key={`value-${i}`}>
       <Percentage colored="gradient" value={value} />
       {values.length - 1 === i ? null : (
         <Text muted mx="0.3em">
@@ -65,12 +65,12 @@ export class ComparisonCard extends Component {
 
     if (values.length === 2) {
       value = (
-        <span>
+        <React.Fragment>
           <Delta base={values[0]} diff={values[1]} size="display" />
           <StyledByline>
             {values[0]}% vs {values[1]}%
           </StyledByline>
-        </span>
+        </React.Fragment>
       )
     }
 
@@ -90,7 +90,7 @@ export class ComparisonCard extends Component {
 if (process.env.NODE_ENV !== 'production') {
   ReportCard.propTypes = {
     heading: T.string,
-    value: T.number,
+    value: T.oneOfType([T.number, T.string]),
     byline: T.string,
     source: T.string,
     type: T.string,
