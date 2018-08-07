@@ -22,7 +22,8 @@
     "prepublishOnly": "yarn dist",
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
-    "bit:publish": "bit export taskanalytics.genus"
+    "bit:publish": "bit export taskanalytics.genus",
+    "test": "eslint src"
   },
   "keywords": [],
   "author": [
