@@ -6,6 +6,11 @@ import { width, space } from 'styled-system'
 import {font} from '../../styles/mixins'
 import {Box} from '../Grid'
 
+export const StyledWrapper = glamorous('div')({
+  position: 'relative',
+  display: 'inline-block',
+})
+
 export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   position: 'absolute',
   minWidth: '160px',
@@ -16,8 +21,6 @@ export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
   zIndex: 2,
   display: open ? 'block' : 'none',
-  left: null,
-  right: null,
   '&:focus': {
     outline: 'none',
   },
@@ -31,11 +34,9 @@ export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
 }),
 (props) => {
   if (props.right) {
-    return {
-      transform: 'translateX(-100%)',
-      marginLeft: '100%',
-    }
+    return { right: 0 }
   }
+  return { left: 0 }
 },
 width,
 space

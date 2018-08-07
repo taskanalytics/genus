@@ -40,6 +40,7 @@ showSource: true
 ---
 <Box w={1} p={2}>
   <Dropdown
+    right
     renderTrigger={props => {
       return <Button compact {...props}>Toggle it</Button>
     }}

@@ -6,6 +6,7 @@ import {
   StyledSeparator,
   StyledDropdown,
   StyledItem,
+  StyledWrapper,
 } from './styled'
 
 class Dropdown extends Component {
@@ -95,20 +96,19 @@ class Dropdown extends Component {
     const dialogStyles = this.props.dialogStyles || {}
 
     return (
-      <React.Fragment>
+      <StyledWrapper>
         { renderTrigger({
           onClick: this.toggle,
         }) }
         <StyledDropdown
           open={open}
           right={right}
-          innerRef={ref => { this.dd = ref }}
           mt={1}
           css={dialogStyles}
         >
           {this.renderActions(actions)}
         </StyledDropdown>
-      </React.Fragment>
+      </StyledWrapper>
     )
   }
 }
