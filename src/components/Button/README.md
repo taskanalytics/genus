@@ -18,7 +18,10 @@ Optional:
 ```react|span-2
 showSource: true
 ---
+<div>
 <Button>Default</Button>
+<Button link color="white">Default</Button>
+</div>
 ```
 
 ```react|span-2
