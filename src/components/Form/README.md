@@ -11,6 +11,9 @@ showSource: true
     />
   </Box>
   <Box pb={3}>
+    <Input placeholder="No label" />
+  </Box>
+  <Box pb={3}>
     <Input 
       placeholder="Username (custom check mark)"
       label="Username"
