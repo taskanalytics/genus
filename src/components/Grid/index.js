@@ -11,8 +11,4 @@ export const Box = StyledBox
 
 export const Flex = StyledFlex
 
-export const Container = props => <StyledContainer px={2} {...props} />
-
-if (process.env.NODE_ENV !== 'production') {
-  Container.propTypes = { fluid: T.bool }
-}
+export const Container = StyledContainer

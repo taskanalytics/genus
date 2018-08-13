@@ -42,11 +42,9 @@ export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
   alignSelf
 )
 
-export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(props => {
-  if (!props.fluid) {
-    return {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    }
-  }
-})
+export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(
+  ({ theme }) => ({
+    paddingLeft: theme.space[2],
+    paddingRight: theme.space[2],
+  })
+)
