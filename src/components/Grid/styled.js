@@ -31,7 +31,8 @@ export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
   borderWidth,
   borderColor,
   borderRadius,
-  textAlign
+  textAlign,
+  flex
 ))
 
 export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
@@ -40,8 +41,7 @@ export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
   alignItems,
   justifyContent,
   flexDirection,
-  alignSelf,
-  flex
+  alignSelf
 )
 
 export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(
