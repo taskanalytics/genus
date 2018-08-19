@@ -11,6 +11,7 @@ import {
   borderWidth,
   borderRadius,
   borderColor,
+  flex,
   flexWrap,
   flexDirection,
   alignSelf,
@@ -39,7 +40,8 @@ export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
   alignItems,
   justifyContent,
   flexDirection,
-  alignSelf
+  alignSelf,
+  flex
 )
 
 export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(
