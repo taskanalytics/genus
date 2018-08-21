@@ -46,6 +46,7 @@ export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
 
 export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(
   ({ theme }) => ({
+    width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
     paddingLeft: theme.space[2],
