@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { StyledCard, StyledBox, StyledHeading } from './styled'
+import { StyledCard, StyledHeading } from './styled'
+import { Box } from '../Grid'
 import Text from '../Text'
 import Avatar from '../Avatar'
 
@@ -15,14 +16,19 @@ class EntityCard extends Component {
   }
 
   render () {
-    const {name, description, avatar, actions, ...props} = this.props
-    return (
-      <StyledCard actions={actions} {...props}>
+    const {name, description, avatar, actions, render, ...props} = this.props
+    const children = (
+      <React.Fragment>
         {avatar && <Avatar mr={2} src={avatar} /> }
-        <StyledBox>
+        <Box w={1}>
           <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
           {description && <Text muted>{description}</Text>}
-        </StyledBox>
+        </Box>
+      </React.Fragment>
+    )
+    return (
+      <StyledCard w={1} actions={actions} {...props}>
+        { render ? render({ children }) : children }
       </StyledCard>
     )
   }
@@ -34,6 +40,7 @@ if (process.env.NODE_ENV !== 'production') {
     description: T.string,
     avatar: T.string,
     actions: T.array,
+    render: T.func,
   }
 }
 
