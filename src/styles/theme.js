@@ -21,6 +21,7 @@ const theme = {
     blue: '#07c',
     text: 'rgb(45, 54, 68)',
     white: '#fff',
+    grey: '#f5f7f9',
     muted: 'rgba(45, 54, 68, 0.6)',
     primary: colors.primary,
     primaryShaded: colors.primaryShaded,
