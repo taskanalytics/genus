@@ -17,7 +17,7 @@ class EmptyState extends Component {
       ...props
     } = this.props
     return (
-      <StyledBox p={3} {...props}>
+      <StyledBox p={3} {...props} data-genus="EmptyState">
         <StyledHeading is='h2'>{heading}</StyledHeading>
         <StyledBody mb={4}>{body}</StyledBody>
         {actions &&

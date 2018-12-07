@@ -13,7 +13,9 @@ class CheckBox extends Component {
     const { label, error, touched, ...rest } = this.props
 
     return (
-      <StyledCheckRadioLabel touched={touched} error={error}>
+      <StyledCheckRadioLabel touched={touched} error={error}
+        data-genus="CheckBox"
+      >
         <StyledCheckRadio type="checkbox" touched={touched} error={error} {...rest}>
         </StyledCheckRadio>
         <StyledCheckBoxIndicator touched={touched} error={error}>

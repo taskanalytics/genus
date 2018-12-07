@@ -43,7 +43,7 @@ class Card extends Component {
   render () {
     const { actions, children, ...props } = this.props
     return (
-      <StyledCard p={3} {...props}>
+      <StyledCard p={3} {...props} data-genus="Card">
         {actions && <Actions p={3} actions={actions} {...props} />}
         {children}
       </StyledCard>

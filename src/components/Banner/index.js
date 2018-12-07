@@ -9,7 +9,9 @@ class Banner extends Component {
   render () {
     const { children, ...props } = this.props
     return (
-      <StyledBanner py={2} {...props}>
+      <StyledBanner py={2} {...props}
+        data-genus="Banner"
+      >
         {children}
       </StyledBanner>
     )

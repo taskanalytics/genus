@@ -1,3 +1,3 @@
 import { StyledHeading } from './styled'
 
-export default StyledHeading
+export default p => <StyledHeading {...p} data-genus="Heading" />

@@ -4,7 +4,9 @@ import { StyledWrapper } from './styled'
 import NumberComponent from '../Number'
 
 const Percentage = props =>
-  <StyledWrapper colored={props.colored} value={props.value}>
+  <StyledWrapper colored={props.colored} value={props.value}
+    data-genus="Percentage"
+  >
     <NumberComponent {...props} suffix='%' />
   </StyledWrapper>
 

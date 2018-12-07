@@ -1,3 +1,3 @@
 import { StyledText } from './styled'
 
-export default StyledText
+export default p => <StyledText {...p} data-genus="Text" />

@@ -27,7 +27,9 @@ class EntityCard extends Component {
       </React.Fragment>
     )
     return (
-      <StyledCard w={1} actions={actions} {...props}>
+      <StyledCard w={1} actions={actions} {...props}
+        data-genus="EntityCard"
+      >
         { render ? render({ children }) : children }
       </StyledCard>
     )

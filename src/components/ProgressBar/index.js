@@ -49,7 +49,7 @@ class ProgressBar extends Component {
     }
 
     return (
-      <Wrapper {...props}>
+      <Wrapper {...props} data-genus="ProgressBar">
         <Meter {...meterProps}>
           { !empty && color &&
             <Label {...labelProps}>

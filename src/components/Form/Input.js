@@ -26,7 +26,7 @@ class Input extends Component {
     const { label, error, renderAfter, value, ...rest } = this.props
     return (
       <React.Fragment>
-        <StyledWrapper error={error}>
+        <StyledWrapper error={error} data-genus="Input">
           { label && <StyledLabel>{label}</StyledLabel> }
           <Flex w={1} alignItems="center">
             <StyledInput

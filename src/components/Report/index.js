@@ -8,10 +8,18 @@ import { StyledCard, StyledHeading, StyledByline, StyledSource } from './styled'
 
 export class ReportCard extends Component {
   render () {
-    const { heading, value, byline, source, type, ...props } = this.props
+    const {
+      heading,
+      value,
+      byline,
+      source,
+      type,
+      render,
+      ...props
+    } = this.props
 
-    return (
-      <StyledCard {...props}>
+    const children = (
+      <React.Fragment>
         <StyledHeading>{heading}</StyledHeading>
         <Percentage colored="gradient" size="display" value={value} />
         <StyledByline>{byline}</StyledByline>
@@ -19,6 +27,14 @@ export class ReportCard extends Component {
           {source && <strong>{source}</strong>}
           {type && ` ${type}`}
         </StyledSource>
+      </React.Fragment>
+    )
+
+    return (
+      <StyledCard {...props}
+        data-genus="ReportCard"
+      >
+        { render ? render({ children }) : children }
       </StyledCard>
     )
   }
@@ -50,13 +66,20 @@ const Values = ({ values }) => {
 
 export class ComparisonCard extends Component {
   render () {
-    const { heading, values, source, type, empty } = this.props
+    const {
+      heading,
+      values,
+      source,
+      type,
+      empty,
+      render,
+      ...props
+    } = this.props
 
-    const emptyValue = <Text>{empty}</Text>
     let value
 
     if (empty) {
-      value = emptyValue
+      value = <Text>{empty}</Text>
     }
 
     if (values.length > 2) {
@@ -74,14 +97,22 @@ export class ComparisonCard extends Component {
       )
     }
 
-    return (
-      <StyledCard>
+    const children = (
+      <React.Fragment>
         <StyledHeading>{heading}</StyledHeading>
         {value}
         <StyledSource>
           {source && <strong>{source}</strong>}
           {type && ` ${type}`}
         </StyledSource>
+      </React.Fragment>
+    )
+
+    return (
+      <StyledCard {...props}
+        data-genus="ComparisonCard"
+      >
+        { render ? render({ children }) : children }
       </StyledCard>
     )
   }
@@ -94,6 +125,7 @@ if (process.env.NODE_ENV !== 'production') {
     byline: T.string,
     source: T.string,
     type: T.string,
+    render: T.func,
   }
 
   Delta.propTypes = {
@@ -112,5 +144,6 @@ if (process.env.NODE_ENV !== 'production') {
     source: T.string,
     type: T.string,
     empty: T.bool,
+    render: T.func,
   }
 }

@@ -13,7 +13,9 @@ class Radio extends Component {
     const { label, error, ...rest } = this.props
 
     return (
-      <StyledCheckRadioLabel error={error}>
+      <StyledCheckRadioLabel error={error}
+        data-genus="Radio"
+      >
         <StyledCheckRadio type="radio" error={error} {...rest}>
         </StyledCheckRadio>
         <StyledRadioIndicator>

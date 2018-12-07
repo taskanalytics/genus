@@ -19,7 +19,7 @@ class Select extends Component {
     const { label, error, renderAfter, ...rest } = this.props
 
     return (
-      <StyledWrapper error={error}>
+      <StyledWrapper error={error} data-genus="Select">
         <StyledLabel>{label}</StyledLabel>
         <StyledSelect
           error={error}

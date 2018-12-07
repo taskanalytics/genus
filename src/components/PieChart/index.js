@@ -23,7 +23,7 @@ class PieChart extends Component {
     }
 
     return (
-      <Figure>
+      <Figure data-genus="PieChart">
         <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           <Background
             light={light}

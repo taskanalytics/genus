@@ -13,7 +13,9 @@ const UserAvatar = ({ fullName, initials, ...rest }) =>
     align='center'
     is={initials ? 'abbr' : 'span'}
     title={fullName}
-    {...rest}>
+    {...rest}
+    data-genus="UserAvatar"
+  >
     { initials || <UserIcon /> }
   </Wrapper>
 

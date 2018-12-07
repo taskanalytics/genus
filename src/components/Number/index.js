@@ -9,14 +9,16 @@ class NumberComponent extends Component {
 
     if (description) {
       return (
-        <Dl size={size}>
+        <Dl size={size}
+          data-genus="Number"
+        >
           <Dt size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
           <Dd size={size}>{description}</Dd>
         </Dl>
       )
     }
     return (
-      <StyledSpan size={size} {...props}>
+      <StyledSpan size={size} {...props} data-genus="Number">
         {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
       </StyledSpan>
     )

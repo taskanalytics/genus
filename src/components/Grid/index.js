@@ -7,8 +7,8 @@ import {
   StyledFlex,
 } from './styled'
 
-export const Box = StyledBox
+export const Box = p => <StyledBox {...p} data-genus="Box" />
 
-export const Flex = StyledFlex
+export const Flex = p => <StyledFlex {...p} data-genus="Flex" />
 
-export const Container = StyledContainer
+export const Container = p => <StyledContainer {...p} data-genus="Container" />

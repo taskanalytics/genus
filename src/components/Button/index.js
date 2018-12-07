@@ -18,13 +18,13 @@ class Button extends PureComponent {
 
     if (to) {
       return (
-        <StyledLink {...props} href={to}>
+        <StyledLink {...props} href={to} data-genus="Button">
           {children}
         </StyledLink>
       )
     }
 
-    return (<StyledButton {...props}>
+    return (<StyledButton {...props} data-genus="Button">
       {children}
     </StyledButton>)
   }

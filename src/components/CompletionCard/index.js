@@ -27,7 +27,10 @@ class CompletionCard extends Component {
     )
 
     return (
-      <StyledCard completion={completion.value} {...props}>
+      <StyledCard
+        completion={completion.value} {...props}
+        data-genus="CompletionCard"
+      >
         { render ? render({ children }) : children }
       </StyledCard>
     )
