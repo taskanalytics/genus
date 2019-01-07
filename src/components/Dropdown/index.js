@@ -107,7 +107,7 @@ class Dropdown extends Component {
           open={open}
           right={right}
           mt={1}
-          css={dialogStyles}
+          style={dialogStyles}
         >
           {this.renderActions(actions)}
         </StyledDropdown>
