@@ -7,7 +7,6 @@ import {
   lineHeight,
   letterSpacing,
   fontWeight,
-  textTransform,
 } from 'styled-system'
 
 import { font } from '../../styles/mixins'
