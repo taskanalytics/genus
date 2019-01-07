@@ -34,8 +34,8 @@
     "access": "public"
   },
   "dependencies": {
-    "polished": "^1.9.2",
-    "react-modal": "^3.3.2",
+    "polished": "^2.3.1",
+    "react-modal": "^3.8.1",
     "styled-system": "^3.2.0"
   },
   "peerDependencies": {
