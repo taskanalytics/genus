@@ -28,7 +28,7 @@ class Input extends Component {
       <React.Fragment>
         <StyledWrapper error={error} data-genus="Input">
           { label && <StyledLabel>{label}</StyledLabel> }
-          <Flex w={1} alignItems="center">
+          <Flex width={1} alignItems="center">
             <StyledInput
               error={error}
               value={value}

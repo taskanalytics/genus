@@ -1,8 +1,8 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { Box } from '../Grid'
 import { color } from 'styled-system'
 
-export const StyledBanner = glamorous(Box)(({ theme }) => ({
+export const StyledBanner = styled(Box)(({ theme }) => ({
   width: '100%',
   textAlign: 'center',
   fontWeight: 500,

@@ -103,7 +103,7 @@ class Dropdown extends Component {
           onClick: this.toggle,
         }) }
         <StyledDropdown
-          innerRef={ref => { this.dd = ref }}
+          ref={ref => { this.dd = ref }}
           open={open}
           right={right}
           mt={1}

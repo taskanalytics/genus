@@ -13,8 +13,7 @@ const exports = 'named'
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  glamorous: 'glamorous',
-  glamor: 'glamor',
+  emotion: 'emotion',
   polished: 'polished',
 }
 
@@ -23,8 +22,7 @@ export default {
   external: [
     'react',
     'react-dom',
-    'glamor',
-    'glamorous',
+    'emotion',
     'polished',
     'styled-system',
   ],
@@ -50,6 +48,7 @@ export default {
         ['es2015', {modules: false}],
         'stage-2',
         'react',
+        '@emotion/babel-preset-css-prop',
       ],
       plugins: [
         'external-helpers',

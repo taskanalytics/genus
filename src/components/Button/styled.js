@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { rgba } from 'polished'
 import {
   width,
@@ -96,7 +96,7 @@ const styledLink = styleIf('link', {
   },
 })
 
-export default glamorous('button')(({ theme }) => ({
+export default styled('button')(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   ...spacedText(),

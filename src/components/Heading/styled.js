@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import withIsProp from '../../utils/withIsProp'
 import {
   width,
@@ -10,7 +10,7 @@ import {
   lineHeight,
 } from 'styled-system'
 
-export const StyledHeading = withIsProp(glamorous('h1')({
+export const StyledHeading = withIsProp(styled('h1')({
   margin: 0,
 },
 width,

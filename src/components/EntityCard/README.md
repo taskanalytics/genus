@@ -45,7 +45,7 @@ span: 3
 ---
 <EntityCard
   name="Wrap content in link"
-  render={(p) => <Box w={1}><a href="https://google.com" {...p} /></Box>}
+  render={(p) => <Box width={1}><a href="https://google.com" {...p} /></Box>}
   actions={[{type:'heading', name:'An action'}]}
   description="2 surveys" />
 ```

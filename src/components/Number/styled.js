@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 
 import {font, fontSize} from '../../styles/mixins'
 
@@ -8,12 +8,12 @@ const isSmall = ({ size }) => size === 'small'
 const isLarge = ({ size }) => size === 'large'
 const isDisplay = ({ size }) => size === 'display'
 
-export const Dl = glamorous.dl({
+export const Dl = styled.dl({
   fontVariantNumeric: 'tabular-nums',
   fontFeatureSettings: 'tnum',
 })
 
-export const Dt = glamorous.dt(
+export const Dt = styled.dt(
   {
     ...font('bold'),
     ...fontSize('medium'),
@@ -32,7 +32,7 @@ export const Dt = glamorous.dt(
   })
 )
 
-export const Dd = glamorous.dd(
+export const Dd = styled.dd(
   {
     ...font('normal'),
     ...fontSize('xsmall'),
@@ -42,6 +42,6 @@ export const Dd = glamorous.dd(
   styleIf('large', fontSize('small'))
 )
 
-export const Suffix = glamorous.span({
+export const Suffix = styled.span({
   fontSize: '0.65em'
 })

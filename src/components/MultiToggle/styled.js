@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import {colors} from '../../styles/colors'
 import {font, fontSize} from '../../styles/mixins'
 
@@ -10,7 +10,7 @@ const mediaQueries = {
   desktop: '@media screen and (min-width: 960px)',
 }
 
-export const StyledWrapper = glamorous.div({
+export const StyledWrapper = styled("div")({
   overflow: 'hidden',
   display: 'inline-block',
   width: '100%',
@@ -20,11 +20,11 @@ export const StyledWrapper = glamorous.div({
   },
 })
 
-export const StyledRadio = glamorous.input({
+export const StyledRadio = styled("input")({
   display: 'none',
 })
 
-export const StyledLabel = glamorous.label(({ theme }) => ({
+export const StyledLabel = styled("label")(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   backgroundColor: '#ECEFF1',
@@ -33,7 +33,7 @@ export const StyledLabel = glamorous.label(({ theme }) => ({
   cursor: 'pointer',
   width: '100%',
   borderBottom: border,
-  '&:first-child': {
+  '&:first-of-type': {
     borderRadius: `${theme.radius}px ${theme.radius}px 0 0`,
   },
   '&:last-child': {
@@ -45,7 +45,7 @@ export const StyledLabel = glamorous.label(({ theme }) => ({
     width: 'auto',
     borderBottom: 'none',
     borderRight: border,
-    '&:first-child': {
+    '&:first-of-type': {
       borderRadius: '0',
       paddingLeft: theme.space[4],
     },
@@ -57,7 +57,7 @@ export const StyledLabel = glamorous.label(({ theme }) => ({
   },
   [mediaQueries.desktop]: {
     padding: `${theme.space[2]}px ${theme.space[3]}px`,
-    '&:first-child': {
+    '&:first-of-type': {
       paddingLeft: theme.space[4],
     },
     '&:last-child': {

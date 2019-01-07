@@ -1,9 +1,9 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { fontSize, space, color } from 'styled-system'
 import {font} from '../../styles/mixins'
 import {Flex} from '../Grid'
 
-export const Wrapper = glamorous(Flex)(({ theme, large, onClick }) => {
+export const Wrapper = styled(Flex)(({ theme, large, onClick }) => {
   const size = large ? 64 : 32
   const css = {
     ...font('base'),
@@ -35,7 +35,7 @@ Wrapper.defaultProps = {
   size: 1,
 }
 
-export const Svg = glamorous.svg({
+export const Svg = styled("svg")({
   marginBottom: '1px',
   fill: '#FFF',
 })

@@ -20,14 +20,14 @@ class EntityCard extends Component {
     const children = (
       <React.Fragment>
         {avatar && <Avatar mr={2} src={avatar} /> }
-        <Box w={1}>
+        <Box width={1}>
           <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
           {description && <Text muted>{description}</Text>}
         </Box>
       </React.Fragment>
     )
     return (
-      <StyledCard w={1} actions={actions} {...props}
+      <StyledCard width={1} actions={actions} {...props}
         data-genus="EntityCard"
       >
         { render ? render({ children }) : children }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
+import { withTheme } from 'emotion-theming'
 import Dropdown from '../Dropdown'
-import { withTheme } from 'glamorous'
 
 import {
   StyledCard,

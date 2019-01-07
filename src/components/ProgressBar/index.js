@@ -44,8 +44,8 @@ class ProgressBar extends Component {
     }
     const labelProps = {
       color,
-      max: val > 95,
-      min: val < 5,
+      max: val > 95 ? true : undefined,
+      min: val < 5 ? true : undefined,
     }
 
     return (

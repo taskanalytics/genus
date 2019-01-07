@@ -1,8 +1,8 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { completionGradient } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 
-export const StyledWrapper = glamorous('div')({
+export const StyledWrapper = styled('div')({
   display: 'inline-block',
 }, ({ colored, value, theme }) => {
   if (colored === 'gradient') {
@@ -12,7 +12,7 @@ export const StyledWrapper = glamorous('div')({
       color: 'transparent',
       backgroundClip: 'text',
       '-webkit-background-clip': 'text',
-      TextFillColor: 'transparent',
+      textFillColor: 'transparent',
       '-webkit-text-fill-color': 'transparent',
     }
   } else if (colored === true) {

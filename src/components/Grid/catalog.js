@@ -1,7 +1,7 @@
 import { Container, Flex, Box } from '.'
 import Heading from '../Heading'
 import Text from '../Text'
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 
 export default {
   title: 'Grid',
@@ -9,13 +9,13 @@ export default {
   imports: {
     Heading,
     Text,
-    Container: glamorous(Container)({
+    Container: styled(Container)({
       border: '1px solid rgba(86,61,124,.2)',
     }),
-    Flex: glamorous(Flex)({
+    Flex: styled(Flex)({
       border: '1px solid rgba(86,61,124,1)',
     }),
-    Box: glamorous(Box)({
+    Box: styled(Box)({
       border: '1px solid rgba(86,61,124,.2)',
     }),
   },

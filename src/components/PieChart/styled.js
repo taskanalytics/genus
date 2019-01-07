@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { rgba } from 'polished'
-import {css} from 'glamor'
+import { keyframes } from '@emotion/core'
 
 import * as spacing from '../../styles/spacing'
 import {colors} from '../../styles/colors'
@@ -9,24 +9,24 @@ import {swiftOut} from '../../styles/animations'
 
 import styleIf from '../../utils/styleIf'
 
-const pieFilUp = css.keyframes({
+const pieFilUp = keyframes({
   '0%': { strokeDasharray: '0 100000' },
   '50%': { strokeDasharray: '0 100000' },
 })
 
-export const Figure = glamorous('figure')({
+export const Figure = styled('figure')({
   position: 'relative',
   display: 'inline-block',
   verticalAlign: 'top',
   marginRight: spacing.small,
 })
 
-export const Svg = glamorous('svg')({
+export const Svg = styled('svg')({
   animation: `fade-in 300ms ${swiftOut}`,
   transform: 'rotate(-91.00001deg)',
 })
 
-export const Background = glamorous('circle')({
+export const Background = styled('circle')({
   stroke: rgba(colors.primary, 0.25),
   fill: 'none',
 },
@@ -35,14 +35,14 @@ styleIf('light', {
 })
 )
 
-export const Chart = glamorous('circle')({
+export const Chart = styled('circle')({
   fill: 'none',
   stroke: colors.primary,
   transition: `all 300ms ${swiftOut}`,
   animation: `${pieFilUp} ease-out 500ms both`,
 }, styleIf('light', { stroke: colors.white }))
 
-export const Caption = glamorous('figcaption')({
+export const Caption = styled('figcaption')({
   ...font('bold'),
   position: 'absolute',
   top: '1px',

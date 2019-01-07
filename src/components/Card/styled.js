@@ -1,7 +1,7 @@
-import glamorous from 'glamorous'
+import styled from "@emotion/styled";
 import { Box } from '../Grid'
 
-export const StyledCard = glamorous(Box)(({ theme }) => ({
+export const StyledCard = styled(Box)(({ theme }) => ({
   width: '100%',
   alignItems: 'center',
   backgroundColor: theme.colors.white,
@@ -13,7 +13,7 @@ export const StyledCard = glamorous(Box)(({ theme }) => ({
   },
 }))
 
-export const StyledMoreButton = glamorous.button(({ theme, size }) => ({
+export const StyledMoreButton = styled("button")(({ theme, size }) => ({
   height: size,
   width: size,
   border: 'none',
@@ -32,7 +32,7 @@ export const StyledMoreButton = glamorous.button(({ theme, size }) => ({
   },
 }))
 
-export const StyledMoreIcon = glamorous.svg(({ size }) => ({
+export const StyledMoreIcon = styled("svg")(({ size }) => ({
   height: '24px',
   width: '24px',
 }))
