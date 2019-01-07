@@ -19,7 +19,7 @@ class CompletionCard extends Component {
 
     const children = (
       <React.Fragment>
-        <StyledHeading is='h2' mb={4}>{name}</StyledHeading>
+        <StyledHeading as='h2' mb={4}>{name}</StyledHeading>
         <Percentage size="display" value={completion.value} />
         <Text block>{completion.description}</Text>
         <Text block mt={4}><strong>{responses.value}</strong> {responses.description}</Text>

@@ -18,7 +18,7 @@ class EmptyState extends Component {
     } = this.props
     return (
       <StyledBox p={3} {...props} data-genus="EmptyState">
-        <StyledHeading is='h2'>{heading}</StyledHeading>
+        <StyledHeading as='h2'>{heading}</StyledHeading>
         <StyledBody mb={4}>{body}</StyledBody>
         {actions &&
           <ActionsList role='toolbar'>

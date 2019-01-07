@@ -11,7 +11,7 @@ const UserAvatar = ({ fullName, initials, ...rest }) =>
   <Wrapper
     justify='center'
     align='center'
-    is={initials ? 'abbr' : 'span'}
+    as={initials ? 'abbr' : 'span'}
     title={fullName}
     {...rest}
     data-genus="UserAvatar"

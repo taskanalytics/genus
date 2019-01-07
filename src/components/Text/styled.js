@@ -10,7 +10,6 @@ import {
   textTransform,
 } from 'styled-system'
 
-import withIsProp from '../../utils/withIsProp'
 import {font} from '../../styles/mixins'
 
 export const StyledText = styled('span')([

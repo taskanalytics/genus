@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import withIsProp from '../../utils/withIsProp'
 import {
   width,
   space,
@@ -10,7 +9,7 @@ import {
   lineHeight,
 } from 'styled-system'
 
-export const StyledHeading = withIsProp(styled('h1')({
+export const StyledHeading = styled('h1')({
   margin: 0,
 },
 width,
@@ -20,4 +19,4 @@ textAlign,
 fontWeight,
 fontSize,
 lineHeight
-))
+)

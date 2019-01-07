@@ -80,12 +80,12 @@ All core function props accept arrays as values for mobile-first responsive styl
 ## `is`
 The `is` prop allows the element's HTML tag to be changed on a per-instance basis. This is helpful for ensuring HTML semantics and expanding upon the core set of Genus primitive components.
 ```react
-<Container is="main">
+<Container as="main">
   <Flex wrap as="section">
-    <Box is="article" width={1/2} p={1}>
+    <Box as="article" width={1/2} p={1}>
       I'm an article
     </Box>
-    <Box is="article" width={1/2} p={1}>
+    <Box as="article" width={1/2} p={1}>
       I'm an article
     </Box>
   </Flex>
