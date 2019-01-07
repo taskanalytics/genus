@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { rgba } from 'polished'
 import {
   width,
@@ -7,8 +7,8 @@ import {
   textAlign,
 } from 'styled-system'
 
-import {colors} from '../../styles/colors'
-import {font, fontSize, spacedText} from '../../styles/mixins'
+import { colors } from '../../styles/colors'
+import { font, fontSize, spacedText } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 

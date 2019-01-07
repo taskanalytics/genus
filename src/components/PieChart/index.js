@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {Figure, Svg, Chart, Background, Caption} from './styled'
+import { Figure, Svg, Chart, Background, Caption } from './styled'
 
 class PieChart extends Component {
   static defaultProps = {

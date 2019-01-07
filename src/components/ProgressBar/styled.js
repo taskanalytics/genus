@@ -1,14 +1,14 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import { rgba, lighten } from 'polished'
 
-import {colors} from '../../styles/colors'
+import { colors } from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
-import {font, fontSize} from '../../styles/mixins'
+import { font, fontSize } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
-import {swiftOut} from '../../styles/animations'
+import { swiftOut } from '../../styles/animations'
 
 const progressFillUp = keyframes({
   from: { width: 0 },

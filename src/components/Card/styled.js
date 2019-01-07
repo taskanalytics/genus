@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { Box } from '../Grid'
 
 export const StyledCard = styled(Box)(({ theme }) => ({
@@ -13,7 +13,7 @@ export const StyledCard = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const StyledMoreButton = styled("button")(({ theme, size }) => ({
+export const StyledMoreButton = styled('button')(({ theme, size }) => ({
   height: size,
   width: size,
   border: 'none',
@@ -32,7 +32,7 @@ export const StyledMoreButton = styled("button")(({ theme, size }) => ({
   },
 }))
 
-export const StyledMoreIcon = styled("svg")(({ size }) => ({
+export const StyledMoreIcon = styled('svg')(({ size }) => ({
   height: '24px',
   width: '24px',
 }))

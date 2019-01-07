@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import {Box} from '../Grid'
+import styled from '@emotion/styled'
+import { Box } from '../Grid'
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   width: '64px',

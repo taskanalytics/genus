@@ -16,7 +16,7 @@ class EntityCard extends Component {
   }
 
   render () {
-    const {name, description, avatar, actions, render, ...props} = this.props
+    const { name, description, avatar, actions, render, ...props } = this.props
     const children = (
       <React.Fragment>
         {avatar && <Avatar mr={2} src={avatar} /> }

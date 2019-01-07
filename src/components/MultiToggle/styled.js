@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import {colors} from '../../styles/colors'
-import {font, fontSize} from '../../styles/mixins'
+import styled from '@emotion/styled'
+import { colors } from '../../styles/colors'
+import { font, fontSize } from '../../styles/mixins'
 
 const border = '1px solid #CFD5DB'
 
@@ -10,7 +10,7 @@ const mediaQueries = {
   desktop: '@media screen and (min-width: 960px)',
 }
 
-export const StyledWrapper = styled("div")({
+export const StyledWrapper = styled('div')({
   overflow: 'hidden',
   display: 'inline-block',
   width: '100%',
@@ -20,11 +20,11 @@ export const StyledWrapper = styled("div")({
   },
 })
 
-export const StyledRadio = styled("input")({
+export const StyledRadio = styled('input')({
   display: 'none',
 })
 
-export const StyledLabel = styled("label")(({ theme }) => ({
+export const StyledLabel = styled('label')(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   backgroundColor: '#ECEFF1',

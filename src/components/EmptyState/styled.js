@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { fontSize } from '../../styles/mixins'
 import { Box } from '../Grid'
 import Heading from '../Heading'
@@ -18,11 +18,11 @@ export const StyledBody = styled(Box)(({ theme }) => ({
   color: theme.colors.muted,
 }))
 
-export const ActionsList = styled("ul")({
+export const ActionsList = styled('ul')({
   listStyle: 'none',
 })
 
-export const ActionItem = styled("li")(({ theme }) => ({
+export const ActionItem = styled('li')(({ theme }) => ({
   display: 'inline-block',
   marginRight: theme.space[2],
   marginTop: theme.space[1],

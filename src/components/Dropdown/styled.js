@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import {rgba} from 'polished'
+import { rgba } from 'polished'
 import { width, space } from 'styled-system'
 
-import {font} from '../../styles/mixins'
-import {Box} from '../Grid'
+import { font } from '../../styles/mixins'
+import { Box } from '../Grid'
 
 export const StyledWrapper = styled('div')({
   position: 'relative',

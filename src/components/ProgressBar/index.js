@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
 import getClassification from '../../utils/completion-rate-classification'
-import {colors} from '../../styles/colors'
+import { colors } from '../../styles/colors'
 import Percentage from '../Percentage'
 
 import {

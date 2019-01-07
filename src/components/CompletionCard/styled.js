@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { completionGradient, ellipsis, fontSize } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import Card from '../Card'

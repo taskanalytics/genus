@@ -23,7 +23,7 @@ import {
 
 const borderWidth = style({
   prop: 'borderWidth',
-  transformValue: n => n+'px',
+  transformValue: n => `${n}px`,
   scale: [0, 1, 2, 4, 6],
 })
 

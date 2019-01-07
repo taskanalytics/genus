@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { rgba } from 'polished'
 import { keyframes } from '@emotion/core'
 
 import * as spacing from '../../styles/spacing'
-import {colors} from '../../styles/colors'
-import {font} from '../../styles/mixins'
-import {swiftOut} from '../../styles/animations'
+import { colors } from '../../styles/colors'
+import { font } from '../../styles/mixins'
+import { swiftOut } from '../../styles/animations'
 
 import styleIf from '../../utils/styleIf'
 

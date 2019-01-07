@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import T from 'prop-types'
 
 import {
@@ -9,7 +9,7 @@ import {
 
 const returnFirst = test => test
 
-const Option = ({name, value, active, onChange, destructive}) =>
+const Option = ({ name, value, active, onChange, destructive }) =>
   <StyledLabel destructive={destructive} active={active}>
     <StyledRadio type='radio' id={value} checked={active} onChange={onChange} />
     {name}

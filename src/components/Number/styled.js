@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import {font, fontSize} from '../../styles/mixins'
+import { font, fontSize } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -43,5 +43,5 @@ export const Dd = styled.dd(
 )
 
 export const Suffix = styled.span({
-  fontSize: '0.65em'
+  fontSize: '0.65em',
 })
