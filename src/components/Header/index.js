@@ -11,11 +11,9 @@ const Header = ({ left, right, ...props }) =>
     {right && <Box ml='auto'>{right}</Box>}
   </Flex>
 
-if (process.env.NODE_ENV !== 'production') {
-  Header.propTypes = {
-    left: T.object,
-    right: T.object,
-  }
+Header.propTypes = {
+  left: T.object,
+  right: T.object,
 }
 
 export default Header

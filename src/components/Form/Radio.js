@@ -27,13 +27,11 @@ class Radio extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Radio.propTypes = {
-    label: T.string,
-    error: T.oneOfType([ T.string, T.bool ]),
-    placeholder: T.string,
-    value: T.string,
-  }
+Radio.propTypes = {
+  label: T.string,
+  error: T.oneOfType([ T.string, T.bool ]),
+  placeholder: T.string,
+  value: T.string,
 }
 
 export default Radio

@@ -118,32 +118,30 @@ export class ComparisonCard extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  ReportCard.propTypes = {
-    heading: T.string,
-    value: T.oneOfType([T.number, T.string]),
-    byline: T.string,
-    source: T.string,
-    type: T.string,
-    render: T.func,
-  }
+ReportCard.propTypes = {
+  heading: T.string,
+  value: T.oneOfType([T.number, T.string]),
+  byline: T.string,
+  source: T.string,
+  type: T.string,
+  render: T.func,
+}
 
-  Delta.propTypes = {
-    base: T.number,
-    diff: T.number,
-    size: T.string,
-  }
+Delta.propTypes = {
+  base: T.number,
+  diff: T.number,
+  size: T.string,
+}
 
-  Values.propTypes = {
-    values: T.array,
-  }
+Values.propTypes = {
+  values: T.array,
+}
 
-  ComparisonCard.propTypes = {
-    heading: T.string,
-    values: T.array,
-    source: T.string,
-    type: T.string,
-    empty: T.bool,
-    render: T.func,
-  }
+ComparisonCard.propTypes = {
+  heading: T.string,
+  values: T.array,
+  source: T.string,
+  type: T.string,
+  empty: T.bool,
+  render: T.func,
 }

@@ -42,20 +42,18 @@ class MultiToggle extends PureComponent {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Option.propTypes = {
-    name: T.string,
-    value: T.string,
-    active: T.bool,
-    onChange: T.func,
-    destructive: T.bool,
-  }
+Option.propTypes = {
+  name: T.string,
+  value: T.string,
+  active: T.bool,
+  onChange: T.func,
+  destructive: T.bool,
+}
 
-  MultiToggle.propTypes = {
-    options: T.array.isRequired,
-    selectedOption: T.string,
-    onSelectOption: T.func,
-  }
+MultiToggle.propTypes = {
+  options: T.array.isRequired,
+  selectedOption: T.string,
+  onSelectOption: T.func,
 }
 
 export default MultiToggle

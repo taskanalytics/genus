@@ -3,8 +3,7 @@ import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { plugin as analyze } from 'rollup-plugin-analyzer'
-import uglify from 'rollup-plugin-uglify-es'
-import replace from 'rollup-plugin-replace'
+import { terser } from 'rollup-plugin-terser'
 import visualizer from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
@@ -19,49 +18,46 @@ const globals = {
 
 export default {
   input: 'src/index.js',
-  external: [
-    'react',
-    'react-dom',
-    'emotion',
-    'polished',
-    'styled-system',
-  ],
+  external: id => {
+    return [
+      /react/,
+      /emotion/,
+      /polished/,
+      /styled-system/,
+    ].some(r => r.test(id))
+  },
   plugins: [
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    resolve({
-      jsnext: true,
-    }),
+    resolve(),
     commonjs({
       ignoreGlobal: true,
       include: 'node_modules/**',
-      exclude: [
-        'node_modules/polished/**',
-        'node_modules/react-dom/**',
-      ],
     }),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
       presets: [
-        ['es2015', {modules: false}],
-        'stage-2',
-        'react',
+        ['@babel/preset-env', {
+          modules: false,
+        }],
+        '@babel/preset-react',
         '@emotion/babel-preset-css-prop',
       ],
       plugins: [
-        'external-helpers',
+        '@babel/plugin-proposal-class-properties',
       ],
     }),
-    uglify(),
+    terser({
+      compress: {
+        global_defs: {
+          'process.env.NODE_ENV': 'production',
+        }
+      }
+    }),
     visualizer({
       filename: './catalog/static/bundle-stats.html',
       title: 'Genus',
     }),
-    analyze({
-      limit: 10,
-    }),
+    analyze({ limit: 10 }),
   ],
   output: [
     {

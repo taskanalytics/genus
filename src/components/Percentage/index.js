@@ -10,11 +10,9 @@ const Percentage = props =>
     <NumberComponent {...props} suffix='%' />
   </StyledWrapper>
 
-if (process.env.NODE_ENV !== 'production') {
-  Percentage.propTypes = {
-    colored: T.oneOfType([T.string, T.bool]),
-    value: T.oneOfType([T.number, T.string]),
-  }
+Percentage.propTypes = {
+  colored: T.oneOfType([T.string, T.bool]),
+  value: T.oneOfType([T.number, T.string]),
 }
 
 export default Percentage

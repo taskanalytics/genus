@@ -37,19 +37,17 @@ class CompletionCard extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  CompletionCard.propTypes = {
-    name: T.string.isRequired,
-    completion: T.shape({
-      value: T.number,
-      description: T.string,
-    }).isRequired,
-    responses: T.shape({
-      value: T.number,
-      description: T.string,
-    }).isRequired,
-    render: T.func,
-  }
+CompletionCard.propTypes = {
+  name: T.string.isRequired,
+  completion: T.shape({
+    value: T.number,
+    description: T.string,
+  }).isRequired,
+  responses: T.shape({
+    value: T.number,
+    description: T.string,
+  }).isRequired,
+  render: T.func,
 }
 
 export default CompletionCard

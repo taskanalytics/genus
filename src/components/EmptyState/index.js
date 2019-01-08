@@ -32,12 +32,10 @@ class EmptyState extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  EmptyState.propTypes = {
-    actions: T.array,
-    heading: T.string,
-    body: T.object,
-  }
+EmptyState.propTypes = {
+  actions: T.array,
+  heading: T.string,
+  body: T.object,
 }
 
 export default EmptyState

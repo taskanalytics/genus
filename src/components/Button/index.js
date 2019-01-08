@@ -30,20 +30,18 @@ class Button extends PureComponent {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Button.propTypes = {
-    block: T.bool,
-    children: T.node,
-    compact: T.bool,
-    inverted: T.bool,
-    link: T.bool,
-    primary: T.bool,
-    primaryinverted: T.bool,
-    warning: T.bool,
-    spaceless: T.bool,
-    to: T.string,
-    type: T.oneOf(['button', 'submit']),
-  }
+Button.propTypes = {
+  block: T.bool,
+  children: T.node,
+  compact: T.bool,
+  inverted: T.bool,
+  link: T.bool,
+  primary: T.bool,
+  primaryinverted: T.bool,
+  warning: T.bool,
+  spaceless: T.bool,
+  to: T.string,
+  type: T.oneOf(['button', 'submit']),
 }
 
 export default Button

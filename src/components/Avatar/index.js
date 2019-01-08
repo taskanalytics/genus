@@ -12,10 +12,8 @@ class AvatarComponent extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  AvatarComponent.propTypes = {
-    src: T.string,
-  }
+AvatarComponent.propTypes = {
+  src: T.string,
 }
 
 export default AvatarComponent

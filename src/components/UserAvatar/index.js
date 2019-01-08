@@ -23,11 +23,9 @@ UserAvatar.defaultProps = {
   bg: '#9D5EED',
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  UserAvatar.propTypes = {
-    fullName: T.string.isRequired,
-    initials: T.string,
-  }
+UserAvatar.propTypes = {
+  fullName: T.string.isRequired,
+  initials: T.string,
 }
 
 export default UserAvatar

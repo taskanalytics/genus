@@ -62,15 +62,13 @@ class ProgressBar extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  ProgressBar.propTypes = {
-    value: T.number,
-    min: T.number,
-    max: T.number,
-    baseline: T.bool,
-    light: T.bool,
-    empty: T.bool,
-  }
+ProgressBar.propTypes = {
+  value: T.number,
+  min: T.number,
+  max: T.number,
+  baseline: T.bool,
+  light: T.bool,
+  empty: T.bool,
 }
 
 export default ProgressBar

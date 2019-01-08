@@ -36,14 +36,12 @@ class EntityCard extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  EntityCard.propTypes = {
-    name: T.string.isRequired,
-    description: T.string,
-    avatar: T.string,
-    actions: T.array,
-    render: T.func,
-  }
+EntityCard.propTypes = {
+  name: T.string.isRequired,
+  description: T.string,
+  avatar: T.string,
+  actions: T.array,
+  render: T.func,
 }
 
 export default EntityCard
