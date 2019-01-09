@@ -11,7 +11,7 @@ import {
 
 import { font } from '../../styles/mixins'
 
-export const StyledText = styled('span')([
+export const StyledText = styled('span')(
   ({ theme, muted, block, small, large }) => {
     let css = {
       ...font(),
@@ -47,4 +47,4 @@ export const StyledText = styled('span')([
   lineHeight,
   letterSpacing,
   fontWeight,
-])
+)
