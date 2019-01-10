@@ -9,8 +9,8 @@ const UserIcon = () =>
 
 const UserAvatar = ({ fullName, initials, ...rest }) =>
   <Wrapper
-    justify='center'
-    align='center'
+    justifyContent='center'
+    alignItems='center'
     as={initials ? 'abbr' : 'span'}
     title={fullName}
     {...rest}
