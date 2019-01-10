@@ -111,8 +111,8 @@ The `is` prop allows the element's HTML tag to be changed on a per-instance basi
 Flex elements can receive different props.
 
 ```
-<Flex align='center' />
-<Flex justify='center' />
+<Flex alignItems='center' />
+<Flex justifyContent='center' />
 <Flex wrap />
 <Flex flexDirection='column' />
 ```
