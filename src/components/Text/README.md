@@ -19,11 +19,11 @@ showSource: true
 <Text large>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</Text>
 ```
 
-## `align`
+## `textAlign`
 ```react
 showSource: true
 ---
-<Text width={1} align='center'>Hello Text</Text>
+<Text width={1} textAlign='center'>Hello Text</Text>
 ```
 
 ## `muted`

@@ -118,8 +118,8 @@ Flex elements can receive different props.
 ```
 
 ```react
-<Flex align="center">
-  <Box css={{ width: '128px', height: '128px', backgroundColor: 'aqua' }} />
+<Flex alignItems="center">
+  <Box style={{ width: 128, height: 128, backgroundColor: 'aqua' }} />
   <Box>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
 </Flex>
 ```
