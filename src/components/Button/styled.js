@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import { rgba } from 'polished'
 import {
   width,
@@ -7,8 +7,8 @@ import {
   textAlign,
 } from 'styled-system'
 
-import {colors} from '../../styles/colors'
-import {font, fontSize, spacedText} from '../../styles/mixins'
+import { colors } from '../../styles/colors'
+import { font, fontSize, spacedText } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -96,7 +96,7 @@ const styledLink = styleIf('link', {
   },
 })
 
-export default glamorous('button')(({ theme }) => ({
+export default styled('button')(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   ...spacedText(),
@@ -108,7 +108,7 @@ export default glamorous('button')(({ theme }) => ({
   borderRadius: '50px',
   border: `2px solid ${rgba(theme.colors.black, 0.15)}`,
   backgroundColor: 'transparent',
-  '[disabled]': {
+  '&[disabled]': {
     pointerEvents: 'none',
     opacity: 0.6,
   },

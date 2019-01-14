@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {Figure, Svg, Chart, Background, Caption} from './styled'
+import { Figure, Svg, Chart, Background, Caption } from './styled'
 
 class PieChart extends Component {
   static defaultProps = {
@@ -51,13 +51,11 @@ class PieChart extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  PieChart.propTypes = {
-    value: T.number.isRequired,
-    max: T.number,
-    size: T.number,
-    light: T.bool,
-  }
+PieChart.propTypes = {
+  value: T.number.isRequired,
+  max: T.number,
+  size: T.number,
+  light: T.bool,
 }
 
 export default PieChart

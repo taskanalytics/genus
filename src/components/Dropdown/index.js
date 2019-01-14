@@ -103,11 +103,11 @@ class Dropdown extends Component {
           onClick: this.toggle,
         }) }
         <StyledDropdown
-          innerRef={ref => { this.dd = ref }}
+          ref={ref => { this.dd = ref }}
           open={open}
           right={right}
           mt={1}
-          css={dialogStyles}
+          style={dialogStyles}
         >
           {this.renderActions(actions)}
         </StyledDropdown>
@@ -116,16 +116,14 @@ class Dropdown extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Dropdown.propTypes = {
-    actions: T.oneOfType([
-      T.array,
-      T.func,
-    ]).isRequired,
-    right: T.bool,
-    renderTrigger: T.func,
-    dialogStyles: T.object,
-  }
+Dropdown.propTypes = {
+  actions: T.oneOfType([
+    T.array,
+    T.func,
+  ]).isRequired,
+  right: T.bool,
+  renderTrigger: T.func,
+  dialogStyles: T.object,
 }
 
 export default Dropdown

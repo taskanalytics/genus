@@ -1,5 +1,4 @@
-import React from 'react'
-import T from 'prop-types'
+import React, { Component } from 'react'
 
 import {
   StyledBox,
@@ -7,8 +6,24 @@ import {
   StyledFlex,
 } from './styled'
 
-export const Box = p => <StyledBox {...p} data-genus="Box" />
+// We use classes because we need the grid components to work with refs
 
-export const Flex = p => <StyledFlex {...p} data-genus="Flex" />
+class Box extends Component {
+  render () {
+    return <StyledBox {...this.props} data-genus="Box" />
+  }
+}
 
-export const Container = p => <StyledContainer {...p} data-genus="Container" />
+class Flex extends Component {
+  render () {
+    return <StyledFlex {...this.props} data-genus="Flex" />
+  }
+}
+
+class Container extends Component {
+  render () {
+    return <StyledContainer {...this.props} data-genus="Container" />
+  }
+}
+
+export { Box, Flex, Container }

@@ -1,7 +1,7 @@
 import { ReportCard, ComparisonCard } from '.'
 import Percentage from '../Percentage'
 import Card from '../Card'
-import {Flex} from '../Grid'
+import { Flex } from '../Grid'
 
 export default {
   title: 'Report',

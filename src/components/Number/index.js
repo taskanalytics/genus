@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {Dl, Dt, Dd, Suffix} from './styled'
+import { Dl, Dt, Dd, Suffix } from './styled'
 const StyledSpan = Dt.withComponent('span')
 
 class NumberComponent extends Component {
   render () {
-    const {size, prefix, suffix, value, description, ...props} = this.props
+    const { size, prefix, suffix, value, description, ...props } = this.props
 
     if (description) {
       return (
@@ -25,14 +25,12 @@ class NumberComponent extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  NumberComponent.propTypes = {
-    value: T.oneOfType([T.string, T.number]).isRequired,
-    description: T.string,
-    size: T.oneOf(['small', 'large', 'display']),
-    suffix: T.string,
-    prefix: T.string,
-  }
+NumberComponent.propTypes = {
+  value: T.oneOfType([T.string, T.number]).isRequired,
+  description: T.string,
+  size: T.oneOf(['small', 'large', 'display']),
+  suffix: T.string,
+  prefix: T.string,
 }
 
 export default NumberComponent

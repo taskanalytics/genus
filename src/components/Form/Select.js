@@ -35,14 +35,12 @@ class Select extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Select.propTypes = {
-    label: T.string,
-    error: T.oneOfType([ T.string, T.bool ]),
-    placeholder: T.string,
-    value: T.string,
-    renderAfter: T.func,
-  }
+Select.propTypes = {
+  label: T.string,
+  error: T.oneOfType([ T.string, T.bool ]),
+  placeholder: T.string,
+  value: T.string,
+  renderAfter: T.func,
 }
 
 export default Select

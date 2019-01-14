@@ -20,19 +20,19 @@ Our grid system uses a series of containers, flex and box elements to layout and
 ```react
 <Container>
   <Flex wrap>
-    <Box w={1/2} p={1}>
+    <Box width={1/2} p={1}>
       Spans half width
     </Box>
-    <Box w={1/2} p={1}>
+    <Box width={1/2} p={1}>
       Spans half width
     </Box>
-    <Box w={1/3} p={1}>
+    <Box width={1/3} p={1}>
       Spans a third of the width
     </Box>
-    <Box w={1/3} p={1}>
+    <Box width={1/3} p={1}>
       Spans a third of the width
     </Box>
-    <Box w={1/3} p={1}>
+    <Box width={1/3} p={1}>
       Spans a third of the width
     </Box>
   </Flex>
@@ -80,12 +80,12 @@ All core function props accept arrays as values for mobile-first responsive styl
 ## `is`
 The `is` prop allows the element's HTML tag to be changed on a per-instance basis. This is helpful for ensuring HTML semantics and expanding upon the core set of Genus primitive components.
 ```react
-<Container is="main">
-  <Flex wrap is="section">
-    <Box is="article" w={1/2} p={1}>
+<Container as="main">
+  <Flex wrap as="section">
+    <Box as="article" width={1/2} p={1}>
       I'm an article
     </Box>
-    <Box is="article" w={1/2} p={1}>
+    <Box as="article" width={1/2} p={1}>
       I'm an article
     </Box>
   </Flex>
@@ -96,13 +96,13 @@ The `is` prop allows the element's HTML tag to be changed on a per-instance basi
 ```react
 <Container>
   <Flex wrap mx={-2}>
-    <Box w={1/2} p={1}>1/2</Box>
-    <Box w={1/4} p={1}>1/4</Box>
-    <Box w={1/4} p={1}>1/4</Box>
-    <Box w={1/6} p={1}>1/6</Box>
-    <Box w={1/3} p={1}>1/3</Box>
-    <Box w={1/6} p={1}>1/6</Box>
-    <Box w={1/3} p={1}>1/3</Box>
+    <Box width={1/2} p={1}>1/2</Box>
+    <Box width={1/4} p={1}>1/4</Box>
+    <Box width={1/4} p={1}>1/4</Box>
+    <Box width={1/6} p={1}>1/6</Box>
+    <Box width={1/3} p={1}>1/3</Box>
+    <Box width={1/6} p={1}>1/6</Box>
+    <Box width={1/3} p={1}>1/3</Box>
   </Flex>
 </Container>
 ```
@@ -111,15 +111,15 @@ The `is` prop allows the element's HTML tag to be changed on a per-instance basi
 Flex elements can receive different props.
 
 ```
-<Flex align='center' />
-<Flex justify='center' />
+<Flex alignItems='center' />
+<Flex justifyContent='center' />
 <Flex wrap />
 <Flex flexDirection='column' />
 ```
 
 ```react
-<Flex align="center">
-  <Box css={{ width: '128px', height: '128px', backgroundColor: 'aqua' }} />
+<Flex alignItems="center">
+  <Box style={{ width: 128, height: 128, backgroundColor: 'aqua' }} />
   <Box>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
 </Flex>
 ```
@@ -132,25 +132,6 @@ Flex elements can receive different props.
     </Box>
     <Box ml='auto'>
       Flex
-    </Box>
-  </Flex>
-</Container>
-```
-
-## Responsive grid
-```react
-responsive: true
----
-<Container>
-  <Flex wrap>
-    <Box w={[1, 6/12]}>
-      Task
-    </Box>
-    <Box w={[1, 2/12]}>
-      Demand
-    </Box>
-    <Box w={[1, 4/12]}>
-      Completion rate
     </Box>
   </Flex>
 </Container>

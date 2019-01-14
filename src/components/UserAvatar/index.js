@@ -9,9 +9,9 @@ const UserIcon = () =>
 
 const UserAvatar = ({ fullName, initials, ...rest }) =>
   <Wrapper
-    justify='center'
-    align='center'
-    is={initials ? 'abbr' : 'span'}
+    justifyContent='center'
+    alignItems='center'
+    as={initials ? 'abbr' : 'span'}
     title={fullName}
     {...rest}
     data-genus="UserAvatar"
@@ -23,11 +23,9 @@ UserAvatar.defaultProps = {
   bg: '#9D5EED',
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  UserAvatar.propTypes = {
-    fullName: T.string.isRequired,
-    initials: T.string,
-  }
+UserAvatar.propTypes = {
+  fullName: T.string.isRequired,
+  initials: T.string,
 }
 
 export default UserAvatar

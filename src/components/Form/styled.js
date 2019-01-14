@@ -1,11 +1,10 @@
-import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import Text from '../Text'
-import {font} from '../../styles/mixins'
+import { font } from '../../styles/mixins'
 
 const BORDERSIZE = 4
 
-export const StyledWrapper = glamorous.label(({ theme, error }) => ({
+export const StyledWrapper = styled('label')(({ theme, error }) => ({
   ...font(),
   display: 'flex',
   position: 'relative',
@@ -31,13 +30,13 @@ export const StyledWrapper = glamorous.label(({ theme, error }) => ({
   },
 }))
 
-export const StyledError = glamorous.div(({ theme, error }) => ({
+export const StyledError = styled('div')(({ theme, error }) => ({
   display: 'block',
   color: theme.colors.troubleDark,
   paddingTop: '5px',
 }))
 
-export const StyledInput = glamorous.input(({ theme, error }) => {
+export const StyledInput = styled('input')(({ theme, error }) => {
   return {
     ...font(),
     width: '100%',
@@ -57,7 +56,7 @@ export const StyledInput = glamorous.input(({ theme, error }) => {
   }
 })
 
-export const StyledSelect = glamorous.select(({ theme, error }) => ({
+export const StyledSelect = styled('select')(({ theme, error }) => ({
   ...font(),
   width: '100%',
   border: 'none',
@@ -77,14 +76,14 @@ export const StyledSelect = glamorous.select(({ theme, error }) => ({
   },
 }))
 
-export const StyledAfter = glamorous.span(({ theme, error }) => ({
+export const StyledAfter = styled('span')(({ theme, error }) => ({
   position: 'absolute',
   right: 0,
   bottom: 0,
   display: 'block',
 }))
 
-export const StyledCaret = glamorous.span(({ theme, error }) => ({
+export const StyledCaret = styled('span')(({ theme, error }) => ({
   display: 'block',
   width: '10px',
   height: '10px',
@@ -97,17 +96,15 @@ export const StyledCaret = glamorous.span(({ theme, error }) => ({
   transform: 'rotate(45deg)',
 }))
 
-export const StyledLabel = (props) => (
-  <Text
-    small muted
-    letterSpacing={2}
-    pb={1}
-    fontSize={0}
-    css={{ textTransform: 'uppercase' }}
-    {...props} />
-)
+export const StyledLabel = styled(Text)(({ theme }) => ({
+  letterSpacing: 2,
+  paddingBottom: theme.space[1],
+  fontSize: theme.fontSizes[0],
+  color: theme.colors.muted,
+  textTransform: 'uppercase',
+}))
 
-export const StyledCheckRadioLabel = glamorous.label(({ theme, error, touched }) => ({
+export const StyledCheckRadioLabel = styled('label')(({ theme, error, touched }) => ({
   position: 'relative',
   display: 'inline-block',
   paddingLeft: '12px',
@@ -119,7 +116,7 @@ export const StyledCheckRadioLabel = glamorous.label(({ theme, error, touched })
   color: touched && error ? theme.colors.troubleDark : theme.colors.normal,
 }))
 
-export const StyledCheckRadio = glamorous.input(({ theme, error }) => ({
+export const StyledCheckRadio = styled('input')(({ theme, error }) => ({
   ...font(),
   position: 'absolute',
   boxSizing: 'border-box',
@@ -130,7 +127,7 @@ export const StyledCheckRadio = glamorous.input(({ theme, error }) => ({
   },
 }))
 
-export const StyledCheckBoxMark = glamorous.span(() => ({
+export const StyledCheckBoxMark = styled('span')(() => ({
   position: 'absolute',
   boxSizing: 'border-box',
   display: 'block',
@@ -143,7 +140,7 @@ export const StyledCheckBoxMark = glamorous.span(() => ({
   transform: 'rotate(45deg)',
 }))
 
-export const StyledCheckBoxIndicator = glamorous.span(({ theme, error, touched }) => ({
+export const StyledCheckBoxIndicator = styled('span')(({ theme, error, touched }) => ({
   position: 'absolute',
   boxSizing: 'border-box',
   display: 'block',
@@ -157,13 +154,12 @@ export const StyledCheckBoxIndicator = glamorous.span(({ theme, error, touched }
   border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
 }))
 
-export const StyledLabelCheckRadio = (props) => (
-  <Text
-    css={{ marginLeft: '22px', fontSize: '16px' }}
-    {...props} />
-)
+export const StyledLabelCheckRadio = styled(Text)(({ theme }) => ({
+  marginLeft: 22,
+  fontSize: 16,
+}))
 
-export const StyledRadioMark = glamorous.span(() => ({
+export const StyledRadioMark = styled('span')(() => ({
   position: 'absolute',
   boxSizing: 'border-box',
   display: 'block',
@@ -175,7 +171,7 @@ export const StyledRadioMark = glamorous.span(() => ({
   backgroundColor: 'white',
 }))
 
-export const StyledRadioIndicator = glamorous.span(({ theme, error, touched }) => ({
+export const StyledRadioIndicator = styled('span')(({ theme, error, touched }) => ({
   position: 'absolute',
   boxSizing: 'border-box',
   display: 'block',
@@ -189,7 +185,7 @@ export const StyledRadioIndicator = glamorous.span(({ theme, error, touched }) =
   border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
 }))
 
-export const StyledValidatedMark = glamorous.span(({ theme }) => ({
+export const StyledValidatedMark = styled('span')(({ theme }) => ({
   width: 8,
   height: 14,
   marginRight: 10,

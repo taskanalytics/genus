@@ -2,7 +2,7 @@
 showSource: true
 ---
 <Card>
-  <Heading is='h3'>Heading</Heading>
+  <Heading as='h3'>Heading</Heading>
   <Text>Anything goes.</Text>
 </Card>
 ```
@@ -11,7 +11,7 @@ showSource: true
 showSource: true
 ---
 <Card>
-  <Heading is='h3'>Nice photo</Heading>
+  <Heading as='h3'>Nice photo</Heading>
   <img src='https://picsum.photos/g/400/200' />
 </Card>
 ```
@@ -31,7 +31,7 @@ actions={[
     type: 'destructive',
   }
 ]}>
-  <Heading is='h3'>Heading</Heading>
+  <Heading as='h3'>Heading</Heading>
   <Text>Anything goes.</Text>
 </Card>
 ```

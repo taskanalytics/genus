@@ -18,10 +18,8 @@ class Banner extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Banner.propTypes = {
-    children: T.node,
-  }
+Banner.propTypes = {
+  children: T.node,
 }
 
 export default Banner

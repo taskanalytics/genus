@@ -3,7 +3,7 @@ Form controls
 ```react
 showSource: true
 ---
-<Flex wrap w={600} flexDirection="column" p={4} bg="white">
+<Flex flexWrap width={600} flexDirection="column" p={4} bg="white">
   <Box pb={3}>
     <Input 
       placeholder="Username (default check mark) "

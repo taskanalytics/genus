@@ -8,7 +8,7 @@ const renderColorSpecimen = (value, name, span = 1) => (
 
 export default () => markdown`
 We separate between decorative colors and semantic colors. It is of great importance to avoid using semantic colors for purely decorational purposes as that will diminish their meaning in other contexts. Exceptions can, as always, be made, but be wary. If you use the semantic colors for decorational purposes, try to use all of them so the overall expression is not skewed to flag something really good, or really bad.
-Colors are exported and usable for *glamor* styling from *src/styles/colors.js*
+Colors are exported and usable for *emotion* styling from *src/styles/colors.js*
 
 ## Base
 

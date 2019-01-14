@@ -1,4 +1,5 @@
 import React from 'react'
 import { StyledHeading } from './styled'
 
-export default p => <StyledHeading {...p} data-genus="Heading" />
+const Heading = p => <StyledHeading {...p} data-genus="Heading" />
+export default Heading

@@ -1,5 +1,5 @@
-import glamorous from 'glamorous'
-import {colors} from '../../styles/colors'
+import styled from '@emotion/styled'
+import { colors } from '../../styles/colors'
 import styleIf from '../../utils/styleIf'
 
 const mediumHeight = '30px'
@@ -25,13 +25,8 @@ const styledDark = styleIf('dark', {
   fill: colors.text,
 })
 
-export const StyledLogo = glamorous.svg({
+export const StyledLogo = styled('svg')({
   height: mediumHeight,
   width: mediumWidth,
   fill: colors.text,
-},
-styledPrimary,
-styledLight,
-styledDark,
-styledLarge
-)
+}, styledPrimary, styledLight, styledDark, styledLarge)

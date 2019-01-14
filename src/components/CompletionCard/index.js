@@ -19,7 +19,7 @@ class CompletionCard extends Component {
 
     const children = (
       <React.Fragment>
-        <StyledHeading is='h2' mb={4}>{name}</StyledHeading>
+        <StyledHeading as='h2' mb={4}>{name}</StyledHeading>
         <Percentage size="display" value={completion.value} />
         <Text block>{completion.description}</Text>
         <Text block mt={4}><strong>{responses.value}</strong> {responses.description}</Text>
@@ -37,19 +37,17 @@ class CompletionCard extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  CompletionCard.propTypes = {
-    name: T.string.isRequired,
-    completion: T.shape({
-      value: T.number,
-      description: T.string,
-    }).isRequired,
-    responses: T.shape({
-      value: T.number,
-      description: T.string,
-    }).isRequired,
-    render: T.func,
-  }
+CompletionCard.propTypes = {
+  name: T.string.isRequired,
+  completion: T.shape({
+    value: T.number,
+    description: T.string,
+  }).isRequired,
+  responses: T.shape({
+    value: T.number,
+    description: T.string,
+  }).isRequired,
+  render: T.func,
 }
 
 export default CompletionCard

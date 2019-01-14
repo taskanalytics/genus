@@ -29,34 +29,6 @@ state: { selected: 'no' }
   onSelectOption={(value) => setState({ selected: value })} />
 ```
 
-```react
-state: { selected: 'no' }
-responsive: true
----
-<MultiToggle
-  options={[
-    {
-      name: 'No',
-      value: 'no',
-      destructive: true,
-    },
-    {
-      name: 'Read',
-      value: 'read'
-    },
-    {
-      name: 'Write',
-      value: 'write'
-    },
-    {
-      name: 'Admin',
-      value: 'admin'
-    }
-  ]}
-  selectedOption={state.selected}
-  onSelectOption={(value) => setState({ selected: value })} />
-```
-
 ```code
 state: { selected: 'read' }
 ```

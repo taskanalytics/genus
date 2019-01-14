@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
+import { withTheme } from 'emotion-theming'
 import Dropdown from '../Dropdown'
-import { withTheme } from 'glamorous'
 
 import {
   StyledCard,
@@ -51,16 +51,14 @@ class Card extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  Actions.propTypes = {
-    actions: T.array,
-    p: T.oneOfType([T.number, T.string]),
-  }
+Actions.propTypes = {
+  actions: T.array,
+  p: T.oneOfType([T.number, T.string]),
+}
 
-  Card.propTypes = {
-    actions: T.array,
-    children: T.node,
-  }
+Card.propTypes = {
+  actions: T.array,
+  children: T.node,
 }
 
 export default Card

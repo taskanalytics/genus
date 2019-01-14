@@ -1,5 +1,5 @@
 import CompletionCard from '.'
-import {Container, Flex, Box} from '../Grid'
+import { Container, Flex, Box } from '../Grid'
 
 export default {
   title: 'CompletionCard',

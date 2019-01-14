@@ -55,7 +55,7 @@ Because Genus is built on top of [styled-system](http://jxnblk.com/styled-system
 ```code
 lang: jsx
 ---
-import {ThemeProvider} from 'glamorous'
+import {ThemeProvider} from 'emotion-theming'
 import {theme} from '@taskanalytics/genus'
 
 ReactDOM.render(

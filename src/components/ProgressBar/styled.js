@@ -1,26 +1,26 @@
-import glamorous from 'glamorous'
-import { css } from 'glamor'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 import { rgba, lighten } from 'polished'
 
-import {colors} from '../../styles/colors'
+import { colors } from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
-import {font, fontSize} from '../../styles/mixins'
+import { font, fontSize } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
-import {swiftOut} from '../../styles/animations'
+import { swiftOut } from '../../styles/animations'
 
-const progressFillUp = css.keyframes({
+const progressFillUp = keyframes({
   from: { width: 0 },
 })
-const progressLabel = css.keyframes({
+const progressLabel = keyframes({
   from: {
     opacity: 0,
     transform: 'scale(0) translateY(100%)',
   },
 })
 
-export const Wrapper = glamorous('div')({
+export const Wrapper = styled('div')({
   position: 'relative',
   width: '100%',
   marginTop: `${spacing.unit * 4 - 4}px`,
@@ -33,7 +33,7 @@ styleIf('light', {
   backgroundColor: rgba(colors.white, 0.2),
 }))
 
-export const Meter = glamorous('span')({
+export const Meter = styled('span')({
   position: 'relative',
   display: 'block',
   height: spacing.small,
@@ -45,7 +45,7 @@ export const Meter = glamorous('span')({
 }))
 
 const labelWidth = spacing.unit * 11
-export const Label = glamorous('span')({
+export const Label = styled('span')({
   ...font('bold'),
   ...fontSize('xsmall'),
   position: 'absolute',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
 import getClassification from '../../utils/completion-rate-classification'
-import {colors} from '../../styles/colors'
+import { colors } from '../../styles/colors'
 import Percentage from '../Percentage'
 
 import {
@@ -44,8 +44,8 @@ class ProgressBar extends Component {
     }
     const labelProps = {
       color,
-      max: val > 95,
-      min: val < 5,
+      max: val > 95 ? true : undefined,
+      min: val < 5 ? true : undefined,
     }
 
     return (
@@ -62,15 +62,13 @@ class ProgressBar extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  ProgressBar.propTypes = {
-    value: T.number,
-    min: T.number,
-    max: T.number,
-    baseline: T.bool,
-    light: T.bool,
-    empty: T.bool,
-  }
+ProgressBar.propTypes = {
+  value: T.number,
+  min: T.number,
+  max: T.number,
+  baseline: T.bool,
+  light: T.bool,
+  empty: T.bool,
 }
 
 export default ProgressBar

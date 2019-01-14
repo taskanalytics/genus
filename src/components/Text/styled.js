@@ -1,4 +1,4 @@
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import {
   width,
   space,
@@ -9,10 +9,9 @@ import {
   fontWeight,
 } from 'styled-system'
 
-import withIsProp from '../../utils/withIsProp'
-import {font} from '../../styles/mixins'
+import { font } from '../../styles/mixins'
 
-export const StyledText = withIsProp(glamorous('span')([
+export const StyledText = styled('span')(
   ({ theme, muted, block, small, large }) => {
     let css = {
       ...font(),
@@ -48,4 +47,4 @@ export const StyledText = withIsProp(glamorous('span')([
   lineHeight,
   letterSpacing,
   fontWeight,
-]))
+)

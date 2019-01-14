@@ -1,17 +1,17 @@
-import glamorous from 'glamorous'
-import {css} from 'glamor'
-import {rgba} from 'polished'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
+import { rgba } from 'polished'
 import { width, space } from 'styled-system'
 
-import {font} from '../../styles/mixins'
-import {Box} from '../Grid'
+import { font } from '../../styles/mixins'
+import { Box } from '../Grid'
 
-export const StyledWrapper = glamorous('div')({
+export const StyledWrapper = styled('div')({
   position: 'relative',
   display: 'inline-block',
 })
 
-export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
+export const StyledDropdown = styled('div')(({ theme, open }) => ({
   position: 'absolute',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
@@ -24,7 +24,7 @@ export const StyledDropdown = glamorous('div')(({ theme, open }) => ({
   '&:focus': {
     outline: 'none',
   },
-  animation: `${css.keyframes({
+  animation: `${keyframes({
     '0%': { opacity: 0 },
     '20%': { opacity: 0.2 },
     '40%': { opacity: 0.4 },
@@ -42,7 +42,7 @@ width,
 space
 )
 
-export const StyledItem = glamorous(Box)(({ theme, destructive }) => ({
+export const StyledItem = styled(Box)(({ theme, destructive }) => ({
   ...font('normal'),
   backgroundColor: 'transparent',
   padding: theme.space[1],
@@ -56,14 +56,14 @@ export const StyledItem = glamorous(Box)(({ theme, destructive }) => ({
   },
 }))
 
-export const StyledHeading = glamorous(Box)(({ theme }) => ({
+export const StyledHeading = styled(Box)(({ theme }) => ({
   ...font('bold'),
   padding: theme.space[1],
   paddingLeft: theme.space[2],
   paddingRight: theme.space[2],
 }))
 
-export const StyledSeparator = glamorous(Box)(({ theme }) => ({
+export const StyledSeparator = styled(Box)(({ theme }) => ({
   backgroundColor: '#D5D7DA',
   margin: `${theme.space[1]}px 0`,
   display: 'block',

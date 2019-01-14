@@ -1,6 +1,8 @@
-import glamorous from 'glamorous'
-import withIsProp from '../../utils/withIsProp'
+import styled from '@emotion/styled'
+import isPropValid from '@emotion/is-prop-valid'
+
 import {
+  style,
   width,
   maxWidth,
   height,
@@ -8,7 +10,6 @@ import {
   display,
   space,
   color,
-  borderWidth,
   borderRadius,
   borderColor,
   flex,
@@ -20,7 +21,13 @@ import {
   textAlign,
 } from 'styled-system'
 
-export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
+const borderWidth = style({
+  prop: 'borderWidth',
+  transformValue: n => `${n}px`,
+  scale: [0, 1, 2, 4, 6],
+})
+
+export const StyledBox = styled('div')(
   width,
   maxWidth,
   height,
@@ -33,10 +40,15 @@ export const StyledBox = withIsProp(glamorous('div', {displayName: 'Box'})(
   borderRadius,
   textAlign,
   flex
-))
+)
 
-export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
-  { display: 'flex' },
+export const StyledFlex = styled(StyledBox, {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap',
+})(
+  ({ wrap }) => ({
+    display: 'flex',
+    flexWrap: wrap ? 'wrap' : 'initial',
+  }),
   flexWrap,
   alignItems,
   justifyContent,
@@ -44,12 +56,10 @@ export const StyledFlex = glamorous(StyledBox, {displayName: 'Flex'})(
   alignSelf
 )
 
-export const StyledContainer = glamorous(StyledBox, {displayName: 'Container'})(
-  ({ theme }) => ({
-    width: '100%',
-    maxWidth: '1200px',
-    margin: '0 auto',
-    paddingLeft: theme.space[2],
-    paddingRight: theme.space[2],
-  })
-)
+export const StyledContainer = styled(StyledBox)(({ theme }) => ({
+  width: '100%',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  paddingLeft: theme.space[2],
+  paddingRight: theme.space[2],
+}))

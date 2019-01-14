@@ -16,18 +16,18 @@ class EntityCard extends Component {
   }
 
   render () {
-    const {name, description, avatar, actions, render, ...props} = this.props
+    const { name, description, avatar, actions, render, ...props } = this.props
     const children = (
       <React.Fragment>
         {avatar && <Avatar mr={2} src={avatar} /> }
-        <Box w={1}>
+        <Box width={1}>
           <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
           {description && <Text muted>{description}</Text>}
         </Box>
       </React.Fragment>
     )
     return (
-      <StyledCard w={1} actions={actions} {...props}
+      <StyledCard width={1} actions={actions} {...props}
         data-genus="EntityCard"
       >
         { render ? render({ children }) : children }
@@ -36,14 +36,12 @@ class EntityCard extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  EntityCard.propTypes = {
-    name: T.string.isRequired,
-    description: T.string,
-    avatar: T.string,
-    actions: T.array,
-    render: T.func,
-  }
+EntityCard.propTypes = {
+  name: T.string.isRequired,
+  description: T.string,
+  avatar: T.string,
+  actions: T.array,
+  render: T.func,
 }
 
 export default EntityCard

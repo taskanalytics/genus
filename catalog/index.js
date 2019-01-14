@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {ThemeProvider} from 'glamorous'
+import {ThemeProvider} from 'emotion-theming'
+
 import {Catalog} from 'catalog'
-import { css } from 'glamor'
+import {injectGlobal} from 'emotion'
 import theme from '../src/styles/theme'
 import fonts from './fonts'
 
 fonts.forEach(font => {
-  css.global('@font-face', font['@font-face'])
+  injectGlobal(`@font-face { ${font['@font-face']} }`)
 })
-css.global('body', { fontFamily: '"Brandon Text", sans-serif' })
+injectGlobal('body', `{
+  font-family: "Brandon Text", sans-serif;
+}`)
 
 const pages = [
   {path: '/', title: 'Introduction', component: require('./Introduction.md')},

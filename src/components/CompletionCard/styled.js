@@ -1,10 +1,10 @@
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import { completionGradient, ellipsis, fontSize } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import Card from '../Card'
 import Heading from '../Heading'
 
-export const StyledCard = glamorous(Card)(({ completion, theme }) => {
+export const StyledCard = styled(Card)(({ completion, theme }) => {
   let css = {
     backgroundColor: theme.colors.primaryShaded,
     display: 'inline-block',
@@ -21,7 +21,7 @@ export const StyledCard = glamorous(Card)(({ completion, theme }) => {
   return css
 })
 
-export const StyledHeading = glamorous(Heading)({
+export const StyledHeading = styled(Heading)({
   ...fontSize('large'),
   ...ellipsis(),
 })

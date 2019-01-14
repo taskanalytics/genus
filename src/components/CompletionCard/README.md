@@ -25,7 +25,7 @@ showSource: true
 ## In grid
 ```react
 <Flex wrap>
-  <Flex w={[1, 1/2, 1/3]} p={2}>
+  <Flex width={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
       name="Website"
       completion={{
@@ -37,7 +37,7 @@ showSource: true
         description: 'responses'
       }} />
   </Flex>
-  <Flex w={[1, 1/2, 1/3]} p={2}>
+  <Flex width={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
       name="App"
       completion={{
@@ -49,7 +49,7 @@ showSource: true
         description: 'responses'
       }} />
   </Flex>
-  <Flex w={[1, 1/2, 1/3]} p={2}>
+  <Flex width={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
       name="Android"
       completion={{
