@@ -108,7 +108,7 @@ export default styled('button')(({ theme }) => ({
   borderRadius: '50px',
   border: `2px solid ${rgba(theme.colors.black, 0.15)}`,
   backgroundColor: 'transparent',
-  '[disabled]': {
+  '&[disabled]': {
     pointerEvents: 'none',
     opacity: 0.6,
   },
