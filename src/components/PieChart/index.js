@@ -12,11 +12,12 @@ class PieChart extends Component {
   render () {
     const { light, value, max, size } = this.props
 
-    const stroke = Math.min(8, Math.max(size / 5, 2))
+    const stroke = Math.min(6, Math.max(size / 5, 2))
     const radius = (size / 2) - (stroke / 2)
     const total = Math.round((2 * Math.PI) * radius)
     const percentage = (value * total) / max
     const displayVal = Math.round((value * 100) / max)
+    const validValue = !isNaN(displayVal)
 
     return (
       <Figure data-genus="PieChart">
@@ -35,16 +36,17 @@ class PieChart extends Component {
             cx={size / 2}
             cy={size / 2}
             strokeDasharray={`${percentage} ${total}`}
-            opacity={value === 0 ? 0 : 1}
+            opacity={value > 0 ? 1 : 0}
             strokeLinecap="round"
           />
         </Svg>
         <Caption
           color={light ? 'white' : null}
-          mt={(displayVal === 100) ? size / 12 : null}
+          mt={(displayVal === 100) ? `${size / 12 - 1}px` : null}
           fontSize={(displayVal !== 100) ? size / 3.2 : size / 3.6}
         >
-          {!isNaN(displayVal) ? displayVal : '0'}<Sup>%</Sup>
+          { validValue ? displayVal : 'N/A' }
+          { validValue && <Sup>%</Sup> }
         </Caption>
       </Figure>
     )

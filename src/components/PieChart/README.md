@@ -12,20 +12,40 @@ Optional:
 
 ## Basic pie
 
-```react|span-2
+```react|span-1
 showSource: true
 ---
-<PieChart value={10} />
+<PieChart
+  value={10}
+/>
 ```
-```react|span-2
+```react|span-1
 showSource: true
 ---
-<PieChart value={50} />
+<PieChart
+  value={50}
+/>
 ```
-```react|span-2
+```react|span-1
 showSource: true
 ---
-<PieChart value={98} />
+<PieChart
+  value={95}
+/>
+```
+```react|span-1
+showSource: true
+---
+<PieChart
+  value={100}
+/>
+```
+```react|span-1
+showSource: true
+---
+<PieChart
+  value="breaks"
+/>
 ```
 
 ## Light
