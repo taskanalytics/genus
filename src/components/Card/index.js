@@ -1,6 +1,9 @@
+/** @jsx jsx */
 import React, { Component } from 'react'
 import T from 'prop-types'
+import { jsx } from '@emotion/core'
 import { withTheme } from 'emotion-theming'
+
 import Dropdown from '../Dropdown'
 
 import {
@@ -18,7 +21,7 @@ const Actions = withTheme(({ actions, p }) => {
   const size = 24
 
   return (
-    <div style={{
+    <div css={{
       position: 'absolute',
       top: size,
       right: size,

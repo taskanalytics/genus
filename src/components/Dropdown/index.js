@@ -1,5 +1,7 @@
+/** @jsx jsx */
 import React, { Component } from 'react'
 import T from 'prop-types'
+import { jsx } from '@emotion/core'
 
 import {
   StyledHeading,
@@ -107,7 +109,7 @@ class Dropdown extends Component {
           open={open}
           right={right}
           mt={1}
-          style={dialogStyles}
+          css={dialogStyles}
         >
           {this.renderActions(actions)}
         </StyledDropdown>
