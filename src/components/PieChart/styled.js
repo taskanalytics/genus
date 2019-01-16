@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { rgba } from 'polished'
 import { keyframes } from '@emotion/core'
+import { space, fontSize, color } from 'styled-system'
 
 import * as spacing from '../../styles/spacing'
 import { colors } from '../../styles/colors'
@@ -56,4 +57,10 @@ export const Caption = styled('figcaption')({
   fontVariantNumeric: 'tabular-nums',
   fontFeatureSettings: 'tnum',
   letterSpacing: '-0.05em',
-}, styleIf('light', { color: colors.white }))
+},
+  fontSize,
+  space,
+  color
+)
+
+export const Sup = styled('sup')({ verticalAlign: 'unset' })

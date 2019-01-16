@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import { Figure, Svg, Chart, Background, Caption } from './styled'
+import { Figure, Svg, Chart, Background, Caption, Sup } from './styled'
 
 class PieChart extends Component {
   static defaultProps = {
@@ -12,15 +12,11 @@ class PieChart extends Component {
   render () {
     const { light, value, max, size } = this.props
 
-    const stroke = Math.min(10, Math.max(size / 5, 2))
+    const stroke = Math.min(8, Math.max(size / 5, 2))
     const radius = (size / 2) - (stroke / 2)
     const total = Math.round((2 * Math.PI) * radius)
     const percentage = (value * total) / max
     const displayVal = Math.round((value * 100) / max)
-    const styles = {
-      marginTop: (displayVal === 100) ? `${size / 12}px` : '',
-      fontSize: (displayVal !== 100) ? `${size / 3}px` : `${size / 3.6}px`,
-    }
 
     return (
       <Figure data-genus="PieChart">
@@ -43,8 +39,12 @@ class PieChart extends Component {
             strokeLinecap="round"
           />
         </Svg>
-        <Caption light={light} style={styles}>
-          {!isNaN(displayVal) ? displayVal : '0'}<sup>%</sup>
+        <Caption
+          color={light ? 'white' : null}
+          mt={(displayVal === 100) ? size / 12 : null}
+          fontSize={(displayVal !== 100) ? size / 3.2 : size / 3.6}
+        >
+          {!isNaN(displayVal) ? displayVal : '0'}<Sup>%</Sup>
         </Caption>
       </Figure>
     )
