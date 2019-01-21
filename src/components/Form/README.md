@@ -7,7 +7,10 @@ showSource: true
   <Box pb={3}>
     <Input 
       placeholder="Username (default check mark) "
-      label="Username"
+      label={[
+        'Username',
+        <Text small color="red">Required</Text>,
+      ]}
     />
   </Box>
   <Box pb={3}>

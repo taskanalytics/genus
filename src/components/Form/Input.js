@@ -34,7 +34,7 @@ const Input = React.forwardRef((props, ref) => {
             ref={ref}
             {...rest}
           />
-          { renderAfter && <span>{renderAfter({ label, error, value, ...rest })}</span> }
+          { renderAfter && <span>{renderAfter({ error, value, ...rest })}</span> }
           { !renderAfter && <ValidationMark value={value} error={error} /> }
         </Flex>
       </StyledWrapper>

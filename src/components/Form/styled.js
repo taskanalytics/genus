@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import Text from '../Text'
+import { Flex } from '../Grid'
 import { font } from '../../styles/mixins'
 
 const BORDERSIZE = 4
@@ -96,8 +97,9 @@ export const StyledCaret = styled('span')(({ theme, error }) => ({
   transform: 'rotate(45deg)',
 }))
 
-export const StyledLabel = styled(Text)(({ theme }) => ({
+export const StyledLabel = styled(Flex)(({ theme }) => ({
   letterSpacing: 2,
+  justifyContent: 'space-between',
   paddingBottom: theme.space[1],
   fontSize: theme.fontSizes[0],
   color: theme.colors.muted,
