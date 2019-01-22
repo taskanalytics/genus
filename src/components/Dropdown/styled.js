@@ -25,12 +25,12 @@ export const StyledDropdown = styled('div')(({ theme, open }) => ({
     outline: 'none',
   },
   animation: `${keyframes({
-    '0%': { opacity: 0 },
-    '20%': { opacity: 0.2 },
-    '40%': { opacity: 0.4 },
-    '50%': { opacity: 0.8 },
-    '100%': { opacity: 1 },
-  })} 150ms linear`,
+    '0%': { opacity: 0, top: '40%' },
+    '20%': { opacity: 0.2, top: '50%' },
+    '40%': { opacity: 0.4, top: '70%' },
+    '50%': { opacity: 0.8, top: '90%' },
+    '100%': { opacity: 1, top: null},
+  })} 100ms linear`,
 }),
 (props) => {
   if (props.right) {
