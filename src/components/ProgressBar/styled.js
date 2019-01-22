@@ -10,9 +10,6 @@ import styleIf from '../../utils/styleIf'
 
 import { swiftOut } from '../../styles/animations'
 
-const progressFillUp = keyframes({
-  from: { width: 0 },
-})
 const progressLabel = keyframes({
   from: {
     opacity: 0,
@@ -38,9 +35,9 @@ export const Meter = styled('span')({
   display: 'block',
   height: spacing.small,
   borderRadius: spacing.unit,
-  animation: `${progressFillUp} ${swiftOut} 500ms both`,
+  transition: `max-width .5s ease-in-out`,
 }, ({ width, color, light }) => ({
-  width: `${width}%`,
+  maxWidth: `${width}%`,
   backgroundColor: light ? colors.white : color,
 }))
 
