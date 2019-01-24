@@ -9,9 +9,7 @@ class NumberComponent extends Component {
 
     if (description) {
       return (
-        <Dl size={size}
-          data-genus="Number"
-        >
+        <Dl data-genus="Number">
           <Dt size={size}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
           <Dd size={size}>{description}</Dd>
         </Dl>

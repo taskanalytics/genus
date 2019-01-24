@@ -34,15 +34,11 @@ export const Dt = styled.dt(
   fontSize
 )
 
-export const Dd = styled.dd(
-  {
-    ...mixins.font('normal'),
-    ...mixins.fontSize('xsmall'),
-    whiteSpace: 'nowrap',
-    textTransform: 'lowercase',
-  },
-  styleIf('large', fontSize('small'))
-)
+export const Dd = styled.dd(({ size }) => ({
+  ...mixins.fontSize(size === 'display' ? 'small' : 'xsmall'),
+  whiteSpace: 'nowrap',
+  textTransform: 'lowercase',
+}))
 
 export const Suffix = styled.span({
   fontSize: '0.65em',
