@@ -29,6 +29,7 @@ export const StyledRadio = styled('input')({
 export const StyledLabel = styled('label')(({ theme }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
+  whiteSpace: 'nowrap',
   backgroundColor: '#ECEFF1',
   padding: '8px 14px',
   display: 'inline-block',

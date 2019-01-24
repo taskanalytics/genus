@@ -7,7 +7,7 @@ state: { selected: 'read' }
 <MultiToggle
   options={[
     {
-      name: 'No',
+      name: 'No access',
       value: 'no',
       destructive: true,
     }, {
