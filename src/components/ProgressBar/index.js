@@ -11,6 +11,15 @@ import {
 } from './styled'
 
 class ProgressBar extends Component {
+  static propTypes = {
+    value: T.number,
+    min: T.number,
+    max: T.number,
+    light: T.bool,
+    empty: T.bool,
+    color: T.string,
+  }
+
   static defaultProps = {
     min: 0,
     max: 100,
@@ -18,7 +27,7 @@ class ProgressBar extends Component {
   }
 
   render () {
-    const { min, max, value, baseline, light, empty, ...rest } = this.props
+    const { min, max, value, light, empty, ...rest } = this.props
     const val = !isNaN(value)
       ? Math.round(value * 10) / 10
       : 0
@@ -29,7 +38,8 @@ class ProgressBar extends Component {
       warning: colors.trouble,
     }
     const classification = getClassification(val)
-    const color = !isNaN(value) ? colorMap[classification] : null
+
+    const color = this.props.color || (!isNaN(value) ? colorMap[classification] : null)
 
     const props = { light, color, ...rest }
 
@@ -60,15 +70,6 @@ class ProgressBar extends Component {
       </Wrapper>
     )
   }
-}
-
-ProgressBar.propTypes = {
-  value: T.number,
-  min: T.number,
-  max: T.number,
-  baseline: T.bool,
-  light: T.bool,
-  empty: T.bool,
 }
 
 export default ProgressBar

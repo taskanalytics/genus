@@ -50,3 +50,9 @@ showSource: true
 ---
 <ProgressBar empty value={30} />
 ```
+
+```react|span-2
+showSource: true
+---
+<ProgressBar empty value={30} color="green" />
+```
