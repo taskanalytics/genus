@@ -27,10 +27,9 @@ class ProgressBar extends Component {
   }
 
   render () {
-    const { min, max, value, light, empty, ...rest } = this.props
-    const val = !isNaN(value)
-      ? Math.round(value * 10) / 10
-      : 0
+    let { min, max, value, light, empty, color, ...rest } = this.props
+    const valid =  value !== undefined && !isNaN(value)
+    const val = valid ? Math.round(value * 10) / 10 : false
 
     const colorMap = {
       success: colors.good,
@@ -39,24 +38,24 @@ class ProgressBar extends Component {
     }
     const classification = getClassification(val)
 
-    const color = this.props.color || (!isNaN(value) ? colorMap[classification] : null)
-
-    const props = { light, color, ...rest }
+    color = color || (valid ? colorMap[classification] : null)
 
     const meterProps = {
       light,
       color,
-      width: val,
+      width: val === false ? 0 : val,
       role: 'progressbar',
       'aria-valuemin': min,
       'aria-valuemax': max,
-      'aria-valuenow': value,
+      'aria-valuenow': val,
     }
     const labelProps = {
       color,
       max: val > 95 ? true : undefined,
       min: val < 5 ? true : undefined,
     }
+
+    const props = { light, color, ...rest }
 
     return (
       <Wrapper {...props} data-genus="ProgressBar">

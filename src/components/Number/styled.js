@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { fontSize } from 'styled-system'
 
-import { font, fontSize } from '../../styles/mixins'
+import * as mixins from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -15,27 +16,28 @@ export const Dl = styled.dl({
 
 export const Dt = styled.dt(
   {
-    ...font('bold'),
-    ...fontSize('medium'),
+    ...mixins.font('bold'),
+    ...mixins.fontSize('medium'),
     letterSpacing: '-0.03em',
   },
   styleIf(isDisplay, {
-    ...fontSize('xxlarge'),
+    ...mixins.fontSize('xxlarge'),
     marginLeft: '-2px',
   }),
   styleIf(isLarge, {
-    ...fontSize('large'),
+    ...mixins.fontSize('large'),
     marginLeft: '-2px',
   }),
   styleIf(isSmall, {
-    ...fontSize('small'),
-  })
+    ...mixins.fontSize('small'),
+  }),
+  fontSize
 )
 
 export const Dd = styled.dd(
   {
-    ...font('normal'),
-    ...fontSize('xsmall'),
+    ...mixins.font('normal'),
+    ...mixins.fontSize('xsmall'),
     whiteSpace: 'nowrap',
     textTransform: 'lowercase',
   },

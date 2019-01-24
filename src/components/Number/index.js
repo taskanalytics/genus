@@ -18,7 +18,7 @@ class NumberComponent extends Component {
       )
     }
     return (
-      <StyledSpan size={size} {...props} data-genus="Number">
+      <StyledSpan fontSize={1} size={size} {...props} data-genus="Number">
         {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
       </StyledSpan>
     )

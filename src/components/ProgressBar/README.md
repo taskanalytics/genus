@@ -33,6 +33,18 @@ showSource: true
 <ProgressBar value={30} />
 ```
 
+```react|span-2
+showSource: true
+---
+<ProgressBar value={100} />
+```
+
+```react|span-2
+showSource: true
+---
+<ProgressBar value={1} />
+```
+
 ## Less used variations
 
 ```react|span-2,dark
@@ -43,12 +55,12 @@ showSource: true
 ```react|span-2,dark
 showSource: true
 ---
-<ProgressBar />
+<ProgressBar light />
 ```
 ```react|span-2
 showSource: true
 ---
-<ProgressBar empty value={30} />
+<ProgressBar />
 ```
 
 ```react|span-2

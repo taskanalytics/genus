@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import { rgba, lighten } from 'polished'
+import { rgba, lighten, darken } from 'polished'
+import { space } from 'styled-system'
 
+import { Box } from '../Grid'
 import { colors } from '../../styles/colors'
 import * as spacing from '../../styles/spacing'
 import { font, fontSize } from '../../styles/mixins'
@@ -17,18 +19,26 @@ const progressLabel = keyframes({
   },
 })
 
-export const Wrapper = styled('div')({
-  position: 'relative',
-  width: '100%',
-  marginTop: `${spacing.unit * 4 - 4}px`,
-  borderRadius: spacing.unit,
-}, ({ color }) => ({
-  backgroundColor: color ? lighten(0.25, color) : colors.base,
-}),
-styleIf('light', {
-  color: colors.text,
-  backgroundColor: rgba(colors.white, 0.2),
-}))
+export const Wrapper = styled(Box)(({ color, theme, light }) =>
+  {
+    const css = {
+      position: 'relative',
+      width: '100%',
+      marginTop: `${spacing.unit * 4 - 4}px`,
+      borderRadius: spacing.unit,
+      backgroundColor: rgba(theme.colors.primary, .2),
+    }
+
+    if (light) {
+      css.color = theme.colors.text
+      css.backgroundColor = rgba(theme.colors.white, 0.2)
+    } else if (color) {
+      css.backgroundColor = rgba(color, 0.5)
+    }
+    return css
+  },
+  space
+)
 
 export const Meter = styled('span')({
   position: 'relative',
@@ -38,13 +48,11 @@ export const Meter = styled('span')({
   transition: `max-width .5s ease-in-out`,
 }, ({ width, color, light }) => ({
   maxWidth: `${width}%`,
-  backgroundColor: light ? colors.white : color,
+  backgroundColor: light ? colors.white : (color || colors.base),
 }))
 
-const labelWidth = spacing.unit * 11
+const labelWidth = spacing.unit * 10
 export const Label = styled('span')({
-  ...font('bold'),
-  ...fontSize('xsmall'),
   position: 'absolute',
   display: 'block',
   padding: '5px',
