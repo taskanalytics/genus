@@ -22,7 +22,7 @@ const ValidationMark = ({ value, error }) => {
 }
 
 const Input = React.forwardRef((props, ref) => {
-  const { label, error, renderAfter, value, ...rest } = props
+  const { label, error, renderAfter, renderError, value, ...rest } = props
   return (
     <React.Fragment>
       <StyledWrapper error={error} data-genus="Input">
@@ -38,7 +38,7 @@ const Input = React.forwardRef((props, ref) => {
           { !renderAfter && <ValidationMark value={value} error={error} /> }
         </Flex>
       </StyledWrapper>
-      {error && <StyledError> {error} </StyledError>}
+      { error && renderError(error) }
     </React.Fragment>
   )
 })
@@ -55,6 +55,11 @@ Input.propTypes = {
   placeholder: T.string,
   type: T.oneOf(['text', 'email', 'number', 'password']),
   renderAfter: T.func,
+  renderError: T.func,
+}
+
+Input.defaultProps = {
+  renderError: error => <StyledError children={error} />
 }
 
 export default Input
