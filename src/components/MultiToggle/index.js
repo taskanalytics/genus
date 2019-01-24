@@ -25,9 +25,7 @@ class MultiToggle extends PureComponent {
     } = this.props
 
     return (
-      <StyledWrapper {...props}
-        data-genus="MultiToggle"
-      >
+      <StyledWrapper {...props} data-genus="MultiToggle">
         {options.filter(returnFirst).map((option) =>
           <Option
             key={option.value}

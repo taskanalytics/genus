@@ -1,9 +1,8 @@
-```code
-state: { selected: 'no' }
-```
+## Basic usage
 
 ```react
-state: { selected: 'no' }
+showSource: true
+state: { selected: 'read' }
 ---
 <MultiToggle
   options={[
@@ -11,16 +10,13 @@ state: { selected: 'no' }
       name: 'No',
       value: 'no',
       destructive: true,
-    },
-    {
+    }, {
       name: 'Read',
       value: 'read'
-    },
-    {
+    }, {
       name: 'Write',
       value: 'write'
-    },
-    {
+    }, {
       name: 'Admin',
       value: 'admin'
     }
@@ -29,25 +25,20 @@ state: { selected: 'no' }
   onSelectOption={(value) => setState({ selected: value })} />
 ```
 
-```code
-state: { selected: 'read' }
-```
+## Block element
 
 ```react
 state: { selected: 'enable' }
+showSource: true
 ---
-<MultiToggle
-  options={[
-    {
-      name: 'Enable',
-      value: 'enable',
-    },
-    {
-      name: 'Disable',
-      value: 'disable',
-      destructive: true,
-    }
-  ]}
-  selectedOption={state.selected}
-  onSelectOption={(value) => setState({ selected: value })} />
+<Box bg="lightgrey" p={3} width={.5}>
+  <MultiToggle
+    block
+    options={[
+      { name: 'Enable', value: 'enable' },
+      { name: 'Disable', value: 'disable', destructive: true },
+    ]}
+    selectedOption={state.selected}
+    onSelectOption={(value) => setState({ selected: value })} />
+</Box>
 ```

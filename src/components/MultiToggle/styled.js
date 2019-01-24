@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { colors } from '../../styles/colors'
 import { font, fontSize } from '../../styles/mixins'
+import { Flex } from '../Grid'
 
 const border = '1px solid #CFD5DB'
 
@@ -10,15 +11,16 @@ const mediaQueries = {
   desktop: '@media screen and (min-width: 960px)',
 }
 
-export const StyledWrapper = styled('div')({
+export const StyledWrapper = styled(Flex)(({ block }) => ({
   overflow: 'hidden',
-  display: 'inline-block',
+  display: block ? 'flex' : 'inline-flex',
+  justifyContent: block ? 'stretch' : 'initial',
   width: '100%',
   [mediaQueries.tablet]: {
     width: 'auto',
     borderRadius: '30px',
   },
-})
+}))
 
 export const StyledRadio = styled('input')({
   display: 'none',
@@ -42,7 +44,7 @@ export const StyledLabel = styled('label')(({ theme }) => ({
     borderRight: 'none',
   },
   [mediaQueries.tablet]: {
-    width: 'auto',
+    textAlign: 'center',
     borderBottom: 'none',
     borderRight: border,
     '&:first-of-type': {
