@@ -1,4 +1,9 @@
 import styled from '@emotion/styled'
+import {
+  fontSize,
+  fontWeight,
+  color,
+} from 'styled-system'
 import Text from '../Text'
 import { Flex } from '../Grid'
 import { font } from '../../styles/mixins'
@@ -55,7 +60,11 @@ export const StyledInput = styled('input')(({ theme, error }) => {
       opacity: 0.6,
     },
   }
-})
+},
+  fontSize,
+  fontWeight,
+  color
+)
 
 export const StyledSelect = styled('select')(({ theme, error }) => ({
   ...font(),

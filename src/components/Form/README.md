@@ -7,6 +7,8 @@ showSource: true
   <Box pb={3}>
     <Input 
       placeholder="Username (default check mark) "
+      fontSize={44}
+      color="black"
       label={[
         'Username',
         <Text small color="red">Required</Text>,
