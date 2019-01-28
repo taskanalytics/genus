@@ -61,16 +61,29 @@ const styledWarning = styleIf('warning', {
   },
 })
 
-const styledDanger = styleIf('danger', {
-  color: colors.trouble,
-  borderColor: colors.trouble,
+const styledDanger = ({ danger, link }) => {
+  if (!danger) return null
 
-  '&:hover,&:focus': {
-    color: colors.white,
+  if (link) {
+    return {
+      color: colors.trouble,
+      '&:hover,&:focus': {
+        color: colors.trouble,
+      },
+    }
+  }
+
+  return {
+    color: colors.trouble,
     borderColor: colors.trouble,
-    backgroundColor: colors.trouble,
-  },
-})
+
+    '&:hover,&:focus': {
+      color: colors.white,
+      borderColor: colors.trouble,
+      backgroundColor: colors.trouble,
+    },
+  }
+}
 
 const styledCompact = styleIf('compact', {
   ...fontSize('xxsmall'),
@@ -84,26 +97,26 @@ const styledLink = styleIf('link', {
   cursor: 'pointer',
   textTransform: 'none',
   textDecoration: 'none',
-  border: 0,
+  border: 'none',
+  background: null,
   padding: 0,
   margin: 0,
   letterSpacing: 0,
-  color: colors.link,
   '&:hover,&:focus': {
-    color: colors.primaryDark,
     textDecoration: 'underline',
     boxShadow: 'none',
+    background: 'initial',
   },
 })
 
-export default styled('button')(({ theme }) => ({
+export default styled('button')(({ theme, link }) => ({
   ...font('bold'),
   ...fontSize('xsmall'),
   ...spacedText(),
   position: 'relative',
   display: 'inline-block',
   padding: `${theme.space[2]}px ${theme.space[4]}px`,
-  color: rgba(theme.colors.text, 0.8),
+  color: link ? colors.link : rgba(theme.colors.text, 0.8),
   whiteSpace: 'nowrap',
   borderRadius: '50px',
   border: `2px solid ${rgba(theme.colors.black, 0.15)}`,
@@ -129,13 +142,13 @@ export default styled('button')(({ theme }) => ({
 }),
 styledSpaceless,
 styledCompact,
-styledLink,
 styledBlock,
 styledWarning,
 styledPrimary,
 styledInverted,
 styledPrimaryInverted,
 styledDanger,
+styledLink,
 space,
 width,
 color,

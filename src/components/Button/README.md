@@ -75,7 +75,10 @@ showSource: true
 ```react|span-2
 showSource: true
 ---
+<Flex flexDirection="column">
 <Button link>Link</Button>
+<Button link danger>Danger link</Button>
+</Flex>
 ```
 
 ```react|span-2
