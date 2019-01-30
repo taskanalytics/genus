@@ -11,7 +11,7 @@ const returnFirst = test => test
 
 const Option = ({ name, value, active, onChange, destructive }) =>
   <StyledLabel destructive={destructive} active={active}>
-    <StyledRadio type='radio' id={value} checked={active} onChange={onChange} />
+    <StyledRadio type='radio' checked={active} onChange={onChange} />
     {name}
   </StyledLabel>
 
