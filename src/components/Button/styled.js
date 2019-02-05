@@ -85,10 +85,11 @@ const styledDanger = ({ danger, link }) => {
   }
 }
 
-const styledCompact = styleIf('compact', {
-  ...fontSize('xxsmall'),
-  letterSpacing: '0.05em',
-})
+const styledCompact = styleIf('compact', ({ theme }) => ({
+  fontSize: theme.fontSizes[0],
+  letterSpacing: 0,
+  padding: `${theme.space[1]}px ${theme.space[3]}px`,
+}))
 
 const styledSpaceless = styleIf('spaceless', { margin: 0 })
 
