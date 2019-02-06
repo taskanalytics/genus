@@ -10,6 +10,7 @@ Optional:
 [link]                A button rendered as a link
 [to]                  Turn the button into an <a href> that links to this target
 [disabled]            When a button is disabled it is greyed out and not clickable
+[loading]             Animate the button while loading
 
 ```
 
@@ -85,4 +86,27 @@ showSource: true
 showSource: true
 ---
 <Button to='/'>As a href</Button>
+```
+
+
+## Loading state
+
+```
+<Button loading>My button</Button>
+<Button loading="Loading">My button</Button>
+```
+
+```react
+showSource: false
+---
+<Flex wrap flexDirection="row" alignItems="start">
+<Button loading="Loading">Push me</Button>
+<Button color="green" loading>Push me</Button>
+<Button compact loading>Push me</Button>
+<Button primary loading>Push me</Button>
+<Button Primaryinverted loading>Push me</Button>
+<Button link loading>Push me</Button>
+<Button warning loading>Push me</Button>
+<Button danger loading>Push me</Button>
+</Flex>
 ```

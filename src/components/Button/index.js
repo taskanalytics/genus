@@ -11,22 +11,19 @@ class Button extends PureComponent {
 
   render () {
     const {
-      children,
       to,
       ...props
     } = this.props
 
-    if (to) {
-      return (
-        <StyledLink {...props} href={to} data-genus="Button">
-          {children}
-        </StyledLink>
-      )
+    if (typeof this.props.loading === 'string') {
+      props.children = this.props.loading
     }
 
-    return (<StyledButton {...props} data-genus="Button">
-      {children}
-    </StyledButton>)
+    if (to) {
+      return <StyledLink {...props} href={to} data-genus="Button" />
+    }
+
+    return <StyledButton {...props} data-genus="Button" />
   }
 }
 
@@ -40,6 +37,7 @@ Button.propTypes = {
   primaryinverted: T.bool,
   warning: T.bool,
   spaceless: T.bool,
+  loading: T.oneOfType([T.bool, T.string]),
   to: T.string,
   type: T.oneOf(['button', 'submit']),
 }

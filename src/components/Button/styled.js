@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 import { rgba } from 'polished'
 import {
   width,
@@ -11,6 +12,21 @@ import { colors } from '../../styles/colors'
 import { font, fontSize, spacedText } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
+
+const spin = keyframes({
+  '0%,50%,to': {
+    animationTimingFunction: 'cubic-bezier(.5,.5,.5,.5)',
+  },
+  '0%': {
+    transform: 'translateX(-50%) translateY(-50%) rotate(0)',
+  },
+  '50%': {
+    transform: 'translateX(-50%) translateY(-50%) rotate(180deg)',
+  },
+  to: {
+    transform: 'translateX(-50%) translateY(-50%) rotate(360deg)',
+  }
+})
 
 const styledBlock = styleIf('block', {
   display: 'block',
@@ -94,7 +110,7 @@ const styledCompact = styleIf('compact', ({ theme }) => ({
 const styledSpaceless = styleIf('spaceless', { margin: 0 })
 
 const styledLink = styleIf('link', {
-  display: 'inline',
+  display: 'inline-block',
   cursor: 'pointer',
   textTransform: 'none',
   textDecoration: 'none',
@@ -109,6 +125,39 @@ const styledLink = styleIf('link', {
     background: 'initial',
   },
 })
+
+const styledLoading = styleIf('loading', ({ theme: { colors: { primary, white } } }) => ({
+  minHeight: '2em',
+  '&:before': {
+    display: 'block',
+    position: 'absolute',
+    content: '" "' ,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    opacity: 0.5,
+    background: white,
+    borderRadius: 50,
+  },
+  '&:after': {
+    display: 'inline-block',
+    position: 'absolute',
+    top: '50%',
+    bottom: 0,
+    left: '50%',
+    transform: 'translateX(-50%) translateY(-50%)',
+    width: '1em',
+    height: '1em',
+    right: 0,
+    content: '" "' ,
+    borderRadius: '50%',
+    borderStyle: 'solid',
+    borderColor: `currentColor currentColor currentColor transparent`,
+    borderWidth: 6,
+    animation: `${spin} 1s infinite linear`,
+  },
+}))
 
 export default styled('button')(({ theme, link }) => ({
   ...font('bold'),
@@ -150,6 +199,7 @@ styledInverted,
 styledPrimaryInverted,
 styledDanger,
 styledLink,
+styledLoading,
 space,
 width,
 color,
