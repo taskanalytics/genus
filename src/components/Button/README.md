@@ -18,11 +18,16 @@ Optional:
 
 ```react|span-2
 showSource: true
+state: { s: false }
 ---
-<div>
-<Button>Default</Button>
-<Button link color="white">Default</Button>
-</div>
+<Button
+  loading={state.s}
+  onClick={() => setState({
+    s: state.s ? false : 'Loading a thing'
+  })}
+>
+  Default
+</Button>
 ```
 
 ```react|span-2
