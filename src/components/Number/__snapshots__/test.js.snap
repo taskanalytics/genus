@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Number> component renders with description as dl 1`] = `
+<dl
+  class="css-u3be9g"
+  data-genus="Number"
+>
+  <dt
+    class="css-byrrv8"
+  >
+    10
+  </dt>
+  <dd
+    class="css-7har3q"
+  >
+    Test
+  </dd>
+</dl>
+`;
+
+exports[`<Number> component renders with just value as span 1`] = `
+<span
+  class="css-clpog4"
+  data-genus="Number"
+  font-size="1"
+>
+  10
+</span>
+`;
