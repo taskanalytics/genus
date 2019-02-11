@@ -16,7 +16,7 @@
     "next-start": "next start",
     "next-build": "next build",
     "dev": "catalog start",
-    "build": "yarn dist && catalog build",
+    "build": "yarn dist && catalog build --babelrc false",
     "heroku-postbuild": "yarn run build",
     "dist": "NODE_ENV=production rollup -c",
     "prepublishOnly": "yarn dist",
