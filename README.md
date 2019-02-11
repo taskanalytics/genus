@@ -1,6 +1,7 @@
 # Task Analytics Genus
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/taskanalytics/genus.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/taskanalytics/genus.svg?style=svg)](https://circleci.com/gh/taskanalytics/genus)
 
 Welcome to the Task Analytics design system, **Genus**
 The live styleguide can be found at [genus.taskanalytics.com](http://genus.taskanalytics.com).
