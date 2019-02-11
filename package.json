@@ -16,13 +16,12 @@
     "next-start": "next start",
     "next-build": "next build",
     "dev": "catalog start",
-    "build": "yarn dist && catalog build --babelrc false",
-    "heroku-postbuild": "yarn run build",
+    "build": "$npm_execpath dist && catalog build --babelrc false",
+    "heroku-postbuild": "$npm_execpath run build",
     "dist": "NODE_ENV=production rollup -c",
-    "prepublishOnly": "yarn dist",
+    "prepublishOnly": "$npm_execpath dist",
     "watch": "rollup -c --watch",
     "start": "superstatic catalog/build",
-    "bit:publish": "bit export taskanalytics.genus",
     "release": "release-it",
     "test": "jest"
   },
@@ -33,6 +32,9 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public"
+  },
+  "resolutions": {
+    "**/fsevents": "1.2.7"
   },
   "dependencies": {
     "polished": "^2.3.1",
@@ -61,7 +63,6 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "bit-bin": "^0.12.10",
     "catalog": "^3.6.0",
     "emotion": "^10.0.6",
     "emotion-theming": "^10.0.6",
@@ -73,12 +74,12 @@
     "eslint-plugin-react": "^7.12.3",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.1.0",
-    "next": "^7.0.2",
+    "next": "^8.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-testing-library": "^5.6.0",
-    "release-it": "^9.6.5",
+    "release-it": "^10.1.0",
     "rollup": "^1.0.2",
     "rollup-plugin-analyzer": "^3.0.0",
     "rollup-plugin-babel": "^4.2.0",

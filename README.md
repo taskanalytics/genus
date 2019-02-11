@@ -1,5 +1,7 @@
 # Task Analytics Genus
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/taskanalytics/genus.svg)](https://greenkeeper.io/)
+
 Welcome to the Task Analytics design system, **Genus**
 The live styleguide can be found at [genus.taskanalytics.com](http://genus.taskanalytics.com).
 
