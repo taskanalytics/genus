@@ -1,9 +1,0 @@
-{
-    "env": {
-        "compiler": "bit.envs/compilers/babel@0.0.20",
-        "tester": "none"
-    },
-    "dependencies": {},
-    "componentsDefaultDirectory": "components/{namespace}/{name}",
-    "packageManager": "npm"
-}
