@@ -15,7 +15,7 @@
     "next-dev": "next",
     "next-start": "next start",
     "next-build": "next build",
-    "dev": "catalog start",
+    "dev": "catalog start --babelrc false",
     "build": "yarpm run dist && catalog build --babelrc false",
     "heroku-postbuild": "yarpm run build",
     "dist": "NODE_ENV=production rollup -c",
