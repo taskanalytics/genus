@@ -1,15 +1,16 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import { rgba } from 'polished'
+import { rgba, darken } from 'polished'
 import {
   width,
   space,
   color,
   textAlign,
+  fontSize,
 } from 'styled-system'
 
 import { colors } from '../../styles/colors'
-import { font, fontSize, spacedText } from '../../styles/mixins'
+import { font } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -159,17 +160,18 @@ const styledLoading = styleIf('loading', ({ theme: { colors: { primary, white } 
   },
 }))
 
-export default styled('button')(({ theme, link }) => ({
-  ...font('bold'),
-  ...fontSize('xsmall'),
-  ...spacedText(),
+export default styled('button')(({ theme, link, color, uppercase }) => ({
+  textTransform: uppercase ? 'uppercase' : 'none',
+  letterSpacing: '0.17em',
+  fontSize: theme.fontSizes[1],
+  fontWeight: 600,
   position: 'relative',
   display: 'inline-block',
   padding: `${theme.space[2]}px ${theme.space[4]}px`,
   color: link ? colors.link : rgba(theme.colors.text, 0.8),
   whiteSpace: 'nowrap',
-  borderRadius: '50px',
-  border: `2px solid ${rgba(theme.colors.black, 0.15)}`,
+  borderRadius: 50,
+  border: `2px solid ${color || rgba(theme.colors.black, 0.15)}`,
   backgroundColor: 'transparent',
   '&[disabled]': {
     pointerEvents: 'none',
@@ -179,8 +181,8 @@ export default styled('button')(({ theme, link }) => ({
     outline: 'none',
   },
   '&:hover,&:focus': {
-    color: theme.colors.text,
-    borderColor: rgba(theme.colors.black, 0.2),
+    color: color ? darken(0.1, color) : theme.colors.text,
+    borderColor: color ? darken(0.1, color) : rgba(theme.colors.black, 0.2),
     textDecoration: 'none',
     boxShadow: theme.shadows[0],
     cursor: 'pointer',
@@ -203,5 +205,6 @@ styledLoading,
 space,
 width,
 color,
-textAlign
+textAlign,
+fontSize
 )
