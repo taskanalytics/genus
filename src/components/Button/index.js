@@ -7,6 +7,7 @@ const StyledLink = StyledButton.withComponent('a')
 class Button extends PureComponent {
   static defaultProps = {
     type: 'button',
+    uppercase: true,
   }
 
   render () {
@@ -40,6 +41,7 @@ Button.propTypes = {
   loading: T.oneOfType([T.bool, T.string]),
   to: T.string,
   type: T.oneOf(['button', 'submit']),
+  uppercase: T.bool,
 }
 
 export default Button

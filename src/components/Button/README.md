@@ -93,6 +93,12 @@ showSource: true
 <Button to='/'>As a href</Button>
 ```
 
+```react|span-2
+showSource: true
+---
+<Button fontSize={3} uppercase={false} color="teal">Customized</Button>
+```
+
 
 ## Loading state
 
