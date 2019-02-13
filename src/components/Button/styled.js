@@ -160,38 +160,43 @@ const styledLoading = styleIf('loading', ({ theme: { colors: { primary, white } 
   },
 }))
 
-export default styled('button')(({ theme, link, color, uppercase }) => ({
-  textTransform: uppercase ? 'uppercase' : 'none',
-  letterSpacing: '0.17em',
-  fontSize: theme.fontSizes[1],
-  fontWeight: 600,
-  position: 'relative',
-  display: 'inline-block',
-  padding: `${theme.space[2]}px ${theme.space[4]}px`,
-  color: link ? colors.link : rgba(theme.colors.text, 0.8),
-  whiteSpace: 'nowrap',
-  borderRadius: 50,
-  border: `2px solid ${color || rgba(theme.colors.black, 0.15)}`,
-  backgroundColor: 'transparent',
-  '&[disabled]': {
-    pointerEvents: 'none',
-    opacity: 0.6,
-  },
-  '&:focus': {
-    outline: 'none',
-  },
-  '&:hover,&:focus': {
-    color: color ? darken(0.1, color) : theme.colors.text,
-    borderColor: color ? darken(0.1, color) : rgba(theme.colors.black, 0.2),
-    textDecoration: 'none',
-    boxShadow: theme.shadows[0],
-    cursor: 'pointer',
-  },
-  '&:active': {
-    color: theme.colors.text,
-    borderColor: rgba(theme.colors.black, 0.3),
-  },
-}),
+export default styled('button')(({ theme, link, color, uppercase }) => {
+  if (color && color in theme.colors) {
+    color = theme.colors[color]
+  }
+  return {
+    textTransform: uppercase ? 'uppercase' : 'none',
+    letterSpacing: '0.17em',
+    fontSize: theme.fontSizes[1],
+    fontWeight: 600,
+    position: 'relative',
+    display: 'inline-block',
+    padding: `${theme.space[2]}px ${theme.space[4]}px`,
+    color: link ? colors.link : rgba(theme.colors.text, 0.8),
+    whiteSpace: 'nowrap',
+    borderRadius: 50,
+    border: `2px solid ${color || rgba(theme.colors.black, 0.15)}`,
+    backgroundColor: 'transparent',
+    '&[disabled]': {
+      pointerEvents: 'none',
+      opacity: 0.6,
+    },
+    '&:focus': {
+      outline: 'none',
+    },
+    '&:hover,&:focus': {
+      color: color  ? darken(0.1, color) : theme.colors.text,
+      borderColor: color ? darken(0.1, color) : rgba(theme.colors.black, 0.2),
+      textDecoration: 'none',
+      boxShadow: theme.shadows[0],
+      cursor: 'pointer',
+    },
+    '&:active': {
+      color: theme.colors.text,
+      borderColor: rgba(theme.colors.black, 0.3),
+    },
+  }
+},
 styledSpaceless,
 styledCompact,
 styledBlock,
