@@ -64,4 +64,9 @@ Card.propTypes = {
   children: T.node,
 }
 
+Card.defaultProps = {
+  bg: 'white',
+  width: 1,
+}
+
 export default Card

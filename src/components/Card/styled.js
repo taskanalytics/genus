@@ -2,9 +2,7 @@ import styled from '@emotion/styled'
 import { Box } from '../Grid'
 
 export const StyledCard = styled(Box)(({ theme }) => ({
-  width: '100%',
   alignItems: 'center',
-  backgroundColor: theme.colors.white,
   borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',

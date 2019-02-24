@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { fontSize } from 'styled-system'
+import { fontSize, color } from 'styled-system'
 
 import * as mixins from '../../styles/mixins'
 
@@ -12,7 +12,8 @@ const isDisplay = ({ size }) => size === 'display'
 export const Dl = styled.dl({
   fontVariantNumeric: 'tabular-nums',
   fontFeatureSettings: 'tnum',
-})
+},
+color)
 
 export const Dt = styled.dt(
   {
@@ -31,7 +32,8 @@ export const Dt = styled.dt(
   styleIf(isSmall, {
     ...mixins.fontSize('small'),
   }),
-  fontSize
+  fontSize,
+  color
 )
 
 export const Dd = styled.dd(({ size }) => ({
