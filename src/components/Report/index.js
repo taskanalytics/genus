@@ -7,6 +7,19 @@ import { getDelta } from '../../utils/calculations'
 import { StyledCard, StyledHeading, StyledByline, StyledSource } from './styled'
 
 export class ReportCard extends Component {
+  static propTypes = {
+    heading: T.string,
+    value: T.oneOfType([T.number, T.string]),
+    byline: T.string,
+    source: T.string,
+    type: T.string,
+    render: T.func,
+  }
+
+  static defaultProps = {
+    width: 1,
+  }
+
   render () {
     const {
       heading,
@@ -31,7 +44,8 @@ export class ReportCard extends Component {
     )
 
     return (
-      <StyledCard {...props}
+      <StyledCard
+        {...props}
         data-genus="ReportCard"
       >
         { render ? render({ children }) : children }
@@ -65,6 +79,19 @@ const Values = ({ values }) => {
 }
 
 export class ComparisonCard extends Component {
+  static propTypes = {
+    heading: T.string,
+    values: T.array,
+    source: T.string,
+    type: T.string,
+    empty: T.bool,
+    render: T.func,
+  }
+
+  static defaultProps = {
+    width: 1,
+  }
+
   render () {
     const {
       heading,
@@ -118,15 +145,6 @@ export class ComparisonCard extends Component {
   }
 }
 
-ReportCard.propTypes = {
-  heading: T.string,
-  value: T.oneOfType([T.number, T.string]),
-  byline: T.string,
-  source: T.string,
-  type: T.string,
-  render: T.func,
-}
-
 Delta.propTypes = {
   base: T.number,
   diff: T.number,
@@ -135,13 +153,4 @@ Delta.propTypes = {
 
 Values.propTypes = {
   values: T.array,
-}
-
-ComparisonCard.propTypes = {
-  heading: T.string,
-  values: T.array,
-  source: T.string,
-  type: T.string,
-  empty: T.bool,
-  render: T.func,
 }

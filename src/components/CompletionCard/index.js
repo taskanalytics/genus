@@ -8,6 +8,23 @@ import Text from '../Text'
 import Percentage from '../Percentage'
 
 class CompletionCard extends Component {
+  static propTypes = {
+    name: T.string.isRequired,
+    completion: T.shape({
+      value: T.number,
+      description: T.string,
+    }).isRequired,
+    responses: T.shape({
+      value: T.number,
+      description: T.string,
+    }).isRequired,
+    render: T.func,
+  }
+
+  static defaultProps = {
+    width: 1,
+  }
+
   render () {
     const {
       name,
@@ -28,26 +45,14 @@ class CompletionCard extends Component {
 
     return (
       <StyledCard
-        completion={completion.value} {...props}
+        completion={completion.value}
+        {...props}
         data-genus="CompletionCard"
       >
         { render ? render({ children }) : children }
       </StyledCard>
     )
   }
-}
-
-CompletionCard.propTypes = {
-  name: T.string.isRequired,
-  completion: T.shape({
-    value: T.number,
-    description: T.string,
-  }).isRequired,
-  responses: T.shape({
-    value: T.number,
-    description: T.string,
-  }).isRequired,
-  render: T.func,
 }
 
 export default CompletionCard
