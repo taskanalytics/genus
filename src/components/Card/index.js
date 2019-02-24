@@ -17,15 +17,13 @@ const MoreIcon = () =>
   </svg>
 
 const Actions = withTheme(({ actions, p }) => {
-  const size = 24
-
   return (
     <div css={{
       position: 'absolute',
-      top: size,
-      right: size,
-      width: size,
-      height: size,
+      top: 18,
+      right: 24,
+      width: 24,
+      height: 24,
       padding: 0,
     }}>
       <Dropdown
