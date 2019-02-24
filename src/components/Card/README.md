@@ -1,3 +1,5 @@
+# Examples
+
 ```react|span-3
 showSource: true
 ---
@@ -28,27 +30,26 @@ showSource: true
     action: () => console.log('Clicked Action 1')
   }]}
 >
-  <Heading as='h3'>Heading</Heading>
+  <Heading as='h3'>Customising</Heading>
   <Text>You can customise card visuals</Text>
 </Card>
 ```
 
-# With actions
-```react|span-4
+```react|span-3
 showSource: true
 ---
 <Card
 actions={[
   {
     name: 'Setup',
-    action: () => console.log('Clicked Action 1')
+    action: () => console.log('Action 1')
   }, {
     name: 'Delete',
-    action: () => console.log('Clicked Action 2'),
+    action: () => console.log('Action 2'),
     type: 'destructive',
   }
 ]}>
-  <Heading as='h3'>Heading</Heading>
-  <Text>Anything goes.</Text>
+  <Heading as='h3'>With actions</Heading>
+  <Text>You can specify the actions prop to attach a Dropdown component</Text>
 </Card>
 ```
