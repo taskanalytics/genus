@@ -19,7 +19,15 @@ showSource: true
 ```react|span-3
 showSource: true
 ---
-<Card shadow="primary">
+<Card
+  bg="goodDark"
+  color="white"
+  shadow="good"
+  actions={[{
+    name: 'Setup',
+    action: () => console.log('Clicked Action 1')
+  }]}
+>
   <Heading as='h3'>Heading</Heading>
   <Text>You can customise card visuals</Text>
 </Card>

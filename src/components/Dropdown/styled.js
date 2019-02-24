@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import { rgba } from 'polished'
-import { width, space } from 'styled-system'
+import { width, space, color } from 'styled-system'
 
 import { font } from '../../styles/mixins'
 import { Box } from '../Grid'
@@ -11,7 +11,7 @@ export const StyledWrapper = styled('div')({
   display: 'inline-block',
 })
 
-export const StyledDropdown = styled('div')(({ theme, open }) => ({
+export const StyledDropdown = styled(Box)(({ theme, open }) => ({
   position: 'absolute',
   minWidth: '160px',
   backgroundColor: theme.colors.white,
@@ -38,8 +38,7 @@ export const StyledDropdown = styled('div')(({ theme, open }) => ({
   }
   return { left: 0 }
 },
-width,
-space
+color
 )
 
 export const StyledItem = styled(Box)(({ theme, destructive }) => ({

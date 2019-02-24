@@ -2,6 +2,7 @@ import { rgba, transparentize } from 'polished'
 import { colors } from './colors'
 
 const troubleDark = '#FF5915'
+const goodDark = '#3BBE77'
 const space = [ 0, 6, 12, 18, 24, 48, 96 ]
 
 const createShadow = (spaceStep, baseColor) => (
@@ -33,6 +34,11 @@ const theme = {
       medium: createShadow(2, troubleDark),
       large: createShadow(3, troubleDark),
     },
+    good: {
+      small: createShadow(1, goodDark),
+      medium: createShadow(2, goodDark),
+      large: createShadow(3, goodDark),
+    },
   },
   colors: {
     black: 'rgb(17, 17, 17)',
@@ -44,7 +50,7 @@ const theme = {
     primary: colors.primary,
     primaryShaded: colors.primaryShaded,
     good: rgba(140, 215, 150, 1),
-    goodDark: '#3BBE77',
+    goodDark,
     headsUp: rgba(255, 212, 0, 1),
     headsUpDark: '#FFA707',
     trouble: rgba(255, 90, 20, 1),
