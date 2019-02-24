@@ -1,10 +1,16 @@
 ```react|span-3
 showSource: true
 ---
-<Card>
+<React.Fragment>
+<Card width={null}>
   <Heading as='h3'>Heading</Heading>
   <Text>Anything goes.</Text>
 </Card>
+<Card border="1px solid red">
+  <Heading as='h3'>Heading</Heading>
+  <Text>Anything goes.</Text>
+</Card>
+</React.Fragment>
 ```
 
 ```react|span-3

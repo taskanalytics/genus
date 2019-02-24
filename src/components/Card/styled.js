@@ -11,9 +11,9 @@ export const StyledCard = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const StyledMoreButton = styled('button')(({ theme, size }) => ({
-  height: size,
-  width: size,
+export const StyledMoreButton = styled('button')(({ theme }) => ({
+  height: 24,
+  width: 24,
   border: 'none',
   backgroundColor: 'transparent',
   padding: 0,
@@ -28,9 +28,4 @@ export const StyledMoreButton = styled('button')(({ theme, size }) => ({
   '&:active,&:focus': {
     outline: 'none',
   },
-}))
-
-export const StyledMoreIcon = styled('svg')(({ size }) => ({
-  height: '24px',
-  width: '24px',
 }))

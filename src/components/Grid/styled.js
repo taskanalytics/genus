@@ -10,8 +10,7 @@ import {
   display,
   space,
   color,
-  borderRadius,
-  borderColor,
+  borders,
   flex,
   flexWrap,
   flexDirection,
@@ -35,9 +34,7 @@ export const StyledBox = styled('div')(
   display,
   space,
   color,
-  borderWidth,
-  borderColor,
-  borderRadius,
+  borders,
   textAlign,
   flex
 )
