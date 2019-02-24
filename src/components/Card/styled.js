@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import { Box } from '../Grid'
 
-export const StyledCard = styled(Box)(({ theme }) => ({
+export const StyledCard = styled(Box)(({ theme, shadow }) => ({
   alignItems: 'center',
   borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',
   '&:hover': {
-    boxShadow: theme.shadows[0],
+    boxShadow: theme.shadows[shadow || 'neutral'].small,
   },
 }))
 

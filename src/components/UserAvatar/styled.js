@@ -20,7 +20,7 @@ export const Wrapper = styled(Flex)(({ theme, large, onClick }) => {
   if (onClick) {
     css.cursor = 'pointer'
     css['&:hover'] = {
-      boxShadow: theme.shadows[0],
+      boxShadow: theme.shadows.neutral.small,
     }
   }
 

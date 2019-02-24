@@ -11,6 +11,6 @@ export const StyledBanner = styled(Box)(({ theme }) => ({
   transition: 'box-shadow .2s',
   position: 'relative',
   '&:hover': {
-    boxShadow: theme.shadows[0],
+    boxShadow: theme.shadows.neutral.small,
   },
 }), color)

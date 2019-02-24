@@ -1,21 +1,39 @@
-import { rgba } from 'polished'
+import { rgba, transparentize } from 'polished'
 import { colors } from './colors'
+
+const troubleDark = '#FF5915'
+const space = [ 0, 6, 12, 18, 24, 48, 96 ]
+
+const createShadow = (spaceStep, baseColor) => (
+  `0 2px ${space[spaceStep]}px 0 ${transparentize(0.4, baseColor)}`
+)
 
 const theme = {
   breakpoints: [
     '32em', '48em', '64em',
   ],
-  space: [
-    0, 6, 12, 18, 24, 48, 96,
-  ],
+  space,
   radius: 4,
   fontSizes: [
     12, 16, 18, 24, 36, 72,
   ],
-  shadows: [
-    '0 2px 6px 0 rgba(0,0,0,.1)',
-    '0 2px 12px 0 rgba(0,0,0,.1)',
-  ],
+  shadows: {
+    neutral: {
+      small: `0 2px ${space[1]}px 0 rgba(0,0,0,.1)`,
+      medium: `0 2px ${space[2]}px 0 rgba(0,0,0,.1)`,
+      large: `0 2px ${space[3]}px 0 rgba(0,0,0,.1)`,
+    },
+    primary: {
+      small: createShadow(1, colors.primary),
+      medium: createShadow(2, colors.primary),
+      large: createShadow(3, colors.primary),
+    },
+    danger: {
+      small: createShadow(1, troubleDark),
+      medium: createShadow(2, troubleDark),
+      large: createShadow(3, troubleDark),
+    },
+  },
   colors: {
     black: 'rgb(17, 17, 17)',
     blue: '#07c',
@@ -30,7 +48,7 @@ const theme = {
     headsUp: rgba(255, 212, 0, 1),
     headsUpDark: '#FFA707',
     trouble: rgba(255, 90, 20, 1),
-    troubleDark: '#FF5915',
+    troubleDark,
     validated: '#61ad0f',
   },
 }

@@ -188,7 +188,7 @@ export default styled('button')(({ theme, link, color, uppercase }) => {
       color: color  ? darken(0.1, color) : theme.colors.text,
       borderColor: color ? darken(0.1, color) : rgba(theme.colors.black, 0.2),
       textDecoration: 'none',
-      boxShadow: theme.shadows[0],
+      boxShadow: theme.shadows.neutral.small,
       cursor: 'pointer',
     },
     '&:active': {

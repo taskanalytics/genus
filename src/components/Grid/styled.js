@@ -17,7 +17,9 @@ import {
   alignSelf,
   alignItems,
   justifyContent,
+  justifySelf,
   textAlign,
+  boxShadow,
 } from 'styled-system'
 
 const borderWidth = style({
@@ -36,7 +38,10 @@ export const StyledBox = styled('div')(
   color,
   borders,
   textAlign,
-  flex
+  flex,
+  boxShadow,
+  alignSelf,
+  justifySelf
 )
 
 export const StyledFlex = styled(StyledBox, {
@@ -50,7 +55,6 @@ export const StyledFlex = styled(StyledBox, {
   alignItems,
   justifyContent,
   flexDirection,
-  alignSelf
 )
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({
