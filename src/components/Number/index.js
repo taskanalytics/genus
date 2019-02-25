@@ -3,21 +3,35 @@ import T from 'prop-types'
 import { Dl, Dt, Dd, Suffix } from './styled'
 const StyledSpan = Dt.withComponent('span')
 
+const sizeMap = {
+  small: 1,
+  large: 26,
+  display: 44,
+  default: 2,
+}
+
 class NumberComponent extends Component {
   render () {
-    const { size, prefix, suffix, value, description, color, ...props } = this.props
+    const { prefix, suffix, value, description, color, ...props } = this.props
+    const size = this.props.size || 'default'
+    const fontSize = size in sizeMap ? sizeMap[size] : sizeMap.default
 
     if (description) {
       return (
         <Dl data-genus="Number" {...props}>
-          <Dt size={size} color={color}>{prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}</Dt>
+          <Dt
+            fontSize={fontSize}
+            color={color}
+          >
+            {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
+          </Dt>
           <Dd size={size}>{description}</Dd>
         </Dl>
       )
     }
     return (
       <StyledSpan
-        fontSize={1}
+        fontSize={fontSize}
         size={size}
         color={color}
         {...props}
