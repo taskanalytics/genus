@@ -11,7 +11,7 @@ exports[`<Card> component renders a heading 1`] = `
 </div>
 `;
 
-exports[`<Card> component renders actions 1`] = `
+exports[`<Card> component renders actions when clicked 1`] = `
 <div
   class="css-19ep89c"
   data-genus="Box"
@@ -42,7 +42,7 @@ exports[`<Card> component renders actions 1`] = `
         </span>
       </button>
       <div
-        class="css-1g6ard"
+        class="css-61r5dz"
         color="text"
         data-genus="Box"
       >
