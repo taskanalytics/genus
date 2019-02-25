@@ -25,10 +25,18 @@ showSource: true
   bg="goodDark"
   color="white"
   shadow="good"
-  actions={[{
-    name: 'Setup',
-    action: () => console.log('Clicked Action 1')
-  }]}
+  actions={p => (
+    <Flex
+      alignItems="center"
+      justifyContent="space-between"
+      px={3}
+    >
+      <Text nowrap pr={3}>
+      Custom actions
+      </Text>
+      <Button>Yeah</Button>
+    </Flex>
+  )}
 >
   <Heading as='h3'>Customising</Heading>
   <Text>You can customise card visuals</Text>

@@ -12,9 +12,8 @@ import {
 import { font } from '../../styles/mixins'
 
 export const StyledText = styled('span')(
-  ({ theme, muted, block, small, large }) => {
+  ({ theme, muted, block, small, large, nowrap }) => {
     let css = {
-      ...font(),
       fontSize: theme.fontSizes[2],
       display: block ? 'block' : 'inline-block',
       '& a': {
@@ -36,6 +35,10 @@ export const StyledText = styled('span')(
       css.fontSize = theme.fontSizes[0]
     } else if (large) {
       css.fontSize = theme.fontSizes[3]
+    }
+
+    if (nowrap) {
+      css.whiteSpace = 'nowrap'
     }
 
     return css
