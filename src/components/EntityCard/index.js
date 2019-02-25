@@ -3,7 +3,7 @@ import T from 'prop-types'
 import { StyledCard, StyledHeading } from './styled'
 import { Box } from '../Grid'
 import Text from '../Text'
-import Avatar from '../Avatar'
+import Image from '../Image'
 
 class EntityCard extends Component {
   shouldComponentUpdate (nextProps) {
@@ -19,7 +19,7 @@ class EntityCard extends Component {
     const { name, description, avatar, actions, render, ...props } = this.props
     const children = (
       <React.Fragment>
-        {avatar && <Avatar mr={2} src={avatar} /> }
+        {avatar && <Image width={64} height={64} mr={2} src={avatar} /> }
         <Box width={1}>
           <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
           {description && <Text muted>{description}</Text>}

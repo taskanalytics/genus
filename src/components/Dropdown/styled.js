@@ -18,7 +18,7 @@ export const StyledDropdown = styled(Box)(({ theme, open }) => ({
   borderRadius: theme.radius * 2,
   borderWidth: 0,
   padding: theme.space[1],
-  boxShadow: '0 0 0 2px rgba(0,0,0,0.1)',
+  boxShadow: theme.shadows.neutral.small,
   zIndex: 2,
   display: open ? 'block' : 'none',
   '&:focus': {
