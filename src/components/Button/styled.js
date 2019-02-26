@@ -7,6 +7,8 @@ import {
   color,
   textAlign,
   fontSize,
+  justifySelf,
+  alignSelf,
 } from 'styled-system'
 
 import { colors } from '../../styles/colors'
@@ -211,5 +213,7 @@ space,
 width,
 color,
 textAlign,
-fontSize
+fontSize,
+justifySelf,
+alignSelf,
 )

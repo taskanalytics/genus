@@ -7,6 +7,7 @@ import {
   lineHeight,
   letterSpacing,
   fontWeight,
+  fontSize,
 } from 'styled-system'
 
 import { font } from '../../styles/mixins'
@@ -50,4 +51,5 @@ export const StyledText = styled('span')(
   lineHeight,
   letterSpacing,
   fontWeight,
+  fontSize
 )
