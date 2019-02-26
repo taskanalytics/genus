@@ -4,6 +4,7 @@ import isPropValid from '@emotion/is-prop-valid'
 import {
   width,
   maxWidth,
+  minWidth,
   height,
   maxHeight,
   display,
@@ -24,6 +25,7 @@ import {
 
 export const StyledBox = styled('div')(
   width,
+  minWidth,
   maxWidth,
   height,
   maxHeight,
