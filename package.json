@@ -1,6 +1,6 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "10.0.0-4",
+  "version": "10.0.0-5",
   "description": "",
   "main": "dist/genus.js",
   "umd:main": "dist/genus.umd.js",
