@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
-import { Box } from '../Grid'
+import { Flex } from '../Grid'
 import { color } from 'styled-system'
 
-export const StyledBanner = styled(Box)(({ theme }) => ({
+export const StyledBanner = styled(Flex)(({ theme }) => ({
   width: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
   textAlign: 'center',
   fontWeight: 500,
   color: theme.colors.text,
