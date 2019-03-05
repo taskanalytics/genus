@@ -13,6 +13,7 @@ import {
 class ProgressBar extends Component {
   static propTypes = {
     value: T.number,
+    label: T.string,
     min: T.number,
     max: T.number,
     light: T.bool,
@@ -27,7 +28,7 @@ class ProgressBar extends Component {
   }
 
   render () {
-    let { min, max, value, light, empty, color, ...rest } = this.props
+    let { min, max, value, light, empty, label, color, ...rest } = this.props
     const valid =  value !== undefined && !isNaN(value)
     const val = valid ? Math.round(value * 10) / 10 : false
 
@@ -49,11 +50,6 @@ class ProgressBar extends Component {
       'aria-valuemax': max,
       'aria-valuenow': val,
     }
-    const labelProps = {
-      color,
-      max: val > 95 ? true : undefined,
-      min: val < 5 ? true : undefined,
-    }
 
     const props = { light, color, ...rest }
 
@@ -61,8 +57,8 @@ class ProgressBar extends Component {
       <Wrapper {...props} data-genus="ProgressBar">
         <Meter {...meterProps}>
           { !empty && color &&
-            <Label {...labelProps}>
-              <Percentage size="small" value={val} />
+            <Label color={color}>
+              { label || <Percentage size="small" value={val} /> }
             </Label>
           }
         </Meter>
