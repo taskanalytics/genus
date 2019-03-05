@@ -48,6 +48,7 @@ const theme = {
     white: '#fff',
     grey: '#f5f7f9',
     muted: 'rgba(45, 54, 68, 0.6)',
+    dark: 'rgba(50, 60, 76, 0.9)',
     primary: colors.primary,
     primaryShaded: colors.primaryShaded,
     good: rgba(140, 215, 150, 1),
