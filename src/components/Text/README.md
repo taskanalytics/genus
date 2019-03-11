@@ -32,3 +32,17 @@ showSource: true
 ---
 <Text width={1} muted>Hello muted text</Text>
 ```
+
+## `pill`
+```react
+showSource: true
+---
+<div>
+<Text pill="primary">Primary</Text>
+<Text pill="danger">Danger</Text>
+<Text pill="dark">Dark</Text>
+<Text pill="warning">Warning</Text>
+<Text pill="good">Good</Text>
+<Text pill={['white', 'dark']}>Good</Text>
+</div>
+```
