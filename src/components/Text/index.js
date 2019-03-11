@@ -38,6 +38,7 @@ function Text ({ pill, ...props} ) {
     <StyledText
       {...localProps}
       {...props}
+      pill={pill}
       data-genus="Text"
     />
   )
