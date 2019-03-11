@@ -43,6 +43,7 @@ showSource: true
 <Text pill="dark">Dark</Text>
 <Text pill="warning">Warning</Text>
 <Text pill="good">Good</Text>
+<Text pill="muted">Muted</Text>
 <Text pill={['white', 'dark']}>Good</Text>
 </div>
 ```

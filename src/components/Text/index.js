@@ -7,6 +7,7 @@ const pillMap = {
   danger: ['troubleDark', 'white'],
   warning: ['headsUpDark', 'white'],
   good: ['goodDark', 'white'],
+  muted: ['muted', 'white'],
 }
 
 function Text ({ pill, ...props} ) {
