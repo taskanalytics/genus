@@ -34,9 +34,9 @@ span: 2
 showSource: true
 span: 3
 ---
-<EntityCard
-  name="NoAvatar Corporation"
-  description="2 surveys" />
+<EntityCard name="NoAvatar Corporation">
+  <Text color="red">2 surveys</Text>
+</EntityCard>
 ```
 
 ```react
