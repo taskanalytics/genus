@@ -42,3 +42,25 @@ showSource: true
     onSelectOption={(value) => setState({ selected: value })} />
 </Box>
 ```
+
+## Explicit direction
+
+```react
+state: { selected: 'ipsum' }
+showSource: true
+---
+<Box bg="lightgrey" p={3} width={.5}>
+  <MultiToggle
+    direction="column"
+    options={[
+      { name: 'Lorem ipsum dolor sit amet', value: 'lorem' },
+      { name: 'Ipsum', value: 'ipsum' },
+      { name: 'Dolor', value: 'dolor' },
+      { name: 'Sit', value: 'sit' },
+      { name: 'Amet', value: 'amet' },
+      { name: 'Disable', value: 'disable', destructive: true },
+    ]}
+    selectedOption={state.selected}
+    onSelectOption={(value) => setState({ selected: value })} />
+</Box>
+```

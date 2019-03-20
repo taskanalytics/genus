@@ -14,7 +14,7 @@ import {
 import { font } from '../../styles/mixins'
 
 export const StyledText = styled('span')(
-  ({ theme, muted, block, small, large, nowrap, pill, color }) => {
+  ({ theme, muted, block, small, large, nowrap, color, ...props }) => {
     let css = {
       fontSize: theme.fontSizes[2],
       display: block ? 'block' : 'inline-block',
@@ -43,7 +43,7 @@ export const StyledText = styled('span')(
       css.whiteSpace = 'nowrap'
     }
 
-    if (pill) {
+    if (props.pill && props.href) {
       css['&:hover'] = {
         color,
         textDecoration: 'underline',

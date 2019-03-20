@@ -9,8 +9,8 @@ import {
 
 const returnFirst = test => test
 
-const Option = ({ name, value, active, onChange, destructive }) =>
-  <StyledLabel destructive={destructive} active={active}>
+const Option = ({ name, value, active, onChange, ...props }) =>
+  <StyledLabel active={active} {...props}>
     <StyledRadio type='radio' checked={active} onChange={onChange} />
     {name}
   </StyledLabel>
@@ -32,6 +32,8 @@ class MultiToggle extends PureComponent {
             name={option.name}
             value={option.value}
             destructive={option.destructive}
+            direction={props.direction}
+            block={props.block}
             active={selectedOption === option.value}
             onChange={() => onSelectOption(option.value)} />
         )}
@@ -52,6 +54,10 @@ MultiToggle.propTypes = {
   options: T.array.isRequired,
   selectedOption: T.string,
   onSelectOption: T.func,
+  direction: T.string,
+}
+MultiToggle.defaultProps = {
+  direction: 'row',
 }
 
 export default MultiToggle

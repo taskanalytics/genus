@@ -31,6 +31,7 @@ function Text ({ pill, ...props} ) {
     localProps.bg = bg
     localProps.color = color
     localProps.borderRadius = 3
+    localProps.lineHeight = 1
     localProps.py = 1
     localProps.px = 2
   }
