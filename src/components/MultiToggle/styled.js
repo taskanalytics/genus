@@ -31,7 +31,7 @@ export const StyledLabel = styled('label')(({ theme, block, direction }) => {
     whiteSpace: 'nowrap',
     backgroundColor: '#ECEFF1',
     padding: row ? '8px 14px' : theme.space[2],
-    display: block ? 'block' : 'inline-block',
+    display: block ? 'flex' : 'inline-flex',
     cursor: 'pointer',
     width: '100%',
     borderBottom: !row && border,
