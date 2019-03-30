@@ -37,7 +37,7 @@
     "**/fsevents": "1.2.7"
   },
   "dependencies": {
-    "polished": "^3.0.0",
+    "polished": "^4.0.0",
     "react-modal": "^3.8.1",
     "styled-system": "^4.0.0"
   },
