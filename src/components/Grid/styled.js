@@ -21,6 +21,7 @@ import {
   textAlign,
   boxShadow,
   position,
+  overflow,
 } from 'styled-system'
 
 export const StyledBox = styled('div')(
@@ -38,7 +39,8 @@ export const StyledBox = styled('div')(
   boxShadow,
   alignSelf,
   justifySelf,
-  position
+  position,
+  overflow
 )
 
 export const StyledFlex = styled(StyledBox, {

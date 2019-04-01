@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react'
+/** @jsx jsx */ import React, { PureComponent } from 'react'
 import T from 'prop-types'
+import { jsx } from '@emotion/core'
 
 import {
   StyledWrapper,
@@ -26,7 +27,7 @@ class MultiToggle extends PureComponent {
 
     return (
       <StyledWrapper {...props} data-genus="MultiToggle">
-        {options.filter(returnFirst).map((option) =>
+        {options.filter(Boolean).map((option) =>
           <Option
             key={option.value}
             name={option.name}

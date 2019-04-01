@@ -32,10 +32,11 @@ export const StyledLabel = styled('label')(({ theme, block, direction }) => {
     backgroundColor: '#ECEFF1',
     padding: row ? '8px 14px' : theme.space[2],
     display: block ? 'flex' : 'inline-flex',
+    flex: '1 0',
     cursor: 'pointer',
     width: '100%',
     borderBottom: !row && border,
-    textAlign: row && 'center',
+    justifyContent: row && 'center',
     [mediaQueries.tablet]: {
       width: block && '100%',
       borderBottom: row && 'none',
