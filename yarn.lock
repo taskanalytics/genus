@@ -8076,6 +8076,13 @@ mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mngen@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mngen/-/mngen-1.1.0.tgz#2ec27f42654ffc30d5b690080fd5c91dbce117f2"
+  integrity sha1-LsJ/QmVP/DDVtpAID9XJHbzhF/I=
+  dependencies:
+    meow "^3.3.0"
+
 modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
