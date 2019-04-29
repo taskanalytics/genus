@@ -2,11 +2,11 @@
 
 exports[`<Number> component renders with description as dl 1`] = `
 <dl
-  class="css-u3be9g"
+  class="css-daetez"
   data-genus="Number"
 >
   <dt
-    class="css-byrrv8"
+    class="css-1df7xnv"
   >
     10
   </dt>
@@ -20,9 +20,8 @@ exports[`<Number> component renders with description as dl 1`] = `
 
 exports[`<Number> component renders with just value as span 1`] = `
 <span
-  class="css-clpog4"
+  class="css-1df7xnv"
   data-genus="Number"
-  font-size="1"
 >
   10
 </span>

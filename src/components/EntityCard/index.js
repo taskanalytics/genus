@@ -3,11 +3,11 @@ import T from 'prop-types'
 import { StyledCard, StyledHeading } from './styled'
 import { Box } from '../Grid'
 import Text from '../Text'
-import Avatar from '../Avatar'
+import Image from '../Image'
 
 class EntityCard extends Component {
   shouldComponentUpdate (nextProps) {
-    const simple = ['name', 'description'].some(prop => {
+    const simple = ['avatar', 'name', 'description', 'children'].some(prop => {
       return nextProps[prop] !== this.props[prop]
     })
     return simple || nextProps.actions.some((action, index) => {
@@ -16,13 +16,16 @@ class EntityCard extends Component {
   }
 
   render () {
-    const { name, description, avatar, actions, render, ...props } = this.props
-    const children = (
+    const { name, description, avatar, actions, render, children, ...props } = this.props
+    const body = children || (
+      description && <Text muted>{description}</Text>
+    )
+    const content = (
       <React.Fragment>
-        {avatar && <Avatar mr={2} src={avatar} /> }
+        {avatar && <Image width={64} height={64} mr={2} src={avatar} /> }
         <Box width={1}>
           <StyledHeading mb={1} mr={actions ? 32 : 0}>{name}</StyledHeading>
-          {description && <Text muted>{description}</Text>}
+          {body}
         </Box>
       </React.Fragment>
     )
@@ -30,7 +33,7 @@ class EntityCard extends Component {
       <StyledCard width={1} actions={actions} {...props}
         data-genus="EntityCard"
       >
-        { render ? render({ children }) : children }
+        { render ? render({ content }) : content }
       </StyledCard>
     )
   }

@@ -1,12 +1,14 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import { rgba, darken } from 'polished'
+import { readableColor, rgba, darken } from 'polished'
 import {
   width,
   space,
   color,
   textAlign,
   fontSize,
+  justifySelf,
+  alignSelf,
 } from 'styled-system'
 
 import { colors } from '../../styles/colors'
@@ -160,10 +162,23 @@ const styledLoading = styleIf('loading', ({ theme: { colors: { primary, white } 
   },
 }))
 
-export default styled('button')(({ theme, link, color, uppercase }) => {
-  if (color && color in theme.colors) {
-    color = theme.colors[color]
+export default styled('button')(({ theme, link, bg, color, uppercase }) => {
+  let hoverColor
+  if (color) {
+    if (color in theme.colors) {
+      color = theme.colors[color]
+    }
+    if (bg) {
+      if (bg in theme.colors) {
+        bg = theme.colors[bg]
+      }
+      hoverColor = bg
+    } else {
+      bg = 'transparent'
+      hoverColor = readableColor(color)
+    }
   }
+
   return {
     textTransform: uppercase ? 'uppercase' : 'none',
     letterSpacing: '0.17em',
@@ -185,10 +200,11 @@ export default styled('button')(({ theme, link, color, uppercase }) => {
       outline: 'none',
     },
     '&:hover,&:focus': {
-      color: color  ? darken(0.1, color) : theme.colors.text,
-      borderColor: color ? darken(0.1, color) : rgba(theme.colors.black, 0.2),
+      color: color ? hoverColor : theme.colors.text,
+      borderColor: color ? hoverColor : rgba(theme.colors.black, 0.2),
+      backgroundColor: bg ? color : null,
       textDecoration: 'none',
-      boxShadow: theme.shadows[0],
+      boxShadow: theme.shadows.neutral.small,
       cursor: 'pointer',
     },
     '&:active': {
@@ -211,5 +227,7 @@ space,
 width,
 color,
 textAlign,
-fontSize
+fontSize,
+justifySelf,
+alignSelf,
 )

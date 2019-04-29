@@ -14,12 +14,13 @@ class EmptyState extends Component {
       actions,
       heading,
       body,
+      children,
       ...props
     } = this.props
     return (
       <StyledBox p={3} {...props} data-genus="EmptyState">
         <StyledHeading as='h2'>{heading}</StyledHeading>
-        <StyledBody mb={4}>{body}</StyledBody>
+        <StyledBody mb={4}>{children || body}</StyledBody>
         {actions &&
           <ActionsList role='toolbar'>
             {actions.map((action, key) =>

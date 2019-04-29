@@ -47,7 +47,7 @@ const pages = [
       require('../src/components/Dropdown/catalog').default,
       require('../src/components/EntityCard/catalog').default,
       require('../src/components/CompletionCard/catalog').default,
-      require('../src/components/Avatar/catalog').default,
+      require('../src/components/Image/catalog').default,
       require('../src/components/Header/catalog').default,
       require('../src/components/UserAvatar/catalog').default,
       require('../src/components/Logo/catalog').default,

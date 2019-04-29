@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import React, { Component } from 'react'
+import { findDOMNode } from 'react-dom'
 import T from 'prop-types'
 import { jsx } from '@emotion/core'
 
@@ -105,7 +106,8 @@ class Dropdown extends Component {
           onClick: this.toggle,
         }) }
         <StyledDropdown
-          ref={ref => { this.dd = ref }}
+          ref={ref => { this.dd = findDOMNode(ref) }}
+          color="text"
           open={open}
           right={right}
           mt={1}

@@ -51,19 +51,20 @@ export const Meter = styled('span')({
   backgroundColor: light ? colors.white : (color || colors.base),
 }))
 
-const labelWidth = spacing.unit * 10
 export const Label = styled('span')({
   position: 'absolute',
   display: 'block',
-  padding: '5px',
-  paddingBottom: '4px',
+  padding: 5,
+  paddingLeft: 8,
+  paddingRight: 8,
+  paddingBottom: 4,
   color: colors.text,
   textAlign: 'center',
-  top: '-38px',
-  right: -((labelWidth / 2) - 2),
-  width: labelWidth,
-  lineHeight: '1',
-  borderRadius: '50px',
+  top: -36,
+  right: 1,
+  transform: 'translateX(50%)',
+  lineHeight: 1,
+  borderRadius: 50,
   backgroundColor: 'inherit',
   zIndex: 1,
 
@@ -78,23 +79,9 @@ export const Label = styled('span')({
     height: spacing.unit * 2,
     left: '50%',
     marginLeft: -spacing.unit,
-    bottom: -spacing.unit,
+    bottom: -(spacing.unit - 1),
     zIndex: -1,
     backgroundColor: 'inherit',
     transform: 'rotate(45deg)',
   },
-},
-styleIf('min', {
-  right: -((labelWidth / 2) + (spacing.unit * 3)),
-  '&::before': {
-    left: spacing.unit * 3,
-  },
-}),
-styleIf('max', {
-  right: -(spacing.unit * 2 + 4),
-  '&::before': {
-    left: 'auto',
-    right: spacing.unit * 2,
-  },
 })
-)

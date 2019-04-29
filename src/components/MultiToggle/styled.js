@@ -1,6 +1,4 @@
 import styled from '@emotion/styled'
-import { colors } from '../../styles/colors'
-import { font, fontSize } from '../../styles/mixins'
 import { Flex } from '../Grid'
 
 const border = '1px solid #CFD5DB'
@@ -11,14 +9,14 @@ const mediaQueries = {
   desktop: '@media screen and (min-width: 960px)',
 }
 
-export const StyledWrapper = styled(Flex)(({ block }) => ({
+export const StyledWrapper = styled(Flex)(({ block, direction }) => ({
   overflow: 'hidden',
   display: block ? 'flex' : 'inline-flex',
-  justifyContent: block ? 'stretch' : 'initial',
-  width: '100%',
+  flexDirection: direction,
+  borderRadius: direction === 'row' ? 30 : 10,
   [mediaQueries.tablet]: {
     width: 'auto',
-    borderRadius: '30px',
+    justifyContent: block ? 'stretch' : 'initial',
   },
 }))
 
@@ -26,60 +24,61 @@ export const StyledRadio = styled('input')({
   display: 'none',
 })
 
-export const StyledLabel = styled('label')(({ theme }) => ({
-  ...font('bold'),
-  ...fontSize('xsmall'),
-  whiteSpace: 'nowrap',
-  backgroundColor: '#ECEFF1',
-  padding: '8px 14px',
-  display: 'inline-block',
-  cursor: 'pointer',
-  width: '100%',
-  borderBottom: border,
-  '&:first-of-type': {
-    borderRadius: `${theme.radius}px ${theme.radius}px 0 0`,
-  },
-  '&:last-child': {
-    borderBottom: 'none',
-    borderRadius: `0 0 ${theme.radius}px ${theme.radius}px`,
-    borderRight: 'none',
-  },
-  [mediaQueries.tablet]: {
-    textAlign: 'center',
-    borderBottom: 'none',
-    borderRight: border,
-    '&:first-of-type': {
-      borderRadius: '0',
-      paddingLeft: theme.space[4],
+export const StyledLabel = styled('label')(({ theme, block, direction }) => {
+  const row = direction === 'row'
+  return {
+    fontWeight: 500,
+    whiteSpace: 'nowrap',
+    backgroundColor: '#ECEFF1',
+    padding: row ? '8px 14px' : theme.space[2],
+    display: block ? 'flex' : 'inline-flex',
+    flex: '1 0',
+    cursor: 'pointer',
+    width: '100%',
+    borderBottom: !row && border,
+    justifyContent: row && 'center',
+    [mediaQueries.tablet]: {
+      width: block && '100%',
+      borderBottom: row && 'none',
+      borderRight: border,
+      '&:first-of-type': {
+        borderRadius: '0',
+        paddingLeft: row && theme.space[4],
+      },
+      '&:last-child': {
+        borderRadius: '0',
+        borderRight: 'none',
+        paddingRight: row && theme.space[4],
+      },
     },
-    '&:last-child': {
-      borderRadius: '0',
-      borderRight: 'none',
-      paddingRight: theme.space[4],
+    [mediaQueries.desktop]: {
+      padding: `${theme.space[2]}px ${theme.space[3]}px`,
+      '&:first-of-type': {
+        paddingLeft: row && theme.space[4],
+      },
+      '&:last-child': {
+        paddingRight: row && theme.space[4],
+      },
     },
-  },
-  [mediaQueries.desktop]: {
-    padding: `${theme.space[2]}px ${theme.space[3]}px`,
-    '&:first-of-type': {
-      paddingLeft: theme.space[4],
-    },
-    '&:last-child': {
-      paddingRight: theme.space[4],
-    },
-  },
-}), props => {
-  if (props.active) {
-    let styles = {}
-    styles = {
-      backgroundColor: colors.primary,
-      color: '#fff',
+  }
+}, ({ active, theme, destructive }) => {
+  let styles = {}
+    if (active) {
+      styles.color = theme.colors.white,
+      styles.backgroundColor = destructive
+          ? theme.colors.trouble
+          : theme.colors.primary
     }
-    if (props.destructive) {
-      styles = {
-        ...styles,
-        backgroundColor: colors.trouble,
+    else {
+      styles['&:hover'] = {
+        background: (
+          destructive
+            ? theme.colors.troubleDark
+            : theme.colors.primaryShaded
+        ),
+        color: theme.colors.white,
       }
     }
     return styles
   }
-})
+)

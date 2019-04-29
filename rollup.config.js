@@ -2,8 +2,9 @@ import fs from 'fs'
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-import { plugin as analyze } from 'rollup-plugin-analyzer'
+//import { plugin as analyze } from 'rollup-plugin-analyzer'
 import { terser } from 'rollup-plugin-terser'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import visualizer from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
@@ -46,6 +47,7 @@ export default {
         '@babel/plugin-proposal-class-properties',
       ],
     }),
+    sizeSnapshot(),
     terser({
       compress: {
         global_defs: {
@@ -57,7 +59,7 @@ export default {
       filename: './catalog/static/bundle-stats.html',
       title: 'Genus',
     }),
-    analyze({ limit: 10 }),
+    //analyze({ limit: 10 }),
   ],
   output: [
     {

@@ -1,0 +1,26 @@
+{
+  "dist/genus.js": {
+    "bundled": 325150,
+    "minified": 275926,
+    "gzipped": 39602
+  },
+  "dist/genus.umd.js": {
+    "bundled": 333697,
+    "minified": 264199,
+    "gzipped": 38212
+  },
+  "dist/genus.es.js": {
+    "bundled": 322766,
+    "minified": 273634,
+    "gzipped": 39344,
+    "treeshaked": {
+      "rollup": {
+        "code": 44405,
+        "import_statements": 832
+      },
+      "webpack": {
+        "code": 48148
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   width,
   space,
@@ -7,14 +8,15 @@ import {
   lineHeight,
   letterSpacing,
   fontWeight,
+  fontSize,
+  borderRadius,
 } from 'styled-system'
 
 import { font } from '../../styles/mixins'
 
-export const StyledText = styled('span')(
-  ({ theme, muted, block, small, large }) => {
+export const StyledText = styled('span', { shouldForwardProp })(
+  ({ theme, muted, block, small, large, nowrap, color, ...props }) => {
     let css = {
-      ...font(),
       fontSize: theme.fontSizes[2],
       display: block ? 'block' : 'inline-block',
       '& a': {
@@ -38,6 +40,17 @@ export const StyledText = styled('span')(
       css.fontSize = theme.fontSizes[3]
     }
 
+    if (nowrap) {
+      css.whiteSpace = 'nowrap'
+    }
+
+    if (props.pill && props.href) {
+      css['&:hover'] = {
+        color,
+        textDecoration: 'underline',
+      }
+    }
+
     return css
   },
   width,
@@ -46,5 +59,7 @@ export const StyledText = styled('span')(
   textAlign,
   lineHeight,
   letterSpacing,
+  borderRadius,
   fontWeight,
+  fontSize
 )

@@ -1,21 +1,19 @@
 import styled from '@emotion/styled'
 import { Box } from '../Grid'
 
-export const StyledCard = styled(Box)(({ theme }) => ({
-  width: '100%',
+export const StyledCard = styled(Box)(({ theme, shadow, boxShadow }) => ({
   alignItems: 'center',
-  backgroundColor: theme.colors.white,
   borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',
   '&:hover': {
-    boxShadow: theme.shadows[0],
+    boxShadow: boxShadow || theme.shadows[shadow || 'neutral'].small,
   },
 }))
 
-export const StyledMoreButton = styled('button')(({ theme, size }) => ({
-  height: size,
-  width: size,
+export const StyledMoreButton = styled('button')(({ theme }) => ({
+  height: 24,
+  width: 24,
   border: 'none',
   backgroundColor: 'transparent',
   padding: 0,
@@ -30,9 +28,4 @@ export const StyledMoreButton = styled('button')(({ theme, size }) => ({
   '&:active,&:focus': {
     outline: 'none',
   },
-}))
-
-export const StyledMoreIcon = styled('svg')(({ size }) => ({
-  height: '24px',
-  width: '24px',
 }))

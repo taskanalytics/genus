@@ -45,6 +45,12 @@ showSource: true
 <ProgressBar value={1} />
 ```
 
+```react|span-2
+showSource: true
+---
+<ProgressBar value={10} label={<Text nowrap color="white">Custom label</Text>} />
+```
+
 ## Less used variations
 
 ```react|span-2,dark

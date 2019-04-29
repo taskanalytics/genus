@@ -4,10 +4,13 @@
       "presets": [
         ["@babel/preset-env", {
           "targets": {
-            "browsers": ["last 2 versions", "safari >= 9"]
+            "node": "current"
           }
         }],
         "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties"
       ]
     }
   }

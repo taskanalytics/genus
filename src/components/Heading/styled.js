@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   width,
   space,
@@ -9,14 +10,13 @@ import {
   lineHeight,
 } from 'styled-system'
 
-export const StyledHeading = styled('h1')({
-  margin: 0,
-},
-width,
-space,
-color,
-textAlign,
-fontWeight,
-fontSize,
-lineHeight
+export const StyledHeading = styled('h1', { shouldForwardProp })(
+  { margin: 0 },
+  width,
+  space,
+  color,
+  textAlign,
+  fontWeight,
+  fontSize,
+  lineHeight,
 )

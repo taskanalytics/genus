@@ -1,37 +1,30 @@
 import styled from '@emotion/styled'
-import { fontSize } from 'styled-system'
+import shouldForwardProp from '@styled-system/should-forward-prop'
+import { fontSize, color, space, width } from 'styled-system'
 
 import * as mixins from '../../styles/mixins'
 
-import styleIf from '../../utils/styleIf'
-
-const isSmall = ({ size }) => size === 'small'
-const isLarge = ({ size }) => size === 'large'
-const isDisplay = ({ size }) => size === 'display'
-
-export const Dl = styled.dl({
-  fontVariantNumeric: 'tabular-nums',
-  fontFeatureSettings: 'tnum',
-})
-
-export const Dt = styled.dt(
+export const Dl = styled.dl(
   {
-    ...mixins.font('bold'),
-    ...mixins.fontSize('medium'),
+    fontVariantNumeric: 'tabular-nums',
+    fontFeatureSettings: 'tnum',
+    margin: 0,
+    padding: 0,
+  },
+  color,
+  space,
+  width
+)
+
+export const Dt = styled('dt', { shouldForwardProp })(
+  {
+    fontWeight: 700,
     letterSpacing: '-0.03em',
   },
-  styleIf(isDisplay, {
-    ...mixins.fontSize('xxlarge'),
-    marginLeft: '-2px',
-  }),
-  styleIf(isLarge, {
-    ...mixins.fontSize('large'),
-    marginLeft: '-2px',
-  }),
-  styleIf(isSmall, {
-    ...mixins.fontSize('small'),
-  }),
-  fontSize
+  fontSize,
+  space,
+  width,
+  color
 )
 
 export const Dd = styled.dd(({ size }) => ({

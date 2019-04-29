@@ -42,3 +42,20 @@ showSource: true
     onSelectOption={(value) => setState({ selected: value })} />
 </Box>
 ```
+
+## Explicit direction
+
+```react
+state: { selected: 'ipsum' }
+showSource: true
+---
+<Box bg="lightgrey" p={3} width={1 / 2} >
+  <MultiToggle
+    maxHeight={300}
+    css={{ overflowY: 'auto' }}
+    direction="column"
+    options={manyOptions}
+    selectedOption={state.selected}
+    onSelectOption={(value) => setState({ selected: value })} />
+</Box>
+```

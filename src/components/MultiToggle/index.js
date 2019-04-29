@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react'
+/** @jsx jsx */ import React, { PureComponent } from 'react'
 import T from 'prop-types'
+import { jsx } from '@emotion/core'
 
 import {
   StyledWrapper,
@@ -9,8 +10,8 @@ import {
 
 const returnFirst = test => test
 
-const Option = ({ name, value, active, onChange, destructive }) =>
-  <StyledLabel destructive={destructive} active={active}>
+const Option = ({ name, value, active, onChange, ...props }) =>
+  <StyledLabel active={active} {...props}>
     <StyledRadio type='radio' checked={active} onChange={onChange} />
     {name}
   </StyledLabel>
@@ -26,12 +27,14 @@ class MultiToggle extends PureComponent {
 
     return (
       <StyledWrapper {...props} data-genus="MultiToggle">
-        {options.filter(returnFirst).map((option) =>
+        {options.filter(Boolean).map((option) =>
           <Option
             key={option.value}
             name={option.name}
             value={option.value}
             destructive={option.destructive}
+            direction={props.direction}
+            block={props.block}
             active={selectedOption === option.value}
             onChange={() => onSelectOption(option.value)} />
         )}
@@ -52,6 +55,10 @@ MultiToggle.propTypes = {
   options: T.array.isRequired,
   selectedOption: T.string,
   onSelectOption: T.func,
+  direction: T.string,
+}
+MultiToggle.defaultProps = {
+  direction: 'row',
 }
 
 export default MultiToggle

@@ -2,44 +2,47 @@ import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
 
 import {
-  style,
   width,
   maxWidth,
+  minWidth,
+  minHeight,
   height,
   maxHeight,
   display,
   space,
   color,
-  borderRadius,
-  borderColor,
+  borders,
   flex,
   flexWrap,
   flexDirection,
   alignSelf,
   alignItems,
   justifyContent,
+  justifySelf,
   textAlign,
+  boxShadow,
+  position,
+  overflow,
 } from 'styled-system'
-
-const borderWidth = style({
-  prop: 'borderWidth',
-  transformValue: n => `${n}px`,
-  scale: [0, 1, 2, 4, 6],
-})
 
 export const StyledBox = styled('div')(
   width,
+  minWidth,
+  minHeight,
   maxWidth,
   height,
   maxHeight,
   display,
   space,
   color,
-  borderWidth,
-  borderColor,
-  borderRadius,
+  borders,
   textAlign,
-  flex
+  flex,
+  boxShadow,
+  alignSelf,
+  justifySelf,
+  position,
+  overflow
 )
 
 export const StyledFlex = styled(StyledBox, {
@@ -53,7 +56,6 @@ export const StyledFlex = styled(StyledBox, {
   alignItems,
   justifyContent,
   flexDirection,
-  alignSelf
 )
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({
