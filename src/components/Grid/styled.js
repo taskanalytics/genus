@@ -5,6 +5,7 @@ import {
   width,
   maxWidth,
   minWidth,
+  minHeight,
   height,
   maxHeight,
   display,
@@ -27,6 +28,7 @@ import {
 export const StyledBox = styled('div')(
   width,
   minWidth,
+  minHeight,
   maxWidth,
   height,
   maxHeight,
