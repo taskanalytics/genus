@@ -1,25 +1,25 @@
 {
   "dist/genus.js": {
-    "bundled": 325677,
-    "minified": 275473,
-    "gzipped": 39644
+    "bundled": 325466,
+    "minified": 275257,
+    "gzipped": 39635
   },
   "dist/genus.umd.js": {
-    "bundled": 334002,
-    "minified": 263411,
-    "gzipped": 38191
+    "bundled": 333791,
+    "minified": 263384,
+    "gzipped": 38189
   },
   "dist/genus.es.js": {
-    "bundled": 323461,
-    "minified": 273174,
-    "gzipped": 39374,
+    "bundled": 323122,
+    "minified": 272995,
+    "gzipped": 39376,
     "treeshaked": {
       "rollup": {
-        "code": 44808,
+        "code": 44697,
         "import_statements": 765
       },
       "webpack": {
-        "code": 48265
+        "code": 48250
       }
     }
   }
