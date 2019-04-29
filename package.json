@@ -86,6 +86,7 @@
     "rollup-plugin-babel": "^4.2.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-size-snapshot": "^0.8.0",
     "rollup-plugin-terser": "^4.0.1",
     "rollup-plugin-visualizer": "^0.9.2",
     "superstatic": "^6.0.4",
