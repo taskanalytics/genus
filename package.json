@@ -37,6 +37,7 @@
     "**/fsevents": "1.2.7"
   },
   "dependencies": {
+    "@styled-system/should-forward-prop": "^1.0.0",
     "polished": "^3.2.0",
     "react-modal": "^3.8.1",
     "styled-system": "^4.1.0"

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   width,
   space,
@@ -13,7 +14,7 @@ import {
 
 import { font } from '../../styles/mixins'
 
-export const StyledText = styled('span')(
+export const StyledText = styled('span', { shouldForwardProp })(
   ({ theme, muted, block, small, large, nowrap, color, ...props }) => {
     let css = {
       fontSize: theme.fontSizes[2],

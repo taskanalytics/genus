@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import { fontSize, color, space, width } from 'styled-system'
 
 import * as mixins from '../../styles/mixins'
@@ -15,7 +16,7 @@ export const Dl = styled.dl(
   width
 )
 
-export const Dt = styled.dt(
+export const Dt = styled('dt', { shouldForwardProp })(
   {
     fontWeight: 700,
     letterSpacing: '-0.03em',
