@@ -8,7 +8,7 @@ import {
   StyledLabel,
 } from './styled'
 
-const defaultRenderAfter = () => <StyledCaret />
+const defaultRenderAfter = props => <StyledCaret {...props} />
 
 class Select extends Component {
   static defaultProps = {
@@ -16,7 +16,7 @@ class Select extends Component {
   }
 
   render () {
-    const { label, error, renderAfter, ...rest } = this.props
+    const { label, error, renderAfter, children, ...rest } = this.props
 
     return (
       <StyledWrapper error={error} data-genus="Select">
@@ -24,12 +24,10 @@ class Select extends Component {
         <StyledSelect
           error={error}
           {...rest}
-        />
-        { renderAfter && (
-          <StyledAfter>{
-            renderAfter({ label, error, ...rest }) || defaultRenderAfter()
-          }</StyledAfter>
-        ) }
+        >
+          {children}
+        </StyledSelect>
+        <StyledAfter>{ renderAfter({ label, error, ...rest }) }</StyledAfter>
       </StyledWrapper>
     )
   }

@@ -66,25 +66,28 @@ export const StyledInput = styled('input')(({ theme, error }) => {
   color
 )
 
-export const StyledSelect = styled('select')(({ theme, error }) => ({
-  ...font(),
-  width: '100%',
-  border: 'none',
-  background: 'transparent',
-  fontSize: theme.fontSizes[1],
-  transform: `translateY(${theme.space[1] + BORDERSIZE}px)`,
-  paddingBottom: theme.space[1] + BORDERSIZE,
-  marginBottom: theme.space[1],
-  zIndex: 20,
+export const StyledSelect = styled('select')(
+  ({ theme, error }) => ({
+    ...font(),
+    width: '100%',
+    border: 'none',
+    background: 'transparent',
+    fontSize: theme.fontSizes[1],
+    transform: `translateY(${theme.space[1] + BORDERSIZE}px)`,
+    paddingBottom: theme.space[1] + BORDERSIZE,
+    marginBottom: theme.space[1],
+    zIndex: 20,
 
-  outline: 0,
-  appearance: 'none',
+    outline: 0,
+    appearance: 'none',
 
-  '::placeholder': {
-    color: theme.colors.muted,
-    opacity: 0.6,
-  },
-}))
+    '::placeholder': {
+      color: theme.colors.muted,
+      opacity: 0.6,
+    },
+  }),
+  fontSize,
+)
 
 export const StyledAfter = styled('span')(({ theme, error }) => ({
   position: 'absolute',
@@ -93,18 +96,22 @@ export const StyledAfter = styled('span')(({ theme, error }) => ({
   display: 'block',
 }))
 
-export const StyledCaret = styled('span')(({ theme, error }) => ({
-  display: 'block',
-  width: '10px',
-  height: '10px',
-  marginRight: '8px',
-  marginBottom: '10px',
-  borderWidth: '2px',
-  borderStyle: 'solid',
-  borderColor: `transparent ${theme.colors.muted} ${theme.colors.muted} transparent`,
-  borderRadius: '2px',
-  transform: 'rotate(45deg)',
-}))
+export const StyledCaret = styled('span')(({ theme, error, caretSize = 10 }) => {
+  const size = caretSize
+  const border = 2
+  return {
+    display: 'block',
+    width: size,
+    height: size,
+    marginRight: size - border,
+    marginBottom: size,
+    borderWidth: border,
+    borderStyle: 'solid',
+    borderColor: `transparent ${theme.colors.muted} ${theme.colors.muted} transparent`,
+    borderRadius: border,
+    transform: 'rotate(45deg)',
+  }
+})
 
 export const StyledLabel = styled(Flex)(({ theme }) => ({
   letterSpacing: 2,
