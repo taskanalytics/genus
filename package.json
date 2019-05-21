@@ -88,7 +88,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-size-snapshot": "^0.8.0",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-visualizer": "^1.1.1",
     "superstatic": "^6.0.4",
     "yarpm": "^0.2.1"
