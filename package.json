@@ -27,7 +27,20 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarpm test"
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier-standard",
+        "git add",
+        "jest"
+      ],
+      "*.{json,md}": [
+        "prettier-standard",
+        "git add"
+      ]
     }
   },
   "keywords": [],
@@ -83,8 +96,10 @@
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "jest-dom": "^3.4.0",
+    "lint-staged": "^8.1.7",
     "mngen": "^1.1.0",
     "next": "^8.1.0",
+    "prettier-standard": "^9.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
