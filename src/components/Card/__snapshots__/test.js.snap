@@ -42,16 +42,14 @@ exports[`<Card> component renders actions when clicked 1`] = `
         </span>
       </button>
       <div
-        class="css-61r5dz"
-        color="text"
+        class="css-f5pcee"
         data-genus="Box"
       >
-        <div
-          class="css-1p3wl19"
-          data-genus="Box"
+        <button
+          class="css-nmwv8r"
         >
           Test
-        </div>
+        </button>
       </div>
     </div>
   </div>

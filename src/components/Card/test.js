@@ -35,7 +35,7 @@ describe('<Card> component', () => {
     fireEvent.click(button)
 
     const action = await waitForElement(() =>
-      actionsContainer.querySelector('div[open]>div')
+      actionsContainer.querySelector('div[open]>button')
     )
 
     expect(action.textContent).toBe('Test')
