@@ -13,7 +13,7 @@ import {
 
 import { Box } from '../Grid'
 
-export const StyledWrapper = styled('div')({
+export const StyledWrapper = styled(Box)({
   position: 'relative',
   display: 'inline-block',
 })

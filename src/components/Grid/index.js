@@ -6,19 +6,19 @@ import { StyledBox, StyledContainer, StyledFlex } from './styled'
 
 class Box extends Component {
   render () {
-    return <StyledBox {...this.props} data-genus='Box' />
+    return <StyledBox data-genus='Box' {...this.props} />
   }
 }
 
 class Flex extends Component {
   render () {
-    return <StyledFlex {...this.props} data-genus='Flex' />
+    return <StyledFlex data-genus='Flex' {...this.props} />
   }
 }
 
 class Container extends Component {
   render () {
-    return <StyledContainer {...this.props} data-genus='Container' />
+    return <StyledContainer data-genus='Container' {...this.props} />
   }
 }
 

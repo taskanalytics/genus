@@ -101,12 +101,17 @@ class Dropdown extends Component {
   }
 
   render () {
-    const { right, actions, renderTrigger } = this.props
+    const {
+      right,
+      actions,
+      renderTrigger,
+      dialogStyles = {},
+      ...props
+    } = this.props
     const { open } = this.state
-    const dialogStyles = this.props.dialogStyles || {}
 
     return (
-      <StyledWrapper data-genus='Dropdown'>
+      <StyledWrapper {...props} data-genus='Dropdown'>
         {renderTrigger({
           onClick: this.toggle,
         })}

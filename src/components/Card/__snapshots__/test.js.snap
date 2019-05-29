@@ -3,7 +3,7 @@
 exports[`<Card> component renders a heading 1`] = `
 <div
   class="css-19ep89c"
-  data-genus="Box"
+  data-genus="Card"
 >
   <span>
     Text
@@ -14,7 +14,7 @@ exports[`<Card> component renders a heading 1`] = `
 exports[`<Card> component renders actions when clicked 1`] = `
 <div
   class="css-19ep89c"
-  data-genus="Box"
+  data-genus="Card"
 >
   <div
     class="css-aaukym"

@@ -27,15 +27,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && yarn test"
     }
   },
   "lint-staged": {
     "linters": {
       "*.js": [
         "prettier-standard",
-        "git add",
-        "yarn test"
+        "git add"
       ],
       "*.{json,md}": [
         "prettier-standard",

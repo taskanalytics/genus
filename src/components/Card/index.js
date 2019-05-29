@@ -53,12 +53,12 @@ class Card extends Component {
 }
 
 Actions.propTypes = {
-  actions: T.array,
+  actions: T.oneOfType([T.array, T.func]),
   p: T.oneOfType([T.number, T.string]),
 }
 
 Card.propTypes = {
-  actions: T.array,
+  actions: T.oneOfType([T.array, T.func]),
   children: T.node,
 }
 
