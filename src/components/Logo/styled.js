@@ -25,8 +25,14 @@ const styledDark = styleIf('dark', {
   fill: colors.text,
 })
 
-export const StyledLogo = styled('svg')({
-  height: mediumHeight,
-  width: mediumWidth,
-  fill: colors.text,
-}, styledPrimary, styledLight, styledDark, styledLarge)
+export const StyledLogo = styled('svg')(
+  {
+    height: mediumHeight,
+    width: mediumWidth,
+    fill: colors.text,
+  },
+  styledPrimary,
+  styledLight,
+  styledDark,
+  styledLarge,
+)

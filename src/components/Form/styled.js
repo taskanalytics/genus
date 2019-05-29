@@ -1,9 +1,5 @@
 import styled from '@emotion/styled'
-import {
-  fontSize,
-  fontWeight,
-  color,
-} from 'styled-system'
+import { fontSize, fontWeight, color } from 'styled-system'
 import Text from '../Text'
 import { Flex } from '../Grid'
 import { font } from '../../styles/mixins'
@@ -42,28 +38,29 @@ export const StyledError = styled('div')(({ theme, error }) => ({
   paddingTop: '5px',
 }))
 
-export const StyledInput = styled('input')(({ theme, error }) => {
-  return {
-    ...font(),
-    width: '100%',
-    border: 'none',
-    background: 'transparent',
-    fontSize: theme.fontSizes[1],
-    marginTop: theme.space[1],
-    marginBottom: theme.space[1],
+export const StyledInput = styled('input')(
+  ({ theme, error }) => {
+    return {
+      ...font(),
+      width: '100%',
+      border: 'none',
+      background: 'transparent',
+      fontSize: theme.fontSizes[1],
+      marginTop: theme.space[1],
+      marginBottom: theme.space[1],
 
-    outline: 0,
-    appearance: 'none',
+      outline: 0,
+      appearance: 'none',
 
-    '::placeholder': {
-      color: theme.colors.muted,
-      opacity: 0.6,
-    },
-  }
-},
+      '::placeholder': {
+        color: theme.colors.muted,
+        opacity: 0.6,
+      },
+    }
+  },
   fontSize,
   fontWeight,
-  color
+  color,
 )
 
 export const StyledSelect = styled('select')(
@@ -96,22 +93,26 @@ export const StyledAfter = styled('span')(({ theme, error }) => ({
   display: 'block',
 }))
 
-export const StyledCaret = styled('span')(({ theme, error, caretSize = 10 }) => {
-  const size = caretSize
-  const border = 2
-  return {
-    display: 'block',
-    width: size,
-    height: size,
-    marginRight: size - border,
-    marginBottom: size,
-    borderWidth: border,
-    borderStyle: 'solid',
-    borderColor: `transparent ${theme.colors.muted} ${theme.colors.muted} transparent`,
-    borderRadius: border,
-    transform: 'rotate(45deg)',
-  }
-})
+export const StyledCaret = styled('span')(
+  ({ theme, error, caretSize = 10 }) => {
+    const size = caretSize
+    const border = 2
+    return {
+      display: 'block',
+      width: size,
+      height: size,
+      marginRight: size - border,
+      marginBottom: size,
+      borderWidth: border,
+      borderStyle: 'solid',
+      borderColor: `transparent ${theme.colors.muted} ${
+        theme.colors.muted
+      } transparent`,
+      borderRadius: border,
+      transform: 'rotate(45deg)',
+    }
+  },
+)
 
 export const StyledLabel = styled(Flex)(({ theme }) => ({
   letterSpacing: 2,
@@ -122,17 +123,19 @@ export const StyledLabel = styled(Flex)(({ theme }) => ({
   textTransform: 'uppercase',
 }))
 
-export const StyledCheckRadioLabel = styled('label')(({ theme, error, touched }) => ({
-  position: 'relative',
-  display: 'inline-block',
-  paddingLeft: '12px',
-  height: '23px',
-  marginRight: '5px',
-  cursor: 'pointer',
-  boxSizing: 'border-box',
-  fontSize: '16px',
-  color: touched && error ? theme.colors.troubleDark : theme.colors.normal,
-}))
+export const StyledCheckRadioLabel = styled('label')(
+  ({ theme, error, touched }) => ({
+    position: 'relative',
+    display: 'inline-block',
+    paddingLeft: '12px',
+    height: '23px',
+    marginRight: '5px',
+    cursor: 'pointer',
+    boxSizing: 'border-box',
+    fontSize: '16px',
+    color: touched && error ? theme.colors.troubleDark : theme.colors.normal,
+  }),
+)
 
 export const StyledCheckRadio = styled('input')(({ theme, error }) => ({
   ...font(),
@@ -158,19 +161,24 @@ export const StyledCheckBoxMark = styled('span')(() => ({
   transform: 'rotate(45deg)',
 }))
 
-export const StyledCheckBoxIndicator = styled('span')(({ theme, error, touched }) => ({
-  position: 'absolute',
-  boxSizing: 'border-box',
-  display: 'block',
-  userSelect: 'none',
-  top: '-0.15em',
-  left: '2px',
-  width: '24px',
-  height: '24px',
-  borderRadius: '3px',
-  backgroundColor: theme.colors.white,
-  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
-}))
+export const StyledCheckBoxIndicator = styled('span')(
+  ({ theme, error, touched }) => ({
+    position: 'absolute',
+    boxSizing: 'border-box',
+    display: 'block',
+    userSelect: 'none',
+    top: '-0.15em',
+    left: '2px',
+    width: '24px',
+    height: '24px',
+    borderRadius: '3px',
+    backgroundColor: theme.colors.white,
+    border:
+      touched && error
+        ? `2.5px solid ${theme.colors.troubleDark}`
+        : `2.5px solid rgba(50, 60, 76, 0.1)`,
+  }),
+)
 
 export const StyledLabelCheckRadio = styled(Text)(({ theme }) => ({
   marginLeft: 22,
@@ -189,19 +197,24 @@ export const StyledRadioMark = styled('span')(() => ({
   backgroundColor: 'white',
 }))
 
-export const StyledRadioIndicator = styled('span')(({ theme, error, touched }) => ({
-  position: 'absolute',
-  boxSizing: 'border-box',
-  display: 'block',
-  userSelect: 'none',
-  top: '-0.15em',
-  left: '2px',
-  width: '24px',
-  height: '24px',
-  borderRadius: '20px',
-  backgroundColor: theme.colors.white,
-  border: touched && error ? `2.5px solid ${theme.colors.troubleDark}` : `2.5px solid rgba(50, 60, 76, 0.1)`,
-}))
+export const StyledRadioIndicator = styled('span')(
+  ({ theme, error, touched }) => ({
+    position: 'absolute',
+    boxSizing: 'border-box',
+    display: 'block',
+    userSelect: 'none',
+    top: '-0.15em',
+    left: '2px',
+    width: '24px',
+    height: '24px',
+    borderRadius: '20px',
+    backgroundColor: theme.colors.white,
+    border:
+      touched && error
+        ? `2.5px solid ${theme.colors.troubleDark}`
+        : `2.5px solid rgba(50, 60, 76, 0.1)`,
+  }),
+)
 
 export const StyledValidatedMark = styled('span')(({ theme }) => ({
   width: 8,

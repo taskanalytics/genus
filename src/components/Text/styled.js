@@ -61,5 +61,5 @@ export const StyledText = styled('span', { shouldForwardProp })(
   letterSpacing,
   borderRadius,
   fontWeight,
-  fontSize
+  fontSize,
 )

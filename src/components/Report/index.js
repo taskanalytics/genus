@@ -34,7 +34,7 @@ export class ReportCard extends Component {
     const children = (
       <React.Fragment>
         <StyledHeading>{heading}</StyledHeading>
-        <Percentage colored="gradient" size="display" value={value} />
+        <Percentage colored='gradient' size='display' value={value} />
         <StyledByline>{byline}</StyledByline>
         <StyledSource bottom={4}>
           {source && <strong>{source}</strong>}
@@ -44,11 +44,8 @@ export class ReportCard extends Component {
     )
 
     return (
-      <StyledCard
-        {...props}
-        data-genus="ReportCard"
-      >
-        { render ? render({ children }) : children }
+      <StyledCard {...props} data-genus='ReportCard'>
+        {render ? render({ children }) : children}
       </StyledCard>
     )
   }
@@ -61,16 +58,16 @@ const Delta = ({ base, diff, size }) => {
     prefix = '+'
   }
   return (
-    <Percentage colored prefix={prefix} suffix="%" size={size} value={delta} />
+    <Percentage colored prefix={prefix} suffix='%' size={size} value={delta} />
   )
 }
 
 const Values = ({ values }) => {
   return values.map((value, i, values) => (
     <span key={`value-${i}`}>
-      <Percentage colored="gradient" value={value} />
+      <Percentage colored='gradient' value={value} />
       {values.length - 1 === i ? null : (
-        <Text muted mx="0.3em">
+        <Text muted mx='0.3em'>
           vs
         </Text>
       )}
@@ -116,7 +113,7 @@ export class ComparisonCard extends Component {
     if (values.length === 2) {
       value = (
         <React.Fragment>
-          <Delta base={values[0]} diff={values[1]} size="display" />
+          <Delta base={values[0]} diff={values[1]} size='display' />
           <StyledByline>
             {values[0]}% vs {values[1]}%
           </StyledByline>
@@ -136,10 +133,8 @@ export class ComparisonCard extends Component {
     )
 
     return (
-      <StyledCard {...props}
-        data-genus="ComparisonCard"
-      >
-        { render ? render({ children }) : children }
+      <StyledCard {...props} data-genus='ComparisonCard'>
+        {render ? render({ children }) : children}
       </StyledCard>
     )
   }

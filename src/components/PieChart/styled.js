@@ -27,40 +27,45 @@ export const Svg = styled('svg')({
   transform: 'rotate(-91.00001deg)',
 })
 
-export const Background = styled('circle')({
-  stroke: rgba(colors.primary, 0.25),
-  fill: 'none',
-},
-styleIf('light', {
-  stroke: rgba(colors.white, 0.25),
-})
+export const Background = styled('circle')(
+  {
+    stroke: rgba(colors.primary, 0.25),
+    fill: 'none',
+  },
+  styleIf('light', {
+    stroke: rgba(colors.white, 0.25),
+  }),
 )
 
-export const Chart = styled('circle')({
-  fill: 'none',
-  stroke: colors.primary,
-  transition: `all 300ms ${swiftOut}`,
-  animation: `${pieFilUp} ease-out 500ms both`,
-}, styleIf('light', { stroke: colors.white }))
+export const Chart = styled('circle')(
+  {
+    fill: 'none',
+    stroke: colors.primary,
+    transition: `all 300ms ${swiftOut}`,
+    animation: `${pieFilUp} ease-out 500ms both`,
+  },
+  styleIf('light', { stroke: colors.white }),
+)
 
-export const Caption = styled('figcaption')({
-  ...font('bold'),
-  position: 'absolute',
-  top: '1px',
-  left: 0,
-  width: '100%',
-  height: '100%',
-  paddingTop: '1em',
-  lineHeight: 1,
-  textAlign: 'center',
-  fontSize: '1em',
-  fontVariantNumeric: 'tabular-nums',
-  fontFeatureSettings: 'tnum',
-  letterSpacing: '-0.05em',
-},
+export const Caption = styled('figcaption')(
+  {
+    ...font('bold'),
+    position: 'absolute',
+    top: '1px',
+    left: 0,
+    width: '100%',
+    height: '100%',
+    paddingTop: '1em',
+    lineHeight: 1,
+    textAlign: 'center',
+    fontSize: '1em',
+    fontVariantNumeric: 'tabular-nums',
+    fontFeatureSettings: 'tnum',
+    letterSpacing: '-0.05em',
+  },
   fontSize,
   space,
-  color
+  color,
 )
 
 export const Sup = styled('sup')({ verticalAlign: 'unset' })

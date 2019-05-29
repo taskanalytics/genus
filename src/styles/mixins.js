@@ -39,7 +39,7 @@ const textWeights = {
   bold: 700,
 }
 
-export const font = (weight) => {
+export const font = weight => {
   const result = {
     fontFamily: 'Brandon Text, sans-serif',
   }

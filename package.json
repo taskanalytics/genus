@@ -35,13 +35,16 @@
       "*.js": [
         "prettier-standard",
         "git add",
-        "jest"
+        "yarn test"
       ],
       "*.{json,md}": [
         "prettier-standard",
         "git add"
       ]
     }
+  },
+  "prettier": {
+    "trailingComma": "all"
   },
   "keywords": [],
   "author": [

@@ -11,20 +11,17 @@ class Button extends PureComponent {
   }
 
   render () {
-    const {
-      to,
-      ...props
-    } = this.props
+    const { to, ...props } = this.props
 
     if (typeof this.props.loading === 'string') {
       props.children = this.props.loading
     }
 
     if (to) {
-      return <StyledLink {...props} href={to} data-genus="Button" />
+      return <StyledLink {...props} href={to} data-genus='Button' />
     }
 
-    return <StyledButton {...props} data-genus="Button" />
+    return <StyledButton {...props} data-genus='Button' />
   }
 }
 

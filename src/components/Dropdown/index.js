@@ -15,8 +15,10 @@ import {
 class Dropdown extends Component {
   static defaultProps = {
     right: false,
-    renderTrigger: (props) => (
-      <button type="button" {...props}>Toggle</button>
+    renderTrigger: props => (
+      <button type='button' {...props}>
+        Toggle
+      </button>
     ),
   }
 
@@ -30,13 +32,13 @@ class Dropdown extends Component {
     })
   }
 
-  onClickOutside = (event) => {
+  onClickOutside = event => {
     if (this.dd && !this.dd.contains(event.target)) {
       this.closeMenu()
     }
   }
 
-  toggle = (event) => {
+  toggle = event => {
     event.preventDefault()
     const open = !this.state.open
     this.setState({ open }, () => {
@@ -52,7 +54,7 @@ class Dropdown extends Component {
     document.removeEventListener('click', this.onClickOutside)
   }
 
-  renderActions = (actions) => {
+  renderActions = actions => {
     const passedProps = { close: this.closeMenu }
     if (typeof actions === 'function') {
       return actions({
@@ -76,38 +78,42 @@ class Dropdown extends Component {
         case 'heading':
           return <StyledHeading {...props}>{action.name}</StyledHeading>
         case 'component':
-          return <StyledItem {...props}><action.render /></StyledItem>
+          return (
+            <StyledItem {...props}>
+              <action.render />
+            </StyledItem>
+          )
         default:
-          return <StyledItem
-            {...props}
-            onClick={e => {
-              e.stopPropagation()
-              action.action(e, passedProps)
-              this.closeMenu()
-            }}
-          >{action.name}</StyledItem>
+          return (
+            <StyledItem
+              {...props}
+              onClick={e => {
+                e.stopPropagation()
+                action.action(e, passedProps)
+                this.closeMenu()
+              }}
+            >
+              {action.name}
+            </StyledItem>
+          )
       }
     })
   }
 
   render () {
-    const {
-      right,
-      actions,
-      renderTrigger,
-    } = this.props
+    const { right, actions, renderTrigger } = this.props
     const { open } = this.state
     const dialogStyles = this.props.dialogStyles || {}
 
     return (
-      <StyledWrapper
-        data-genus="Dropdown"
-      >
-        { renderTrigger({
+      <StyledWrapper data-genus='Dropdown'>
+        {renderTrigger({
           onClick: this.toggle,
-        }) }
+        })}
         <StyledDropdown
-          ref={ref => { this.dd = findDOMNode(ref) }}
+          ref={ref => {
+            this.dd = findDOMNode(ref)
+          }}
           open={open}
           right={right}
           css={dialogStyles}
@@ -120,10 +126,7 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-  actions: T.oneOfType([
-    T.array,
-    T.func,
-  ]).isRequired,
+  actions: T.oneOfType([T.array, T.func]).isRequired,
   right: T.bool,
   renderTrigger: T.func,
   dialogStyles: T.object,

@@ -8,7 +8,6 @@ import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import visualizer from 'rollup-plugin-visualizer'
 import filesize from 'rollup-plugin-filesize'
 
-
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
 const exports = 'named'
@@ -22,12 +21,9 @@ const globals = {
 export default {
   input: 'src/index.js',
   external: id => {
-    return [
-      /react/,
-      /emotion/,
-      /polished/,
-      /styled-system/,
-    ].some(r => r.test(id))
+    return [/react/, /emotion/, /polished/, /styled-system/].some(r =>
+      r.test(id),
+    )
   },
   plugins: [
     resolve(),
@@ -39,15 +35,16 @@ export default {
       exclude: 'node_modules/**',
       babelrc: false,
       presets: [
-        ['@babel/preset-env', {
-          modules: false,
-        }],
+        [
+          '@babel/preset-env',
+          {
+            modules: false,
+          },
+        ],
         '@babel/preset-react',
         '@emotion/babel-preset-css-prop',
       ],
-      plugins: [
-        '@babel/plugin-proposal-class-properties',
-      ],
+      plugins: ['@babel/plugin-proposal-class-properties'],
     }),
     filesize(),
     sizeSnapshot({
@@ -57,8 +54,8 @@ export default {
       compress: {
         global_defs: {
           'process.env.NODE_ENV': 'production',
-        }
-      }
+        },
+      },
     }),
     visualizer({
       filename: './catalog/static/bundle-stats.html',

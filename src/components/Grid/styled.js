@@ -42,7 +42,7 @@ export const StyledBox = styled('div')(
   alignSelf,
   justifySelf,
   position,
-  overflow
+  overflow,
 )
 
 export const StyledFlex = styled(StyledBox, {

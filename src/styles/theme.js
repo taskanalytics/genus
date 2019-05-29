@@ -3,22 +3,17 @@ import { colors } from './colors'
 
 const troubleDark = '#FF5915'
 const goodDark = '#3BBE77'
-const space = [ 0, 6, 12, 18, 24, 48, 96 ]
+const space = [0, 6, 12, 18, 24, 48, 96]
 
-const createShadow = (spaceStep, baseColor) => (
+const createShadow = (spaceStep, baseColor) =>
   `0 2px ${space[spaceStep]}px 0 ${transparentize(0.4, baseColor)}`
-)
 
 const theme = {
-  breakpoints: [
-    '32em', '48em', '64em',
-  ],
+  breakpoints: ['32em', '48em', '64em'],
   space,
   radii: [0, 4, 8, 16, 32],
   radius: 4,
-  fontSizes: [
-    12, 16, 18, 24, 36, 72,
-  ],
+  fontSizes: [12, 16, 18, 24, 36, 72],
   shadows: {
     neutral: {
       small: `0 2px ${space[1]}px 0 rgba(0,0,0,.1)`,

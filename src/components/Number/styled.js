@@ -13,7 +13,7 @@ export const Dl = styled.dl(
   },
   color,
   space,
-  width
+  width,
 )
 
 export const Dt = styled('dt', { shouldForwardProp })(
@@ -24,7 +24,7 @@ export const Dt = styled('dt', { shouldForwardProp })(
   fontSize,
   space,
   width,
-  color
+  color,
 )
 
 export const Dd = styled.dd(({ size }) => ({

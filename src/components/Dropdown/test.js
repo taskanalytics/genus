@@ -1,19 +1,25 @@
 import React from 'react'
-import {ThemeProvider} from 'emotion-theming'
-import { render, fireEvent, waitForElement, cleanup } from 'react-testing-library'
+import { ThemeProvider } from 'emotion-theming'
+import {
+  render,
+  fireEvent,
+  waitForElement,
+  cleanup,
+} from 'react-testing-library'
 
 import theme from '../../styles/theme'
 import Dropdown from './index.js'
 
-const renderComponent = (props) => render(
-  <ThemeProvider theme={theme}>
-    <Dropdown {...props} />
-  </ThemeProvider>
-)
+const renderComponent = props =>
+  render(
+    <ThemeProvider theme={theme}>
+      <Dropdown {...props} />
+    </ThemeProvider>,
+  )
 
 const actions = [
-  {name: 'Act', action: jest.fn()},
-  {name: 'Delete', action: jest.fn()},
+  { name: 'Act', action: jest.fn() },
+  { name: 'Delete', action: jest.fn() },
 ]
 
 afterEach(cleanup)

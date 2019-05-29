@@ -4,11 +4,7 @@ import getClassification from '../../utils/completion-rate-classification'
 import { colors } from '../../styles/colors'
 import Percentage from '../Percentage'
 
-import {
-  Wrapper,
-  Meter,
-  Label,
-} from './styled'
+import { Wrapper, Meter, Label } from './styled'
 
 class ProgressBar extends Component {
   static propTypes = {
@@ -29,7 +25,7 @@ class ProgressBar extends Component {
 
   render () {
     let { min, max, value, light, empty, label, color, ...rest } = this.props
-    const valid =  value !== undefined && !isNaN(value)
+    const valid = value !== undefined && !isNaN(value)
     const val = valid ? Math.round(value * 10) / 10 : false
 
     const colorMap = {
@@ -54,13 +50,13 @@ class ProgressBar extends Component {
     const props = { light, color, ...rest }
 
     return (
-      <Wrapper {...props} data-genus="ProgressBar">
+      <Wrapper {...props} data-genus='ProgressBar'>
         <Meter {...meterProps}>
-          { !empty && color &&
+          {!empty && color && (
             <Label color={color}>
-              { label || <Percentage size="small" value={val} /> }
+              {label || <Percentage size='small' value={val} />}
             </Label>
-          }
+          )}
         </Meter>
       </Wrapper>
     )

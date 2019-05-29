@@ -1,26 +1,42 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {ThemeProvider} from 'emotion-theming'
+import { ThemeProvider } from 'emotion-theming'
 
-import {Catalog} from 'catalog'
-import {injectGlobal} from 'emotion'
+import { Catalog } from 'catalog'
+import { injectGlobal } from 'emotion'
 import theme from '../src/styles/theme'
 import fonts from './fonts'
 
 fonts.forEach(font => {
   injectGlobal(`@font-face { ${font['@font-face']} }`)
 })
-injectGlobal('body', `{
+injectGlobal(
+  'body',
+  `{
   font-family: "Brandon Text", sans-serif;
-}`)
+}`,
+)
 
 const pages = [
-  {path: '/', title: 'Introduction', component: require('./Introduction.md')},
-  {path: '/assets', title: 'Logo & assets', component: require('./assets.md')},
-  {path: '/typography', title: 'Typography', component: require('./Typography.md')},
-  {path: '/colors', title: 'Colors', component: require('./Colors.js')},
-  {path: '/tone-of-voice', title: 'Tone of voice', component: require('./ToneOfVoice.md')},
-  {path: '/components',
+  { path: '/', title: 'Introduction', component: require('./Introduction.md') },
+  {
+    path: '/assets',
+    title: 'Logo & assets',
+    component: require('./assets.md'),
+  },
+  {
+    path: '/typography',
+    title: 'Typography',
+    component: require('./Typography.md'),
+  },
+  { path: '/colors', title: 'Colors', component: require('./Colors.js') },
+  {
+    path: '/tone-of-voice',
+    title: 'Tone of voice',
+    component: require('./ToneOfVoice.md'),
+  },
+  {
+    path: '/components',
     title: 'Components',
     pages: [
       {
@@ -77,5 +93,5 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Catalog {...config} />
   </ThemeProvider>,
-  document.getElementById('catalog')
+  document.getElementById('catalog'),
 )

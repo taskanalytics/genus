@@ -1,11 +1,4 @@
-import {
-  Input,
-  PasswordInput,
-  Select,
-  CheckBox,
-  Radio,
-  withState,
-} from '.'
+import { Input, PasswordInput, Select, CheckBox, Radio, withState } from '.'
 
 import { Flex, Box } from '../Grid'
 import Text from '../Text'

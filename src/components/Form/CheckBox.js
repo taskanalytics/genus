@@ -13,15 +13,23 @@ class CheckBox extends Component {
     const { label, error, touched, ...rest } = this.props
 
     return (
-      <StyledCheckRadioLabel touched={touched} error={error}
-        data-genus="CheckBox"
+      <StyledCheckRadioLabel
+        touched={touched}
+        error={error}
+        data-genus='CheckBox'
       >
-        <StyledCheckRadio type="checkbox" touched={touched} error={error} {...rest}>
-        </StyledCheckRadio>
+        <StyledCheckRadio
+          type='checkbox'
+          touched={touched}
+          error={error}
+          {...rest}
+        />
         <StyledCheckBoxIndicator touched={touched} error={error}>
           <StyledCheckBoxMark />
         </StyledCheckBoxIndicator>
-        <StyledLabelCheckRadio touched={touched} error={error}>{label}</StyledLabelCheckRadio>
+        <StyledLabelCheckRadio touched={touched} error={error}>
+          {label}
+        </StyledLabelCheckRadio>
       </StyledCheckRadioLabel>
     )
   }
@@ -29,7 +37,7 @@ class CheckBox extends Component {
 
 CheckBox.propTypes = {
   label: T.string,
-  error: T.oneOfType([ T.string, T.bool ]),
+  error: T.oneOfType([T.string, T.bool]),
   placeholder: T.string,
   value: T.string,
   touched: T.bool,

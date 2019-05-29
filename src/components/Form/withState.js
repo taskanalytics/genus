@@ -9,11 +9,13 @@ export default function withState (Wrapped) {
     }
 
     render () {
-      return <Wrapped
-        {...this.props}
-        value={this.state.value}
-        onChange={this.onChange}
-      />
+      return (
+        <Wrapped
+          {...this.props}
+          value={this.state.value}
+          onChange={this.onChange}
+        />
+      )
     }
   }
 }

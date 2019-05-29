@@ -9,4 +9,4 @@ export const getRounded = value => {
 export const getDelta = (a, b) => getRounded(b - a)
 
 export const getPercentage = (part, total) =>
-  total > 0 ? getRounded(part / total * 100) : 0
+  total > 0 ? getRounded((part / total) * 100) : 0

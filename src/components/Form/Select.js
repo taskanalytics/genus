@@ -19,15 +19,12 @@ class Select extends Component {
     const { label, error, renderAfter, children, ...rest } = this.props
 
     return (
-      <StyledWrapper error={error} data-genus="Select">
+      <StyledWrapper error={error} data-genus='Select'>
         <StyledLabel>{label}</StyledLabel>
-        <StyledSelect
-          error={error}
-          {...rest}
-        >
+        <StyledSelect error={error} {...rest}>
           {children}
         </StyledSelect>
-        <StyledAfter>{ renderAfter({ label, error, ...rest }) }</StyledAfter>
+        <StyledAfter>{renderAfter({ label, error, ...rest })}</StyledAfter>
       </StyledWrapper>
     )
   }
@@ -35,7 +32,7 @@ class Select extends Component {
 
 Select.propTypes = {
   label: T.string,
-  error: T.oneOfType([ T.string, T.bool ]),
+  error: T.oneOfType([T.string, T.bool]),
   placeholder: T.string,
   value: T.string,
   renderAfter: T.func,

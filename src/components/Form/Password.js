@@ -15,10 +15,10 @@ export default class PasswordInput extends React.Component {
     return (
       <Input
         {...this.props}
-        data-genus="PasswordInput"
-        renderAfter={ () => <Text onClick={this.toggle}>
-          { show ? SHOW : HIDE }
-        </Text> }
+        data-genus='PasswordInput'
+        renderAfter={() => (
+          <Text onClick={this.toggle}>{show ? SHOW : HIDE}</Text>
+        )}
         type={show ? 'text' : 'password'}
       />
     )

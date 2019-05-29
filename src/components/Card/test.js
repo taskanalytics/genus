@@ -1,15 +1,16 @@
 import React from 'react'
-import {ThemeProvider} from 'emotion-theming'
+import { ThemeProvider } from 'emotion-theming'
 import { render, fireEvent, waitForElement } from 'react-testing-library'
 
 import theme from '../../styles/theme'
 import Card from './index.js'
 
-const renderComponent = (props) => render(
-  <ThemeProvider theme={theme}>
-    <Card {...props} />
-  </ThemeProvider>
-)
+const renderComponent = props =>
+  render(
+    <ThemeProvider theme={theme}>
+      <Card {...props} />
+    </ThemeProvider>,
+  )
 
 describe('<Card> component', () => {
   it('renders a heading', () => {
@@ -23,7 +24,7 @@ describe('<Card> component', () => {
   it('renders actions when clicked', async () => {
     const { container } = renderComponent({
       children: <span>Text</span>,
-      actions: [{name: 'Test'}],
+      actions: [{ name: 'Test' }],
     })
     const node = container.firstChild
     expect(node).toMatchSnapshot()
@@ -35,7 +36,7 @@ describe('<Card> component', () => {
     fireEvent.click(button)
 
     const action = await waitForElement(() =>
-      actionsContainer.querySelector('div[open]>button')
+      actionsContainer.querySelector('div[open]>button'),
     )
 
     expect(action.textContent).toBe('Test')

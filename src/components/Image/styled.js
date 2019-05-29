@@ -32,7 +32,7 @@ export const Wrapper = styled('figure')(
   justifySelf,
   borders,
   boxShadow,
-  borderRadius
+  borderRadius,
 )
 export const StyledImage = styled('img', {
   shouldForwardProp: prop => isPropValid(prop) || prop === 'srcset',

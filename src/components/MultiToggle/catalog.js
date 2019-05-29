@@ -10,7 +10,7 @@ export default {
     Box,
     Flex,
     options,
-    manyOptions: options(40, { glue: 3, destructive: [0,1] }),
+    manyOptions: options(40, { glue: 3, destructive: [0, 1] }),
   },
   component: require('./README.md'),
 }

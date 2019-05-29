@@ -10,24 +10,20 @@ import {
 
 class EmptyState extends Component {
   render () {
-    const {
-      actions,
-      heading,
-      body,
-      children,
-      ...props
-    } = this.props
+    const { actions, heading, body, children, ...props } = this.props
     return (
-      <StyledBox p={3} {...props} data-genus="EmptyState">
+      <StyledBox p={3} {...props} data-genus='EmptyState'>
         <StyledHeading as='h2'>{heading}</StyledHeading>
         <StyledBody mb={4}>{children || body}</StyledBody>
-        {actions &&
+        {actions && (
           <ActionsList role='toolbar'>
-            {actions.map((action, key) =>
-              <ActionItem role='menuitem' key={key}>{action}</ActionItem>
-            )}
+            {actions.map((action, key) => (
+              <ActionItem role='menuitem' key={key}>
+                {action}
+              </ActionItem>
+            ))}
           </ActionsList>
-        }
+        )}
       </StyledBox>
     )
   }

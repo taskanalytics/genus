@@ -13,7 +13,9 @@ describe('<Number> component', () => {
   })
 
   it('renders with description as dl', () => {
-    const { container } = render(<NumberComponent description="Test" value={10} />)
+    const { container } = render(
+      <NumberComponent description='Test' value={10} />,
+    )
     const node = container.firstChild
     expect(node).toMatchSnapshot()
     expect(node.tagName).toBe('DL')

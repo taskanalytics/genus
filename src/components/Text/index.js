@@ -10,13 +10,13 @@ const pillMap = {
   muted: ['muted', 'white'],
 }
 
-function Text ({ pill, ...props} ) {
+function Text ({ pill, ...props }) {
   const localProps = {}
   if (pill) {
     let bg, color
     if (typeof pill === 'string') {
       if (pill in pillMap) {
-        [ bg, color ] = pillMap[pill]
+        ;[bg, color] = pillMap[pill]
       } else {
         const validKeys = Object.keys(pillMap).join(', ')
         throw new Exception(`
@@ -25,7 +25,7 @@ function Text ({ pill, ...props} ) {
         `)
       }
     } else if (Array.isArray(pill)) {
-      [ bg, color ] = pill
+      ;[bg, color] = pill
     }
 
     localProps.bg = bg
@@ -35,14 +35,7 @@ function Text ({ pill, ...props} ) {
     localProps.py = 1
     localProps.px = 2
   }
-  return (
-    <StyledText
-      {...localProps}
-      {...props}
-      pill={pill}
-      data-genus="Text"
-    />
-  )
+  return <StyledText {...localProps} {...props} pill={pill} data-genus='Text' />
 }
 
 export default Text

@@ -19,37 +19,37 @@ const progressLabel = keyframes({
   },
 })
 
-export const Wrapper = styled(Box)(({ color, theme, light }) =>
+export const Wrapper = styled(Box)(({ color, theme, light }) => {
+  const css = {
+    position: 'relative',
+    width: '100%',
+    marginTop: `${spacing.unit * 4 - 4}px`,
+    borderRadius: spacing.unit,
+    backgroundColor: rgba(theme.colors.primary, 0.2),
+  }
+
+  if (light) {
+    css.color = theme.colors.text
+    css.backgroundColor = rgba(theme.colors.white, 0.2)
+  } else if (color) {
+    css.backgroundColor = rgba(color, 0.5)
+  }
+  return css
+}, space)
+
+export const Meter = styled('span')(
   {
-    const css = {
-      position: 'relative',
-      width: '100%',
-      marginTop: `${spacing.unit * 4 - 4}px`,
-      borderRadius: spacing.unit,
-      backgroundColor: rgba(theme.colors.primary, .2),
-    }
-
-    if (light) {
-      css.color = theme.colors.text
-      css.backgroundColor = rgba(theme.colors.white, 0.2)
-    } else if (color) {
-      css.backgroundColor = rgba(color, 0.5)
-    }
-    return css
+    position: 'relative',
+    display: 'block',
+    height: spacing.small,
+    borderRadius: spacing.unit,
+    transition: `max-width .5s ease-in-out`,
   },
-  space
+  ({ width, color, light }) => ({
+    maxWidth: `${width}%`,
+    backgroundColor: light ? colors.white : color || colors.base,
+  }),
 )
-
-export const Meter = styled('span')({
-  position: 'relative',
-  display: 'block',
-  height: spacing.small,
-  borderRadius: spacing.unit,
-  transition: `max-width .5s ease-in-out`,
-}, ({ width, color, light }) => ({
-  maxWidth: `${width}%`,
-  backgroundColor: light ? colors.white : (color || colors.base),
-}))
 
 export const Label = styled('span')({
   position: 'absolute',

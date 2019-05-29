@@ -18,12 +18,11 @@ class NumberComponent extends Component {
 
     if (description) {
       return (
-        <Dl data-genus="Number" {...props}>
-          <Dt
-            fontSize={fontSize}
-            color={color}
-          >
-            {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
+        <Dl data-genus='Number' {...props}>
+          <Dt fontSize={fontSize} color={color}>
+            {prefix && prefix}
+            {value}
+            {suffix && <Suffix>{suffix}</Suffix>}
           </Dt>
           <Dd size={size}>{description}</Dd>
         </Dl>
@@ -35,9 +34,11 @@ class NumberComponent extends Component {
         size={size}
         color={color}
         {...props}
-        data-genus="Number"
+        data-genus='Number'
       >
-        {prefix && prefix}{value}{suffix && <Suffix>{suffix}</Suffix>}
+        {prefix && prefix}
+        {value}
+        {suffix && <Suffix>{suffix}</Suffix>}
       </StyledSpan>
     )
   }
