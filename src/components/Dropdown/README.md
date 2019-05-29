@@ -1,13 +1,38 @@
 ### Props
-```code
-[actions: [{name, type, action}]]       Actions can be an array
-[actions: props => {}]                  Or actions can be a render function
-[renderTrigger: props => {}]            Render function for rendering the trigger
-[dialogStyles: {}]                      An object with CSS to apply to the dialog element
-[right]                                 Attempt to position the dropdown from the right
+
+```table
+span: 6
+rows:
+  - Prop: '**actions**'
+    Type: array | function
+    Description: Dropdown action items
+  - Prop: 'action**.name**'
+    Type: string
+    Description: The rendered text for an action item
+  - Prop: 'action**.type**'
+    Type: string [item, destructive, separator, heading, component]
+    Description: You can render headings and separators, but also indicate that a rendering function should be used to render a component
+  - Prop: 'action**.action**'
+    Type: function
+    Description: 'Function to call on click for `item` type action items'
+  - Prop: 'action**.props**'
+    Type: object
+    Description: Pass extra props to the items styled wrapper
+  - Prop: 'action**.render**'
+    Type: function
+    Description: Take full control of rendering action item
+  - Prop: '**renderTrigger**'
+    Type: function
+    Description: A function to render the trigger element (defaults to a simple button)
+  - Prop: '**dialogStyles**'
+    Type: object
+    Description: Inject custom CSS onto the dropdown content wrapper
+  - Prop: '**right**'
+    Type: bool
+    Description: Toggle crude float content wrapper towards right
 ```
 
-## Variations
+## Examples
 
 ```react
 span: 3
@@ -29,6 +54,9 @@ showSource: true
         name: 'Delete',
         type: 'destructive',
         action: () => console.log('Delete'),
+        props: {
+          fontSize: 3,
+        },
       }
     ]} />
 </Box>

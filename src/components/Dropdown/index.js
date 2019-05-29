@@ -63,6 +63,7 @@ class Dropdown extends Component {
 
     return actions.map((action, key) => {
       const props = {
+        ...(action.props || {}),
         key: `action-${key}`,
         destructive: action.type === 'destructive',
       }
@@ -107,10 +108,8 @@ class Dropdown extends Component {
         }) }
         <StyledDropdown
           ref={ref => { this.dd = findDOMNode(ref) }}
-          color="text"
           open={open}
           right={right}
-          mt={1}
           css={dialogStyles}
         >
           {this.renderActions(actions)}

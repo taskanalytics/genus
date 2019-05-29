@@ -1,16 +1,16 @@
 {
   "dist/genus.js": {
-    "bundled": 328647,
+    "bundled": 328658,
     "minified": 279194,
     "gzipped": 39873
   },
   "dist/genus.umd.js": {
-    "bundled": 337049,
+    "bundled": 337060,
     "minified": 267327,
     "gzipped": 38460
   },
   "dist/genus.es.js": {
-    "bundled": 326272,
+    "bundled": 326283,
     "minified": 276906,
     "gzipped": 39633,
     "treeshaked": {
