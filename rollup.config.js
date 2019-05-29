@@ -6,6 +6,8 @@ import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import visualizer from 'rollup-plugin-visualizer'
+import filesize from 'rollup-plugin-filesize'
+
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 
@@ -47,7 +49,10 @@ export default {
         '@babel/plugin-proposal-class-properties',
       ],
     }),
-    sizeSnapshot(),
+    filesize(),
+    sizeSnapshot({
+      printInfo: false,
+    }),
     terser({
       compress: {
         global_defs: {
@@ -61,28 +66,11 @@ export default {
     }),
     //analyze({ limit: 10 }),
   ],
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-      exports,
-      globals,
-    },
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true,
-      exports,
-      globals,
-    },
-    {
-      file: pkg['umd:main'],
-      format: 'umd',
-      name: pkg.name,
-      sourcemap: true,
-      exports,
-      globals,
-    },
-  ],
+  output: {
+    file: pkg.module,
+    format: 'es',
+    sourcemap: true,
+    exports,
+    globals,
+  },
 }

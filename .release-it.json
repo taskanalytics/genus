@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "beforeStage": "yarpm run dist"
+  },
   "github": {
     "release": true
   }
