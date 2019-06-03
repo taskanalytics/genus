@@ -84,7 +84,7 @@ export const StyledSeparator = styled('hr')(
   css({
     bg: 'muted',
     border: 0,
-    mx: 1,
+    m: 1,
     height: 1,
   }),
 )

@@ -63,11 +63,20 @@ export default {
     }),
     //analyze({ limit: 10 }),
   ],
-  output: {
-    file: pkg.module,
-    format: 'es',
-    sourcemap: true,
-    exports,
-    globals,
-  },
+  output: [
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: true,
+      exports,
+      globals,
+    },
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+      exports,
+      globals,
+    },
+  ],
 }

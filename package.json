@@ -3,7 +3,6 @@
   "version": "11.0.0-0",
   "description": "",
   "main": "dist/genus.js",
-  "umd:main": "dist/genus.umd.js",
   "module": "dist/genus.es.js",
   "files": [
     "dist/"
