@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import css from '@styled-system/css'
 import { fontSize, fontWeight, color } from 'styled-system'
 import Text from '../Text'
 import { Flex } from '../Grid'
@@ -42,7 +43,7 @@ export const StyledInput = styled('input')(
   ({ theme, error }) => {
     return {
       ...font(),
-      width: '100%',
+      width: 'calc(100% - 16px)',
       border: 'none',
       background: 'transparent',
       fontSize: theme.fontSizes[1],
@@ -216,11 +217,14 @@ export const StyledRadioIndicator = styled('span')(
   }),
 )
 
-export const StyledValidatedMark = styled('span')(({ theme }) => ({
-  width: 8,
-  height: 14,
-  marginRight: 10,
-  border: `solid ${theme.colors.validated}`,
-  borderWidth: '0 3.5px 3.5px 0',
-  transform: 'rotate(45deg)',
-}))
+export const StyledValidatedMark = styled('span')(({ theme }) =>
+  css({
+    width: 8,
+    height: 14,
+    mx: 10,
+    flexShrink: 0,
+    border: `solid ${theme.colors.validated}`,
+    borderWidth: '0 3.5px 3.5px 0',
+    transform: 'rotate(45deg)',
+  }),
+)

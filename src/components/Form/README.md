@@ -3,9 +3,9 @@ Form controls
 ```react
 showSource: true
 ---
-<Flex flexWrap width={600} flexDirection="column" p={4} bg="white">
+<Flex flexWrap width={[1,600]} flexDirection="column" p={4} bg="white">
   <Box pb={3}>
-    <Input 
+    <Input
       placeholder="Username (default check mark) "
       fontSize={44}
       color="black"
@@ -19,7 +19,7 @@ showSource: true
     <Input placeholder="No label" />
   </Box>
   <Box pb={3}>
-    <Input 
+    <Input
       placeholder="Username (custom check mark)"
       label="Username"
       renderAfter={ ({ value }) => (
@@ -28,29 +28,29 @@ showSource: true
     />
   </Box>
   <Box pb={3}>
-    <Input 
-      placeholder="What is your work email?" 
+    <Input
+      placeholder="What is your work email?"
       type="email"
       label="Email"
       error="Badly formatted email"
     />
   </Box>
   <Box pb={3}>
-    <PasswordInput 
-      placeholder="Select a secure password" 
+    <PasswordInput
+      placeholder="Select a secure password"
       label="Password"
     />
   </Box>
   <Box pb={3}>
-    <Select 
-      placeholder="What is your work email?" 
+    <Select
+      placeholder="What is your work email?"
       label="Email"
     >
       <option>Option A</option>
       <option>Option B</option>
     </Select>
-    <Select 
-      placeholder="Well" 
+    <Select
+      placeholder="Well"
       label="Email"
       fontSize={3}
       caretSize={14}
@@ -68,4 +68,3 @@ showSource: true
   </Box>
 </Flex>
 ```
-
