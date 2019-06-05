@@ -31,7 +31,7 @@ state: { selected: 'read' }
 state: { selected: 'enable' }
 showSource: true
 ---
-<Box bg="lightgrey" p={3} width={.5}>
+<Box bg="lightgrey" p={3} width={[1, 1 / 2]}>
   <MultiToggle
     block
     options={[
@@ -49,7 +49,7 @@ showSource: true
 state: { selected: 'ipsum' }
 showSource: true
 ---
-<Box bg="lightgrey" p={3} width={1 / 2} >
+<Box bg="lightgrey" p={3} width={[1, 1 / 2]} >
   <MultiToggle
     maxHeight={300}
     css={{ overflowY: 'auto' }}
