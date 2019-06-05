@@ -11,7 +11,7 @@ exports[`<Dropdown> component renders trigger button and hidden content 1`] = `
     Toggle
   </button>
   <div
-    class="css-8ymf9w"
+    class="css-9hvmkc"
     data-genus="Box"
   >
     <button

@@ -31,7 +31,7 @@ function Image ({
       <StyledImage
         src={src}
         borderRadius={borderRadius}
-        srcset={srcset}
+        srcSet={srcset}
         sizes={sizes}
         alt={alt}
         width={width}
@@ -48,12 +48,7 @@ Image.defaultProps = {
 
 Image.propTypes = {
   src: T.string.isRequired,
-  sources: T.arrayOf(
-    T.shape({
-      src: T.string,
-      breakpoint: T.string,
-    }),
-  ),
+  sources: T.object,
   sizes: T.string,
   alt: T.string.isRequired,
   ...propTypes,

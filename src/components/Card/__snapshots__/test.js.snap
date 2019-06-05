@@ -42,7 +42,7 @@ exports[`<Card> component renders actions when clicked 1`] = `
         </span>
       </button>
       <div
-        class="css-8q8itd"
+        class="css-nlt6tv"
         data-genus="Box"
       >
         <button
