@@ -1,6 +1,6 @@
 {
   "name": "@taskanalytics/genus",
-  "version": "11.0.0-1",
+  "version": "11.0.0-2",
   "description": "",
   "main": "dist/genus.js",
   "module": "dist/genus.es.js",
