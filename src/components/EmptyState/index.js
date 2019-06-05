@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import T from 'prop-types'
-import {
-  StyledBox,
-  StyledHeading,
-  StyledBody,
-  ActionsList,
-  ActionItem,
-} from './styled'
+import { Box, Flex } from '../Grid'
+import Heading from '../Heading'
+import { StyledBox, StyledBody, ActionItem } from './styled'
 
 class EmptyState extends Component {
   render () {
     const { actions, heading, body, children, ...props } = this.props
     return (
       <StyledBox p={3} {...props} data-genus='EmptyState'>
-        <StyledHeading as='h2'>{heading}</StyledHeading>
-        <StyledBody mb={4}>{children || body}</StyledBody>
+        <Heading as='h2' color='muted'>
+          {heading}
+        </Heading>
+        <Box color='muted' mt={2}>
+          {children || body}
+        </Box>
         {actions && (
-          <ActionsList role='toolbar'>
+          <Flex mt={3} flexDirection={['column', 'row']}>
             {actions.map((action, key) => (
-              <ActionItem role='menuitem' key={key}>
-                {action}
-              </ActionItem>
+              <ActionItem key={key}>{action}</ActionItem>
             ))}
-          </ActionsList>
+          </Flex>
         )}
       </StyledBox>
     )
