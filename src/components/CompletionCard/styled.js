@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { completionGradient, ellipsis, fontSize } from '../../styles/mixins'
+import { completionGradient, ellipsis } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import Card from '../Card'
 import Heading from '../Heading'
@@ -22,6 +22,5 @@ export const StyledCard = styled(Card)(({ completion, theme }) => {
 })
 
 export const StyledHeading = styled(Heading)({
-  ...fontSize('large'),
   ...ellipsis(),
 })

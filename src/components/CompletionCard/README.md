@@ -6,6 +6,7 @@
 ```
 
 ## Default
+
 ```react
 span: 3
 showSource: true
@@ -14,7 +15,7 @@ showSource: true
   name="Website"
   completion={{
     value: 90.2,
-    description: 'completion rate'
+    description: 'completion'
   }}
   responses={{
     value: 2192,
@@ -23,6 +24,7 @@ showSource: true
 ```
 
 ## In grid
+
 ```react
 <Flex wrap>
   <Flex width={[1, 1/2, 1/3]} p={2}>
@@ -30,7 +32,7 @@ showSource: true
       name="Website"
       completion={{
         value: 99.6,
-        description: 'completion rate'
+        description: 'completion'
       }}
       responses={{
         value: 9999,
@@ -42,7 +44,7 @@ showSource: true
       name="App"
       completion={{
         value: 78.5,
-        description: 'completion rate'
+        description: 'completion'
       }}
       responses={{
         value: 9999,
@@ -51,10 +53,10 @@ showSource: true
   </Flex>
   <Flex width={[1, 1/2, 1/3]} p={2}>
     <CompletionCard
-      name="Android"
+      name="A rather long name here yes"
       completion={{
         value: 56.2,
-        description: 'completion rate'
+        description: 'completion'
       }}
       responses={{
         value: 9999,
