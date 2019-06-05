@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import { render, fireEvent, waitForElement } from 'react-testing-library'
+import { render, fireEvent, waitForElement } from '@testing-library/react'
 
 import theme from '../../styles/theme'
 import Card from './index.js'

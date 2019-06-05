@@ -5,7 +5,7 @@ import {
   fireEvent,
   waitForElement,
   cleanup,
-} from 'react-testing-library'
+} from '@testing-library/react'
 
 import theme from '../../styles/theme'
 import Dropdown from './index.js'
