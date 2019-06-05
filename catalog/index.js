@@ -10,12 +10,18 @@ import fonts from './fonts'
 fonts.forEach(font => {
   injectGlobal(`@font-face { ${font['@font-face']} }`)
 })
-injectGlobal(
-  'body',
-  `{
-  font-family: "Brandon Text", sans-serif;
-}`,
-)
+injectGlobal`
+  body {
+    font-family: "Brandon Text", sans-serif;
+  }
+
+  *,
+  *:before,
+  *:after
+  {
+    box-sizing: border-box;
+  }
+`
 
 const pages = [
   { path: '/', title: 'Introduction', component: require('./Introduction.md') },
