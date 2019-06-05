@@ -24,9 +24,6 @@ rows:
   - Prop: '**renderTrigger**'
     Type: function
     Description: A function to render the trigger element (defaults to a simple button)
-  - Prop: '**dialogStyles**'
-    Type: object
-    Description: Inject custom CSS onto the dropdown content wrapper
   - Prop: '**right**'
     Type: bool
     Description: Toggle crude float content wrapper towards right
@@ -72,7 +69,6 @@ showSource: true
     renderTrigger={props => {
       return <Button compact {...props}>Toggle it</Button>
     }}
-    dialogStyles={{width: 400}}
     actions={[
       {
         render: ({ onClick, props }) => {
@@ -91,7 +87,6 @@ showSource: true
 </Box>
 ```
 
-
 # Taking full control of the rendered actions
 
 ```react
@@ -102,10 +97,9 @@ showSource: true
     renderTrigger={props => {
       return <Button compact {...props}>Toggle it</Button>
     }}
-    dialogStyles={{width: 600}}
     actions={({close, Item}) => {
       return (
-        <Flex flexDirection="row">
+        <Flex flexDirection="row" width={[1, 600]}>
           <Flex flexDirection="column" width={1/2}>
             <Item onClick={close}>
               <Heading m={0} fontSize={3}>A styled item</Heading>

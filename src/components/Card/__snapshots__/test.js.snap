@@ -20,7 +20,7 @@ exports[`<Card> component renders actions when clicked 1`] = `
     class="css-aaukym"
   >
     <div
-      class="css-1gomreu"
+      class="css-1r3m7kt"
       data-genus="Dropdown"
     >
       <button
@@ -42,9 +42,16 @@ exports[`<Card> component renders actions when clicked 1`] = `
         </span>
       </button>
       <div
-        class="css-f5pcee"
+        class="css-8q8itd"
         data-genus="Box"
       >
+        <button
+          class="css-ms7u4k"
+          data-genus="Button"
+          type="button"
+        >
+          X
+        </button>
         <button
           class="css-nmwv8r"
         >

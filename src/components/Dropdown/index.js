@@ -5,6 +5,7 @@ import T from 'prop-types'
 import { jsx } from '@emotion/core'
 
 import {
+  StyledMobileClose,
   StyledHeading,
   StyledSeparator,
   StyledDropdown,
@@ -121,8 +122,15 @@ class Dropdown extends Component {
           }}
           open={open}
           right={right}
-          css={dialogStyles}
         >
+          <StyledMobileClose
+            onClick={e => {
+              e.stopPropagation()
+              this.closeMenu()
+            }}
+          >
+            X
+          </StyledMobileClose>
           {this.renderActions(actions)}
         </StyledDropdown>
       </StyledWrapper>

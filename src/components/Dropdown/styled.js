@@ -12,39 +12,78 @@ import {
 } from 'styled-system'
 
 import { Box } from '../Grid'
+import Button from '../Button'
 
-export const StyledWrapper = styled(Box)({
-  position: 'relative',
-  display: 'inline-block',
+export const StyledWrapper = styled(Box)(
+  css({
+    position: ['initial', 'relative'],
+    display: 'inline-block',
+  }),
+)
+
+const fadeFromTop = keyframes({
+  '0%': { opacity: 0, top: '40%' },
+  '20%': { opacity: 0.2, top: '50%' },
+  '40%': { opacity: 0.4, top: '70%' },
+  '50%': { opacity: 0.8, top: '90%' },
+  '100%': { opacity: 1, top: null },
+})
+
+const fadeFromBottom = keyframes({
+  '0%': { bottom: '-90%' },
+  '20%': { bottom: '-70%' },
+  '40%': { bottom: '-50%' },
+  '50%': { bottom: '-20%' },
+  '100%': { bottom: null },
 })
 
 export const StyledDropdown = styled(Box)(
-  ({ open, right }) =>
+  ({ theme, open, right }) =>
     css({
-      position: 'absolute',
-      minWidth: 160,
+      position: ['fixed', 'absolute'],
+      minWidth: [1, 160],
       bg: 'white',
       color: 'text',
-      borderRadius: 2,
+      borderRadius: [0, 2],
       borderWidth: 0,
       padding: 1,
-      mt: 1,
-      boxShadow: 'neutral.small',
-      zIndex: 2,
-      display: open ? 'block' : 'none',
+      boxShadow: [`0px 20px 20px 15px ${theme.colors.muted}`, 'neutral.small'],
+      zIndex: 50,
+      display: open ? 'flex' : 'none',
+      flexDirection: 'column',
+      justifyContent: 'start',
       '&:focus': {
         outline: 'none',
       },
-      [right ? 'right' : 'left']: 0,
-      animation: `${keyframes({
-        '0%': { opacity: 0, top: '40%' },
-        '20%': { opacity: 0.2, top: '50%' },
-        '40%': { opacity: 0.4, top: '70%' },
-        '50%': { opacity: 0.8, top: '90%' },
-        '100%': { opacity: 1, top: null },
-      })} 100ms linear`,
+      mt: [0, 1],
+      maxHeight: ['60%', 'unset'],
+      overflow: 'auto',
+      bottom: [0, 'unset'],
+      right: [0, right ? 0 : 'unset'],
+      left: [0, !right ? 0 : 'unset'],
+      animation: [
+        `${fadeFromBottom} 100ms linear`,
+        `${fadeFromTop} 100ms linear`,
+      ],
     }),
   color,
+)
+
+export const StyledMobileClose = styled(Button)(
+  css({
+    display: ['block', 'none'],
+    justifySelf: 'flex-start',
+    alignSelf: 'flex-end',
+    fontSize: 3,
+    border: 'none',
+    p: 0,
+    m: 3,
+    color: 'primary',
+    '&:hover': {
+      boxShadow: 'none',
+      border: 'none',
+    },
+  }),
 )
 
 export const StyledItem = styled('button')(

@@ -43,12 +43,11 @@ describe('<Dropdown> component', () => {
     const dropdown = container.firstChild.lastChild
 
     fireEvent.click(trigger)
-    expect(dropdown).toHaveStyle('display: block;')
+    expect(dropdown).not.toHaveStyle('display: none;')
 
     const buttons = dropdown.querySelectorAll('button')
-    expect(buttons).toHaveLength(2)
-    expect(buttons[0].textContent).toBe('Act')
-    expect(buttons[1].textContent).toBe('Delete')
+    expect(buttons[1].textContent).toBe('Act')
+    expect(buttons[2].textContent).toBe('Delete')
   })
 
   it('calls action fn on action click', () => {
@@ -72,7 +71,7 @@ describe('<Dropdown> component', () => {
     // OPen dropdown
     fireEvent.click(getByText('Toggle'))
 
-    expect(container.firstChild.lastChild).toHaveStyle('display: block;')
+    expect(container.firstChild.lastChild).not.toHaveStyle('display: none;')
 
     // Close with click outside (on container)
     fireEvent.click(container)

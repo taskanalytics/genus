@@ -35,10 +35,10 @@ describe('<Card> component', () => {
 
     fireEvent.click(button)
 
-    const action = await waitForElement(() =>
-      actionsContainer.querySelector('div[open]>button'),
+    const actions = await waitForElement(() =>
+      actionsContainer.querySelectorAll('div[open]>button'),
     )
 
-    expect(action.textContent).toBe('Test')
+    expect(actions[1].textContent).toBe('Test')
   })
 })
