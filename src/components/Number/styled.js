@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
 import shouldForwardProp from '../../utils/should-forward-prop'
-import { fontSize, color, space, width } from 'styled-system'
-
-import * as mixins from '../../styles/mixins'
+import css from '@styled-system/css'
+import { fontSize, color, space, width, lineHeight } from 'styled-system'
 
 export const Dl = styled.dl(
   {
@@ -19,19 +18,24 @@ export const Dl = styled.dl(
 export const Dt = styled('dt', { shouldForwardProp })(
   {
     fontWeight: 700,
+    lineHeight: 1,
     letterSpacing: '-0.03em',
   },
   fontSize,
+  lineHeight,
   space,
   width,
   color,
 )
 
-export const Dd = styled.dd(({ size }) => ({
-  ...mixins.fontSize(size === 'display' ? 'small' : 'xsmall'),
-  whiteSpace: 'nowrap',
-  textTransform: 'lowercase',
-}))
+export const Dd = styled('dd', { shouldForwardProp })(
+  {
+    whiteSpace: 'nowrap',
+    textTransform: 'lowercase',
+    lineHeight: 1,
+  },
+  fontSize,
+)
 
 export const Suffix = styled.span({
   fontSize: '0.65em',

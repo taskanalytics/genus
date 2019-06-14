@@ -24,7 +24,7 @@ class NumberComponent extends Component {
             {value}
             {suffix && <Suffix>{suffix}</Suffix>}
           </Dt>
-          <Dd size={size}>{description}</Dd>
+          <Dd fontSize={size === 'display' ? 2 : 1}>{description}</Dd>
         </Dl>
       )
     }
