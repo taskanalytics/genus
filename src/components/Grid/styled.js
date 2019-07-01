@@ -12,6 +12,8 @@ import {
   textAlign,
   position,
   overflow,
+  justifyItems,
+  alignItems,
 } from 'styled-system'
 
 export const StyledBox = styled('div')(
@@ -34,7 +36,17 @@ export const StyledFlex = styled(StyledBox, {
 
 export const StyledGrid = styled('div', {
   shouldForwardProp: isPropValid,
-})({ display: 'grid' }, grid, layout, space, color, border, position)
+})(
+  { display: 'grid' },
+  grid,
+  layout,
+  space,
+  color,
+  border,
+  position,
+  justifyItems,
+  alignItems,
+)
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({
   width: '100%',
