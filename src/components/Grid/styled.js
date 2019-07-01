@@ -34,7 +34,7 @@ export const StyledFlex = styled(StyledBox, {
 
 export const StyledGrid = styled('div', {
   shouldForwardProp: isPropValid,
-})(grid, layout, space, color, border, position)
+})({ display: 'grid' }, grid, layout, space, color, border, position)
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({
   width: '100%',
