@@ -2,7 +2,7 @@ import * as styles from './styles'
 import theme from './styles/theme'
 import Button from './components/Button'
 import ProgressBar from './components/ProgressBar'
-import { Container, Flex, Box } from './components/Grid'
+import { Container, Flex, Grid, Box } from './components/Grid'
 import Number from './components/Number'
 import Percentage from './components/Percentage'
 import PieChart from './components/PieChart'
@@ -26,6 +26,7 @@ export {
   Container,
   Box,
   Flex,
+  Grid,
   ProgressBar,
   Number,
   Percentage,

@@ -2,61 +2,39 @@ import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
 
 import {
-  width,
-  maxWidth,
-  minWidth,
-  minHeight,
-  height,
-  maxHeight,
-  display,
+  layout,
   space,
+  flexbox,
   color,
-  borders,
-  flex,
-  flexWrap,
-  flexDirection,
-  alignSelf,
-  alignItems,
-  justifyContent,
-  justifySelf,
+  grid,
+  border,
+  shadow,
   textAlign,
-  boxShadow,
   position,
   overflow,
 } from 'styled-system'
 
 export const StyledBox = styled('div')(
-  width,
-  minWidth,
-  minHeight,
-  maxWidth,
-  height,
-  maxHeight,
-  display,
+  layout,
   space,
+  flexbox,
   color,
-  borders,
+  border,
   textAlign,
-  flex,
-  boxShadow,
-  alignSelf,
-  justifySelf,
+  shadow,
   position,
-  overflow,
 )
 
 export const StyledFlex = styled(StyledBox, {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap',
-})(
-  ({ wrap }) => ({
-    display: 'flex',
-    flexWrap: wrap ? 'wrap' : 'initial',
-  }),
-  flexWrap,
-  alignItems,
-  justifyContent,
-  flexDirection,
-)
+})(({ wrap }) => ({
+  display: 'flex',
+  flexWrap: wrap ? 'wrap' : 'initial',
+}))
+
+export const StyledGrid = styled('div', {
+  shouldForwardProp: isPropValid,
+})(grid, layout, space, color, border, position)
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({
   width: '100%',

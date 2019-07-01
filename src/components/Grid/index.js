@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { StyledBox, StyledContainer, StyledFlex } from './styled'
+import { StyledBox, StyledContainer, StyledFlex, StyledGrid } from './styled'
 
 // We use classes because we need the grid components to work with refs
 
@@ -16,10 +16,16 @@ class Flex extends Component {
   }
 }
 
+class Grid extends Component {
+  render () {
+    return <StyledGrid data-genus='Grid' {...this.props} />
+  }
+}
+
 class Container extends Component {
   render () {
     return <StyledContainer data-genus='Container' {...this.props} />
   }
 }
 
-export { Box, Flex, Container }
+export { Box, Flex, Grid, Container }
