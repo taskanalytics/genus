@@ -31,7 +31,7 @@ export const StyledFlex = styled(StyledBox, {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap',
 })(({ wrap }) => ({
   display: 'flex',
-  flexWrap: wrap ? 'wrap' : 'initial',
+  flexWrap: wrap ? 'wrap' : null,
 }))
 
 export const StyledGrid = styled('div', {
