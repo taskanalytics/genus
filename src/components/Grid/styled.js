@@ -14,7 +14,13 @@ import {
   overflow,
   justifyItems,
   alignItems,
+  system,
 } from 'styled-system'
+
+const gridShorthand = system({
+  prop: 'grid',
+  cssProperty: 'grid',
+})
 
 export const StyledBox = styled('div')(
   layout,
@@ -39,6 +45,7 @@ export const StyledGrid = styled('div', {
 })(
   { display: 'grid' },
   grid,
+  gridShorthand,
   layout,
   space,
   color,
