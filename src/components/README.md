@@ -7,27 +7,19 @@ yarn add @taskanalytics/genus
 You can now pull in specific components and/or styles to build custom UIs:
 
 ```code|lang-javascript,span-4
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 import {Container, Button, ProgressBar} from '@taskanalytics/genus'
 
-export default class MyUI extends Component {
-  static state = {
-    value: 50,
-  }
+const rand = () => parseInt(Math.random() * 100, 10)
+export default function MyUI () {
+  const [ value, setValue ] = useState(50)
 
-  render () {
-    const {value} = this.state
-    const randomizeValue = () => {
-      this.setState({ value: parseInt(Math.random() * 100) })
-    }
-
-    return (
-      <Container>
-        <Button primary onClick={randomizeValue}>Random value</Button>
-        <ProgressBar value={value} />
-      </Container>
-    )
-  }
+  return (
+    <Container>
+      <Button primary onClick={() => setValue(rand())}>Random value</Button>
+      <ProgressBar value={value} />
+    </Container>
+  )
 }
 ```
 
@@ -50,7 +42,7 @@ state: {value: 50}
 
 ## Theming
 
-Because Genus is built on top of [styled-system](http://jxnblk.com/styled-system) it will fall back to its theme unless you either specify a theme or set up the genus theme:
+Because Genus is built on top of [styled-system](https://styled-system.com/) it will fall back to its theme unless you either specify a theme or set up the genus theme:
 
 ```code
 lang: jsx
