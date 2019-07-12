@@ -22,7 +22,37 @@ state: { selected: 'read' }
     }
   ]}
   selectedOption={state.selected}
-  onSelectOption={(value) => setState({ selected: value })} />
+  onSelectOption={(value) => setState({ selected: value })}
+/>
+```
+
+## Flat toggles
+
+```react
+showSource: true
+state: { selected: 'read' }
+---
+<MultiToggle flat
+  options={[
+    {
+      name: 'No access',
+      value: 'no',
+      destructive: true,
+    }, {
+      name: 'Read',
+      value: 'read'
+    }, {
+      name: 'Write',
+      value: 'write'
+    }, {
+      name: 'Admin',
+      value: 'admin'
+    }
+  ]}
+  selectedOption={state.selected}
+  onSelectOption={(value) => setState({ selected: value })}
+/>
+
 ```
 
 ## Block element

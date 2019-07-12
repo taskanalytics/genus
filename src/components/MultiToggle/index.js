@@ -1,47 +1,49 @@
-/** @jsx jsx */ import React, { PureComponent } from 'react'
+/** @jsx jsx */ import React from 'react'
 import T from 'prop-types'
 import { jsx } from '@emotion/core'
 
-import { StyledWrapper, StyledRadio, StyledLabel } from './styled'
+import {
+  StyledWrapper,
+  StyledRadio,
+  StyledLabel,
+  StyledFlatLabel,
+} from './styled'
 
-const returnFirst = test => test
+function MultiToggle ({
+  options,
+  selectedOption,
+  onSelectOption,
+  direction,
+  flat,
+  ...props
+}) {
+  const row = direction === 'row'
+  const fr = flat ? 'auto' : '1fr'
+  const Label = flat ? StyledFlatLabel : StyledLabel
 
-const Option = ({ name, value, active, onChange, ...props }) => (
-  <StyledLabel active={active} {...props}>
-    <StyledRadio type='radio' checked={active} onChange={onChange} />
-    {name}
-  </StyledLabel>
-)
-
-class MultiToggle extends PureComponent {
-  render () {
-    const { options, selectedOption, onSelectOption, ...props } = this.props
-
-    return (
-      <StyledWrapper {...props} data-genus='MultiToggle'>
-        {options.filter(Boolean).map(option => (
-          <Option
-            key={option.value}
-            name={option.name}
-            value={option.value}
-            destructive={option.destructive}
-            direction={props.direction}
-            block={props.block}
-            active={selectedOption === option.value}
-            onChange={() => onSelectOption(option.value)}
-          />
-        ))}
-      </StyledWrapper>
-    )
-  }
-}
-
-Option.propTypes = {
-  name: T.string,
-  value: T.string,
-  active: T.bool,
-  onChange: T.func,
-  destructive: T.bool,
+  return (
+    <StyledWrapper
+      flat={flat}
+      row={row}
+      grid={row ? `1fr / auto-flow ${fr}` : `auto-flow ${fr} / 1fr`}
+      {...props}
+      data-genus='MultiToggle'
+    >
+      {options.filter(Boolean).map(({ value, name, destructive, row }) => {
+        const active = selectedOption === value
+        return (
+          <Label key={value} {...{ row, active, destructive }}>
+            <StyledRadio
+              type='radio'
+              checked={active}
+              onChange={() => onSelectOption(value)}
+            />
+            {name}
+          </Label>
+        )
+      })}
+    </StyledWrapper>
+  )
 }
 
 MultiToggle.propTypes = {
@@ -49,6 +51,8 @@ MultiToggle.propTypes = {
   selectedOption: T.string,
   onSelectOption: T.func,
   direction: T.string,
+  flat: T.bool,
+  block: T.bool,
 }
 MultiToggle.defaultProps = {
   direction: 'row',
