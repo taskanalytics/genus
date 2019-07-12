@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
-import { Box, Flex } from '../Grid'
+import { Box } from '../Grid'
 
 export const StyledBox = styled(Box)(
   css({

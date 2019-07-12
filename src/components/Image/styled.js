@@ -1,14 +1,10 @@
 import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
 import {
-  borderRadius,
-  width,
-  maxWidth,
-  height,
-  maxHeight,
-  display,
+  compose,
+  layout,
   space,
-  borders,
+  border,
   alignSelf,
   justifySelf,
   boxShadow,
@@ -24,15 +20,14 @@ export const Wrapper = styled('figure')(
     padding: 0,
     margin: 0,
   },
-  space,
-  width,
-  height,
-  display,
-  alignSelf,
-  justifySelf,
-  borders,
-  boxShadow,
-  borderRadius,
+  compose(
+    space,
+    layout,
+    alignSelf,
+    justifySelf,
+    border,
+    boxShadow,
+  ),
 )
 export const StyledImage = styled('img', {
   shouldForwardProp: prop => isPropValid(prop) || prop === 'srcset',
@@ -41,7 +36,7 @@ export const StyledImage = styled('img', {
     overflow: 'hidden',
     maxWidth: width ? null : '100%',
   }),
-  borderRadius,
+  border,
 )
 
 export const propTypes = {

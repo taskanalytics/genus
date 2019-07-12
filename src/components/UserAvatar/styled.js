@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { fontSize, space, color } from 'styled-system'
+import { compose, fontSize, space, color } from 'styled-system'
 import { font } from '../../styles/mixins'
 import { Flex } from '../Grid'
 
@@ -27,9 +27,11 @@ export const Wrapper = styled(Flex)(
 
     return css
   },
-  fontSize,
-  space,
-  color,
+  compose(
+    fontSize,
+    space,
+    color,
+  ),
 )
 
 Wrapper.defaultProps = {

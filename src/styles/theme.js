@@ -1,4 +1,4 @@
-import { rgba, transparentize } from 'polished'
+import { transparentize } from 'polished'
 import { colors } from './colors'
 
 const troubleDark = '#FF5915'
@@ -46,11 +46,11 @@ const theme = {
     dark: 'rgba(50, 60, 76, 0.9)',
     primary: colors.primary,
     primaryShaded: colors.primaryShaded,
-    good: rgba(140, 215, 150, 1),
+    good: 'rgba(140, 215, 150, 1)',
     goodDark,
-    headsUp: rgba(255, 212, 0, 1),
+    headsUp: 'rgba(255, 212, 0, 1)',
     headsUpDark: '#FFA707',
-    trouble: rgba(255, 90, 20, 1),
+    trouble: 'rgba(255, 90, 20, 1)',
     troubleDark,
     validated: '#61ad0f',
   },

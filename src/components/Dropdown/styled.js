@@ -2,14 +2,7 @@ import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { keyframes } from '@emotion/core'
 import { rgba } from 'polished'
-import {
-  width,
-  space,
-  color,
-  fontSize,
-  fontWeight,
-  border,
-} from 'styled-system'
+import { space, color, fontSize, compose } from 'styled-system'
 
 import { Box } from '../Grid'
 import Button from '../Button'
@@ -106,9 +99,11 @@ export const StyledItem = styled('button')(
         backgroundColor: rgba(theme.colors.primary, 0.1),
       },
     }),
-  space,
-  fontSize,
-  color,
+  compose(
+    space,
+    fontSize,
+    color,
+  ),
 )
 
 export const StyledHeading = styled(Box)(

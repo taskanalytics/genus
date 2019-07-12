@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import T from 'prop-types'
 import { Box, Flex } from '../Grid'
 import Heading from '../Heading'
-import { StyledBox, StyledBody, ActionItem } from './styled'
+import { StyledBox, ActionItem } from './styled'
 
 class EmptyState extends Component {
   render () {

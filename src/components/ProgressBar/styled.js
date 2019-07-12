@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import { rgba, lighten, darken } from 'polished'
+import { rgba } from 'polished'
 import { space } from 'styled-system'
 
 import { Box } from '../Grid'

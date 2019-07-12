@@ -11,26 +11,25 @@ import {
   shadow,
   textAlign,
   position,
-  overflow,
   justifyItems,
   alignItems,
   system,
+  compose,
 } from 'styled-system'
 
-const gridShorthand = system({
-  prop: 'grid',
-  cssProperty: 'grid',
-})
+const gridShorthand = system({ grid: true })
 
 export const StyledBox = styled('div')(
-  layout,
-  space,
-  flexbox,
-  color,
-  border,
-  textAlign,
-  shadow,
-  position,
+  compose(
+    layout,
+    space,
+    flexbox,
+    color,
+    border,
+    textAlign,
+    shadow,
+    position,
+  ),
 )
 
 export const StyledFlex = styled(StyledBox, {
@@ -44,15 +43,17 @@ export const StyledGrid = styled('div', {
   shouldForwardProp: isPropValid,
 })(
   { display: 'grid' },
-  grid,
-  gridShorthand,
-  layout,
-  space,
-  color,
-  border,
-  position,
-  justifyItems,
-  alignItems,
+  compose(
+    grid,
+    gridShorthand,
+    layout,
+    space,
+    color,
+    border,
+    position,
+    justifyItems,
+    alignItems,
+  ),
 )
 
 export const StyledContainer = styled(StyledBox)(({ theme }) => ({

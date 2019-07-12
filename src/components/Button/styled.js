@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
-import { readableColor, rgba, darken } from 'polished'
+import { readableColor, rgba } from 'polished'
 import {
+  typography,
   width,
   space,
   color,
@@ -9,10 +10,10 @@ import {
   fontSize,
   justifySelf,
   alignSelf,
+  compose,
 } from 'styled-system'
 
 import { colors } from '../../styles/colors'
-import { font } from '../../styles/mixins'
 
 import styleIf from '../../utils/styleIf'
 
@@ -231,11 +232,12 @@ export default styled('button')(
   styledDanger,
   styledLink,
   styledLoading,
-  space,
-  width,
-  color,
-  textAlign,
-  fontSize,
-  justifySelf,
-  alignSelf,
+  compose(
+    space,
+    width,
+    color,
+    typography,
+    justifySelf,
+    alignSelf,
+  ),
 )

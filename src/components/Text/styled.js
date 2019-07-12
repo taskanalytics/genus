@@ -1,16 +1,6 @@
 import styled from '@emotion/styled'
 import shouldForwardProp from '../../utils/should-forward-prop'
-import {
-  width,
-  space,
-  color,
-  textAlign,
-  lineHeight,
-  letterSpacing,
-  fontWeight,
-  fontSize,
-  borderRadius,
-} from 'styled-system'
+import { compose, width, space, color, typography, border } from 'styled-system'
 
 import { font } from '../../styles/mixins'
 
@@ -53,13 +43,11 @@ export const StyledText = styled('span', { shouldForwardProp })(
 
     return css
   },
-  width,
-  space,
-  color,
-  textAlign,
-  lineHeight,
-  letterSpacing,
-  borderRadius,
-  fontWeight,
-  fontSize,
+  compose(
+    width,
+    space,
+    color,
+    typography,
+    border,
+  ),
 )

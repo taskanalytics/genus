@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import shouldForwardProp from '../../utils/should-forward-prop'
 import css from '@styled-system/css'
-import { fontSize, color, space, width, lineHeight } from 'styled-system'
+import { compose, color, space, width, typography } from 'styled-system'
 
 export const Dl = styled.dl(
   {
@@ -10,9 +10,11 @@ export const Dl = styled.dl(
     margin: 0,
     padding: 0,
   },
-  color,
-  space,
-  width,
+  compose(
+    color,
+    space,
+    width,
+  ),
 )
 
 export const Dt = styled('dt', { shouldForwardProp })(
@@ -21,11 +23,12 @@ export const Dt = styled('dt', { shouldForwardProp })(
     lineHeight: 1,
     letterSpacing: '-0.03em',
   },
-  fontSize,
-  lineHeight,
-  space,
-  width,
-  color,
+  compose(
+    space,
+    width,
+    color,
+    typography,
+  ),
 )
 
 export const Dd = styled('dd', { shouldForwardProp })(
@@ -34,7 +37,7 @@ export const Dd = styled('dd', { shouldForwardProp })(
     textTransform: 'lowercase',
     lineHeight: 1,
   },
-  fontSize,
+  typography,
 )
 
 export const Suffix = styled.span({
