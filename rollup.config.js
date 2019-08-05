@@ -21,7 +21,7 @@ const globals = {
 export default {
   input: 'src/index.js',
   external: id => {
-    return [/react/, /emotion/, /polished/, /styled-system/].some(r =>
+    return [/react/, /emotion/, /polished/, /^styled-system/].some(r =>
       r.test(id),
     )
   },

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import shouldForwardProp from '../../utils/should-forward-prop'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import css from '@styled-system/css'
 import { compose, color, space, width, typography } from 'styled-system'
 

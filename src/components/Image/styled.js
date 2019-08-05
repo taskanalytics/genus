@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
-import isPropValid from '@emotion/is-prop-valid'
+import {
+  createShouldForwardProp,
+  props,
+} from '@styled-system/should-forward-prop'
 import {
   compose,
   layout,
@@ -11,6 +14,8 @@ import {
 } from 'styled-system'
 
 import { Box } from '../Grid'
+
+const shouldForwardProp = createShouldForwardProp([...props, 'srcset'])
 
 export const Wrapper = styled('figure')(
   {
@@ -29,9 +34,7 @@ export const Wrapper = styled('figure')(
     boxShadow,
   ),
 )
-export const StyledImage = styled('img', {
-  shouldForwardProp: prop => isPropValid(prop) || prop === 'srcset',
-})(
+export const StyledImage = styled('img', { shouldForwardProp })(
   ({ width }) => ({
     overflow: 'hidden',
     maxWidth: width ? null : '100%',

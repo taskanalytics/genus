@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
-import isPropValid from '@emotion/is-prop-valid'
+import shouldForwardProp, {
+  createShouldForwardProp,
+  props,
+} from '@styled-system/should-forward-prop'
 
 import {
   layout,
@@ -17,6 +20,7 @@ import {
   compose,
 } from 'styled-system'
 
+const shouldForwardFlexProp = createShouldForwardProp([...props, 'wrap'])
 const gridShorthand = system({ grid: true })
 
 export const StyledBox = styled('div')(
@@ -33,15 +37,13 @@ export const StyledBox = styled('div')(
 )
 
 export const StyledFlex = styled(StyledBox, {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap',
+  shouldForwardProp: shouldForwardFlexProp,
 })(({ wrap }) => ({
   display: 'flex',
   flexWrap: wrap ? 'wrap' : null,
 }))
 
-export const StyledGrid = styled('div', {
-  shouldForwardProp: isPropValid,
-})(
+export const StyledGrid = styled('div', { shouldForwardProp })(
   { display: 'grid' },
   compose(
     grid,

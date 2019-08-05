@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { Flex, Grid } from '../Grid'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
 export const StyledWrapper = styled(Grid)(({ block, row, flat }) =>
   css({
@@ -20,7 +21,9 @@ const sharedLabelStyles = {
   py: 2,
 }
 
-export const StyledFlatLabel = styled('label')(({ active, destructive }) => {
+export const StyledFlatLabel = styled('label', {
+  shouldForwardProp,
+})(({ children, active, destructive, ...props }) => {
   let color = 'text'
   switch (true) {
     case active && destructive:
@@ -38,11 +41,14 @@ export const StyledFlatLabel = styled('label')(({ active, destructive }) => {
     '&:hover': {
       color: destructive ? 'trouble' : 'primaryShaded',
     },
+    ...props,
   })
 })
 
-export const StyledLabel = styled('label')(
-  ({ row }) => {
+export const StyledLabel = styled('label', {
+  shouldForwardProp,
+})(
+  ({ children, row, ...props }) => {
     const borderProp = row ? 'borderRight' : 'borderBottom'
     return css({
       ...sharedLabelStyles,
@@ -52,6 +58,7 @@ export const StyledLabel = styled('label')(
       '&:last-of-type': {
         [borderProp]: 'none',
       },
+      ...props,
     })
   },
   ({ active, destructive }) => {

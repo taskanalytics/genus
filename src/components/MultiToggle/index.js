@@ -29,10 +29,10 @@ function MultiToggle ({
       {...props}
       data-genus='MultiToggle'
     >
-      {options.filter(Boolean).map(({ value, name, destructive, row }) => {
+      {options.filter(Boolean).map(({ value, name, ...rest }) => {
         const active = selectedOption === value
         return (
-          <Label key={value} {...{ row, active, destructive }}>
+          <Label {...rest} key={value} active={active}>
             <StyledRadio
               type='radio'
               checked={active}

@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@styled-system/css": "^5.0.13",
+    "@styled-system/should-forward-prop": "^5.0.18",
     "polished": "^3.4.1",
     "react-modal": "^3.8.2",
     "styled-system": "^5.0.12"
@@ -74,7 +75,6 @@
     "@babel/preset-react": "^7.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.14",
-    "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/memoize": "^0.7.2",
     "@emotion/styled": "^10.0.14",
     "@testing-library/jest-dom": "^4.0.0",
