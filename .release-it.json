@@ -1,6 +1,6 @@
 {
-  "scripts": {
-    "beforeStage": "yarpm run dist"
+  "hooks": {
+    "after:bump": "yarpm run dist"
   },
   "github": {
     "release": true
