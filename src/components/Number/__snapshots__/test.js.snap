@@ -20,7 +20,7 @@ exports[`<Number> component renders with description as dl 1`] = `
 
 exports[`<Number> component renders with just value as span 1`] = `
 <span
-  class="css-15rheml"
+  class="css-9ob1md"
   data-genus="Number"
 >
   10
