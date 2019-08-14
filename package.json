@@ -8,7 +8,7 @@
     "dist/"
   ],
   "engines": {
-    "node": ">=8.10"
+    "node": ">=12.2"
   },
   "scripts": {
     "next-dev": "next",
