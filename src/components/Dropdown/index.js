@@ -102,13 +102,7 @@ class Dropdown extends Component {
   }
 
   render () {
-    const {
-      right,
-      actions,
-      renderTrigger,
-      dialogStyles = {},
-      ...props
-    } = this.props
+    const { right, actions, renderTrigger, ...props } = this.props
     const { open } = this.state
 
     return (
@@ -116,23 +110,25 @@ class Dropdown extends Component {
         {renderTrigger({
           onClick: this.toggle,
         })}
-        <StyledDropdown
-          ref={ref => {
-            this.dd = findDOMNode(ref)
-          }}
-          open={open}
-          right={right}
-        >
-          <StyledMobileClose
-            onClick={e => {
-              e.stopPropagation()
-              this.closeMenu()
+        {open && (
+          <StyledDropdown
+            ref={ref => {
+              this.dd = findDOMNode(ref)
             }}
+            open={open}
+            right={right}
           >
-            X
-          </StyledMobileClose>
-          {this.renderActions(actions)}
-        </StyledDropdown>
+            <StyledMobileClose
+              onClick={e => {
+                e.stopPropagation()
+                this.closeMenu()
+              }}
+            >
+              X
+            </StyledMobileClose>
+            {this.renderActions(actions)}
+          </StyledDropdown>
+        )}
       </StyledWrapper>
     )
   }
@@ -142,7 +138,6 @@ Dropdown.propTypes = {
   actions: T.oneOfType([T.array, T.func]).isRequired,
   right: T.bool,
   renderTrigger: T.func,
-  dialogStyles: T.object,
 }
 
 export default Dropdown

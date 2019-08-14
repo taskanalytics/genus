@@ -41,23 +41,6 @@ exports[`<Card> component renders actions when clicked 1`] = `
           Open actions
         </span>
       </button>
-      <div
-        class="css-nlt6tv"
-        data-genus="Box"
-      >
-        <button
-          class="css-ms7u4k"
-          data-genus="Button"
-          type="button"
-        >
-          X
-        </button>
-        <button
-          class="css-nmwv8r"
-        >
-          Test
-        </button>
-      </div>
     </div>
   </div>
   <span>

@@ -22,23 +22,17 @@ describe('<Card> component', () => {
   })
 
   it('renders actions when clicked', async () => {
-    const { container } = renderComponent({
+    const { container, getByText } = renderComponent({
       children: <span>Text</span>,
       actions: [{ name: 'Test' }],
     })
     const node = container.firstChild
     expect(node).toMatchSnapshot()
-    expect(node.tagName).toBe('DIV')
     const actionsContainer = node.querySelector('[data-genus="Dropdown"]')
-    const button = node.querySelector('div button')
-    expect(button.firstChild.tagName).toBe('svg')
+    const button = node.querySelector('button')
 
     fireEvent.click(button)
 
-    const actions = await waitForElement(() =>
-      actionsContainer.querySelectorAll('div[open]>button'),
-    )
-
-    expect(actions[1].textContent).toBe('Test')
+    expect(getByText('Test')).toBeInTheDocument()
   })
 })

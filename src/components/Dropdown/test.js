@@ -25,24 +25,23 @@ const actions = [
 afterEach(cleanup)
 
 describe('<Dropdown> component', () => {
-  it('renders trigger button and hidden content', () => {
-    const { container } = renderComponent({ actions })
+  it('renders trigger button and no content', () => {
+    const { container, queryByText } = renderComponent({ actions })
     const node = container.firstChild
-    const trigger = node.firstChild
-    const dropdown = node.lastChild
+    const trigger = container.querySelector('button')
     expect(node).toMatchSnapshot()
-    expect(node.tagName).toBe('DIV')
-    expect(trigger.tagName).toBe('BUTTON')
-    expect(trigger.textContent).toBe('Toggle')
-    expect(dropdown).toHaveStyle('display: none;')
+    expect(trigger).toHaveTextContent('Toggle')
+    expect(queryByText('Act')).toBeNull()
   })
 
   it('opens on click', () => {
     const { container } = renderComponent({ actions })
     const trigger = container.querySelector('button:first-child')
-    const dropdown = container.firstChild.lastChild
 
     fireEvent.click(trigger)
+
+    expect(container).toMatchSnapshot()
+    const dropdown = container.firstChild.lastChild
     expect(dropdown).not.toHaveStyle('display: none;')
 
     const buttons = dropdown.querySelectorAll('button')
@@ -55,27 +54,29 @@ describe('<Dropdown> component', () => {
       name: 'Act',
       action: jest.fn(() => true),
     }
-    const { container, getByText } = renderComponent({
+    const { container, queryByText, getByText } = renderComponent({
       actions: [data],
     })
+
+    fireEvent.click(container.querySelector('button:first-child'))
 
     fireEvent.click(getByText('Act'))
 
     expect(data.action.mock.calls.length).toBe(1)
-    expect(container.firstChild.lastChild).toHaveStyle('display: none;')
+    expect(queryByText('Act')).toBeNull()
   })
 
   it('closes on click outside', () => {
-    const { container, getByText } = renderComponent({ actions })
+    const { container, queryByText, getByText } = renderComponent({ actions })
 
     // OPen dropdown
     fireEvent.click(getByText('Toggle'))
 
-    expect(container.firstChild.lastChild).not.toHaveStyle('display: none;')
+    expect(getByText('Act')).toBeInTheDocument()
 
     // Close with click outside (on container)
-    fireEvent.click(container)
+    fireEvent.click(window.document.body)
 
-    expect(container.firstChild.lastChild).toHaveStyle('display: none;')
+    expect(queryByText('Act')).toBeNull()
   })
 })

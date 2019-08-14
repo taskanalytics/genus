@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dropdown> component renders trigger button and hidden content 1`] = `
+exports[`<Dropdown> component opens on click 1`] = `
+<div>
+  <div
+    class="css-1r3m7kt"
+    data-genus="Dropdown"
+  >
+    <button
+      type="button"
+    >
+      Toggle
+    </button>
+    <div
+      class="css-gvcy4b"
+      data-genus="Box"
+      open=""
+    >
+      <button
+        class="css-ms7u4k"
+        data-genus="Button"
+        type="button"
+      >
+        X
+      </button>
+      <button
+        class="css-nmwv8r"
+      >
+        Act
+      </button>
+      <button
+        class="css-nmwv8r"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown> component renders trigger button and no content 1`] = `
 <div
   class="css-1r3m7kt"
   data-genus="Dropdown"
@@ -10,27 +48,5 @@ exports[`<Dropdown> component renders trigger button and hidden content 1`] = `
   >
     Toggle
   </button>
-  <div
-    class="css-9hvmkc"
-    data-genus="Box"
-  >
-    <button
-      class="css-ms7u4k"
-      data-genus="Button"
-      type="button"
-    >
-      X
-    </button>
-    <button
-      class="css-nmwv8r"
-    >
-      Act
-    </button>
-    <button
-      class="css-nmwv8r"
-    >
-      Delete
-    </button>
-  </div>
 </div>
 `;
