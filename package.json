@@ -8,7 +8,8 @@
     "dist/"
   ],
   "engines": {
-    "node": "^12.9"
+    "node": "^12.9",
+    "yarn": "^1.12"
   },
   "scripts": {
     "next-dev": "next",
