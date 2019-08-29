@@ -1,4 +1,4 @@
-> To make any use of our logo in a way not covered by these guidelines, please contact by email [help@taskanalytics.com](mailto:help@taskanalytics.com) or on Slack and include a visual mockup of intended use.
+> To make any use of our logo in a way not covered by these guidelines, please contact us by email [help@taskanalytics.com](mailto:help@taskanalytics.com) or on Slack and include a visual mockup of intended use.
 
 ## Logo
 
