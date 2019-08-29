@@ -1,4 +1,4 @@
-> To make any use of our logo in a way not covered by these guidelines, please contact Design Lead Simon Bognø by email [simon@taskanalytics.com](mailto:simon@taskanalytics.com) or on Slack and include a visual mockup of intended use.
+> To make any use of our logo in a way not covered by these guidelines, please contact by email [help@taskanalytics.com](mailto:help@taskanalytics.com) or on Slack and include a visual mockup of intended use.
 
 ## Logo
 
