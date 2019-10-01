@@ -1,9 +1,9 @@
 import CompletionCard from '.'
-import { Container, Flex, Box } from '../Grid'
+import { Grid } from '../Grid'
 
 export default {
   title: 'CompletionCard',
   path: '/components/CompletionCard',
-  imports: { CompletionCard, Container, Flex, Box },
+  imports: { CompletionCard, Grid },
   component: require('./README.md'),
 }

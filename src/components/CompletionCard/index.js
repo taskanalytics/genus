@@ -15,7 +15,6 @@ class CompletionCard extends Component {
       value: T.number,
       description: T.string,
     }).isRequired,
-    render: T.func,
   }
 
   static defaultProps = {
@@ -23,22 +22,7 @@ class CompletionCard extends Component {
   }
 
   render () {
-    const { name, completion, responses, render, ...props } = this.props
-
-    const children = (
-      <React.Fragment>
-        <StyledHeading as='h2' mb={[1, 4]}>
-          {name}
-        </StyledHeading>
-        <Percentage size='display' value={completion.value} />
-        <Text mt={[-2]} block>
-          {completion.description}
-        </Text>
-        <Text block mt={[2, 4]}>
-          <strong>{responses.value}</strong> {responses.description}
-        </Text>
-      </React.Fragment>
-    )
+    const { name, completion, responses, ...props } = this.props
 
     return (
       <StyledCard
@@ -46,7 +30,16 @@ class CompletionCard extends Component {
         {...props}
         data-genus='CompletionCard'
       >
-        {render ? render({ children }) : children}
+        <StyledHeading as='h2' mb={[1, 4]}>
+          {name}
+        </StyledHeading>
+        <Percentage size='display' value={completion.value} />
+        <Text mt={-1} block>
+          {completion.description}
+        </Text>
+        <Text block mt={2}>
+          <strong>{responses.value}</strong> {responses.description}
+        </Text>
       </StyledCard>
     )
   }

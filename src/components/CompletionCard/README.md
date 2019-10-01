@@ -26,42 +26,46 @@ showSource: true
 ## In grid
 
 ```react
-<Flex wrap>
-  <Flex width={[1, 1/2, 1/3]} p={2}>
-    <CompletionCard
-      name="Website"
-      completion={{
-        value: 99.6,
-        description: 'completion'
-      }}
-      responses={{
-        value: 9999,
-        description: 'responses'
-      }} />
-  </Flex>
-  <Flex width={[1, 1/2, 1/3]} p={2}>
-    <CompletionCard
-      name="App"
-      completion={{
-        value: 78.5,
-        description: 'completion'
-      }}
-      responses={{
-        value: 9999,
-        description: 'responses'
-      }} />
-  </Flex>
-  <Flex width={[1, 1/2, 1/3]} p={2}>
-    <CompletionCard
-      name="A rather long name here yes"
-      completion={{
-        value: 56.2,
-        description: 'completion'
-      }}
-      responses={{
-        value: 9999,
-        description: 'responses'
-      }} />
-  </Flex>
-</Flex>
+<Grid
+  gridGap={2}
+  grid={[
+    "auto-flow / 1fr",
+    null,
+    "auto-flow / repeat(3, 1fr)",
+  ]}
+>
+  <CompletionCard
+    name="Website"
+    completion={{
+      value: 99.6,
+      description: 'completion'
+    }}
+    responses={{
+      value: 9999,
+      description: 'responses'
+    }}
+  />
+  <CompletionCard
+    name="App"
+    completion={{
+      value: 78.5,
+      description: 'completion'
+    }}
+    responses={{
+      value: 9999,
+      description: 'responses'
+    }}
+  />
+  <CompletionCard
+    name="A rather long name here yes"
+    completion={{
+      value: 56.2,
+      description: 'completion'
+    }}
+    responses={{
+      value: 9999,
+      description: 'responses'
+    }}
+  />
+</Grid>
 ```
