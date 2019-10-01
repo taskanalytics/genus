@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import css from '@styled-system/css'
 import { completionGradient, ellipsis } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import Card from '../Card'
@@ -6,9 +7,12 @@ import Heading from '../Heading'
 
 export const StyledCard = styled(Card)(({ completion, theme }) => {
   let css = {
+    overflowX: 'hidden',
     backgroundColor: theme.colors.primaryShaded,
-    display: 'inline-block',
     color: theme.colors.text,
+    display: 'flex',
+    alignItems: 'unset',
+    flexDirection: 'column',
   }
   if (completion > 0) {
     css = {
@@ -21,6 +25,10 @@ export const StyledCard = styled(Card)(({ completion, theme }) => {
   return css
 })
 
-export const StyledHeading = styled(Heading)({
-  ...ellipsis(),
-})
+export const StyledHeading = styled(Heading)(
+  css({
+    ...ellipsis(),
+    fontSize: 3,
+    mb: [1, 3],
+  }),
+)

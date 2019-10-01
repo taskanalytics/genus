@@ -28,10 +28,11 @@ showSource: true
 ```react
 <Grid
   gridGap={2}
-  grid={[
-    "auto-flow / 1fr",
-    null,
-    "auto-flow / repeat(3, 1fr)",
+  gridAutoRows="1fr"
+  gridTemplateColumns={[
+    '1fr',
+    'repeat(2, 1fr)',
+    'repeat(3, 1fr)',
   ]}
 >
   <CompletionCard
@@ -64,6 +65,17 @@ showSource: true
     }}
     responses={{
       value: 9999,
+      description: 'responses'
+    }}
+  />
+  <CompletionCard
+    name="Website"
+    completion={{
+      value: 0,
+      description: 'completion'
+    }}
+    responses={{
+      value: 0,
       description: 'responses'
     }}
   />
