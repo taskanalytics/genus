@@ -77,7 +77,6 @@ const pages = [
       require('../src/components/EmptyState/catalog').default,
       require('../src/components/Percentage/catalog').default,
       require('../src/components/Form/catalog').default,
-      require('../src/components/Banner/catalog').default,
     ].sort((a, b) => {
       return a.title === 'Introduction' ? -1 : a.title.localeCompare(b.title)
     }),
