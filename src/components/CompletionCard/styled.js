@@ -7,7 +7,6 @@ import Heading from '../Heading'
 
 export const StyledCard = styled(Card)(({ completion, theme }) => {
   let css = {
-    overflowX: 'hidden',
     backgroundColor: theme.colors.primaryShaded,
     color: theme.colors.text,
     display: 'flex',
