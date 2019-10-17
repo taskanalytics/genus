@@ -41,6 +41,7 @@ class Dropdown extends Component {
 
   toggle = event => {
     event.preventDefault()
+    event.stopPropagation()
     const open = !this.state.open
     this.setState({ open }, () => {
       if (open) {
