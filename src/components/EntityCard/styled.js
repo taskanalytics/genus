@@ -4,8 +4,9 @@ import Heading from '../Heading'
 import Card from '../Card'
 
 export const StyledCard = styled(Card)({
-  alignItems: 'center',
   display: 'flex',
+  alignItems: 'unset',
+  flexDirection: 'column',
 })
 
 export const StyledHeading = styled(Heading)(({ theme }) => ({

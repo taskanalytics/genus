@@ -24,22 +24,11 @@ class EntityCard extends Component {
       description,
       avatar,
       actions,
-      render,
       children,
       ...props
     } = this.props
+
     const body = children || (description && <Text muted>{description}</Text>)
-    const content = (
-      <React.Fragment>
-        {avatar && <Image width={64} height={64} mr={2} src={avatar} />}
-        <Box width={1}>
-          <StyledHeading mb={1} mr={actions ? 32 : 0}>
-            {name}
-          </StyledHeading>
-          {body}
-        </Box>
-      </React.Fragment>
-    )
     return (
       <StyledCard
         width={1}
@@ -47,7 +36,11 @@ class EntityCard extends Component {
         {...props}
         data-genus='EntityCard'
       >
-        {render ? render({ content }) : content}
+        {avatar && <Image width={64} height={64} mr={2} src={avatar} />}
+        <StyledHeading mb={1} mr={actions ? 32 : 0}>
+          {name}
+        </StyledHeading>
+        {body}
       </StyledCard>
     )
   }
@@ -58,7 +51,6 @@ EntityCard.propTypes = {
   description: T.string,
   avatar: T.string,
   actions: T.array,
-  render: T.func,
 }
 
 export default EntityCard

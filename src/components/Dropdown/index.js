@@ -66,12 +66,22 @@ class Dropdown extends Component {
     }
 
     return actions.map((action, key) => {
+      const type = typeof action
+      if (type === 'function') {
+        action = {
+          props: {},
+          type: 'function',
+          render: action,
+        }
+      } else if (type === 'string' && action === '-') {
+        action = { type: 'separator' }
+      }
       const props = {
         ...(action.props || {}),
         key: `action-${key}`,
         destructive: action.type === 'destructive',
       }
-      if (action.render) {
+      if (action.render && action.type !== 'function') {
         action.type = 'component'
       }
       switch (action.type) {
@@ -79,6 +89,8 @@ class Dropdown extends Component {
           return <StyledSeparator {...props} />
         case 'heading':
           return <StyledHeading {...props}>{action.name}</StyledHeading>
+        case 'function':
+          return <action.render wrapper={StyledItem} />
         case 'component':
           return (
             <StyledItem {...props}>
