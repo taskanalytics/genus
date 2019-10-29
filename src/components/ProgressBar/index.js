@@ -6,61 +6,67 @@ import Percentage from '../Percentage'
 
 import { Wrapper, Meter, Label } from './styled'
 
-class ProgressBar extends Component {
-  static propTypes = {
-    value: T.number,
-    label: T.string,
-    min: T.number,
-    max: T.number,
-    light: T.bool,
-    empty: T.bool,
-    color: T.string,
+function ProgressBar ({
+  min,
+  max,
+  value,
+  light,
+  empty,
+  label,
+  color,
+  ...rest
+}) {
+  const valid = value !== undefined && !isNaN(value)
+  const val = valid ? Math.round(value * 10) / 10 : false
+
+  const colorMap = {
+    success: colors.good,
+    base: colors.headsUp,
+    warning: colors.trouble,
+  }
+  const classification = getClassification(val)
+
+  color = color || (valid ? colorMap[classification] : null)
+
+  const meterProps = {
+    light,
+    color,
+    width: val === false ? 0 : val,
+    role: 'progressbar',
+    'aria-valuemin': min,
+    'aria-valuemax': max,
+    'aria-valuenow': val,
   }
 
-  static defaultProps = {
-    min: 0,
-    max: 100,
-    empty: false,
-  }
+  const props = { light, color, ...rest }
 
-  render () {
-    let { min, max, value, light, empty, label, color, ...rest } = this.props
-    const valid = value !== undefined && !isNaN(value)
-    const val = valid ? Math.round(value * 10) / 10 : false
+  return (
+    <Wrapper {...props} data-genus='ProgressBar'>
+      <Meter {...meterProps}>
+        {!empty && color && (
+          <Label color={color}>
+            {label || <Percentage size='small' value={val} />}
+          </Label>
+        )}
+      </Meter>
+    </Wrapper>
+  )
+}
 
-    const colorMap = {
-      success: colors.good,
-      base: colors.headsUp,
-      warning: colors.trouble,
-    }
-    const classification = getClassification(val)
+ProgressBar.propTypes = {
+  value: T.number,
+  label: T.string,
+  min: T.number,
+  max: T.number,
+  light: T.bool,
+  empty: T.bool,
+  color: T.string,
+}
 
-    color = color || (valid ? colorMap[classification] : null)
-
-    const meterProps = {
-      light,
-      color,
-      width: val === false ? 0 : val,
-      role: 'progressbar',
-      'aria-valuemin': min,
-      'aria-valuemax': max,
-      'aria-valuenow': val,
-    }
-
-    const props = { light, color, ...rest }
-
-    return (
-      <Wrapper {...props} data-genus='ProgressBar'>
-        <Meter {...meterProps}>
-          {!empty && color && (
-            <Label color={color}>
-              {label || <Percentage size='small' value={val} />}
-            </Label>
-          )}
-        </Meter>
-      </Wrapper>
-    )
-  }
+ProgressBar.defaultProps = {
+  min: 0,
+  max: 100,
+  empty: false,
 }
 
 export default ProgressBar
