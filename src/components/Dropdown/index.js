@@ -27,10 +27,18 @@ class Dropdown extends Component {
     open: false,
   }
 
+  static getDerivedStateFromProps (props, state) {
+    if (props.open === true) {
+      return { ...state, open: true }
+    }
+    return { ...state }
+  }
+
   closeMenu = () => {
-    this.setState({ open: false }, () => {
-      document.removeEventListener('click', this.onClickOutside)
-    })
+    if (typeof this.props.onClose === 'function') {
+      this.props.onClose()
+    }
+    this.setState({ open: false })
   }
 
   onClickOutside = event => {
@@ -39,21 +47,37 @@ class Dropdown extends Component {
     }
   }
 
+  addListener = () => {
+    document.addEventListener('click', this.onClickOutside)
+  }
+
+  removeListener = () => {
+    document.removeEventListener('click', this.onClickOutside)
+  }
+
   toggle = event => {
     event.preventDefault()
     event.stopPropagation()
     const open = !this.state.open
-    this.setState({ open }, () => {
-      if (open) {
-        document.addEventListener('click', this.onClickOutside)
-      } else {
-        document.removeEventListener('click', this.onClickOutside)
-      }
-    })
+    this.setState({ open })
+  }
+
+  componentDidUpdate () {
+    if (this.state.open) {
+      this.addListener()
+    } else {
+      this.removeListener()
+    }
+  }
+
+  componentDidMount () {
+    if (this.state.open) {
+      this.addListener()
+    }
   }
 
   componentWillUnmount () {
-    document.removeEventListener('click', this.onClickOutside)
+    this.removeListener()
   }
 
   renderActions = actions => {

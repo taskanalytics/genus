@@ -2,27 +2,27 @@ import React, { PureComponent } from 'react'
 import T from 'prop-types'
 
 import StyledButton from './styled'
-const StyledLink = StyledButton.withComponent('a')
 
-class Button extends PureComponent {
-  static defaultProps = {
-    type: 'button',
-    uppercase: true,
+function Button ({ to, ...props }) {
+  const buttonProps = {
+    ...props,
   }
 
-  render () {
-    const { to, ...props } = this.props
-
-    if (typeof this.props.loading === 'string') {
-      props.children = this.props.loading
-    }
-
-    if (to) {
-      return <StyledLink {...props} href={to} data-genus='Button' />
-    }
-
-    return <StyledButton {...props} data-genus='Button' />
+  if (typeof props.loading === 'string') {
+    buttonProps.children = props.loading
   }
+
+  if (to) {
+    buttonProps.as = 'a'
+    buttonProps.href = to
+  }
+
+  return <StyledButton {...buttonProps} data-genus='Button' />
+}
+
+Button.defaultProps = {
+  type: 'button',
+  uppercase: true,
 }
 
 Button.propTypes = {

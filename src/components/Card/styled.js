@@ -12,8 +12,8 @@ export const StyledCard = styled(Box)(({ theme, shadow, boxShadow }) => ({
 }))
 
 export const StyledMoreButton = styled('button')(({ theme }) => ({
-  height: 24,
-  width: 24,
+  height: 32,
+  width: 32,
   border: 'none',
   backgroundColor: 'transparent',
   padding: 0,

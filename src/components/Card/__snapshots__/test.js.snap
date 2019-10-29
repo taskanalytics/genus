@@ -17,14 +17,14 @@ exports[`<Card> component renders actions when clicked 1`] = `
   data-genus="Card"
 >
   <div
-    class="css-aaukym"
+    class="css-zxghyj-Actions"
   >
     <div
       class="css-1r3m7kt"
       data-genus="Dropdown"
     >
       <button
-        class="css-105ttwj"
+        class="css-xufk4t"
         title="Open actions"
         type="button"
       >
