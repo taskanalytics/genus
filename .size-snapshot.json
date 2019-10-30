@@ -1,21 +1,21 @@
 {
   "dist/genus.es.js": {
-    "bundled": 345639,
-    "minified": 294573,
-    "gzipped": 41847,
+    "bundled": 345787,
+    "minified": 294664,
+    "gzipped": 41895,
     "treeshaked": {
       "rollup": {
-        "code": 46988,
+        "code": 47069,
         "import_statements": 722
       },
       "webpack": {
-        "code": 50397
+        "code": 50478
       }
     }
   },
   "dist/genus.js": {
-    "bundled": 348086,
-    "minified": 296930,
-    "gzipped": 42087
+    "bundled": 348234,
+    "minified": 297021,
+    "gzipped": 42134
   }
 }

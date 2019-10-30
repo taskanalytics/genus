@@ -3,6 +3,11 @@ import T from 'prop-types'
 
 import StyledButton from './styled'
 
+const silence = e => {
+  e.preventDefault()
+  e.stopPropagation()
+}
+
 function Button ({ to, ...props }) {
   const buttonProps = {
     ...props,
@@ -10,6 +15,10 @@ function Button ({ to, ...props }) {
 
   if (typeof props.loading === 'string') {
     buttonProps.children = props.loading
+  }
+
+  if (props.loading) {
+    buttonProps.onClick = silence
   }
 
   if (to) {
