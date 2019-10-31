@@ -139,7 +139,7 @@ class Dropdown extends Component {
   }
 
   render () {
-    const { right, actions, renderTrigger, ...props } = this.props
+    const { bg, right, actions, renderTrigger, ...props } = this.props
     const { open } = this.state
 
     return (
@@ -152,6 +152,7 @@ class Dropdown extends Component {
             ref={ref => {
               this.dd = findDOMNode(ref)
             }}
+            bg={bg}
             open={open}
             right={right}
           >
