@@ -146,6 +146,7 @@ class Dropdown extends Component {
       <StyledWrapper {...props} data-genus='Dropdown'>
         {renderTrigger({
           onClick: this.toggle,
+          open,
         })}
         {open && (
           <StyledDropdown
