@@ -3,31 +3,22 @@ import css from '@styled-system/css'
 import { completionGradient, ellipsis } from '../../styles/mixins'
 import { getPercentage } from '../../utils/calculations'
 import Card from '../Card'
-import Heading from '../Heading'
 
 export const StyledCard = styled(Card)(({ completion, theme }) => {
-  let css = {
-    backgroundColor: theme.colors.primaryShaded,
-    color: theme.colors.text,
+  let styles = css({
+    bg: 'primaryShaded',
+    color: 'text',
     display: 'flex',
     alignItems: 'unset',
     flexDirection: 'column',
-  }
+  })
   if (completion > 0) {
-    css = {
-      ...css,
+    styles = {
+      ...styles,
       ...completionGradient(false, theme),
       backgroundPosition: `${getPercentage(completion, 100)}% center`,
     }
   }
 
-  return css
+  return styles
 })
-
-export const StyledHeading = styled(Heading)(
-  css({
-    ...ellipsis(),
-    fontSize: 3,
-    mb: [1, 3],
-  }),
-)

@@ -1,26 +1,39 @@
 import React, { Fragment } from 'react'
 import T from 'prop-types'
-import { StyledCard, StyledHeading } from './styled'
+import { StyledCard } from './styled'
+import { Box } from '../Grid'
 import Text from '../Text'
+import Heading from '../Heading'
 import Percentage from '../Percentage'
 
-function CompletionCard ({ name, completion, responses, ...props }) {
+function CompletionCard ({
+  name,
+  subheading,
+  completion,
+  responses,
+  ...props
+}) {
   return (
     <StyledCard
       completion={completion.value}
       {...props}
       data-genus='CompletionCard'
     >
-      <StyledHeading as='h2' mr={props.actions && 24}>
+      <Heading as='h2' fontSize={3} ellipsis pr={props.actions && 28}>
         {name}
-      </StyledHeading>
+      </Heading>
+      {subheading && (
+        <Heading as='h3' m={0}>
+          {subheading}
+        </Heading>
+      )}
       {responses.value > 0 && (
-        <Fragment>
+        <Box mt={[1, 3]}>
           <Percentage size='display' value={completion.value} />
           <Text mt={-1} block>
             {completion.description}
           </Text>
-        </Fragment>
+        </Box>
       )}
       <Text block pt={2} mt='auto'>
         <strong>{responses.value}</strong> {responses.description}

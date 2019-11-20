@@ -1,3 +1,9 @@
+```code
+[ellipsis]                    Truncate headings at container width using an ellipsis
+```
+
+## Sizing with as=
+
 ```react
 showSource: true
 ---

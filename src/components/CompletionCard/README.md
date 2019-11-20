@@ -1,5 +1,7 @@
 ```code
 [name]                                The name/title for the card
+[subheading]                          A subheading placed after [name] in a h3. Wrap in <Text> to control rendering
+[actions]                             Actions as supported by the Card component
 [completion: {value, description}]    An object with a value/description pair for the completion rate
 [response: {value, description}]      An object with a value/description pair for the response
 ```
@@ -36,6 +38,7 @@ showSource: true
 >
   <CompletionCard
     name="Website"
+    subheading={<Text color="muted">Discovery survey</Text>}
     completion={{
       value: 99.6,
       description: 'completion'
@@ -47,6 +50,7 @@ showSource: true
   />
   <CompletionCard
     name="App"
+    subheading={<Text color="muted">Task survey</Text>}
     completion={{
       value: 78.5,
       description: 'completion'
@@ -64,6 +68,7 @@ showSource: true
       }
     ]}
     name="A rather longish name here yes"
+    subheading={<Text fontWeight={500}>Task survey</Text>}
     completion={{
       value: 56.2,
       description: 'completion'
@@ -75,6 +80,7 @@ showSource: true
   />
   <CompletionCard
     name="Website"
+    subheading={<Text color="muted">Task survey</Text>}
     completion={{
       value: 0,
       description: 'completion'
