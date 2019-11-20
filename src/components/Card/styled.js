@@ -6,6 +6,7 @@ export const StyledCard = styled(Box)(({ theme, shadow, boxShadow }) => ({
   borderRadius: theme.radius * 2,
   transition: 'box-shadow .2s',
   position: 'relative',
+  minWidth: '100%',
   '&:hover': {
     boxShadow: boxShadow || theme.shadows[shadow || 'neutral'].small,
   },

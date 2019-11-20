@@ -2,7 +2,7 @@
 
 exports[`<Card> component renders a heading 1`] = `
 <div
-  class="css-19ep89c"
+  class="css-rrw7or"
   data-genus="Card"
 >
   <span>
@@ -13,7 +13,7 @@ exports[`<Card> component renders a heading 1`] = `
 
 exports[`<Card> component renders actions when clicked 1`] = `
 <div
-  class="css-19ep89c"
+  class="css-rrw7or"
   data-genus="Card"
 >
   <div

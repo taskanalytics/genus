@@ -2,7 +2,6 @@
 [name]                                The name/title for the card
 [completion: {value, description}]    An object with a value/description pair for the completion rate
 [response: {value, description}]      An object with a value/description pair for the response
-[render: ({ children })]              A render function to modify the content of the card (i.e. wrap it in a link)
 ```
 
 ## Default
@@ -58,7 +57,13 @@ showSource: true
     }}
   />
   <CompletionCard
-    name="A rather long name here yes"
+    actions={[
+      {
+        name: 'test',
+        action: ()  => console.log('hey')
+      }
+    ]}
+    name="A rather longish name here yes"
     completion={{
       value: 56.2,
       description: 'completion'
