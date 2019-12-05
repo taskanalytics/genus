@@ -31,8 +31,29 @@ const fadeFromBottom = keyframes({
 })
 
 export const StyledDropdown = styled(Box)(
-  ({ theme, open, right }) =>
-    css({
+  ({ theme, open, right, direction = 'bottom' }) => {
+    let styles = {}
+    if (direction === 'top') {
+      styles = {
+        mb: [0, 1],
+        bottom: [0, '100%'],
+        right: [0, right ? 0 : 'unset'],
+        left: [0, !right ? 0 : 'unset'],
+        animation: `${fadeFromBottom} 100ms linear`,
+      }
+    } else {
+      styles = {
+        mt: [0, 1],
+        bottom: [0, 'unset'],
+        right: [0, right ? 0 : 'unset'],
+        left: [0, !right ? 0 : 'unset'],
+        animation: [
+          `${fadeFromBottom} 100ms linear`,
+          `${fadeFromTop} 100ms linear`,
+        ],
+      }
+    }
+    return css({
       position: ['fixed', 'absolute'],
       minWidth: [1, 160],
       bg: 'white',
@@ -48,17 +69,11 @@ export const StyledDropdown = styled(Box)(
       '&:focus': {
         outline: 'none',
       },
-      mt: [0, 1],
       maxHeight: ['60%', 'unset'],
       overflow: 'auto',
-      bottom: [0, 'unset'],
-      right: [0, right ? 0 : 'unset'],
-      left: [0, !right ? 0 : 'unset'],
-      animation: [
-        `${fadeFromBottom} 100ms linear`,
-        `${fadeFromTop} 100ms linear`,
-      ],
-    }),
+      ...styles,
+    })
+  },
   color,
 )
 
