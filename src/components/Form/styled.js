@@ -229,3 +229,11 @@ export const StyledValidatedMark = styled('span')(({ theme }) =>
     transform: 'rotate(45deg)',
   }),
 )
+
+export const StyledClearButton = styled('span')(
+  css({
+    cursor: 'pointer',
+    fontWeight: 700,
+    color: 'muted',
+  }),
+)

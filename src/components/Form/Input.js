@@ -6,6 +6,7 @@ import {
   StyledLabel,
   StyledError,
   StyledValidatedMark,
+  StyledClearButton,
 } from './styled'
 
 import { Flex } from '../Grid'
@@ -21,16 +22,50 @@ const ValidationMark = ({ value, error }) => {
   return null
 }
 
+const SearchClear = ({ value, onClick }) => {
+  if (value && value.trim() !== '') {
+    return <StyledClearButton onClick={onClick}>&times;</StyledClearButton>
+  }
+
+  return null
+}
+
 const Input = React.forwardRef((props, ref) => {
-  const { label, error, renderAfter, renderError, value, ...rest } = props
+  const {
+    label,
+    error,
+    renderAfter,
+    renderError,
+    value,
+    type,
+    onClear,
+    onChange,
+    ...rest
+  } = props
+
+  let afterContent = null
+  if (renderAfter) {
+    afterContent = (
+      <span>{renderAfter({ error, value, onChange, ...rest })}</span>
+    )
+  } else if (onClear) {
+    afterContent = <SearchClear value={value} onClick={onClear} />
+  } else {
+    afterContent = <ValidationMark value={value} error={error} />
+  }
   return (
     <React.Fragment>
       <StyledWrapper error={error} data-genus='Input'>
         {label && <StyledLabel>{label}</StyledLabel>}
         <Flex width={1} alignItems='center'>
-          <StyledInput error={error} value={value} ref={ref} {...rest} />
-          {renderAfter && <span>{renderAfter({ error, value, ...rest })}</span>}
-          {!renderAfter && <ValidationMark value={value} error={error} />}
+          <StyledInput
+            onChange={onChange}
+            error={error}
+            value={value}
+            ref={ref}
+            {...rest}
+          />
+          {afterContent}
         </Flex>
       </StyledWrapper>
       {error && renderError(error)}
