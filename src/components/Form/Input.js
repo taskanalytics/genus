@@ -37,7 +37,6 @@ const Input = React.forwardRef((props, ref) => {
     renderAfter,
     renderError,
     value,
-    type,
     onClear,
     onChange,
     ...rest
