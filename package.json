@@ -105,7 +105,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "release-it": "^12.4.3",
+    "release-it": "^13.0.2",
     "rollup": "^1.24.0",
     "rollup-plugin-analyzer": "^3.2.1",
     "rollup-plugin-babel": "^4.3.3",
