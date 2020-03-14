@@ -88,7 +88,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "catalog": "^3.6.0",
     "emotion": "^10.0.17",
-    "emotion-theming": "^10.0.19",
+    "emotion-theming": "^10.0.27",
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
