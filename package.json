@@ -76,7 +76,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@emotion/core": "^10.0.21",
+    "@emotion/core": "^10.0.28",
     "@emotion/memoize": "^0.7.3",
     "@emotion/styled": "^10.0.17",
     "@testing-library/jest-dom": "^5.0.0",
