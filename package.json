@@ -114,7 +114,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-size-snapshot": "^0.10.0",
     "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-visualizer": "^3.0.0",
+    "rollup-plugin-visualizer": "^4.0.1",
     "superstatic": "^6.0.4",
     "yarpm": "^0.2.1"
   }
