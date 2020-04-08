@@ -79,7 +79,7 @@
     "@emotion/core": "^10.0.21",
     "@emotion/memoize": "^0.7.3",
     "@emotion/styled": "^10.0.17",
-    "@testing-library/jest-dom": "^5.0.0",
+    "@testing-library/jest-dom": "^5.4.0",
     "@testing-library/react": "^9.3.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
