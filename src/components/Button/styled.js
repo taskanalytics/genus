@@ -105,6 +105,30 @@ const styledDanger = ({ danger, link }) => {
   }
 }
 
+const styledDangerInverted = ({ danger, link }) => {
+  if (!danger) return null
+
+  if (link) {
+    return {
+      color: colors.trouble,
+      '&:hover,&:focus': {
+        color: colors.trouble,
+      },
+    }
+  }
+
+  return {
+    color: colors.white,
+    borderColor: colors.trouble,
+    backgroundColor: colors.trouble,
+
+    '&:hover,&:focus': {
+      color: colors.trouble,
+      borderColor: colors.trouble,
+    },
+  }
+}
+
 const styledCompact = styleIf('compact', ({ theme }) => ({
   fontSize: theme.fontSizes[0],
   letterSpacing: 0,
@@ -230,6 +254,7 @@ export default styled('button')(
   styledInverted,
   styledPrimaryInverted,
   styledDanger,
+  styledDangerInverted,
   styledLink,
   styledLoading,
   compose(
