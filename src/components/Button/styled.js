@@ -105,8 +105,8 @@ const styledDanger = ({ danger, link }) => {
   }
 }
 
-const styledDangerInverted = ({ danger, link }) => {
-  if (!danger) return null
+const styledDangerInverted = ({ dangerinverted, link }) => {
+  if (!dangerinverted) return null
 
   if (link) {
     return {
